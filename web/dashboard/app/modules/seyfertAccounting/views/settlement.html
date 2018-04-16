@@ -1,0 +1,160 @@
+<div class="row  white-bg">
+    <div class="col-sm-3">
+        <h3> 월별정산내역  </h3>
+    </div>
+</div> 
+<div>
+	<form role="form" name="settlement">
+		<div class="row border-bottom" >
+			<div class="col-lg-5">
+				<div class="form-group">
+	                <label class="col-sm-3 control-label" translate> 사업자 번호 </label>
+	               <div class="col-sm-5">
+		                <input class="form-control " name="crn" ng-model="vm.transSttmnt.crn" placeholder="Enter the CRN"/>
+	               </div>
+	            <!--    <button class="btn btn-sm btn-primary  no-margins" ng-click="vm.testSerch()">
+							검색
+					</button> -->
+	            </div>
+			</div>	
+			<div>
+				<input type="radio" value="range" ng-model="vm.isMonthToMonth" > 지정 
+				<input type="radio" value="month" ng-model="vm.isMonthToMonth" > 월별 
+			</div>
+			<div ng-switch="vm.isMonthToMonth"> 
+				<div class="col-lg-5" ng-switch-when="range" >
+					<div class="form-group">
+		                <label class="col-sm-3 control-label" translate> lblTransDate </label>
+		               <div class="col-sm-6">
+			                <input  required name="term" date-range-picker class="form-control date-picker" type="text" ng-model="vm.rangeSettleMnntDate"/>
+		               </div>
+		               <button ng-disabled="vm.searchDisalbed || settlement.$invalid" class="btn btn-sm btn-primary  no-margins" ng-click="vm.searchSettlementList(true,0)">
+								검색
+						</button>
+		            </div>
+				</div>	
+				<div class="input-group date col-lg-5" ng-switch-when="month" >
+	               <div class="form-group">
+		               <div class="col-sm-6"
+		               		date-picker="vm.dates"
+		                	view="month" 
+		                	min-view="month"
+		                	watch-direct-changed="true"
+							ng-click="vm.dateChange()"> 
+		                </div>
+					</div>
+	                <!-- <span class="input-group-addon"><i class="fa fa-calendar"></i></span> -->
+	                <button ng-disabled="vm.searchDisalbed || settlement.$invalid" class="btn btn-sm btn-primary  no-margins" ng-click="vm.searchSettlementList(true,0)">
+						검색
+					</button>
+	            </div>
+            </div>
+       	</div>
+	</form></br>
+	<div class="row">
+       	<div class="col-sm-2">
+  			<label  class="control-label"> <h2> 검색결과</h2> </label>
+		</div>   
+		<div ng-if="vm.loadDataForm" class="sk-spinner sk-spinner-circle pull-left">
+			 <div class="sk-circle1 sk-circle"></div>
+			 <div class="sk-circle2 sk-circle"></div>
+			 <div class="sk-circle3 sk-circle"></div>
+			 <div class="sk-circle4 sk-circle"></div>
+			 <div class="sk-circle5 sk-circle"></div>
+			 <div class="sk-circle6 sk-circle"></div>
+			 <div class="sk-circle7 sk-circle"></div>
+			 <div class="sk-circle8 sk-circle"></div>
+			 <div class="sk-circle9 sk-circle"></div>
+			 <div class="sk-circle10 sk-circle"></div>
+			 <div class="sk-circle11 sk-circle"></div>
+			 <div class="sk-circle12 sk-circle"></div>
+		 </div>
+	</div>
+	<div class="row">
+		<!-- <input type="checkbox" ng-model="vm.isChecked" ng-change="vm.reLoad()" /> -->
+		<!-- <label>{{vm.isChecked}}</label> -->
+		<form  class="form-horizontal">
+			<div class="form-controller">
+				<table  datatable="ng" dt-options="vm.dtOptionsMember" class=" table table-striped table-bordered table-hover">
+					<thead>
+						<th>#</th>
+						<th> GUID</th>
+						<th> 멤버명 </th>
+						<th> 사업자 번호</th>
+						<th> 수수료 대상 VA 갯수</th>
+						<th> 총 이제 금액 </th>
+						<th> 총 이제 건수 </th>
+						<th> 수수료대상 거래 총액</th>
+						<th> 수수료대상 거래 건수</th>
+						<th> 수수료 유형 </th>
+						<!-- 2차 개발 추가 컬럼  -->						
+						<th> 수수료  </th>
+						<th> 최종 수수료 대상 </th>
+						<th> 최종 청구 수수료 </th>
+						<th> 최종 청구 확인 </th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="task in vm.settlementList">
+							<td>{{$index}}</td>
+							<td ><span class="show-cursor" ng-click="vm.searchSettlementListDetails(task.guid, task.rateType ,0)">{{task.guid}}</span></td>
+							<td>{{task.name}}</td>
+							<td>{{task.crn}}</td>
+							<td>{{task.vaCount}}</td>
+							<td>{{task.totalAmount | number }}</td>
+							<td>{{task.totalCount | number }}</td>
+							<td>{{task.rateTrrcnAmount | number}}</td>
+							<td>{{task.rateCount | number}}</td>
+							<td>{{task.rateType}}</td>
+							
+							<!-- 수수료 -->
+							<td ng-class="{ 'uneditable' : (vm.isUnEditable == true)}"> 
+								<span ng-disabled="vm.isUnEditable" ng-click="vm.adjAmtDetail(task.guid ,task.rateType,$index)" ><label >{{task.fee | number }}</label></span>
+							 </td>
+							<!-- 최종 수수료 대상 거래 총액--> 
+							<td  ng-class="{ 'uneditable' : (vm.isUnEditable == true)}" >  
+								<span ng-click="vm.editLastChargingAllAmt(task.guid ,$index , task.finalRateAmount)" > <label>{{task.finalRateAmount | number}}</label>  </span>
+							</td>
+							<!-- 최종 청구 수수료  -->
+							<td  ng-class="{ 'uneditable' : (vm.isUnEditable == true)}"  >  
+								<span ng-if= "task.chargingFee == null || task.chargingFee == '' " ng-disabled="vm.isUnEditable" ng-click="vm.editLastChargingFee(task.guid ,$index ,task.fee)" >
+										<label ng-if="task.fee != null && task.fee != '' ">{{task.fee | number}}</label>
+										<label ng-if="task.fee == null || task.fee == '' "> 0 </label>
+								</span>
+								<span ng-if= "task.chargingFee != null && task.chargingFee != '' " 
+									  ng-disabled="vm.isEditable" ng-click="vm.editLastChargingFee(task.guid ,$index, task.chargingFee)">
+										<label  >{{task.chargingFee | number}}</label>
+								</span>
+							</td>
+							<!-- 최종 청구 확인 -->
+							<td  ng-class="{ 'uneditable' : (vm.isUnEditable == true)}"  >
+							 	<span><button class="btn btn-primary btn-sm pull-right m-t-n-xs" ng-disabled = "vm.isUnEditable" ng-click="vm.lastConfirmRequest($index,task.guid,task.rateType)"> 최종청구 </button></span>
+							 </td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+		<div><button  ng-disabled="vm.loadMoreSettmntDisalbed" class="btn btn-sm btn-primary" ng-click="vm.loadList()">더보기</button></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

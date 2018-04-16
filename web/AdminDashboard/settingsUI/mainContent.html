@@ -1,0 +1,499 @@
+<div class="col-lg-12" id="dashHeaderContent">
+	<div style="font-size: 2.0em;">
+		<span> <i class="fa fa-cogs"></i> <span id="settings">Settings</span> </span>
+	</div>
+</div>	
+<div class="animated fadeInRight" id="dashMainContent">
+	<style>
+		.getransDetail, .getransDetails {cursor: pointer;}
+		.total{cursor:pointer;}
+		.itemLoader{position:relative;padding-left:15px;}
+		/*.titleFontSize{font-size: 5%;}*/
+		.panel-body{background-color: #FFFFFF;}
+		.tabMenu{color:#334556;}
+		.active{color:#8CC657;font-weight:bold;}
+		
+		.label{cursor:pointer;}
+		.settingsLabel{font-weight: normal;color:#444444;font-size: 13px;}
+		
+		.textBoxs{width:100%;height:34px;border-radius:5px;border:1px solid #DCDCDC;position:relative;padding-left:3px;}
+		
+		.labels span{font-weight:bold;position:relative;top:7px;}
+		
+		.tab-pane{color:#797979;}
+		
+		.spaceClass{position:relative;padding-left:10px;}
+		.settingLabel{font-weight:bold;color: #444444;font-size: 13px;}
+		.settingsTableHeaderRow{}
+		.settingsLabelHeader{background-color: #586B7D;color:#ffffff;height:25px;}
+		.serviceLabel{cursor:pointer;font-weight: bold;}
+		.contractIdSettingsCon{font-weight: normal;font-size: 1.0em;position:relative;padding-top:5px;padding-bottom:7px;}
+		.serviceRadioController{font-weight:bold;font-size:13px;color:#1EACAE;position:relative;padding-bottom:5px;}
+		.settingEditorCon{background-color: #FAF2CC;position:relative;padding-top:4px;padding-bottom:4px;}
+		.moneyClass{color:#31B0D5}
+		
+		.settingInputEditor{
+			width:90%;display: inline;border:1px solid #F2DEDE;
+		}
+		.commonInputEditor{display: inline;border:1px solid #F2DEDE;}
+		
+		.apiInputEditor{border:1px solid #F8F8F9;position:relative;width:100%;padding-top:3px;padding-bottom:3px;}
+		.apiTdEditor{background-color: #ffffff;height:17px;}
+		.apiSelectEditor{border:1px solid #F8F8F9;position:relative;padding-top:3px;padding-bottom:3px;width:70%;}
+		.apiRolesEditor{border:1px solid #F8F8F9;position:relative;padding-top:3px;padding-bottom:3px;width:98%;}
+		.settingAccountLabel{position: relative;padding-top:10px;padding-bottom: 2px;}
+		#categoryList li{border-bottom:1px solid #FEF1EC;margin-left:-15px;height:25px;}
+		#categoryList li span{cursor:pointer;position:relative;top:5px;font-size:12px;}
+		
+		#categoryListOptions li{border-bottom:1px solid #FEF1EC;height:25px;}
+		#categoryListOptions li span{cursor:pointer;position:relative;top:5px;font-size:12px;}
+		
+		#categoryList li span:hover{color:#0055AA;}
+		.categoryListCon{border-right:1px solid #FEF1EC;height:500px;}
+		.optionCon{background-color: #F9F2F4;}
+		.settingOptionClass{}
+		.itemCon{position:relative;padding-bottom:25px;padding-top:15px;}
+	</style>
+	<div class="row"> 
+		<div class="col-lg-12">
+			<div class="tabs-container">
+                <ul class="nav nav-tabs">
+                    <li class="tabMenu active" style="display:nones;"><a data-toggle="tab" href="#tab-1"> General </a></li>
+                    <li class="tabMenu"><a data-toggle="tab" href="#tab-2"> <i class="fa fa-users"></i> <span id="account"> Account</span></a></li>
+                    <li class="tabMenu" id="memRoleTab"><a data-toggle="tab" href="#tab-3"> <i class="fa fa-male"></i> <span id="roles">Roles</span></a></li>
+                    <li class="tabMenu"  id="apiRoleTab"><a data-toggle="tab" href="#tab-4"> <i class="fa fa-file"></i> <span id="api">API</span></a></li>
+                </ul>
+            </div>    
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane active" style="display:nones;">
+                    <div class="panel-body">
+                        <!--small>Content's general settings for all the merchants related services.</small-->
+                         <div class="row">
+			                <div class="col-lg-12">
+			                    <div class="ibox float-e-margins" id="settingsListContainer">
+			                    	<input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Filter member service option">
+			                    	<div class="col-lg-2 categoryListCon">
+			                    		<ul class="list-unstyled" id="categoryList">
+			                    			<span>Loading..</span>
+			                    		</ul>
+									</div>
+			                    	<div class="col-lg-10"> 
+			                    		<ul class="list-unstyled" id="categoryListOptions">
+			                    			<span>Loading..</span>
+			                    		</ul>
+			                    	</div>
+			                    	<!--table class="footable table-stripped" data-filter="#filter" data-sortable="false" style="width:100%;">
+		                                <thead>
+		                                <tr class="settingsTableHeaderRow">
+										 	<th data-sort-ignore="true">Service</th>
+										 	<th data-sort-ignore="true">Option Type</th>
+		                                    <th data-sort-ignore="true">Count</th>
+		                                    <th data-sort-ignore="true">Status</th>
+		                                    <th data-sort-ignore="true">Date</th>
+		                                </tr>
+		                                </thead>
+		                                <tbody>
+		                                <tr class="settingsLabelHeader">
+		                                    <td class="serviceLabel">
+		                                    	<span  data-toggle="modal" data-target="#settingsPageCon"  id="settingsPageButton">
+		                                    		Currency Contract
+		                                    	</span>
+		                                    </td>
+		                                    <td> Default</td>
+		                                    <td>20%</td>
+		                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+		                                    <td>Jul 14, 2013</td>
+		                                </tr>
+		                                <tr style="border-bottom:1px solid #FEF1EC">
+		                                	<td colspan="5">
+		                                		<div class="contractIdSettingsCon">
+		                                			<div class="serviceRadioController">
+		                                				<span> <input type="radio" name="encryptApi"/> </span> <span>Enable</span> 
+				                                		<span> <input type="radio" name="encryptApi"/> </span> <span>Disable </span>
+				                                	</div>
+		                                			<div>
+		                                				<span class="settingLabel" >Contract id  </span> <span class="spaceClass"> 0 </span>
+			                                		</div>
+			                                		<div>
+			                                			<span class="settingLabel">Currency Id  </span> 
+			                                			<span class="spaceClass"> 0190 </span>
+			                                		</div>
+			                                		<div id="contractDateDisplay">
+			                                			<span class="settingLabel">Start Date  </span> <span class="spaceClass"> 2015-10-10 </span>
+			                                			<span class="settingLabel spaceClass">End Date  </span> <span class="spaceClass"> 2016-10-10 </span>
+			                                			<!--span class="spaceClass"> <a data-toggle="modal" data-target="#modifyControlmodal" id="contractDateBut">Edit</a> </span-->
+			                                			<!--span class="spaceClass"> <a id="contractDateBut"> <i class="fa fa-edit"></i> Edit</a> </span>
+			                                		</div>
+			                                		<div style="display:none;" id="contractDateEditor" class="settingEditorCon">
+			                                			<span class="settingLabel">Start Date  </span> <span class="spaceClass"> <input type="text" class="text-box commonInputEditor" /> </span>
+			                                			<span class="settingLabel spaceClass">End Date  </span> <span class="spaceClass"> <input type="text" class="text-box commonInputEditor" /> </span>
+			                                			<span class="spaceClass"> <a class="button" >save <i class="fa fa-save"></i> </a> </span>
+			                                			<span class="spaceClass"> <a class="button"  id="closeContractDateEditorBut">close <i class="fa fa-close"></i></a> </span>
+			                                		</div>
+			                                		<div>
+			                                			<span class="settingLabel">Conversion Type </span> 
+			                                			<span class="spaceClass"><input type="checkbox" /> </span><span> USD -> KRW </span>
+			                                			<span class="spaceClass"><input type="checkbox" /> </span><span> KRW -> USD </span>
+			                                			<span class="spaceClass"><input type="checkbox" /> </span><span> EUR -> KRW </span>
+			                                			<span class="spaceClass"><input type="checkbox" /> </span><span> KRW -> EUR </span>
+			                                			<span class="spaceClass"> <a> <i class="fa fa-pencil-square"></i> Update</a> </span>
+			                                		</div>
+			                                		<div>
+			                                			<span class="settingLabel">Currency Base  </span>
+			                                			<span class="spaceClass"><input type="checkbox" /> </span><span>  KRW </span>
+			                                			<span class="spaceClass"><input type="checkbox" /> </span><span>  USD </span>
+			                                			<span class="spaceClass"><input type="checkbox" /> </span><span>  CNY </span>
+			                                			<span class="spaceClass"><input type="checkbox" /> </span><span>  EUR </span>
+			                                			<span class="spaceClass"> <a> <i class="fa fa-pencil-square"></i> Update</a> </span>
+			                                		</div>
+			                                		<div id="contractRateDisplay">
+			                                			<span class="settingLabel">Rates  </span> 
+			                                			<span class="spaceClass"> 0.5 </span>
+			                                			<span class="spaceClass"> <a id="contractRateBut"> <i class="fa fa-edit"></i> Edit</a> </span>
+			                                		</div>
+			                                		<div style="display:none;" id="contractRateEditor" class="settingEditorCon">
+			                                			<span class="settingLabel">Rate  </span> <span class="spaceClass"> <input type="text" class="text-box commonInputEditor" /> </span>
+			                                			<span class="spaceClass"> <a class="button" > <i class="fa fa-save"></i> save</a> </span>
+			                                			<span class="spaceClass"> <a class="button" id="closeContractRateEditorBut"> <i class="fa fa-close"></i>close</a> </span>
+			                                		</div>
+		                                		</div>
+		                                	</td>
+		                                </tr>
+		                                <tr class="settingsLabelHeader">
+		                                    <td class="serviceLabel">Maximum & minimum transaction per currency</td>
+		                                    <td > Default</td>
+		                                    <td>40%</td>
+		                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+		                                    <td>Jul 14, 2013</td>
+		                                </tr>
+		                                <tr style="border-bottom:1px solid #FEF1EC">
+		                                	<td colspan="5">
+		                                		<div class="contractIdSettingsCon">
+		                                			<div class="serviceRadioController">
+		                                				<span> <input type="radio" name="encryptApi"/> </span> <span>Enable</span> 
+				                                		<span> <input type="radio" name="encryptApi"/> </span> <span>Disable </span>
+				                                	</div>
+				                                	<div style="width:100%;">
+				                                		<table class="footable">
+				                                			<thead>
+				                                				<tr>
+				                                					<th> Currency </th>
+					                                				<th> Maximum</th>
+					                                				<th> Minimum</th>
+					                                				<th> Action </th>
+				                                				</tr>
+				                                			</thead>
+				                                			<tbody>
+				                                				<tr id="usdMinMaxDisplay">
+				                                					<td> <span class="settingLabel"> USD </span>  </td>
+				                                					<td> <span class="moneyClass"> 500000 </span> </td>
+				                                					<td> <span class="moneyClass"> 500000 </span> </td>
+				                                					<td> <span> <a id="usdMinMaxBut"> <i class="fa fa-edit"></i> Edit</a> </span></td>
+				                                				</tr>
+				                                				<tr style="display:none;" id="usdMinMaxEditor" class="settingEditorCon">
+				                                					<td> <span class="settingLabel"> USD </span>  </td>
+				                                					<td> <span> <input type="text" class="text-box settingInputEditor"/> </span> </td>
+				                                					<td> <span> <input type="text" class="text-box settingInputEditor"/> </span> </td>
+				                                					<td>
+				                                						<span> <a> <i class=" fa fa-save"></i> save </a> </span>
+				                                						<span></span> 
+				                                						<span> <a id="closeUsdMinMaxEditorBut"> <i class=" fa fa-close"></i> close</a> </span>
+				                                					</td>
+				                                				</tr>
+				                                				<tr id="krwMinMaxDisplay">
+				                                					<td> <span class="settingLabel"> KRW </span>  </td>
+				                                					<td> <span class="moneyClass"> 500000 </span> </td>
+				                                					<td> <span class="moneyClass"> 500000 </span> </td>
+				                                					<td> <span> <a id="krwMinMaxBut"> <i class="fa fa-edit"></i> Edit</a> </span></td>
+				                                				</tr>
+				                                				<tr style="display:none;" id="krwMinMaxEditor" class="settingEditorCon">
+				                                					<td> <span class="settingLabel"> KRW </span>  </td>
+				                                					<td> <span> <input type="text" class="text-box settingInputEditor"/> </span> </td>
+				                                					<td> <span> <input type="text" class="text-box settingInputEditor"/> </span> </td>
+				                                					<td>
+				                                						<span> <a> <i class=" fa fa-save"></i> save </a> </span>
+				                                						<span></span> 
+				                                						<span> <a id="closeKrwMinMaxEditorBut"> <i class=" fa fa-close"></i> close</a> </span>
+				                                					</td>
+				                                				</tr>
+				                                				<tr id="cnyMinMaxDisplay">
+				                                					<td> <span class="settingLabel"> CNY </span>  </td>
+				                                					<td> <span class="moneyClass"> 500000 </span> </td>
+				                                					<td> <span class="moneyClass"> 500000 </span> </td>
+				                                					<td> <span> <a id="cynMinMaxBut"> <i class="fa fa-edit"></i> Edit</a> </span></td>
+				                                				</tr>
+				                                				<tr style="display:none;" id="cnyMinMaxEditor" class="settingEditorCon">
+				                                					<td> <span class="settingLabel"> CNY </span>  </td>
+				                                					<td> <span> <input type="text" class="text-box settingInputEditor"/> </span> </td>
+				                                					<td> <span> <input type="text" class="text-box settingInputEditor"/> </span> </td>
+				                                					<td>
+				                                						<span> <a> <i class=" fa fa-save"></i> save </a> </span>
+				                                						<span></span> 
+				                                						<span> <a id="closeCynMinMaxEditorBut"> <i class=" fa fa-close"></i> close</a> </span>
+				                                					</td>
+				                                				</tr>
+				                                			</tbody>
+				                                		</table>
+				                                	</div>
+		                                		</div>
+		                                	</td>
+		                                </tr>
+		                                <tr class="settingsLabelHeader">
+		                                    <td class="serviceLabel">Encrypt API response</td>
+		                                    <td> Default</td>
+		                                    <td>40%</td>
+		                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+		                                    <td>Jul 14, 2013</td>
+		                                </tr>
+		                                <tr style="border-bottom:1px solid #FEF1EC">
+		                                	<td colspan="5">
+		                                		<div class="contractIdSettingsCon">
+		                                			<div class="serviceRadioController">
+			                                		    <span> <input type="radio" name="encryptApi"/> </span> <span>Enable</span> 
+				                                		<span> <input type="radio" name="encryptApi"/> </span> <span>Disable </span>
+				                                	</div>
+			                                	</div>
+		                                	</td>
+		                                </tr>
+		                                <tr class="settingsLabelHeader">
+		                                    <td class="serviceLabel">Http notification</td>
+		                                    <td> Default</td>
+		                                    <td>40%</td>
+		                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+		                                    <td>Jul 14, 2013</td>
+		                                </tr>
+		                                <tr style="border-bottom:1px solid #FEF1EC">
+		                                	<td colspan="5">
+		                                		<div class="contractIdSettingsCon">
+		                                			<div  class="serviceRadioController">
+		                                				<span> <input type="radio" name="encryptApi"/> </span> <span>Enable</span> 
+				                                		<span> <input type="radio" name="encryptApi"/> </span> <span>Disable </span>
+				                                	</div>
+			                                		<div id="httpNoticeDisplay">
+			                                			<span class="settingLabel">URL</span>
+			                                			<span class="spaceClass"> http://test.com </span>
+			                                			<span class="spaceClass"> <a id="addHttpBut"> <i class="fa fa-edit"></i> Edit</a> </span>
+			                                		</div>
+			                                		<div style="display:none;" id="httpNoticeEditor" class="settingEditorCon">
+			                                			<span class="settingLabel">URL  </span> <span class="spaceClass"> <input type="text" class="text-box commonInputEditor" /> </span>
+			                                			<span class="spaceClass"> <a class="button" ><i class=" fa fa-save"></i> save</a> </span>
+			                                			<span class="spaceClass"> <a class="button" id="closeHttpNoticeEditorBut"><i class=" fa fa-close"></i> close</a> </span>
+			                                		</div>
+			                                	</div>
+		                                	</td>
+		                                </tr>
+		                                <tr class="settingsLabelHeader">
+		                                    <td class="serviceLabel">Low amount without agreement</td>
+		                                    <td> Default</td>
+		                                    <td>40%</td>
+		                                    <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+		                                    <td>Jul 14, 2013</td>
+		                                </tr>
+		                                <tr style="border-bottom:1px solid #FEF1EC">
+		                                	<td colspan="5">
+		                                		<div class="contractIdSettingsCon">
+		                                			<div class="serviceRadioController">
+		                                				<span> <input type="radio" name="encryptApi"/> </span> <span>Enable</span> 
+				                                		<span> <input type="radio" name="encryptApi"/> </span> <span>Disable </span>
+				                                	</div>
+		                                		</div>
+		                                	</td>
+		                                </tr>
+		                               </tbody>
+		                             </table-->   
+			                    </div>
+			                </div>
+			             </div>       	
+					</div>
+				</div>
+                <div id="tab-2" class="tab-pane">
+                	<div class="col-lg-12">
+						<div class="panel panel-default"  id="chartContainer" style="margin-top:15px;">
+							<div class="panel-heading" style="border:none;background-color: #586B7D;color:#ffffff;">
+								<strong> <i class="fa fa-male"></i> <span id="generalAccSetting"> General Account Settings </span> </strong>
+							</div>
+		                    <div class="panel-body">
+								<div style="width:99%;margin:0 auto;background-color: #ffffff;">
+									<div style="margin:0 auto;border:0px solid red;">
+										<table class="footable table-striped" style="width: 100%;">
+											<tbody>
+												<tr style="height:35px;">
+													<td> <span id="menuUserName">User Name</span> </td>
+													<td class='settingLabel' colspan="2"> <span id="accountUserName"> </span> </td>
+												</tr>
+												<tr style="height:35px;">
+													<td> <span id="menuPassword"> Password </span> </td>
+													<td class='settingLabel'> *********** </td>
+													<td>
+														<span> <a id="renewPassword"> <span id="menuRenew">Renew</span> </a> 
+															<a id="cancelRenewPassword" style="display:none;color:#CA4440"> <span id="menuCancel"> Cancel </span> </a> 
+														</span> 
+													</td>
+												</tr>
+														
+												<tr id="renewPasswordContainer" style="display:none;">
+                                					<td colspan="3">
+                                						<div style="margin:0 auto;width:30%;">
+													   	  	<div class="settingAccountLabel"> <span id="renewOldPassword">Old Password </span> </div>	
+													   	  	<div> <input type="password" class="form-control" id="OLD_PASSWORD"/> </div>
+													   	  	<div class="settingAccountLabel"> <span id="renewNewPassword">New Password </span> </div>	
+													   	  	<div> <input type="password" class="form-control" id="NEW_PASSWORD"/> </div>
+													   	  	<div class="settingAccountLabel"> <span id="confirmPassword">Confirm New Password </span> </div>	
+													   	  	<div> <input type="password" class="form-control" id="NEW_PASSWORD_CONFIRMATION"/> </div>
+													   	  	<div  class="settingAccountLabel" style="position: relative;padding-bottom:20px;">  
+													   	  		<button class="btn btn-outline btn-success" style="width:100%;" id="renewPasswordBut"> <span id="buttonRenew"> Renew </span> </button>
+													   	  	</div>
+												     	</div>
+                                					</td>
+                                				</tr>
+                                				
+                                				<tr style="height:35px;">
+													<td> <span id="menuKeyp"> keyP </span> </td>
+													<td class='settingLabel' id="keypLabel" > *********** </td>
+													<td>
+														<span> <a id="renewKeyp"> Renew </a></span> 
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>				                    	
+							</div>
+						</div>
+					</div>		
+                </div>
+                <div id="tab-3" class="tab-pane">
+                	<div class="col-lg-12">
+						<div class="panel panel-default" style="margin-top:15px;">
+							<div class="panel-heading" style="border:none;background-color: #586B7D;color:#ffffff;">
+								<strong> <i class="fa fa-male"></i> <span id="memberRolesSettings">Member Roles Settings </span> </strong>
+							</div>
+							<div class="panel-body">
+								<a id="listRolesMenu" class="roleMenuClass active" data="listRole"> <i class="fa fa-list"> </i> <span id="tabRoles">Roles</span></a>
+								<span> || </span>
+								<a id="createRolesMenu" class="roleMenuClass" data="createRole"> <i class="fa fa-road"> </i> <span id="tabCreateRoles">Create roles</span></a>
+								<span> || </span>
+								<a id="assignRolesMenu" class="roleMenuClass" data="assignRole"> <i class="fa fa-plus"> </i> <span id="tabAssignRoles">Assign roles</span></a>
+								
+								<input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Filter member roles">
+								
+								 <div style="width:99%;margin:0 auto;background-color: #FAFAFB;margin-top:5px;">
+								 	 <div style="margin:0 auto;border:0px solid red;width:30%;display:none;" id="createRoleContainer">
+					             		<!--div class="settingAccountLabel"> Guid </div>	
+								   	  	<div> <input type="text" class="form-control" id="dstGuid"/> </div -->
+								   	  	<div class="settingAccountLabel"> <span id="labelCreateRoles">Role </span> </div>	
+								   	  	<div> <input type="text" class="form-control" id="roleName"/> </div>
+								   	  	<div class="settingAccountLabel"> <span id="labelCreateDescript">Description </span> </div>	
+								   	  	<div> <input type="text" class="form-control" id="roleDescription"/> </div>
+								   	  	<div  class="settingAccountLabel" style="position: relative;padding-bottom:20px;text-align: center">  
+								   	  		<button class="btn btn-outline btn-success" style="width:100%;" id="createRolesBut"> Create </button>
+								   	  	</div>
+					             	</div>
+					             	<div style="margin:0 auto;border:0px solid red;width:30%;display:none;" id="assignRoleContainer">
+					             		<!--div class="settingAccountLabel"> Guid </div>	
+								   	  	<div> <input type="text" class="form-control" id="dstGuid"/> </div -->
+								   	  	<div class="settingAccountLabel"> <span id="labelAssignDesGuid"> Destination guid </span> </div>	
+								   	  	<div> <input type="text" class="form-control" id="dstGuid"/> </div>
+								   	  	<div class="settingAccountLabel"> <span id="labelAssignRoles">Role </span> </div>	
+								   	  	<div> <select type="text" class="form-control" id="memberRolesOption"> </select> </div>
+								   	  	<div class="settingAccountLabel"> <span id="labelAssignACL">Acl </span> </div>	
+								   	  	<div> <select type="text" class="form-control" id="aclOptions"> </select> </div>
+								   	  	<div  class="settingAccountLabel" style="position: relative;padding-bottom:20px;text-align: center">  
+								   	  		<button class="btn btn-outline btn-success" style="width:100%;" id="assignRoleBut"> <span id="labelAssign">Assign role </span> </button>
+								   	  	</div>
+					             	</div>
+					             	<div style="margin:0 auto;border:0px solid red;background-color: #ffffff;;"  class="roleListContainer">
+		                    	 		<table class="footable table-striped roleListContainer" data-filter="#filter" data-sortable="false" style="width:100%;">
+				                            <thead>
+				                                <tr style="height:35px;">
+					                                <th><span id="listGuid">GUID</span></th>
+					                                <th><span id="listRoles">ROLE</span></th>
+					                                <th><span id="listACL">ACL</span></th>
+					                                <th><span id="listAction">ACTION</span></th>
+					                            </tr>
+				                            </thead>
+				                            <tbody id="memberRolesData"  class="roleListContainer"> </tbody>
+				                            <!--tfoot>
+				                                <tr>
+				                                   <td colspan="5" class="pagingCon"> </td>
+				                                </tr>
+				               				 </tfoot-->
+				                    	</table>
+									</div>
+								</div>				
+		                    </div>
+	                  </div>  
+	               </div>  
+                </div>
+                <div id="tab-4" class="tab-pane">
+                	<div class="col-lg-12">
+						<div class="panel panel-default" style="margin-top:15px;">
+							<div class="panel-heading" style="border:none;background-color: #586B7D;color:#ffffff;">
+								<strong> <i class="fa fa-male"></i> <strong><span id="apiRolesSetting">API Roles Settings</span></strong> </strong>
+							</div>
+							<div class="panel-body">
+								<form id="searchForm">
+									<a id="addAPIUrlButton"> <i class="fa fa-plus"> </i> <span id="tabApiAssignRoles">Assign roles</span></a>
+	                    	 		<input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Filter Api service option">
+	                    	 	</form>
+		                    	<div style="width:99%;margin:0 auto;background-color: #ffffff;">
+		                    	 	<div style="margin:0 auto;border:0px solid red;">
+		                        		<table class="footable table-striped" data-filter="#filter" data-sortable="false" style="width:100%;">
+			                                <thead>
+				                                <tr style="height:32px;">
+				                                    <th><span id="listApiUrl">API URL</span><a class="button" id="addAPIUrlButton" style="color:#ffffff;font-weight:bold;"> <i class="fa fa-plus-circle"></i> </a> </th>
+				                                    <th><span id="listApiRoles">ROLES</span></th>
+				                                    <th><span id="listApiACL">ACL</span></th>
+				                                    <th><span id="listApiMethod">METHOD</span></th>
+				                                    <th><span id="listApiAction">ACTION</span></th>
+				                                </tr>
+			                                </thead>
+			                                <tbody id="memberAPIRolesData"> </tbody>
+			                                <!--tfoot>
+				                                <tr>
+				                                   <td colspan="5" class="pagingCon"> </td>
+				                                </tr>
+			                   				 </tfoot-->
+		                            	</table>
+		                            </div>	
+		                        </div>
+		                    </div>
+		                 </div>   
+	                  </div>  
+                </div>
+            </div>
+		</div>	
+	</div>
+	<div class="modal inmodal" id="vloader" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" style="width:50%;">
+			<div class="modal-content animated bounceIn">
+				<div style="background-color: #ffffff;border-radius:10px;height:150px;text-align:center;" id="verifyNameList" class="modal-body">
+					<!--img src="./img/ajaxloaderCircle.gif"-->
+					hello
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Settings Page -->
+<div id="settingsPage"> </div>
+
+<div style="display: none;" class="modal inmodal fade" id="modifyControlmodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header" style="height:80px;">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">¡¿</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="modalTitle">contract date</h4>
+            </div>
+            <div class="modal-body" id="modelContainer"> </div>
+            <div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal" >
+					save
+				</button>
+			</div>
+        </div>
+    </div>
+</div>            
+
+
+

@@ -1,0 +1,45 @@
+{
+  "data" : [ {
+    "grpKey" : "LANG_TYPE",
+    "cdKey" : "NAME",
+    "kor" : "아탄",
+    "KoDesc" : "아탄",
+    "eng" : "athan",
+    "engDesc" : "athan"
+  }, {
+    "grpKey" : "LANG_TYPE",
+    "cdKey" : "CAR",
+    "kor" : "아탄",
+    "KoDesc" : "아탄",
+    "eng" : "athan",
+    "engDesc" : "athan"
+  }, {
+    "grpKey" : "LANG_TYPE",
+    "cdKey" : "HOBBY",
+    "kor" : "아탄",
+    "KoDesc" : "아탄",
+    "eng" : "athan",
+    "engDesc" : "athan"
+  }, {
+    "grpKey" : "LANG_TYPE",
+    "cdKey" : "MESSAGE",
+    "kor" : "아탄",
+    "KoDesc" : "아탄",
+    "eng" : "athan",
+    "engDesc" : "athan"
+  }, {
+    "grpKey" : "LANG_TYPE",
+    "cdKey" : "ADDRESS",
+    "kor" : "아탄",
+    "KoDesc" : "아탄",
+    "eng" : "athan",
+    "engDesc" : "athan"
+  }, {
+   "grpKey" : "LANG_TYPE",
+    "cdKey" : "COUNRY",
+    "kor" : "아탄",
+    "KoDesc" : "아탄",
+    "eng" : "athan",
+    "engDesc" : "athan"
+  }]
+}  

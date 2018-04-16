@@ -1,0 +1,67 @@
+<form name="mForm" ng-submit="vm.assignVirtual()" class="p-lg form-horizontal">
+<fieldset>
+    <div class="row 2nd-layer-popup">
+        	<div class="col-lg-2"></div>
+        	<div class="col-lg-8">
+			<h2 translate>lblAssignVirtualTitle</h2>
+			<br>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblMerchantGuid</label>
+                <div class="col-sm-4">
+					<div class="row" ng-class="{ 'has-error': mForm.dstMemGuid.$invalid }">
+						<input  name="dstMemGuid" required ng-model="vm.assForm.dstMemGuid" type="text" class="form-control"><font color="#ff8080">* Enter at least 4 characters of member guid</font>
+						<p class="help-block" ng-if="mForm.dstMemGuid.$error.required && mForm.dstMemGuid.$dirty">Merchant Guid is required</p>
+					</div>
+				</div>
+				<div class="col-sm-2" ng-if="vm.assForm.dstMemGuid.length >= 4">
+					<a ng-href="" class="btn btn-default btn-circle" ng-click="getMemberDetail(vm.assForm)" style="float:left;"><i class="fa fa-pencil-square-o"></i>&nbsp</a>
+				
+				</div>
+			</div>
+			
+            <div class="form-group" id="opAssBnk">
+                <label class="col-sm-4 control-label" translate>lblBank</label>
+                <div class="col-sm-6">
+					<div class="row" ng-class="{ 'has-error': mForm.bnkCd.$invalid }">
+						<select required class="form-control"
+							name="bnkCd"
+							ng-model="vm.assForm.bnkCd"
+							data-placeholder-text-single="'Choose Bank'"
+							disable-search="false"
+							ng-options="bnk.bankCode as bnk.cdNm for bnk in listBank">
+							<option value=""></option>
+						</select>
+					</div>
+				</div>
+			 </div>
+			 
+			<div class="row">
+				<div class="hr-line-dashed"></div>
+				<div class="col-sm-8"></div>
+				
+					<div class="form-group pull-right">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" ng-click="vm.resetVirtualAccount(vm.assForm)" translate>Reset</button>
+						<!-- <button type="submit" class="btn btn-primary" ng-disabled="mForm.$invalid" translate>lblSubmit</button> -->
+						<button ng-click="assignVirtual()" class="btn btn-primary" ng-disabled="mForm.$invalid" translate>lblSubmit</button>
+						<!-- <button class="btn btn-warning" type="button" ng-click="vm.unassignVitualAccount()" id="Close" name="Close" translate>Cancel</button> -->
+					</div>
+				</div>
+			</div>
+        </div>
+        
+        
+        
+        <div class="col-lg-4">
+			<div class="alert alert-success" ng-if="assignVirtualSuccess">
+				<p translate>lblAssignVirtualSuccess1</p>
+				<p><span translate>lblAssignVirtualSuccess2</span>&nbsp;<strong>{{assignVirtualResult.guid}}</strong></p>
+				<p translate>lblBankCode<strong>&nbsp;{{assignVirtualResult.bnkCd}}</strong></p>
+				<p translate>lblVirtualAccNo<strong>:&nbsp;{{assignVirtualResult.accntNo}}</strong></p>
+			</div>
+        </div>
+		<div class="col-lg-4">
+ </div>
+ </div>
+</fieldset>
+</form>

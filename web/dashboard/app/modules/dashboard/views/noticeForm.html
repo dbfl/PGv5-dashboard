@@ -1,0 +1,65 @@
+<div class="ibox no-margins">
+    <div class="ibox-title">
+        <h5 translate>lblCreateTicketForm</h5>
+    </div>
+    <div class="ibox-content">
+        <form class="form-horizontal" name="mForm" ng-submit="vm.createTicket()">
+			
+			<div class="alert alert-warning" ng-if="showError">
+				<span translate>lblError</span>
+			</div>
+        	<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblCreator</label>
+						<div class="col-lg-8">
+							<input type="text" required placeholder="Creator" class="form-control" ng-model="vm.ticket.userName">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblEmail</label>
+						<div class="col-lg-8">
+							<input type="email" required placeholder="Email" class="form-control" ng-model="vm.ticket.emailAddress">
+							<p class="help-block" ng-if="mForm.emailAddrss.$error.required  && mForm.emailAddrss.$dirty"><span translate="lblRequired" translate-values="{ field 'Email' }"></span></p>
+							<p class="help-block" ng-if="mForm.emailAddrss.$error.email"><span translate="lblInvalid" translate-values="{ field 'email address' }"></span></p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblSendTo</label>
+						<div class="col-lg-8">
+							<select class="form-control" required name="receiver" ng-model="vm.ticket.receiver">
+								<option selected="selected" value="none"> Send to </option>
+								<option value="accounting"> Accounting team </option>
+								<option value="planning"> Planning team </option>
+								<option value="globalMarketing"> Global marketing team </option>
+								<option value="rnd"> Technical team </option>
+								<option value="all"> All team </option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblTitle</label>
+						<div class="col-lg-8">
+							<input type="text" required placeholder="{{ lblTitle | translate}}" class="form-control" ng-model="vm.ticket.ticketTitle">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblDescription</label>
+						<div class="col-lg-8">
+							<input type="text" required placeholder="{{ lblDescription | translate}}" class="form-control" ng-model="vm.ticket.ticketContent">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" ng-disabled="mForm.$invalid" ng-click="vm.createTicket()"><span translate>btnCreate</span></button>
+						</div>
+					</div>
+				</div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="white-bg" >
+	<div class="modal-header">
+		<div class="col-sm-8">
+			<h3 class="modal-title"><span translate> 수수료 </span>&nbsp;<span translate>lblGuid</span>: <span class="text-success">{{guid}}</span></h3>
+		</div>
+		<div class="col-sm-2">
+			<div ng-if="dataLoading" class="sk-spinner sk-spinner-circle pull-right">
+				 <div class="sk-circle1 sk-circle"></div>
+				 <div class="sk-circle2 sk-circle"></div>
+				 <div class="sk-circle3 sk-circle"></div>
+				 <div class="sk-circle4 sk-circle"></div>
+				 <div class="sk-circle5 sk-circle"></div>
+				 <div class="sk-circle6 sk-circle"></div>
+				 <div class="sk-circle7 sk-circle"></div>
+				 <div class="sk-circle8 sk-circle"></div>
+				 <div class="sk-circle9 sk-circle"></div>
+				 <div class="sk-circle10 sk-circle"></div>
+				 <div class="sk-circle11 sk-circle"></div>
+				 <div class="sk-circle12 sk-circle"></div>
+			 </div>
+		</div>
+		<!-- <div class="col-sm-2">
+			<button class="btn btn-default pull-right" type="button" ng-click="cancel()" translate>btnClose</button>
+		</div> -->
+	</div>
+</div>
+ <div class="white-bg modal-body">
+	<form>
+		<div class="panel-body no-padding form-horizontal">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading lbl-heading">
+						<h4 class="panel-title">
+							<label> 수수료 적용 항목  </label>
+						</h4>
+					</div>
+					<div class="panel-body">
+						<table class="white-bg table table-striped table-bordered table-hover">
+						  	<thead>
+						  		<th> 수수료 대상 </th>
+						  		<th> 수수료 적용 방식</th>
+						  		<th> 금액 </th>
+						  	</thead>
+						  	<tbody>
+						  		<tr ng-repeat="task in feeDataList" > 
+						  			<td> {{task.feeNm}}</td>
+						  			<td> {{task.desc}}</td>
+						  			<td> <label> {{task.amt | number}}  </label> <label ng-if="task.feeNm == '부가세'">원 </label></td>
+						  		</tr>
+						  	</tbody>
+						  </table>
+					</div>
+				</div>
+			</div> 
+		</div>		
+	</form>	
+</div>
+	  
+<div class="modal-footer">  <!-- class="btn btn-primary btn-sm pull-right m-t-n-xs" -->
+	<!-- <button class="btn btn-primary" type="button" ng-click="ok()" id="ok" name="ok" translate>btnSubmit</button> -->
+	<button class="btn btn-default" type="button" ng-click="cancel()" id="Close" name="Close" translate>btnClose</button>
+</div>
+

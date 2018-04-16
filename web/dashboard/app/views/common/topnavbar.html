@@ -1,0 +1,46 @@
+<div class="row border-bottom" >
+<!-- navbar-static-top --> <!--  navbar-fixed-top -->
+<!-- class=" navbar navbar-static-top"  -->
+<!-- ng-class="{navbarm:boolChangeClass == 'test' }"  -->
+    <nav 
+    	id="tt"
+    	class="navbar navbar-static-top" 
+    	role="navigation" 
+    	style="margin-bottom: 0"
+    	ng-style"{'width':width-220 , 'background' :back}"
+    	>
+        <div class="navbar-header">
+            <span minimaliza-sidebar></span>
+        </div>
+		<ul class="nav navbar-top-links navbar-right">
+			<li>
+				<div ng-controller="MainCtrl as main" >
+					<span class="m-r-sm text-muted welcome-message">Welcome {{main.userName}}</span>
+					<button class="btn btn-sm btn-primary" type="button" ng-if="main.isViewAs" ng-click="main.inActivatedViewAs()"> stop view as</button>	
+				</div>
+			</li>
+			
+			<li>
+				<div ng-controller="translateCtrl">
+					<span class="col-sm-1"><h3><i class="fa fa-clock-o"></i></h3></span> &nbsp;
+					<span>
+						<timer countdown="defaultTimeLimit" max-time-unit="'minute'" interval="1000" finish-callback="callbackTimer.finished()">
+						{{minutes}} 분
+						{{seconds}} 초</timer>
+					</span>
+						<button class="btn btn-sm btn-default" ng-click='requestSessionExpand()'> 연장 </button>
+				</div>
+			</li>
+			<li>
+				<ul class="nav navbar-top-links" ng-controller="translateCtrl">
+				
+				
+					<li><a ng-class="langKr" ng-click="changeLanguage('kr')"> <img class="flag-kr" src="img/flags/kr.png" /> KR</a></li>
+					<li><a ng-class="langEn" ng-click="changeLanguage('en')"> <img class="flag-en" src="img/flags/us.png" /> EN</a></li>
+					<!-- <li><Button> MockAPi </Button></li>	 -->
+				</ul>
+			</li>
+			<li><a ui-sref="login"> <i class="fa fa-sign-out"></i>Log out</a></li>
+		</ul>
+	</nav>
+</div>

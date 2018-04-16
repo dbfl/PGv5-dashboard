@@ -1,0 +1,222 @@
+<!--
+* INSPINIA - Responsive Admin Theme
+* Copyright 2015 Webapplayers.com
+* Version 2.5
+*
+-->
+
+<!DOCTYPE html>
+<html ng-app="inspinia">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title set in pageTitle directive -->
+    <title page-title></title>
+
+    <!-- Google Open Sans -->
+     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <!-- <link href='styles/opensans.css' rel='stylesheet' type='text/css'> -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- Font awesome -->
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- font awesome   -->
+    <link href="../bower_components/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../bower_components/angular-datatables/dist/css/angular-datatables.css" rel="stylesheet" >
+	<link href="../bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css" rel="stylesheet">
+	<link href="scripts/buttons/buttons.dataTables.min.css" rel="stylesheet" >
+	<link href="../bower_components/chosen/chosen.css" rel="stylesheet">
+    <!-- Main Inspinia CSS files -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:css({.tmp,app}) styles/style.css -->
+    <link href="styles/animate.css" rel="stylesheet">
+    <link id="loadBefore" href="styles/style.min.css" rel="stylesheet">
+    <link href="styles/paygate-style.css" rel="stylesheet">
+	<link href="styles/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <!-- endbuild -->
+	<link href="../bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- added by dongju -->
+    <link href="styles/angular-datapicker.css" rel="stylesheet">
+    <link href="styles/angular-notify/angular-notify.min.css" rel="stylesheet">
+    <!-- <link href="styles/daterangepicker-bs3.css" rel="stylesheet"> -->
+    <!-- <link href="styles/summernote-bs3.css" rel="stylesheet"> -->
+
+</head>
+
+<!-- ControllerAs syntax -->
+<!-- Main controller with serveral data used in Inspinia theme on diferent view -->
+<body class="{{$state.current.data.specialClass}}" landing-scrollspy id="page-top">
+
+<!-- Main view  -->
+<div ui-view></div>
+
+
+<!-- build:js(.) scripts/vendor.js -->
+
+<!-- jQuery and Bootstrap -->
+<!-- <script src="../bower_components/jquery/dist/jquery.min.js"></script> -->
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/chosen/chosen.jquery.js"></script>
+
+<!-- MetsiMenu -->
+<script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- SlimScroll -->
+<script src="../bower_components/jquery.slimscroll/jquery.slimscroll.min.js"></script>
+
+
+<!-- Peace JS -->
+<script src="../bower_components/pace/pace.min.js"></script>
+
+
+<!-- Angular scripts -->
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="../bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<script src="../bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<!-- <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script> -->
+<script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="../bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="../bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+<script src="../bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.min.js"></script>
+<script src="../bower_components/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../bower_components/moment/moment.js"></script>
+<script src="../bower_components/moment/min/moment.min.js"></script>
+<!-- <script src="../bower_components/moment/min/locales.min.js"></script> -->
+<!-- <script src="../bower_components/moment/min/locales.js"></script> -->
+
+<script src="../bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="../bower_components/angular-daterangepicker/js/angular-daterangepicker.min.js"></script>
+
+
+<script src="../bower_components/angular-translate/angular-translate.min.js"></script>
+<script src="../bower_components/angular-translate-loader-partial/angular-translate-loader-partial.min.js"></script>
+<script src="../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+
+<script src="../bower_components/angular-chosen-localytics/dist/angular-chosen.min.js"></script>
+<script src="../bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
+<script src="scripts/buttons/dataTables.buttons.min.js"></script>
+<script src="scripts/buttons/buttons.flash.min.js"></script>
+<script src="scripts/buttons/buttons.print.min.js"></script>
+<script src="scripts/humanize-duration.js"></script>
+<script src="scripts/angular-timer.js"></script>
+
+
+<!-- added by dongju for sortable ui -->
+<script src="scripts/ui-sortable/sortable.js"></script>
+
+<!-- datepicker  -->
+<script src="scripts/angular-datepicker.js"></script>
+
+
+
+<!-- Angular Dependiences -->
+<!--                      -->
+<!--                      -->
+<!--                      -->
+
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<!-- Custom and plugin javascript -->
+<script src="scripts/Chart.min.js"></script>
+<script src="scripts/angular-chart.min.js"></script>
+<script src="scripts/inspinia.js"></script>
+
+<!-- Anglar App Script -->
+<script src="scripts/app.js"></script>
+<script src="scripts/config.js"></script>
+<script src="scripts/directives.js"></script>
+<script src="scripts/translations.js"></script>
+<script src="scripts/utils.js"></script>
+<script src="scripts/controllers/controllers.js"></script>
+<script src="scripts/controllers/menu.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/aes//aes.js"></script>
+<script src="scripts/aes/entropy.js"></script>
+<script src="scripts/aes/aesprng.js"></script>
+<script src="scripts/aes/lecuyer.js"></script>
+<script src="scripts/aes/md5.js"></script>
+<script src="scripts/aes/armour.js"></script>
+<script src="scripts/aes/jscrypt.js"></script>
+
+<script src="scripts/aes/aespidcrypt/pidcrypt.js"></script>
+<script src="scripts/aes/aespidcrypt/pidcrypt_util.js"></script>
+<script src="scripts/aes/aespidcrypt/sha256.js"></script>
+<script src="scripts/aes/aespidcrypt/md5.js"></script>
+<script src="scripts/aes/aespidcrypt/aes_core.js"></script>
+<script src="scripts/aes/aespidcrypt/aes_ctr.js"></script>
+
+<script src="scripts/e2e.js"></script>
+
+<!-- admin modules -->
+<script src="modules/authentication/services.js"></script>
+<script src="modules/authentication/controllers.js"></script>
+
+<script src="modules/dashboard/services.js"></script>
+<script src="modules/dashboard/controllers.js"></script>
+
+<script src="modules/member/services.js"></script>
+<script src="modules/member/controllers.js"></script>
+
+<script src="modules/transaction/services.js"></script>
+<script src="modules/transaction/controllers.js"></script>
+
+<script src="modules/settings/services.js"></script>
+<script src="modules/settings/controllers.js"></script>
+
+<script src="modules/tools/services.js"></script>
+<script src="modules/tools/controllers.js"></script>
+
+<script src="modules/seyfertWithdraw/services.js"></script>
+<script src="modules/seyfertWithdraw/controllers.js"></script>
+
+<script src="modules/crossBorderRemit/services.js"></script>
+<script src="modules/crossBorderRemit/controllers.js"></script>
+
+<script src="modules/lecture/services.js"></script>
+<script src="modules/lecture/controllers.js"></script>
+
+<!--회계 관련 service & controller -->
+<script src="modules/seyfertAccounting/controllers.js"></script>
+<script src="modules/seyfertAccounting/services.js"></script>
+
+<script src="scripts/angular-notify/angular-notify.min.js"></script>
+<script src="views/controller.js"></script>
+
+<script src="scripts/angular-sweetalert.min.js"></script>
+<script src="scripts/printer.js"></script>
+<script src="scripts/controllers/services.js"></script>
+
+
+<script src="scripts/angular-idle/angular-idle.js"></script>
+
+<!-- seyfert 증감내역 resource path added by atlas -->
+<script src="modules/seyfertFluctuation/controllers.js"></script>
+<script src="modules/seyfertFluctuation/services.js"></script>
+
+<!--  SMS Send/Recieve List  -->
+<script src="modules/sms/controllers.js"></script>
+<script src="modules/sms/services.js"></script>
+
+
+
+
+</body>
+</html>

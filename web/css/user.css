@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+@import url('basic.css');
+
+.seyWrap{padding:0 10px 30px 10px; color:#333; background:#f9f9f9;}
+.seyCont{padding:30px; background:#fff; box-shadow:2px 2px 3px -1px rgba(0,0,0,0.35);}
+
+/* button style */
+.searchBox .ui-button:visited, .searchBox .ui-button:hover, .searchBox .ui-button:active{border:1px solid #999; background:#999; color:#fff;}
+.searchBox .ui-button:focus{background:#180f60; border:1px solid #180f60; color:#fff;}
+.table_top .excel, .table_top .excel:hover, .table_top .excel:active, .table_top .excel:visited, .table_top .excel:focus{background:#217346; border:1px solid #217346; color:#fff;}
+
+
+/* title */
+.mainTit{padding:50px 0 20px 30px; font-size:28px;}
+.subTit{margin-bottom:20px; padding-bottom:10px; border-bottom:1px dotted #ddd; font-size:18px; font-weight:bold;}
+
+/* table style */
+.table_top{overflow:hidden; padding-bottom:20px;}
+.table_top .term{float:left;}
+.table_top .btnBox{float:right;}
+.table_top .btnBox button{font-size:13px;}
+.table_top .location{color:#38bab1; font-weight:bold;}
+.table_top .location2{color:##2AC4EA; font-weight:bold;}
+
+.basicT{font-size:15px;}
+.basicT table tr th.bdDot, .basicT table tr td.bdDot{border-left:1px dotted #d3d3d3;}
+.basicT table tr th{padding:11px 0 9px; background:#180f60; border-left:1px solid #d3d3d3; text-align:center; color:#fff;}
+.basicT table tr th:first-child{border-left:0;}
+.basicT table tr th a{color:#fff;}
+.basicT table tr td{padding:6px 10px 5px; border-left:1px solid #d3d3d3; border-bottom:1px solid #d3d3d3; font-size:14px;}
+.basicT table tr td:first-child{background:#f1f1f1; border-left:0;}
+.basicT table tr td a{color:#333;}
+.basicT table tr td a:hover{color:#180f60;}
+.basicT table tr td .num{display:block; text-align:right;}
+.basicT table tr td .center{display:block; text-align:center;}
+.basicT table tbody tr td .fa{float:left; line-height:20px;}
+.basicT table tfoot tr{background:#a2a2a2;}
+.basicT table tfoot tr th{border-bottom:1px solid #d3d3d3; background:#a2a2a2;}
+.basicT table tfoot tr td{color:#fff;}
+.basicT table tfoot tr .fa{float:left; line-height:20px;}
+.basicT table tfoot tr.tfoot1{background:#f3ae35;} 
+.basicT table tfoot tr.tfoot1 th{background:#f3ae35;}
+.basicT table tfoot tr.tfoot1 td{text-align:center;}
+.basicT2{font-size:14px;}
+.basicT2 table tr td{padding:6px 5px 5px; font-size:13px;}
+.basicDetail table tbody tr:hover td{background:#e1e1e1; cursor:pointer;}
+
+
+
+/* paging style */
+.pagination{overflow:hidden; margin-top:30px;}
+.pagination .pageTh{float:left;}
+.paging{overflow:hidden; float:right; border:1px solid #ddd; border-radius:4px;}
+.paging li{float:left; border-left:1px solid #ddd; line-height:32px;}
+.paging li:first-child{border-left:0;}
+.paging li.control a:hover{background:#180f60; color:#fff;}
+.paging li a{display:block; padding:0 12px; font-size:13px;}
+.paging li a:hover{background:#e1e1e1;}
+.paging li a.active{background:#f3ae35; color:#fff;}
+
+
+/* serarch area */
+.searchBox{overflow:hidden; margin-bottom:30px;}
+.searchBox button{font-size:14px;}
+.today_txt{padding-bottom:5px; font-weight:bold;}
+.btnBox{float:left;}
+.calendar{float:left; margin-left:20px;}
+.calendar .fa{font-size:20px;}
+.calendar input[type="text"]{height:28px; line-height:28px;}
+.ui-datepicker .ui-datepicker-title select{height:20px; line-height:20px;}
+.ui-state-default, .ui-widget-content .ui-state-default{text-align:center;}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{background:#f3ae35; color:#fff; border:1px solid #f29f0e;}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button.ui-state-active:hover{background:#180f60; border:1px solid #180f60;}
+
+
+
+/* popup */
+.ui-widget-overlay{background:#000; opacity:0.6; filter:Alpha(Opacity=.6);}
+.ui-dialog{padding:0;}
+.ui-dialog .ui-widget-header{border:0;}
+.ui-dialog .ui-widget-header{background:#f3ae35; color:#fff;}
+.ui-dialog .ui-dialog-buttonpane{display:none;}
+
+#opener{cursor:pointer;}

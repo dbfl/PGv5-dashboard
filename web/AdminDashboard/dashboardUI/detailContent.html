@@ -1,0 +1,300 @@
+<div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	                <h4 class="modal-title" id="trnctnDetailList">Transaction detail list</h4>
+	                <small class="font-bold" id="completeListperTID">Complete List per TID</small>
+	            </div>
+	            <div class="modal-body">
+	              <div class="wrapper wrapper-content animated fadeInRight">
+	        		<div class="row">
+	                	<div class="col-lg-12">
+	                		<div class="ibox">
+	                			<div class="ibox-content">
+	                                <!--h4 class="m-b-md header"  style="height:4px;">TID</h4>
+	                                <h5 class="text-navy" id="transDetailTid">Transaction</h5-->
+	                                <table class="footable table table-stripped" data-filter="#filter" data-page-size="5">
+					                   <thead>
+					                    <tr>
+					                        <th>TID</th>
+					                        <th data-hide="phone,tablet" id="transDetailLastTransStatusLabel">TRANSACTION STATUS</th>
+					                        <th data-hide="phone,tablet" id="transDetailTransDate">TRANSACTION DATE</th>
+					                    </tr>
+					                   </thead>
+					                   <tbody id="transDetail_Group1" class="animated fadeInRight"> </tbody>
+					                </table>
+					            </div>
+	                        </div>
+	                    </div>
+	                   	<div class="col-lg-12">
+	                		<div class="ibox">
+	                			<div class="ibox-content">
+	                				<table class="footable table table-stripped" data-filter="#filter" data-page-size="5">
+					                   <thead>
+					                    <tr>
+					                        <th>REQUEST MEMBER GUID</th>
+					                        <th data-hide="phone,tablet" id="transDetailLastTransStatusLabel">SOURCE MEMBER GUID</th>
+					                        <th data-hide="phone,tablet" id="transDetailTransDate">DESTINATION MEMBER GUID</th>
+					                    </tr>
+					                   </thead>
+					                   <tbody id="transDetail_Group2" class="animated fadeInRight"> </tbody>
+					                </table>
+	                			</div>
+	                		</div>
+	                	</div>						
+	                    <div class="col-lg-12">
+	                		<div class="ibox">
+	                			<div class="ibox-content">
+	                				 <table class="footable table table-stripped" data-filter="#filter" data-page-size="5">
+					                   <thead>
+					                    <tr>
+					                        <th>PAY AMOUNT</th>
+					                        <th data-hide="phone,tablet" id="transDetailLastTransStatusLabel">PAY CURRENCY</th>
+					                        <th data-hide="phone,tablet" id="transDetailTransDate">ORIGINAL AMOUNT</th>
+					                        <th data-hide="phone,tablet" id="transDetailTransDate">ORIGINAL CURRENCY</th>
+					                    </tr>
+					                   </thead>
+					                   <tbody id="transDetail_Group3" class="animated fadeInRight"> </tbody>
+					                </table>
+	                			</div>
+	                		</div>
+	                	</div>
+	                	 <div class="col-lg-12">
+	                		<div class="ibox">
+	                			<div class="ibox-content">
+	                				<table class="footable table table-stripped" data-filter="#filter" data-page-size="5">
+					                   <thead>
+					                    <tr>
+					                        <th>TRANSACTION TYPE</th>
+					                        <th data-hide="phone,tablet" id="transDetailLastTransStatusLabel">VERIFY FLAG</th>
+					                        <th data-hide="phone,tablet" id="transDetailTransDate">UPDATE DATE</th>
+					                    </tr>
+					                   </thead>
+					                   <tbody id="transDetail_Group4" class="animated fadeInRight"> </tbody>
+					                </table>
+	                			</div>
+	                		</div>
+	                	</div>			
+	                    <!--div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                           <div class="ibox-content">
+	                                <h4 class="m-b-md header"  style="height:4px;" id="transDetailPayAmtLabel">PAY AMOUNT</h4>
+	                                <h5 class="text-navy" id="transDetailPayAmt">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                           <div class="ibox-content">
+	                                <h4 class="m-b-md header"  style="height:4px;" id="transDetailPayCurncyLabel">PAY CURRENCY</h4>
+	                                <h5 class="text-navy" id="transDetailPayCurncy">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                  <div class="col-lg-4" style="height:100px;">
+	                		<div class="ibox">
+	                			<div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailReqMemGuid">REQUEST MEMBER GUID</h4>
+	                                <h5 class="text-navy" id="transDetailReqMemNo">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4" style="height:100px;">
+	                		<div class="ibox">
+	                			<div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailSourceMemGuid">SOURCE MEMBER GUID</h4>
+	                                <h5 class="text-navy" id="transSouceemNo">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4" style="height:100px;">
+	                		<div class="ibox">
+	                			<div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailDesMemGuid">DESTINATION MEMBER GUID</h4>
+	                                <h5 class="text-navy" id="transDetailDetMemNo">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                            <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailTransDate">TRANSACTION DATE</h4>
+	                                <h5 class="text-navy" id="transDetailTrDt">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                           <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailLastTransStatusLabel">LAST TRANSACTION STATUS</h4>
+	                                <h5 class="text-navy" id="transDetailLastTransStatus">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                           <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailTransTypeDefLabel">TRANSACTION TYPE DEF</h4>
+	                                <h5 class="text-navy" id="transDetailTransTypeDef">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!--div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                            <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;">TIME ZONE</h4>
+	                                <h5 class="text-navy" id="transDetailTimeZone">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div-->
+						<!--div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                           <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailTransStat">TRANSACTION STATUS</h4>
+	                                <h5 class="text-navy" id="transDetailTransStatus">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                           <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailTransTp">TRANSACTION TYPE</h4>
+	                                <h5 class="text-navy" id="transDetailTransType">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                            <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailUpdateDt">UPDATE DATE</h4>
+	                                <h5 class="text-navy" id="transUpdateDate">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+						<div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                           <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailOriginAmt">ORIGINAL AMOUNT</h4>
+	                                <h5 class="text-navy" id="transDetailOrgAmt">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!--div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                           <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;">CREATE DATE</h4>
+	                                <h5 class="text-navy" id="transDetailCreateDate">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div-->
+	                    <!--div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                            <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailOriginCurr">ORIGINAL CURRENCY</h4>
+	                                <h5 class="text-navy" id="transDetailOrgCurr">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div>
+						<!--div class="col-lg-4" style="height:100px;">
+	                		<div class="ibox">
+	                			<div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;">TRANSACTION STATUS GRP</h4>
+	                                <h5 class="text-navy" id="transDetailTransStatusGrp">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div-->
+	                    <!--div class="col-lg-4" style="height:100px;">
+	                        <div class="ibox">
+	                            <div class="ibox-content">
+	                                <h4 class="m-b-md header" style="height:4px;" id="transDetailVerifiFlg">VERIFY FLAG</h4>
+	                                <h5 class="text-navy" id="transDetailVerifyFlg">Transaction</h5>
+	                            </div>
+	                        </div>
+	                    </div-->
+					</div>
+	             </div>
+				<div class="modal-footer">
+	                <button type="button" class="btn btn-primary" data-dismiss="modal" id="transDetailClose">Close</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div> 
+<div class="modal inmodal fade" id="noticeContainer" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog modal-mg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="ceateNotice">Notice</h4>
+                <small class="font-bold" id="sendQueries">Send your queries or any service related questions </small>
+            </div>
+            <div class="modal-body">
+            	<div class="labels form-group">
+            		<span id="createNotiName">Name </span>
+        		</div>
+        		<div class="inpuControl">
+        			<input type="text" class="textBoxs" name="" value=""/>	
+        		</div>
+        		<div class="labels form-group">
+            		<span id="createNotiEmail">Email </span>
+        		</div>
+        		<div class="inpuControl">
+        			<input type="text" class="textBoxs" name="" value=""/>	
+        		</div>
+            	<div class="labels form-group">
+            		<span id="createNotiTitle">Title </span>
+        		</div>
+        		<div class="inpuControl">
+        			<input type="text" class="textBoxs" name="" value=""/>	
+        		</div>
+        		<div class="labels form-group">
+            		<span id="createNotiContent">Content </span>
+        		</div>
+        		<div class="inpuControl">
+        			<textArea class="textBoxs" name="" style="height:100px;"></textarea>	
+        		</div>
+        	</div>
+        	<div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="createNotiSubmit">Submit</button>
+            </div>
+        </div>
+	</div
+</div>
+    
+<div class="modal inmodal fade" id="transGaphDetailContainer" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	        <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	            <h4 class="modal-title">Transaction list</h4>
+	            <small class="font-bold">Complete List per hour</small>
+	        </div>
+	        <div class="modal-body">
+	        	 <table class="footable table table-stripped" data-filter="#filter" data-page-size="10">
+	                <thead>
+	                <tr>
+	                    <th>TID</th>
+	                    <th>PAY AMOUNT</th>
+	                    <th>TYPE</th>
+	                    <th data-hide="phone,tablet">REFERENCE ID</th>
+	                    <th data-hide="phone,tablet">TITLE</th>
+	                    <th data-hide="phone,tablet">TRANSACTION DATE</th>
+	                </tr>
+	                </thead>
+	                <tbody id="hourTransactionList" class="animated fadeInRight"> </tbody>
+	                <tfoot>
+	                <tr>
+	                    <td colspan="6"> 
+	                    	<ul class="pagination pull-right"> </ul>	
+	                    </td>
+	                </tr>
+	                </tfoot>
+	            </table>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+
+

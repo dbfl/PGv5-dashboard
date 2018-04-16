@@ -1,0 +1,54 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2 translate>lblSettings</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+			<div class="ibox float-e-margins">
+                <div class="ibox-content" ng-if="vm.isAdmin == true">
+					<uib-tabset justified= false>  
+						<uib-tab heading="{{ 'lblGeneral' | translate}}" ui-sref='index.settings.general' active='tabs.general' select="vm.tabSelected('index.settings.general')">
+							<!-- <div ui-view='one'></div> -->
+							<div ng-include="tempTabGeneral"></div> 
+						</uib-tab>
+						<uib-tab heading="{{ 'lblAccount' | translate}}" ui-sref='index.settings.account' active='tabs.account' select="vm.tabSelected('index.settings.account')">
+							<div ng-include="tempTabAccount"></div>
+						</uib-tab>
+						<uib-tab heading="{{ 'lblRoles' | translate}}" ui-sref='index.settings.roles' active='tabs.roles' select="vm.tabSelected('index.settings.roles')">
+							<div ng-include="tempTabRoles"></div>
+						</uib-tab>
+						<uib-tab heading="{{ 'lblAPI' | translate}}" ui-sref='index.settings.api' active='tabs.api' select="vm.tabSelected('index.settings.api')">
+							<div ng-include="tempTabAPI"></div>
+						</uib-tab>
+						<uib-tab heading="{{ 'lblContract' | translate}}" ui-sref='index.settings.contract' active='tabs.contract' select="vm.tabSelected('index.settings.contract')">
+							<div ng-include="tempTabContract"></div>
+						</uib-tab>
+						<uib-tab heading="{{ 'lblNotification' | translate}}" ui-sref='index.settings.noti' active='tabs.noti' select="vm.tabSelected('index.settings.noti')">
+							<div ng-include="tempTabNoti"></div>
+						</uib-tab>
+						<uib-tab heading="{{ 'lblOptions' | translate}}" ui-sref='index.settings.options' active='tabs.options' select="vm.tabSelected('index.settings.options')">
+							<div ng-include="tempTabOptions"></div>
+						</uib-tab>
+					</uib-tabset> 
+				</div>
+			    <div class="ibox-content">
+					<uib-tabset  ng-if="vm.isAdmin == false" >
+					<!-- TODO 업체일 때 화면도 수정하기 . -->
+						<!-- <uib-tab index="0" heading="{{ 'lblAccount' | translate}}" select="vm.tabSelected('account')"><div ng-include="tempTabAccount"></div></uib-tab>
+						<uib-tab index="1" heading="{{ 'lblNotification' | translate}}" select="vm.tabSelected('noti')"><div ng-include="tempTabNoti"></div></uib-tab> -->
+						<uib-tab ng-if="vm.isViewAsActivated == false"  heading="{{ 'lblAccount' | translate}}" ui-sref='index.settings.account' active='tabs.account' select="vm.tabSelected('index.settings.account')">
+							<div ng-include="tempTabAccount"></div>
+						</uib-tab>
+						<uib-tab heading="{{ 'lblNotification' | translate}}" ui-sref='index.settings.noti' active='tabs.noti' select="vm.tabSelected('index.settings.noti')">
+							<div ng-include="tempTabNoti"></div>
+						</uib-tab>
+					</uib-tabset>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>SeyfertBalance</title>
+		<meta name="author" content="athan" />
+		<!-- Date: 2016-03-02 -->
+		<link href="../uiLibraries/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="custom.css" rel="stylesheet">
+		<script src="../uiLibraries/Jquery/jquery-2.1.1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#generateReuest").click(function(){
+					$("#targetIFrame").attr("src",$("#requestURI").val());
+					$("#targetIFrame").load();
+					$("#resultContainer").show();
+				});
+			});
+		</script>
+    </head>
+	<body>
+	<div id="wrapper">
+		<div id="page-content-wrapper">
+        	<div class="container-fluid">
+        		<div class="row">
+        			<div class="margin" style="margin-top: 20px;">
+                   		<div class="formCon">
+                   			<form id="seyfertBalanceInquiryForm">
+							  	<div class="input-group" style="min-width:600px;max-width:882px;">
+							  		<input type="text" class="form-control" id="requestURI" value="https://stg5.paygate.net/v5a/member/createMember?firstname=Gray&middlename=Omar&lastname=cliford&state=SEOUL&reqMemGuid=guid_merchant&callback=data&_method=POST&addrss1=SEOUL&addrss2=Paygate&addrssCntryCd=KOR&addrssTp=HOME&city=seoul&emailAddrss=paygate@gmail.com&emailTp=PERSONAL&fullname=Paygate&nmLangCd=ko&phoneNo=01012345678&phoneCntryCd=KOR&phoneTp=MOBILE&postCd=032540"> 
+						  			<span class="input-group-btn"> 
+						  				<button type="button" class="btn btn-primary" id="generateReuest">Go!</button> 
+						  			</span>
+                                </div>
+                                <div class="input-group" style="margin-top: 20px;width:100%;text-align: left;display:none;min-width:600px;max-width:882px;" id="resultContainer">
+                                	<h4>Result</h4>
+                                	<div style="border:1px solid #EDEDED;color:#0075B0">
+                                	<iframe id="targetIFrame" name="targetIFrame" style="width:600px;border:none;">  </iframe>
+                                	</div>
+                                </div>
+                             </form>
+                   		</div>
+                   </div>
+        		</div>
+        	</div>
+        </div>			
+	</div>		
+	</body>
+</html>
+

@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Paygate AA Card Payment Demo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://v5.paygate.net/AdminManager/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="simple-sidebar.css" rel="stylesheet">
+    <!--link href="simple-sidebar.css" rel="stylesheet"-->
+</head>
+<body>
+	<div id="wrapper">
+		<div id="topMenu"><a href="#menu-toggle" class="btn btn-default menu-toggle">-</a></div>
+	  <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+            	<li class="hidden">
+                    <a class="page-scroll" href="#page1" id="pageTop"></a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="#page1">
+                        <img alt="image" src="https://v5.paygate.net/AdminManager/img/paygatelogo-white.png" style="width:150px;" />
+                    </a>
+                </li>
+                <li>
+                	<a href="#">API Documentation</a>
+                </li>
+                <li class="active navigator singleMenu">
+                    <a href="#page1" id="introPage">Intro</a>
+                </li>
+                <li class="navigator" id="cardRegisterLab">
+                    <a href="#page2">Register-Card</a>
+                </li>
+                <li class="navigator singleMenu" id="getRegisterCardLabButton">
+                    <a href="#page3">Get-Registered-Card</a>
+                </li>
+                <li class="navigator singleMenu">
+                    <a href="#page4" id="getAACodeLab">Get-AA-Code</a>
+                </li>
+                <li class="navigator singleMenu">
+                    <a href="#page5" id="getAAApprovalLab">AA-Approval</a>
+                </li>
+                <li class="navigator singleMenu">
+                    <a href="#page6" id="captureLab">Capture</a>
+                </li>
+                <li class="navigator singleMenu">
+                    <a href="#page7" id="cardBasicLab">Card-Basic</a>
+                </li>
+                <li class="navigator singleMenu">
+                    <a href="#page8" id="cardTokenLab">Card-Token</a>
+                </li>
+                <li>
+                    <a href="#page9"  id="cancelMenu">Cancel <span id="cancelToggleIcon">[+]</span></a>
+                    <ul class="cancelSubMenu" style="display:none;">
+                    	<li class="navigator" id="fullCancel"><a href="#page9">Full-cancel</a></li>
+                    	<li class="navigator" id="partialCancel"><a href="#page10">Partial-cancel</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#page9"  id="card3DMenu">Card 3D <span id="card3DToggleIcon">[+]</span></a>
+                    <ul class="card3DSubMenu" style="display:none;">
+                    	<li class="navigator" id="registCard3D"><a href="#page11">Register card 3D</a></li>
+                    	<li class="navigator" id="check3DAvailable"><a href="#page12">Check 3D Available</a></li>
+                    	<li class="navigator" id="auth3D"><a href="#page13">Auth 3D transaction</a></li>
+                    	<li class="navigator" id="authResult3D"><a href="#page14">Auth Result 3D</a></li>
+                    	<li class="navigator" id="approval3D"><a href="#page15">Approval 3D transaction</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+        	<div class="container-fluid">
+        		<div class="row" id="page1" style="height:1000px;">
+                    <div class="margin">
+                        <h1>PAYGATE CARD PAYMENT DEMO</h1>
+                        <p><strong>Usage Instructions:</strong> Please Enter your <b>GUID</b> & <b>ENCRYPTION KEY</b> and click Start Demo.</p>
+	                    <input type="text" id="masterGuid" placeholder="GUID" /> <BR> <BR>
+	                    </strong> <input type="text" id="encryptKey" placeholder="Encryption Key" /> <BR> <BR>
+	                    <a class="btn btn-default page-scroll" id="firstSection" href="#page2">Start Demo</a>
+                    </div>
+                </div>
+                <div class="row" id="page2"  style="height:1000px;">
+                   <div class="margin">
+                   	 <h1>Register Card</h1>
+                   	<div class="formCon">
+                   		<form id="registerCardForm">
+						  	<div class="labels form-group">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value=""/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Title </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="title"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Card number </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="crdNo" value="" id="crdNo"/>
+		            		</div>
+		            		<div class="labels">
+		            			<span> Card Expiry Month </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crdExpMonth">
+		            				<option value="" selected="selected"> ----- </option>
+		            				<option value="01"> 01 </option>
+		            				<option value="02"> 02 </option>
+		            				<option value="03"> 03 </option>
+		            				<option value="04"> 04 </option>
+		            				<option value="05"> 05 </option>
+		            				<option value="06"> 06 </option>
+		            				<option value="07"> 07 </option>
+		            				<option value="08"> 08 </option>
+		            				<option value="09"> 09 </option>
+		            				<option value="10"> 10 </option>
+		            				<option value="11"> 11 </option>
+		            				<option value="12"> 12 </option>
+		            			</select>
+		            		</div>
+		            		<div class="labels">
+		            			<span> Card Expiry Year </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crdExpYear">
+		            				<option value="" selected="selected"> ----- </option>
+		            				<option value="2015"> 2015 </option>
+		            				<option value="2016"> 2016 </option>
+		            				<option value="2016"> 2017 </option>
+		            				<option value="2016"> 2018 </option>
+		            				<option value="2016"> 2019 </option>
+		            				<option value="2016"> 2020 </option>
+		            				<option value="2016"> 2021 </option>
+		            				<option value="2016"> 2022 </option>
+		            				<option value="2016"> 2023 </option>
+		            				<option value="2016"> 2024 </option>
+		            				<option value="2016"> 2025 </option>
+		            				<option value="2016"> 2026 </option>
+		            				<option value="2016"> 2027 </option>
+		            				<option value="2016"> 2028 </option>
+		            				<option value="2016"> 2029 </option>
+		            				<option value="2016"> 2030 </option>
+		            				<option value="2016"> 2031 </option>
+		            				<option value="2016"> 2032 </option>
+		            				<option value="2016"> 2033 </option>
+		            				<option value="2016"> 2034 </option>
+		            				<option value="2016"> 2035 </option>
+		            				<option value="2016"> 2036 </option>
+		            				<option value="2016"> 2037 </option>
+		            				<option value="2016"> 2038 </option>
+		            				<option value="2016"> 2039 </option>
+		            				<option value="2016"> 2040 </option>
+		            			</select>
+		            		</div>
+		            		<br>
+		            		<div class="inpuControl">
+		                			<a  id="registerCardButton" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		            	 </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page3"  style="height:1000px;">
+                   <div class="margin">
+                   		<h1>Get Registered Card</h1>
+	                   	<div class="formCon">
+	                   	  <form id="getRegisteredCardForm">
+						  	<div class="labels form-group">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value=""/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Title </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="title"/>	
+		            		</div>
+		            		<div class="inpuControl">
+		                		<a  id="getRegisterCardButton" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		            	 </form>	
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page4"  style="height:1000px;">
+                   <div class="margin">
+                   	 <h1>Get AA Code</h1>
+                   	<div class="formCon">
+                   		 <form id="getAACodeForm"  method="post" target="uploadResult" enctype="multipart/form-data">
+						  	<div class="labels form-group">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value=""/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Source) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="srcMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Title </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="title"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="amount"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crrncy">
+		            				<option value="KRW">KRW</option>
+		            				<option value="USD">USD</option>
+		            			</select>
+		            		</div>
+		            		<br>
+		            		<div class="inpuControl">
+		                		<input type="submit" id="getAACodeButton"  class="buttons btn btn-default" />
+		                	</div>
+		                </form>	
+                   	</div>
+                   </div>
+                </div>   	
+	            <div class="row" id="page5"  style="height:1000px;">
+		               <div class="margin">
+		               		<h1>AA-Approval</h1>
+		                   	<div class="formCon">
+		                   	  <form id="getAAApprovalForm">
+							  	<div class="labels form-group">
+			                		<span> Merchant Guid </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value=""/>	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Tid </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs" name="tid"/>	
+			            		</div>
+			            		<div class="labels">
+			            			<span> AA Code </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs" name="aaCode"/>	
+			            		</div>
+			            		<div class="inpuControl">
+			                		<a  id="getAAAprovalButton" class="buttons btn btn-default">Submit</a>
+			                	</div>
+			            	 </form>	
+		               		</div>
+		               </div>
+	            </div>
+	            <div class="row" id="page6"  style="height:1000px;">
+		               <div class="margin">
+		               		<h1>Capture </h1>
+		                   	<div class="formCon">
+		                   	  <form id="captureImageForm">
+							  	<div class="labels form-group">
+			                		<span> Merchant Guid </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value=""/>	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Parent Tid </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs" name="parentTid"/>	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Title </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs" name="title"/>	
+			            		</div><br>
+			            		<div class="inpuControl">
+			                		<a  id="captureButton" class="buttons btn btn-default">Submit</a>
+			                	</div>
+			            	 </form>	
+		               		</div>
+		               </div>
+	            </div>
+	            <div class="row" id="page7"  style="height:1000px;">
+	               <div class="margin">
+	               		<h1>Card Basic</h1>
+	                   	<div class="formCon">
+	                   	  <form id="cardBasicForm">
+						  	<div class="labels form-group">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Source) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="srcMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Title </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="title"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="amount"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crrncy">
+		            				<option value="KRW">KRW</option>
+		            				<option value="USD">USD</option>
+		            			</select>
+		            		</div><br>
+		            		<div class="inpuControl">
+			                		<a  id="cardBasicButton" class="buttons btn btn-default">Submit</a>
+			                	</div>
+		            	 </form>	
+	               		</div>
+	               </div>
+	            </div>
+	            <div class="row" id="page8"  style="height:1000px;">
+	               <div class="margin">
+	               		<h1>Card Token</h1>
+	                   	<div class="formCon">
+	                   	  <form id="cardTokenForm">
+						  	<div class="labels form-group">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="testabcd3921" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Source) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="testabcd3921" name="srcMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="testabcd3920" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Title </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="crd_token" name="title"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="1" name="amount"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crrncy">
+		            				<option value="KRW">KRW</option>
+		            				<option value="USD">USD</option>
+		            			</select>
+		            		</div>
+		            		<div class="labels">
+		            			<span> Card number </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="crdNo" value="" id="crdNo"/>
+		            		</div>
+		            		<div class="labels">
+		            			<span> Card Expiry Month </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crdExpMonth">
+		            				<option value="" selected="selected"> ----- </option>
+		            				<option value="01"> 01 </option>
+		            				<option value="02"> 02 </option>
+		            				<option value="03"> 03 </option>
+		            				<option value="04"> 04 </option>
+		            				<option value="05"> 05 </option>
+		            				<option value="06"> 06 </option>
+		            				<option value="07"> 07 </option>
+		            				<option value="08"> 08 </option>
+		            				<option value="09"> 09 </option>
+		            				<option value="10"> 10 </option>
+		            				<option value="11"> 11 </option>
+		            				<option value="12"> 12 </option>
+		            			</select>
+		            		</div>
+		            		<div class="labels">
+		            			<span> Card Expiry Year </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crdExpYear">
+		            				<option value="" selected="selected"> ----- </option>
+		            				<option value="2015"> 2015 </option>
+		            				<option value="2016"> 2016 </option>
+		            				<option value="2016"> 2017 </option>
+		            				<option value="2016"> 2018 </option>
+		            				<option value="2016"> 2019 </option>
+		            				<option value="2016"> 2020 </option>
+		            				<option value="2016"> 2021 </option>
+		            				<option value="2016"> 2022 </option>
+		            				<option value="2016"> 2023 </option>
+		            				<option value="2016"> 2024 </option>
+		            				<option value="2016"> 2025 </option>
+		            				<option value="2016"> 2026 </option>
+		            				<option value="2016"> 2027 </option>
+		            				<option value="2016"> 2028 </option>
+		            				<option value="2016"> 2029 </option>
+		            				<option value="2016"> 2030 </option>
+		            				<option value="2016"> 2031 </option>
+		            				<option value="2016"> 2032 </option>
+		            				<option value="2016"> 2033 </option>
+		            				<option value="2016"> 2034 </option>
+		            				<option value="2016"> 2035 </option>
+		            				<option value="2016"> 2036 </option>
+		            				<option value="2016"> 2037 </option>
+		            				<option value="2016"> 2038 </option>
+		            				<option value="2016"> 2039 </option>
+		            				<option value="2016"> 2040 </option>
+		            			</select>
+		            		</div>
+		            		<br>
+		            		<div class="inpuControl">
+		                		<a  id="cardTokenButton" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		            	 </form>	
+	               		</div>
+	               </div>
+	            </div>
+	            <div class="row" id="page9"  style="height:1000px;">
+                   <div class="margin">
+                   	 <h1>Full Cancel</h1>
+                   	<div class="formCon">
+                   		 <form id="fullCancelForm"  method="post" target="uploadResult" enctype="multipart/form-data">
+						  	<div class="labels form-group">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Parent Tid </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="parentTid"/>	
+		            		</div>
+		            		<br>
+		            		<div class="inpuControl">
+		                		<input type="submit" id="fullCancelButton"  class="buttons btn btn-default" />
+		                	</div>
+		                </form>	
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page10"  style="height:1000px;">
+                   <div class="margin">
+                   	 <h1>Partial Cancel</h1>
+                   	<div class="formCon">
+                   		 <form id="partialCancelForm"  method="post" target="uploadResult" enctype="multipart/form-data">
+						  	<div class="labels form-group">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value=""/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Parent Tid </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="parentTid"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Cancel Amount </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="cancelAmount"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Cancel Sequence </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="cancelSeqNo"/>	
+		            		</div>
+		            		<br>
+		            		<div class="inpuControl">
+		                		<input type="submit" id="partialCancelButton"  class="buttons btn btn-default" />
+		                	</div>
+		                </form>	
+                   	</div>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+		 <div id="footer">
+		 	<div id="itemHead"> <span id="toggleConsole">console <span id="toggleIcon">[-]</span></span></div>
+		 	<div id="itemContent" style="display: non;"> 
+		 		<!--textarea> dadsa</textarea-->
+		 		<div id="console"> CONSOLE AREA  </div>	
+		 	</div>
+		 </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="https://v5.paygate.net/AdminManager/js/jquery-2.1.1.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://v5.paygate.net/AdminManager/js/bootstrap.min.js"></script>
+    
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/pidcrypt.js"></script>
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/pidcrypt_util.js"></script>
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/sha256.js"></script>
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/md5.js"></script>
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/aes_core.js"></script>
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/aes_ctr.js"></script>
+    <script src="CardDemo.js"></script>
+    
+</body>
+
+</html>

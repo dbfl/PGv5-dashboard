@@ -1,0 +1,55 @@
+<div class="ibox no-margins">
+    <div class="ibox-title">
+        <h5 translate>lblAssignRole</h5>
+    </div>
+    <div class="ibox-content">
+        <form class="form-horizontal" name="memRole" ng-submit="vm.submitAssignRoleForm()">
+        	<div class='msg-block' ng-show='successAssignRole == 2'>
+            	<div class="alert alert-danger">
+					<span>{{msgResult}}</span>
+				</div>
+			</div>
+        	<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>DstGuid</label>
+						<div class="col-lg-8">
+							<input type="text" required placeholder="{{'lblRole' | translate}}" class="form-control" ng-model="vm.memRole.dstMemGuid">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblRoles</label>
+						<div class="col-lg-8">
+							<select required class="form-control" name="role"
+								ng-model="vm.memRole.role"
+								chosen="directiveOptions"
+								data-placeholder-text-single="'Choose Role'"
+								disable-search="false"
+								ng-options="role.role as role.role for role in listRoles">
+								<option value=""></option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>ACL</label>
+						<div class="col-lg-8">
+							<select required class="form-control" name="acl"
+								ng-model="vm.memRole.baseAcl"
+								chosen="directiveOptions"
+								data-placeholder-text-single="'Choose ACL'"
+								disable-search="false"
+								ng-options="acl for acl in aclOptions">
+								<option value=""></option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group" style="padding-top:5px;">
+						<button class="btn btn-sm btn-primary m-t-n-xs pull-right" type="submit" translate>lblSubmit</button>
+					</div>
+				</div>
+				<div class="col-sm-4">
+				</div>
+            </div>
+        </form>
+    </div>
+</div>

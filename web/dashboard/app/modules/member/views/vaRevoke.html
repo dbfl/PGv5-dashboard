@@ -1,0 +1,29 @@
+<div class="panel-body">
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label class="col-lg-4 control-label no-padding" translate>lblAccountNumber</label>
+			<div class="col-lg-8">
+			{{memberDetailResult.virtualAccnt.accntNo}}</div>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label class="col-lg-4 control-label no-padding" translate>lblBank</label>
+			<div class="col-lg-8">{{ memberDetailResult.virtualAccnt.bnkCd}}</div>
+		</div>
+	</div>
+
+</div>
+<div class="row">
+	<!-- 등록해지  -->
+	<div class="hr-line-dashed"></div>
+	<div class="col-sm-8"></div>
+	<div class="form-group ">
+		<button class="btn btn-warning" type="button"
+			ng-click="unassignVitualAccount()"
+			ng-if="memberDetailResult.virtualAccnt.accntNo != null || memberDetailResult.virtualAccnt.bnkCd != null"
+			translate> btnVaRevoke </button>
+	</div>
+</div>
+</div>

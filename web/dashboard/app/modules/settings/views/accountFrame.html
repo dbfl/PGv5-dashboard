@@ -1,0 +1,12 @@
+<fieldset>
+	<div>
+		<ui>
+			<li ng-class="{active: $state.includes('index.settings')}"  >
+                <a ui-sref="index.settings"><i class="fa fa-cogs"></i> <span class="nav-label" translate>lblSettings</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.seyfertKeyPSetting')}">
+                <a ui-sref="index.seyfertKeyPSetting"><i class="fa fa-graduation-cap"></i> <span class="nav-label" translate>lblLecture</span></a>
+            </li>
+		</ui>
+	</div>
+</fieldset>

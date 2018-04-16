@@ -1,0 +1,1507 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Paygate Seyfert Demo Global</title>
+
+    <!-- Bootstrap Core CSS -->
+   <link href="../uiLibraries/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+     <!--link href="css/simple-sidebar.css" rel="stylesheet"-->
+   <link href="css/simple-sidebar.css" rel="stylesheet">
+</head>
+<body data-spy="scroll" data-target=".sidebar-nav">
+	<div id="wrapper">
+		<div id="topMenu"><a href="#menu-toggle" class="btn btn-default menu-toggle">-</a></div>
+	  <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+            	<li class="hidden">
+                    <a class="page-scroll" href="#page1" id="pageTop"></a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="#page1">
+                        <img alt="image" src="paygatelogo-white.png" style="width:150px;" />
+                    </a>
+                </li>
+                <li>
+                	<a target="_blank" href="http://docs.pgv5.apiary.io/">API Documentation</a>
+                </li>
+                <li class="active navigator">
+                    <a href="#page1" id="introPage">Intro</a>
+                </li>
+                <li>
+                    <a id="memberMenu" href="#page2">Member <span id="memberToggleIcon">[+]</span></a>
+                    <ul class="memberSubMenu" style="display:none;">
+                    	<li class="navigator"><a href="#page2" id="createMember">Create Member</a></li>
+                    	<li class="navigator"><a href="#page2.1" id="createMemberWithEmail">Create Member With Email</a></li>
+                    	<li class="navigator"><a href="#page2.2" id="createMemberWithPhone">Create Member With Phone</a></li>
+                    	<li class="navigator"><a href="#page2.3" id="createMemberWithBnkAccnt">Create Member With Bnk Accnt</a></li>
+                    	<li class="navigator"><a href="#page3" id="assignVirtualAccount">AssignVirtualAccount</a></li>
+                    	<li class="navigator"><a href="#page3.5" id="addMemName">addMemName</a></li>
+                        <li class="navigator"><a href="#page5" id="chargeToAccount">ChargeToAccount</a></li>
+                        <li class="navigator"><a href="#page4" id="assignBankAccount">AssignBankAccount</a></li>
+                        <li class="navigator"><a href="#page6" id="inquireAccountName">InquireAccountName</a></li>
+                        <li class="navigator"><a href="#page7" id="inquireAccountOwner">InquireAccountOwner</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#page8"  id="transactionMenu">Transaction <span id="transactionToggleIcon">[+]</span></a>
+                    <ul class="transactionSubMenu" style="display:none;">
+                    	<li class="navigator"><a href="#page8" id="seyfertBalance">SeyfertBalance</a></li>
+                    	<li class="navigator"><a href="#page9" id="seyfertTransfeReserve">SeyfertTransferReserved</a></li>
+                        <li class="navigator"><a href="#page10" id="seyfertTransfer">SeyfertTransfer</a></li>
+                        <li class="navigator"><a href="#page11" id="escrowRelease">EscrowRelease</a></li>
+                        <li class="navigator"><a href="#page12" id="seyfertWithdraw">SeyfertWithraw</a></li>
+                        <li class="navigator"><a href="#page13" id="seyfertPending">SeyfertPending</a></li>
+                        <li class="navigator"><a href="#page14" id="seyfertPendingRelease">SeyfertPendingRelease</a></li>
+                        <li class="navigator"><a href="#page15" id="seyfertPendingCancel">SeyfertPendingCancel</a></li>
+                        <li class="navigator"><a href="#page16" id="seyfertCancel">SeyfertCancel</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#page17" id="recurringMenu">Recurring <span id="recurringToggleIcon">[+]</span></a>
+                    <ul class="recurringSubMenu" style="display:none;">
+                    	<li class="navigator"><a href="#page17" id="payRecurring">Pay</a></li>
+                    	<li class="navigator"><a href="#page18" id="payParentCancel">parentCancel</a></li>
+                    	<li class="navigator"><a href="#page281" id="payChildCancel">childCancel</a></li>
+                    	<li class="navigator"><a href="#page171" id="unlimitedReserve">unlimitedReserve</a></li>
+                    	<li class="navigator"><a href="#page181" id="cancelUnlimitedReserve">cancelUnlimitedReserve</a></li>
+                    </ul>
+                </li>
+                <li class="navigator">
+                    <a href="#page19" id="sendMoney">SendMoney</a>
+                </li>
+                <li>
+                    <a href="#page20"  id="exchangeMenu">Exchange <span id="exchangeToggleIcon">[+]</span></a>
+                    <ul class="exchangeSubMenu" style="display:none;">
+                    	<li class="navigator"><a href="#page20" id="exchangeInquiry">Inquiry</a></li>
+                    	<li class="navigator"><a href="#page21" id="exhangeMoney">Money</a></li>
+                    </ul>
+                </li>
+                <li class="navigator">
+                    <a href="#page22"  id="smsMO">Sms-Mo</a>
+                </li>
+                <li class="navigator">
+                    <a href="#page23" id="uploadMemberImage">UploadMemberImage</a>
+                </li>
+                <li class="navigator">
+                    <a href="#page24" id="decryptMsg">Decrypt Message</a>
+                </li>              
+                <li class="navigator">
+                	<a href="#page25"> GenerateEncryptData </a>
+                </li>  
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+        	<div class="container-fluid">
+        		<section  id="page1" class="intro-section">
+	        		<div class="row" style="height:1000px;">
+	                    <div class="margin">
+	                        <h1>PAYGATE SEYFERT DEMO</h1>
+	                        <p><strong>Usage Instructions:</strong> Please Enter your <b>GUID</b> & <b>ENCRYPTION KEY</b> and click Start Demo.</p>
+		                    <input type="text" id="masterGuid" placeholder="GUID" /> <BR> <BR>
+		                    </strong> <input type="text" id="encryptKey" placeholder="Encryption Key" /> <BR> <BR>
+		                    <a class="btn btn-default page-scroll" id="firstSection" href="#page2">Start Demo</a>
+	                    </div>
+	                </div>
+                </section>
+                <section  id="page2" class="intro-section">
+	                <div class="row"  style="height:1000px;">
+	                   <div class="margin">
+				                <h1>Create member</h1>
+				                <div class="formCon"> 
+				                	<form id="createForm">
+			                		<div class="labels form-group hideClass" >
+			                			<span> Merchant Guid </span>
+			                		</div>
+			                		<div class="inpuControl hideClass">
+			                			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" id="merchantMemGuid" value="" readonly="readonly" />	
+			                		</div>
+			                		<div class="labels">
+			                			<span> Full Name </span>
+			                		</div>
+			                		<div class="inpuControl">
+			                			<input type="text" class="textBoxs" name="fullname" placeholder="It cannot contain number" />	
+			                		</div>
+			                		<div class="labels">
+			                			<span> Language Code </span>
+			                		</div>
+			                		<div class="inpuControl">
+			                			<select class="textBoxs" name="nmLangCd">
+			                				<option value=""> ----- </option>
+			                				<option value="ko"> Korean </option>
+			                				<option value="en"> English </option>
+			                			</select>
+			                		</div>
+			                		<div class="labels">
+			                			<span> Phone Number </span>
+			                		</div>
+			                		<div class="inpuControl">
+			                			<input type="text" class="textBoxs" name="phoneNo" placeholder="Length should be between 10 to 11"  />	
+			                		</div>
+			                		<div class="labels" style="display:none">
+			                			<span> Phone Country Code </span>
+			                		</div>
+			                		<div class="inpuControl" style="display:none">
+			                			<input type="text" class="textBoxs" value ="KOR" name="phoneCntryCd" placeholder="KOR" />
+			                		</div>
+			                		<div class="labels" style="display:none">
+			                			<span> Phone Type </span>
+			                		</div>
+			                		<div class="inpuControl" style="display:none">
+			                			<input type="text" class="textBoxs" value ="MOBILE" name="phoneTp" placeholder="MOBILE" />
+			                		</div>
+			                		<div class="labels">
+			                			<span> Address</span>
+			                		</div>
+			                		<div class="inpuControl">
+			                			<input type="text" class="textBoxs" name="addrss1" placeholder="Paygate" />	
+			                		</div>
+			                		<div class="labels" style="display:none">
+			                			<span> Address Line 2 </span>
+			                		</div>
+			                		<div class="inpuControl" style="display:none">
+			                			<input type="text" class="textBoxs" name="addrss2" value="paygate"  placeholder="Jamsil" />	
+			                		</div>
+			                		<div class="labels" style="display:none">
+			                			<span> Address Country Code </span>
+			                		</div>
+			                		<div class="inpuControl" style="display:none">
+			                			<input type="text" class="textBoxs" name="addrssCntryCd" value="KOR" placeholder="Jamsil" />
+			                		</div>
+			                		<div class="labels">
+			                			<span> City </span>
+			                		</div>
+			                		<div class="inpuControl">
+			                			<input type="text" class="textBoxs" name="city"  placeholder="It cannot contain a number"/>	
+			                		</div>
+			                		<div class="labels" class="labels" style="display:none;">
+			                			<span> Postal Code </span>
+			                		</div>
+			                		<div class="inpuControl" class="labels" style="display:none;">
+			                			<input type="text" class="textBoxs" value="138801" name="postCd" placeholder="Should be valid postal code. example: 138801" />	
+			                		</div>
+			                		<div class="labels"  style="display:none;">
+			                			<span> Address Type</span>
+			                		</div>
+			                		<div class="inpuControl"  style="display:none;">
+			                			<input type="text" class="textBoxs" name="addrssTp" value="HOME" placeholder="home" />
+			                		</div>
+			                		<div class="labels">
+			                			<span> Email Address </span>
+			                		</div>
+			                		<div class="inpuControl">
+			                			<input type="text" class="textBoxs" name="emailAddrss"  id="email" placeholder="should be a valid email address" />	
+			                		</div>
+			                		<div class="labels" style="display:none;">
+			                			<span> Email Type </span>
+			                		</div>
+			                		<div class="inpuControl"  style="display:none;">
+			                			<input type="text" class="textBoxs" name="emailTp" value="PERSONAL" placeholder="Personal" />
+			                		</div> <br>
+			                				                		
+			                		<div class="inpuControl">
+			                			<a  id="createMemberBut" class="buttons btn btn-default page-scroll">Submit</a>
+			                		</div>
+		                		</form>
+			                </div>
+			          </div>
+	               </div>
+               </section> 
+                
+                
+                <div class="row" id="page2.1"  style="height:1000px;">
+                   <div class="margin">
+			                <h1>Create member With Email</h1>
+			                <div class="formCon"> 
+			                	<form id="createWithEmailForm">
+		                		<div class="labels form-group hideClass" >
+		                			<span> Merchant Guid </span>
+		                		</div>
+		                		<div class="inpuControl hideClass">
+		                			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" id="merchantMemGuid" value="" readonly="readonly" />	
+		                		</div>
+		                		
+		                		<div class="labels">
+		                			<span> Email Address </span>
+		                		</div>
+		                		<div class="inpuControl">
+		                			<input type="text" class="textBoxs" name="emailAddrss"  id="email" placeholder="should be a valid email address" />	
+		                		</div>
+		                		<div class="labels" style="display:none;">
+		                			<span> Email Type </span>
+		                		</div>
+		                		<div class="inpuControl"  style="display:none;">
+		                			<input type="text" class="textBoxs" name="emailTp" value="PERSONAL" placeholder="Personal" />
+		                		</div> <br>
+		                	
+		                		<div class="labels">
+			            			<span> keytype </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<select class="textBoxs" name="keyTp">
+			            				<option value="EMAIL"> Email </option>
+			            			</select>
+			            		</div>
+			            		
+			            		<div class="inpuControl">
+		                			<a  id="createMemberWithEmailBut" class="buttons btn btn-default page-scroll">Submit</a>
+		                		</div>
+	                		</form>
+		                </div>
+		          </div>
+               </div>
+                
+                <div class="row" id="page2.2"  style="height:1000px;">
+                   <div class="margin">
+			                <h1>Create member With Phone</h1>
+			                <div class="formCon"> 
+			                	<form id="createWithPhoneForm">
+		                		<div class="labels form-group hideClass" >
+		                			<span> Merchant Guid </span>
+		                		</div>
+		                		<div class="inpuControl hideClass">
+		                			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" id="merchantMemGuid" value="" readonly="readonly" />	
+		                		</div>
+		                		
+		                		<div class="labels">
+		                			<span> Phone Number </span>
+		                		</div>
+		                		<div class="inpuControl">
+		                			<input type="text" class="textBoxs" name="phoneNo" placeholder="Length should be between 10 to 11"  />	
+		                		</div>
+		                		<div class="labels" style="display:none">
+		                			<span> Phone Country Code </span>
+		                		</div>
+		                		<div class="inpuControl" style="display:none">
+		                			<input type="text" class="textBoxs" value ="KOR" name="phoneCntryCd" placeholder="KOR" />
+		                		</div>
+		                		<div class="labels" style="display:none">
+		                			<span> Phone Type </span>
+		                		</div>
+		                		<div class="inpuControl" style="display:none">
+		                			<input type="text" class="textBoxs" value ="MOBILE" name="phoneTp" placeholder="MOBILE" />
+		                		</div>
+		                	
+		                		<div class="labels">
+			            			<span> keytype </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<select class="textBoxs" name="keyTp">
+			            				<option value="PHONE"> Phone </option>
+			            			</select>
+			            		</div>
+			            		
+			            		<div class="inpuControl">
+		                			<a  id="createMemberWithPhoneBut" class="buttons btn btn-default page-scroll">Submit</a>
+		                		</div>
+	                		</form>
+		                </div>
+		          </div>
+               </div>
+                
+                 <div class="row" id="page2.3"  style="height:1000px;">
+                   <div class="margin">
+			                <h1>Create member With Bank Account</h1>
+			                <div class="formCon"> 
+			                	<form id="createWithBnkForm">
+			                		<div class="labels form-group hideClass" >
+			                			<span> Merchant Guid </span>
+			                		</div>
+			                		<div class="inpuControl hideClass">
+			                			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" id="merchantMemGuid" value="" readonly="readonly" />	
+			                		</div>
+			                		<div class="labels form-group">
+				                		<span> Bank</span>
+				            		</div>
+				            		<div class="inpuControl ">
+				            			<select class="textBoxs" name="bnkCd" id="bnkCdMem"> </select>
+				            		</div>
+				            		<div class="labels form-group">
+				                		<span> Account No </span>
+				            		</div>
+				            		<div class="inpuControl ">
+				            			<input type="text" class="textBoxs" name="accntNo" value=""/>	
+				            		</div>
+				            		<div class="labels form-group">
+				                		<span> Country Code </span>
+				            		</div>
+				            		<div class="inpuControl ">
+				            			<input type="text" class="textBoxs" name="cntryCd" value="KOR"/>	
+				            		</div>
+				                	
+			                		<div class="labels">
+				            			<span> keytype </span>
+				            		</div>
+				            		<div class="inpuControl">
+				            			<select class="textBoxs" name="keyTp">
+				            				<option value="BNK_ACCNT"> Bank Account </option>
+				            			</select>
+				            		</div>
+			                		<div class="inpuControl">
+			                			<a  id="createMemberWithBnkBut" class="buttons btn btn-default page-scroll">Submit</a>
+			                		</div>
+	                		</form>
+	                </div>
+	          </div>
+            </div>
+            <div class="row" id="page3"  style="height:1000px;">
+                   <div class="margin">
+                   		<h1>Assign Virtual Account</h1>
+                   		<div class="formCon">
+						  <form id="assignVirtualAccountForm">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Target) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs toMemGuid" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Bank Code </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="bnkCd" id="availBankList"> </select>
+		            		</div> <br>
+		            		<div class="inpuControl">
+		                		<a  id="assignVirtualBut" class="buttons btn btn-default page-scroll">Submit</a>
+		                	</div>
+						  </form>
+						</div>
+                   </div>
+                </div>
+                <div class="row" id="page3.5"  style="height:1000px;">
+                   <div class="margin">
+                   		<h1>Add Mem Info</h1>
+                   		<div class="formCon">
+						  <form id="addMemNameForm">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly"/>	
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs" name="nmLangCd" value="en" readonly="readonly"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Target) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs toMemGuid" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Full name </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs toMemGuid" name="fullname" />	
+		            		</div>
+		            		<div class="inpuControl">
+		                		<a  id="addMemNameBut" class="buttons btn btn-default page-scroll">Submit</a>
+		                	</div>
+						  </form>
+						</div>
+                   </div>
+                </div>
+                <div class="row" id="page4"  style="height:1000px;">
+                   <div class="margin">
+                   		<h1>Assign Bank Account</h1>
+                   		 <div class="formCon">
+						  <form id="assignBankAccountForm">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid  </span>
+		            		</div>
+		            		<div class="inpuControl hideClass ">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly"/>	
+		            		</div>
+		            		<div class="labels form-group">
+		                		<span> Merchant Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl ">
+		            			<input type="text" class="textBoxs toMemGuid" name="dstMemGuid" value=""/>	
+		            		</div>
+		            		<div class="labels form-group">
+		                		<span> Bank</span>
+		            		</div>
+		            		<div class="inpuControl ">
+		            			<select class="textBoxs" name="bnkCd" id="bnkCd"> </select>
+		            		</div>
+		            		<div class="labels form-group">
+		                		<span> Account No </span>
+		            		</div>
+		            		<div class="inpuControl ">
+		            			<input type="text" class="textBoxs" name="accntNo" value=""/>	
+		            		</div>
+		            		<div class="labels form-group">
+		                		<span> Country Code </span>
+		            		</div>
+		            		<div class="inpuControl ">
+		            			<input type="text" class="textBoxs" name="cntryCd" value="KOR"/>	
+		            		</div>
+		            		<br>
+		            		<div class="inpuControl">
+		                		<a  id="assignBankAccountBut" class="buttons btn btn-default page-scroll">Submit</a>
+		                	</div>
+		            	 </form>
+		            	</div>
+                   </div>
+                </div>
+                <div class="row" id="page5"  style="height:1000px;">
+                   <div class="margin">
+                   		  <h1>Charge to Virtual Account</h1>
+                   		  <div class="formCon">
+                   		  	<span>Congratulation!</span> <br>
+		                    <span>You can now deposit money to your virtual account. </span> <br> 
+		                    <span>Bank Code : </span> <span> <b id="bankCodeSey"></b> </span> <br> 
+		                    <span>Account.No : </span> <span> <b id="virtualAccountNo">xxxxxxxxxxxxxxxxx</b> </span>
+		                	<br><br><br>
+		                	<a class="buttons btn btn-default page-scroll" href="#page6" id="chargeToAccountBut" style="width:58%;">Click here to check your balance after transfering the money.</a>
+                   		  </div>
+                   </div>
+                </div>
+                <div class="row" id="page6"  style="height:1000px;">
+                   <div class="margin">
+                   		<h1>Inquire Bank Account Owner Name</h1>
+                   		<div class="formCon">
+                   			 <form id="inquireBankAccountOwnerNameForm">
+							  	<div class="labels form-group hideClass">
+			                		<span> Merchant Guid </span>
+			            		</div>
+			            		<div class="inpuControl hideClass">
+			            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Member Guid (Destination) </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs"  name="dstMemGuid" id="dstMemGuid"/>	
+			            		</div>
+			            		<br>
+			            		<div class="inpuControl">
+			                			<a  id="inquireBankAccountOwnerNameBut" class="buttons btn btn-default">Submit</a>
+			                	</div>
+			                  </form>
+                   		</div>
+                   </div>
+                </div>
+                <div class="row" id="page7"  style="height:1000px;">
+                   <div class="margin">
+                   		<h1>Inquire Bank Account Owner</h1>
+                   		<div class="formCon">
+                   			 <form id="inquireBankAccountForm">
+							  	<div class="labels form-group hideClass">
+			                		<span> Merchant Guid </span>
+			            		</div>
+			            		<div class="inpuControl hideClass">
+			            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Member Guid (Destination) </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs"  name="dstMemGuid"/>	
+			            		</div>
+			            		<br>
+			            		<div class="inpuControl">
+			                		<a  id="inquireBankAccountOwnerBut" class="buttons btn btn-default">Submit</a>
+			                	</div>
+			                  </form>
+                   		</div>
+                   </div>
+                </div>
+                <div class="row" id="page8"  style="height:1000px;">
+                   <div class="margin">
+                   		<h1>Seyfert Balance</h1>
+                   		<span><button class="btn btn-primary" data-toggle="modal" href="#myModal">Please Set Global Parameters For Transaction (Required) </button></span>
+                   		<br><br>
+                   		<div class="formCon">
+                   			<form id="seyfertBalanceInquiryForm"  class="transactionFormClass">
+							  	<div class="labels form-group hideClass">
+			                		<span> Merchant Guid </span>
+			            		</div>
+			            		<div class="inpuControl hideClass ">
+			            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" id="reqMemGuid" value="" readonly="readonly"/>	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Member Guid (Destination) </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs toMemGuid" name="dstMemGuid" id="toMemGuid" />	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Currency </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<select class="textBoxs" name="crrncy">
+			            				<option value=""> ----- </option>
+			            				<option value="KRW"> KRW </option>
+			            				<option value="USD"> USD </option>
+			            			</select>
+			            		</div>
+			            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+			            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+			            		<div class="inpuControl submitButton">
+			                		<a  id="seyfertBalanceInquiry" class="buttons btn btn-default page-scroll">Submit</a>
+			                	</div>
+							  </form>
+                   		</div>
+                   </div>
+                </div>
+                <div class="row" id="page9"  style="height:1000px;">
+                   <div class="margin">
+                   		 <h1>Seyfert Transfer Reserved</h1>
+                   		 <div class="formCon">
+                   		 	 <form id="seyfertTransferReservedForm" class="transactionFormClass">
+							  	<div class="labels form-group hideClass">
+			                		<span> Merchant Guid </span>
+			            		</div> 
+			            		<div class="inpuControl hideClass ">
+			            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Member Guid (Source) </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs" name="srcMemGuid" id="fromMemGuid" />	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Member Guid (Destination) </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Amount </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<input type="text" class="textBoxs" name="amount" />	
+			            		</div>
+			            		<div class="labels">
+			            			<span> Currency </span>
+			            		</div>
+			            		<div class="inpuControl">
+			            			<select class="textBoxs" name="crrncy">
+			            				<option value=""> ----- </option>
+			            				<option value="KRW"> KRW </option>
+			            				<option value="USD"> USD </option>
+			            			</select>
+			            		</div>
+			            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+			            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+			            		<div class="inpuControl submitButton">
+			                			<a  id="seyfertTransferReserved" class="buttons btn btn-default page-scroll">Submit</a>
+			                	</div>
+							  </form>
+                   		 </div>
+                   </div>
+                </div>
+                <div class="row" id="page10"  style="height:1000px;">
+                   <div class="margin">
+                   	<h1>Seyfert Transfer</h1>
+                   	<div class="formCon">
+                   		 <form id="seyfertTransferInquiryForm" class="transactionFormClass">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass ">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Source) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="srcMemGuid" id="fromMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="amount" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crrncy">
+		            				<option value=""> ----- </option>
+		            				<option value="KRW"> KRW </option>
+		            				<option value="USD"> USD </option>
+		            			</select>
+		            		</div>
+		            		<div class="labels">
+		            			<span> Description </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs transDescription" name="desc" value="" />	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+			            	<div class="inpuControl submitButton">
+		                			<a  id="seyfertTransferInquiry" class="buttons btn btn-default page-scroll">Submit</a>
+		                	</div>
+						  </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page11"  style="height:1000px;">
+                   <div class="margin">
+                   	 <h1>Escrow Release Request</h1>
+                   	<div class="formCon">
+                   		<form id="escrowReleaseContainer" class="transactionFormClass">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Parent Id </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs"  name="parentTid" id="escrowParentId"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Deal completion Date </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            		<input type="text" class="textBoxs" value="" placeholder="please enter the deal completion date, ex) 20150812" name="dealCmplDt"/>	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+		            		<div class="inpuControl submitButton">
+		                			<a  id="escrowReleaseInquiry" class="buttons btn btn-default page-scroll">Submit</a>
+		                	</div>
+		                	<!--input type="hidden" name="refId" value="test" />
+		                	<input type="hidden" name="title" value="test" /-->
+						  </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page12"  style="height:1000px;">
+                   <div class="margin">
+                   	<h1>Seyfert Withdraw</h1>
+                   	<div class="formCon">
+                   		 <form id="seyfertWithdrawForm" class="transactionFormClass">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs toMemGuid" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="amount" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crrncy">
+		            				<option value=""> ----- </option>
+		            				<option value="KRW"> KRW </option>
+		            				<option value="USD"> USD </option>
+		            			</select>
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+		            		<div class="inpuControl submitButton">
+		                		<a id="seyfertWithdrawBut" class="buttons btn btn-default">Submit</a>
+		                	</div>
+						  </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page13"  style="height:1000px;">
+                   <div class="margin">
+                   	<h1>Seyfert Pending</h1>
+                   	<div class="formCon">
+                   		  <form id="seyfertTransferPendingForm" class="transactionFormClass">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass ">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Source) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="srcMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="amount" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crrncy">
+		            				<option value=""> ----- </option>
+		            				<option value="KRW"> KRW </option>
+		            				<option value="USD"> USD </option>
+		            			</select>
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+			            	<div class="inpuControl submitButton">
+		                			<a  id="seyfertTransferPendingBut" class="buttons btn btn-default page-scroll">Submit</a>
+		                	</div>
+						  </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page14"  style="height:1000px;">
+                   <div class="margin">
+                   		 <h1>Seyfert Pending release</h1>
+                   	<div class="formCon">
+                   		 <form id="seyfertPendingReleaseForm" class="transactionFormClass">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Parent Id </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs"  name="parentTid" id="seyfertPendingReleaseParentId"/>	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+		            		<div class="inpuControl submitButton">
+		                			<a  id="seyfertPendingReleaseBut" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		                	<!--input type="hidden" name="refId" value="test" />
+		                	<input type="hidden" name="title" value="test" /-->
+						  </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page15"  style="height:1000px;">
+                   <div class="margin">
+                   	<h1>Seyfert Pending Cancel</h1>
+                   	<div class="formCon">
+                   		 <form id="seyfertPendingCancelForm" class="transactionFormClass">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Parent Id </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs"  name="parentTid" id="seyfertPendingCancelParentId"/>	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+		            		<br>
+		            		<div class="inpuControl submitButton">
+		                			<a  id="seyfertPendingCancelBut" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		                	<!--input type="hidden" name="refId" value="test" />
+		                	<input type="hidden" name="title" value="test" /-->
+						  </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page16"  style="height:1000px;">
+                   <div class="margin">
+                   	  <h1>Seyfert Cancel</h1>
+                   	<div class="formCon">
+                   		 <form id="seyfertCancelContainer" class="transactionFormClass">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Parent Id </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs"  name="parentTid" id="seyfertCancelParentId"/>	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+		            		<div class="inpuControl submitButton">
+		                			<a  id="seyfertCancelRequest" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		                </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page17"  style="height:1000px;">
+                   <div class="margin">
+                   	<h1>Recurring Pay</h1>
+                   	<div class="formCon">
+                   		<form id="recurringPayForm" class="transactionFormClass">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass ">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Source) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="srcMemGuid" id="fromMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="amount" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crrncy">
+		            				<option value=""> ----- </option>
+		            				<option value="KRW"> KRW </option>
+		            				<option value="USD"> USD </option>
+		            			</select>
+		            		</div>
+		            		<div class="labels">
+		            			<span> Recurring Date </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="recurringDt" value="" placeholder="20151025,20151026,20151030" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Recurring Time </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="recurringTm" value="" placeholder="example(0100 = morning 1 AM, 1300 = afternoon 1 PM)" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Recurring Type </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="recurringTp" value="SEYFERT_TRANSFER" placeholder="" />	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+			            	<div class="inpuControl submitButton">
+		                		<a  id="recurringPayButton" class="buttons btn btn-default page-scroll">Submit</a>
+		                	</div>
+						 </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page18"  style="height:1000px;">
+                   <div class="margin">
+                   	<h1>Cancel Parent Recurring Pay</h1>
+                   	<div class="formCon">
+                   		<form id="recurringPayParentCancelForm">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Parent Id </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs"  name="parentTid" id="recurringPayCancelParentId"/>	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+		            		<div class="inpuControl submitButton">
+		                			<a  id="cancelRecurringParentPayButton" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		                	<!--input type="hidden" name="refId" value="test" />
+		                	<input type="hidden" name="title" value="test" /-->
+						  </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page281"  style="height:1000px;">
+                   <div class="margin">
+                   	<h1>Cancel Child Recurring Pay</h1>
+                   	<div class="formCon">
+                   		<form id="recurringPayChildCancelForm">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Child Tid </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs"  name="childTid" id="recurringPayCancelChildId"/>	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+		            		<div class="inpuControl submitButton">
+		                			<a  id="cancelRecurringChildPayButton" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		                	<!--input type="hidden" name="refId" value="test" />
+		                	<input type="hidden" name="title" value="test" /-->
+						  </form>
+                   	</div>
+                   </div>
+                </div>
+                 <div class="row" id="page171"  style="height:1000px;">
+                   <div class="margin">
+                   	<h1>Unlimited reserved transfer</h1>
+                   	<div class="formCon">
+                   		<form id="unlimitedReserveForm" class="transactionFormClass">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass ">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Source) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="srcMemGuid" id="fromMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crrncy">
+		            				<option value=""> ----- </option>
+		            				<option value="KRW"> KRW </option>
+		            				<option value="USD"> USD </option>
+		            			</select>
+		            		</div>
+		            		<div class="labels">
+		            			<span> Recurring Type </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="recurringTp" value="SEYFERT_TRANSFER" placeholder="" />	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+			            	<div class="inpuControl submitButton">
+		                			<a  id="unlimitedReserveButton" class="buttons btn btn-default page-scroll">Submit</a>
+		                	</div>
+						 </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page181"  style="height:1000px;">
+                   <div class="margin">
+                   	<h1>Cancel Unlimited Reserve</h1>
+                   	<div class="formCon">
+                   		<form id="cancelUnlimitedReserveForm">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Parent Id </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs"  name="parentTid" id="recurringPayCancelParentId"/>	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+		            		<div class="inpuControl submitButton">
+		                			<a  id="cancelUnlimitedReserveButton" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		                	<!--input type="hidden" name="refId" value="test" />
+		                	<input type="hidden" name="title" value="test" /-->
+						  </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page19"  style="height:1000px;">
+                   <div class="margin">
+                   	 <h1>Send Money</h1>
+                   	<div class="formCon">
+                   		<form id="sendMoneyForm" class="transactionFormClass">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Source) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="srcMemGuid" />	
+		            		</div>
+		            		
+		            		<div class="labels">
+		            		<span> Member Guid (Origin) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="orgMemGuid" />	
+		            		</div>
+
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="amount" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="crrncy">
+		            				<option value=""> ----- </option>
+		            				<option value="KRW"> KRW </option>
+		            				<option value="USD"> USD </option>
+		            			</select>
+		            		</div>
+		            		<div class="labels">
+		            			<span> reason code </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="reasonCd" value="" id="sendMoneyReasonCd" placeholder="reasonCd" />	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+			            	<div class="inpuControl submitButton">
+		                			<a  id="sendMoneyButton" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		            	 </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page20"  style="height:1000px;">
+                   <div class="margin">
+                   	<h1>Exchange Inquiry</h1>
+                   	<div class="formCon">
+                   		<strong><input type="radio" name="exchangeInquiry" class="exchangeInquiryClass" value="case1" checked="checked">case1</strong>
+                		<strong><input type="radio" name="exchangeInquiry" class="exchangeInquiryClass" value="case2">case2</strong>
+                   		 <form id="exchangeInquiryForm">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount (Source) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="srcAmt"  id="exchangeInquirySrcAmt" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency (Source)</span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="srcCrrncy">
+		            				<option value=""> ----- </option>
+		            				<option value="KRW"> KRW </option>
+		            				<option value="USD"> USD </option>
+		            			</select>
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="dstAmt" id="exchangeInquiryDstAmt" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency (Destination)</span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="dstCrrncy">
+		            				<option value=""> ----- </option>
+		            				<option value="KRW"> KRW </option>
+		            				<option value="USD"> USD </option>
+		            			</select>
+		            		</div>
+		            		<br>
+		            		<div class="inpuControl">
+		                			<a  id="exchangeInquiryButton" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		            	 </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page21"  style="height:1000px;">
+                   <div class="margin">
+                   	 <h1>Exchange Money</h1>
+                   	<div class="formCon">
+                   		<strong><input type="radio" name="exchangeMoney" class="exchangeMoneyClass" value="case1" checked="checked">case1</strong>
+		                <strong><input type="radio" name="exchangeMoney" class="exchangeMoneyClass" value="case2">case2</strong>
+		                  <form id="exchangeMoneyForm">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount (Source) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="srcAmt"  id="exchangeMoneySrcAmt" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency (Source)</span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="srcCrrncy">
+		            				<option value=""> ----- </option>
+		            				<option value="KRW"> KRW </option>
+		            				<option value="USD"> USD </option>
+		            			</select>
+		            		</div>
+		            		<div class="labels">
+		            			<span> Amount (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" name="dstAmt" id="exchangeMoneyDstAmt" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Currency (Destination)</span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<select class="textBoxs" name="dstCrrncy">
+		            				<option value=""> ----- </option>
+		            				<option value="KRW"> KRW </option>
+		            				<option value="USD"> USD </option>
+		            			</select>
+		            		</div>
+		            		<br>
+		            		<div class="inpuControl">
+		                			<a  id="exchangeMoneyButton" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		            	 </form>
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page22"  style="height:1000px;">
+                   <div class="margin">
+                   		<h1>SMS MO</h1>
+	                   	<div class="formCon">
+	                   	  <form id="smsMoForm">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Message Content </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="messageContent" />	
+		            		</div>
+		            		<div class="showExtraParams" style="display:none"><span class="showExtraParamsIcon" >+</span> Global Parameters</div>
+		            		<div class="globalParamContainer extraParams" style="display:none;width:100%;"> </div>
+		            		<div class="inpuControl submitButton">
+		                		<a  id="smsMoButton" class="buttons btn btn-default">Submit</a>
+		                	</div>
+		            	 </form>	
+                   	</div>
+                   </div>
+                </div>
+                <div class="row" id="page23"  style="height:1000px;">
+                   <div class="margin">
+                   	 <h1>UPLOAD MEMBER IMAGE</h1>
+                   	<div class="formCon">
+                   		 <form id="uploadMemberImageForm"  method="post" target="uploadResult" enctype="multipart/form-data">
+						  	<div class="labels form-group hideClass">
+		                		<span> Merchant Guid </span>
+		            		</div>
+		            		<div class="inpuControl hideClass">
+		            			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value="" readonly="readonly" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Member Guid (Destination) </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="dstMemGuid" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Image </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="file" class="textBoxs" name="file" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Image Code </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="ID_CARD" name="imgCd" />	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Image Name </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="imgNm"/>	
+		            		</div>
+		            		<div class="labels">
+		            			<span> Image Description </span>
+		            		</div>
+		            		<div class="inpuControl">
+		            			<input type="text" class="textBoxs" value="" name="imgDesc"/>	
+		            		</div>
+		            		<br>
+		            		<div class="inpuControl">
+		                		<input type="submit"  class="buttons btn btn-default" />
+		                	</div>
+		                	<br>
+		                	<div class="inpuControl" id="uploadResult"></div>
+		            	 </form>	
+                   	</div>
+                   </div>
+                </div>  
+                <div class="row" id="page24"  style="height:1000px;">
+                	<div class="margin">
+                   	 	<h1>Decrypt Message</h1>
+	                   	<div>
+	                   		<textarea id="encryptedMsgTxt"name="textarea" rows="10" style="width:40%;" placeholder="Your encrypted message"></textarea>
+	                   	</div>
+	                   	
+	                   	<div class="inpuControl">
+			                <a  id="decryptMsgBut" class="buttons btn btn-default page-scroll">Decrypt</a>
+			            </div>
+						<div>
+                   			<textarea id="decryptedMsgTxt"name="textarea" rows="10" style="width:40%;" placeholder="Your decrypted message"></textarea>
+                   		</div>		            
+                   </div>
+                </div>
+                <div class="row" id="page25"  style="height:1000px;">
+                   <div class="margin">
+                   <h1>ENCRYPT DATA GENERATOR</h1> <br>
+                       <div class="formCon">
+                       		<div class="labels form-group">
+				                <span> REQ GUID <span style="color:red">*</span> </span>
+				            </div>
+				            <div class="inpuControl">
+				                <input type="text" class="textBoxs" name="reqMemGuid" id="reqMemGuid" value=""/>    
+				            </div>
+				            <div class="labels">
+				                <span> KEY <span style="color:red">*</span> </span>
+				            </div>
+				            <div class="inpuControl">
+				                <input type="text" class="textBoxs" value="" name="key" id="key" /> 
+				            </div>
+				            
+				            <div class="labels">
+				                <span> URI <span style="color:red">*</span> </span>
+				            </div>
+				            <div class="inpuControl">
+				                <input type="text" class="textBoxs dataSet" value=""  id="reqUri" /> 
+				            </div>
+				            
+				            <div class="labels">
+				                <span> METHOD <span style="color:red">*</span> </span>
+				            </div>
+				            <div class="inpuControl">
+				                <select class="textBoxs dataSet" value="GET"  id="method" >
+				                    <option value="GET">GET</option>
+				                    <option value="POST">POST</option>
+				                    <option value="PUT">PUT</option>
+				                    <option value="DELETE">DELETE</option>
+				                </select> 
+				            </div>
+				            
+				            <div id="paramGenerateCon">
+				                <div class="labels">
+				                    <span> PARAMETERS TO ENCRYPT <span style="color:red">*</span> </span>
+				                </div>
+				                <form id="dataForm">
+				                    <div class="formCon" id="formDataCon">
+				                        <div class="inpuControl">
+				                           <textarea style="width: 100%; height:110px;min-width:340px;" id="paramSet" class="dataSet"></textarea> 
+				                        </div>
+				                    </div>
+				                </form>    
+				            </div>
+				            <div class="inpuControl">
+				                <a  id="generateButton" class="buttons btn btn-default">GENERATE</a>
+				            </div>
+				            <div class="labels result">
+				                <span> Plain Request </span>
+				            </div>
+				            <div class="inpuControl result">
+				                <textarea style="width: 100%;min-width:340px;" id="plainReq" class="resultSet"></textarea>
+				            </div>
+					   	   <div class="labels result">
+				                <span> Encrypt Request </span>
+				            </div>
+				            <div class="inpuControl result">
+				                <textarea style="width: 100%;min-width:340px;height:100px;" id="encryptReq" class="resultSet"></textarea>
+				            </div>
+                       </div>
+                   </div>
+                </div>
+                 	
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+		 <div id="footer">
+		 	<div id="itemHead"> <span id="toggleConsole">console <span id="toggleIcon">[-]</span></span></div>
+		 	<div id="itemContent" style="display: non;"> 
+		 		<!--textarea> dadsa</textarea-->
+		 		<div id="console"> CONSOLE AREA  </div>	
+		 	</div>
+		 </div>
+    </div>
+    <!-- GLOBAL PARAMETERS TEMPLATE -->
+    <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="modal-dialog modal-lg" style="width: 20%;">
+		    <div class="modal-content animated bounceInRight">
+	            <div class="modal-header">
+	            	<span> <strong id="memberListTitle"> Transaction Extra Parameters  </strong> </span>
+	                <button type="button" class="close" data-dismiss="modal" id="closeModal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	            </div>
+	            <div class="modal-body" id="globalParamListContainer" style="background-color: #ffffff;border;1px solid red;"> 
+	            	<div class="formCon" style="background-color: #ffffff;border;1px solid red;width:100%;">
+	            		<form id="globalParametersForm">
+	                   		<div>
+				                <span> <b>TITLE</b> </span>
+				            </div>
+				            <div>
+				                <input type="text" class="textBoxs"  title="TITLE" name="title" id="globalTitle" value=""/>    
+				            </div>
+				            <div>
+				                <span> <b>Auth Type</b> </span>
+				            </div>
+				            <div>
+				                <select class="textBoxs"  title="Auth Type" name="authType" id="globalAuthType">
+				                	<option value="SMS_MO">SMS MO</option>
+				                	<option value="LMS_MO">LMS MO</option>
+				                </select>    
+				            </div>
+				            <div class="marginTop">
+				                <span> <b>Reference Id</b> </span>
+				            </div>
+				            <div>
+				                <input type="text" class="textBoxs"  title="Reference Id" name="refid" id="globalRefId" value=""/>    
+				            </div>
+				            <div class="marginTop">
+				                <span> <b>Time Out(In minutes)</b> </span>
+				            </div>
+				            <div>
+				                <select class="textBoxs" title="Time Out(In minutes)" name="timeout" id="globalTimeOut"> </select>    
+				            </div>
+				            <div class="marginTop">
+				                <span> <b>Nonce(optional)</b> </span><br>
+				                <small>
+					                Setting nonce value will enable you to make the api call just once witht the same value. <br>
+					                <strong>
+					                	Note: Change the nonce value to make the api call again. <br> (eg: 123)
+					                </strong>
+				                </small>
+				            </div>
+				            <div>
+				                <input type="text" title="Nonce"  class="textBoxs" name="nonce" id="globalNonce"/>    
+				            </div>
+			            </form>
+				   </div>         
+	            </div>
+	            <div class="modal-footer">
+	            	<button class="btn btn-success" id="setGlobalParams">Set Params</button>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../uiLibraries/Jquery/jquery-2.1.1.js"></script>        
+    <script src="../uiLibraries/Bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="../AesLibrary/aespidcrypt/pidcrypt.js"></script>
+    <script src="../AesLibrary/aespidcrypt/pidcrypt_util.js"></script>
+    <script src="../AesLibrary/aespidcrypt/sha256.js"></script>
+    <script src="../AesLibrary/aespidcrypt/md5.js"></script>
+    <script src="../AesLibrary/aespidcrypt/aes_core.js"></script>
+    <script src="../AesLibrary/aespidcrypt/aes_ctr.js"></script>
+    <script src="SeyfertDemo2.js"></script>
+    <script src="util.js"></script>
+    <script src="demoUtil.js"></script>
+</body>
+
+</html>

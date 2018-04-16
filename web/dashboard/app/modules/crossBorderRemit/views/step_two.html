@@ -1,0 +1,108 @@
+<fieldset>
+    <div class="row">
+        <div class="col-lg-6">
+			<h2 translate>lblBeneficiaryBasicInfo</h2>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblRefId</label>
+                <div class="col-sm-8"><div class="row"><input name="refId" ng-model="beFormData.refId" type="text" class="form-control required"></div></div>
+            </div>
+            
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblFullName*</label>
+                <div class="col-sm-8"><div class="row"><input name="fullname" ng-model="beFormData.fullname" type="text" class="form-control required"></div></div>
+            </div>
+            
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblEmail</label>
+                <div class="col-sm-8"><div class="row"><input name="emailAddrss" ng-model="beFormData.emailAddrss" type="text" class="form-control required"></div></div>
+            </div>
+            
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblCountryCity</label>
+                <div class="col-sm-8">
+					<div class="row">
+						<div class="col-sm-6 no-padding">
+							<select required class="form-control"
+								ng-model="beFormData.addrssCntryCd"
+								chosen="directiveOptions"
+								data-placeholder-text-single="'Choose Country'"
+								disable-search="true"
+								ng-options="option.cdKey as option.cdNm for option in countryList">
+								<option value=""></option>
+							</select>
+						</div>
+						<div class="col-sm-6 no-padding">
+							<input name="city" ng-model="beFormData.city" type="text" class="form-control required">
+						</div>
+					</div>
+				</div>
+            </div>            
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblBank</label>
+                <div class="col-sm-8"><div class="row"><input name="bnkCd" ng-model="beFormData.bnkCd" type="text" class="form-control required"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblAddress</label>
+                <div class="col-sm-8"><div class="row"><input name="addrss1" ng-model="beFormData.addrss1" type="text" class="form-control required"></div></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+			<h2 translate>lblBeneficiaryBankInfo</h2>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblCashPickup</label>
+                <div class="col-sm-8">
+					<div class="row">
+						<div class="radio radio-info radio-inline">
+							<input type="radio" id="inlineRadio1" value="Yes" name="cashPickup" ng-model="beFormData.cashPickup" checked="">
+							<label for="inlineRadio1" translate>lblYes</label>
+						</div>
+						<div class="radio radio-inline">
+							<input type="radio" id="inlineRadio2" value="No" name="cashPickup" ng-model="beFormData.cashPickup">
+							<label for="inlineRadio2" translate>lblNo</label>
+						</div>
+					</div>
+				</div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblBankDeposit</label>
+                <div class="col-sm-8">
+					<div class="row">
+						<div class="radio radio-info radio-inline">
+							<input type="radio" id="inlineRadio1" value="Yes" name="bankDeposit" ng-model="beFormData.bnkDeposit" checked="">
+							<label for="inlineRadio1" translate>lblYes</label>
+						</div>
+						<div class="radio radio-inline">
+							<input type="radio" id="inlineRadio2" value="No" name="bankDeposit" ng-model="beFormData.bnkDeposit">
+							<label for="inlineRadio2" translate>lblNo</label>
+						</div>
+					</div>
+				</div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblAccountNumber</label>
+                <div class="col-sm-8"><div class="row"><input name="bnkAccountNumber" ng-model="beFormData.bnkAccountNumber" type="text" class="form-control required"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblBankName</label>
+                <div class="col-sm-8"><div class="row"><input name="bnkName" ng-model="beFormData.bnkName" type="text" class="form-control required"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblBankBranchName</label>
+                <div class="col-sm-8"><div class="row"><input name="bnkBranchName" ng-model="beFormData.bnkBranchName" type="text" class="form-control required"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblComment</label>
+                <div class="col-sm-8"><div class="row"><input name="comment" ng-model="beFormData.comment" type="text" class="form-control required"></div></div>
+            </div>
+        </div>
+    </div>
+	<div class="row">
+		<div class="hr-line-dashed"></div>
+		<div class="col-sm-10">
+			<div class="form-group pull-right">
+				<a ui-sref="index.crossBorderRemit.step_one" class="btn btn-default" translate>lblPrevious</a>
+				<button type="submit" class="btn btn-primary" ng-disabled="crossRemitForm.$invalid" translate>lblSubmit</button>
+			 </div>
+		</div>
+	</div>
+</fieldset>

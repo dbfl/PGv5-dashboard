@@ -1,0 +1,92 @@
+<div class="ibox-content">
+<div class="row" >
+	<div class="col-lg-5">
+		<div class="ibox float-e-margins">
+            
+            <div class="ibox-content">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th translate>lblLast24Hours</th>
+                        <th translate>lblLastWeek</th>
+                        <th><span translate>lblGrandTotal</span>
+                        	<div ng-if="dataTotalLoading" class="sk-spinner sk-spinner-circle pull-right">
+								 <div class="sk-circle1 sk-circle"></div>
+								 <div class="sk-circle2 sk-circle"></div>
+								 <div class="sk-circle3 sk-circle"></div>
+								 <div class="sk-circle4 sk-circle"></div>
+								 <div class="sk-circle5 sk-circle"></div>
+								 <div class="sk-circle6 sk-circle"></div>
+								 <div class="sk-circle7 sk-circle"></div>
+								 <div class="sk-circle8 sk-circle"></div>
+								 <div class="sk-circle9 sk-circle"></div>
+								 <div class="sk-circle10 sk-circle"></div>
+								 <div class="sk-circle11 sk-circle"></div>
+								 <div class="sk-circle12 sk-circle"></div>
+							 </div>
+						</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+						<tr ng-if="!showError">
+							<td ng-repeat="option in totalMember"><h3 class="font-bold text-danger"><i class="fa fa-male"> </i> {{option | number}}</h3></td>
+						</tr>
+						<tr ng-if="showError"><td class="alert alert-danger" colspan="3">ERR_API</td></tr>
+                    </tbody>
+                </table>
+               <div class="row">
+            		<div class="col-sm-6">
+						<h4 translate>lblStatusEmail</h4>
+						<canvas id="pie" class="chart chart-pie" chart-data="dataEmail" chart-labels="labelsStatus"  chart-options="options" chart-colors="colors"></canvas>
+	    			</div>        	
+	    			<div class="col-sm-6">
+						<h4 translate>lblStatusPhone</h4>
+						<canvas id="pie" class="chart chart-pie" chart-data="dataPhone" chart-labels="labelsStatus"  chart-options="options" chart-colors="colors"></canvas>
+	    			</div> 
+            	</div>
+            </div>
+            
+        </div>
+	</div>
+	<div class="col-lg-7">
+		<div class="ibox float-e-margins">
+             <div class="ibox-title">
+             	<div class="col-lg-6">
+	                 <h5> {{viewChartByTime}} <span translate>lblMemberChart</span></h5>
+	                 <div ng-if="dataChartLoading" class="sk-spinner sk-spinner-circle pull-right">
+	                     <div class="sk-circle1 sk-circle"></div>
+	                     <div class="sk-circle2 sk-circle"></div>
+	                     <div class="sk-circle3 sk-circle"></div>
+	                     <div class="sk-circle4 sk-circle"></div>
+	                     <div class="sk-circle5 sk-circle"></div>
+	                     <div class="sk-circle6 sk-circle"></div>
+	                     <div class="sk-circle7 sk-circle"></div>
+	                     <div class="sk-circle8 sk-circle"></div>
+	                     <div class="sk-circle9 sk-circle"></div>
+	                     <div class="sk-circle10 sk-circle"></div>
+	                     <div class="sk-circle11 sk-circle"></div>
+	                     <div class="sk-circle12 sk-circle"></div>
+	                 </div>
+                </div>
+                <div class="col-lg-6">
+	                 <div class="btn-group pull-right btn-chart">
+		                    <label ng-class="{active: viewChartByTime == 'Day'}" ng-model="viewChartByTime" uib-btn-radio="'Day'" class="btn btn-sm btn-white">Day</label>
+							<label ng-class="{active: viewChartByTime == 'Week'}" ng-model="viewChartByTime" uib-btn-radio="'Week'" class="btn btn-sm btn-white">Week</label>
+							<label ng-class="{active: viewChartByTime == 'Month'}" ng-model="viewChartByTime" uib-btn-radio="'Month'" class="btn btn-sm btn-white">Month</label>
+							<label ng-class="{active: viewChartByTime == 'Year'}" ng-model="viewChartByTime" uib-btn-radio="'Year'" class="btn btn-sm btn-white">Year</label>
+							<label ng-class="{active: viewChartByTime == 'All'}" ng-model="viewChartByTime" uib-btn-radio="'All'" class="btn btn-sm btn-white">All</label>
+	                  </div>
+                 </div>
+             </div>
+             <div class="ibox-content">
+             	<div class="my-chart" style="height:108px">
+             		<canvas ng-if="!showErrorChart" id="bar" class="chart chart-bar" chart-data="dataMemberToday" chart-labels="labelsMemberToday"  chart-series="seriesMemberToday" chart-options="options"></canvas>
+					<div class="alert alert-warning" ng-if="showErrorChart">
+							<span translate>lblNoData</span>
+					</div>
+            	</div> 
+             </div>
+         </div>
+	</div>
+</div>
+</div>

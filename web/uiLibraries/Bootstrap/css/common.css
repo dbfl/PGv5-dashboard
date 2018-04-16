@@ -1,0 +1,5 @@
+.getransDetail, .getransDetails {
+	cursor: pointer;
+}
+.active{color:#8CC657;font-weight:bold;}
+.total{cursor:pointer;}

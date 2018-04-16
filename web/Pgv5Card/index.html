@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>card payment</title>
+		<meta name="author" content="athan" />
+		<!-- Date: 2016-03-08 -->
+		<link href="https://v5.paygate.net/uiLibraries/Bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+		<link href="https://v5.paygate.net/uiLibraries/Bootstrap/font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet"/>
+
+		<script src="https://v5.paygate.net/uiLibraries/Jquery/jquery-2.1.1.js" type="text/javascript"></script>
+		<script src="https://v5.paygate.net/uiLibraries/Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="https://v5.paygate.net/uiLibraries/Bootstrap/js/inspinia.js" type="text/javascript"></script>
+		<script src="https://v5.paygate.net/uiLibraries/json2.js" type="text/javascript"></script>
+		<script src="https://v5.paygate.net/uiLibraries/Bootstrap/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="https://v5.paygate.net/uiLibraries/Bootstrap/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+		<script src="https://v5.paygate.net/AdminDashboard/commonJs/util.js"></script>
+		<style> 
+			.content {
+				position: relative;
+				padding-top: 5px;
+			}
+			.mainContainer {
+				margin: 0 auto;
+				width: 420px;
+			}
+			.result {
+				position: relative;
+				padding-top: 10px;
+			}
+			.formContainer {
+				width: 357px;
+				margin: 0 auto;
+			}
+			.buttonContainer {
+				position: relative;
+				padding-top: 25px;
+				padding-bottom: 15px;
+			}
+			.input-group-btn:last-child > .form-control {
+				margin-left: -1px;
+				width: auto;
+				color: #0D70B7;
+			}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			  	$("#submitForm").click(function(){
+			 		var param = $("#PGIOForm").serialize();
+			 		var method="GET";
+			 		var url = "https://dev5.paygate.net/v5/basic/cvc?callback=?&_method=POST&";
+			 		AJAX_REQUEST.AJAX.CALL_SERVICE(url,method,param,function(data,status){
+			 			$(".jsonOutClass").show();
+			 			$("#jsonOutput").val(JSON.stringify(data.data));
+			 		});	
+			 	});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="mainContainer">
+			<div class="panel-body">
+				<div class="row">
+					<div >
+						<div class="panel panel-default">
+							<div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+								<strong> <span> Basic card payment </span></strong>
+							</div>
+							<div class="panel-body">
+								<div class="formContainer">
+									<form name="PGIOForm" id="PGIOForm">
+										<div class="labels result">
+											<span> <strong> MID </strong> </span>
+										</div>
+										<div class="inputControl">
+											<input type="text" class="form-control"  name="mid" value="krcvc" />
+										</div>
+
+										<div class="labels result">
+											<span> <strong> Unit price </strong> </span>
+										</div>
+										<div class="inputControl">
+											<div class="input-daterange input-group">
+												<input class="form-control" name="unitprice" value="1000" type="text">
+												<div class="input-group-btn">
+													<select class="form-control" name="goodcurrency">
+														<option value="WON" selected="selected">KRW</option>
+														<option value="USD">USD</option>
+														<option value="CNY">CNY</option>
+														<option value="YEN">YEN</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="labels result">
+											<span> <strong> Good's name </strong> </span>
+										</div>
+										<div class="inputControl">
+											<input type="text" class="form-control" name="goodname" value="Test card"/>
+										</div>
+
+										<div class="labels result">
+											<span> <strong> Receiver's name </strong> </span>
+										</div>
+										<div class="inputControl">
+											<input type="text" class="form-control" name="receipttoname" value="Test"/>
+										</div>
+										<div class="labels result">
+											<span> <strong> Receivers email </strong> </span>
+										</div>
+										<div class="inputControl">
+											<input type="text" class="form-control" name="receipttoemail" value="dev@paygate.net"/>
+										</div>
+										<div class="labels result">
+											<span> <strong> Card number </strong> </span>
+										</div>
+										<div class="inputControl">
+											<input type="text" class="form-control" name="cardnumber" value=""/>
+										</div>
+										<div class="labels result">
+											<span> <strong> Expirary date </strong> </span>
+										</div>
+										<div class="inputControl">
+											<div class="input-daterange input-group">
+												<span class="input-group-addon">Month</span>
+												<select id="cardexpiremonth" name="cardexpiremonth" class="form-control">
+													<option value="00" selected="selected">00</option>
+													<option value="01">01</option>
+													<option value="02">02</option>
+													<option value="03">03</option>
+													<option value="04">04</option>
+													<option value="05">05</option>
+													<option value="06">06</option>
+													<option value="07">07</option>
+													<option value="08">08</option>
+													<option value="09">09</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+												</select>
+												<span class="input-group-addon">Year</span>
+												<select id="cardexpireyear" name="expirationYear" class="form-control">
+													<option value="0000" selected="selected">0000</option>
+													<option value="2016">2016</option>
+													<option value="2017">2017</option>
+													<option value="2018">2018</option>
+													<option value="2019">2019</option>
+													<option value="2020">2020</option>
+													<option value="2021">2021</option>
+													<option value="2022">2022</option>
+													<option value="2023">2023</option>
+													<option value="2024">2024</option>
+													<option value="2025">2025</option>
+													<option value="2026">2026</option>
+													<option value="2027">2027</option>
+													<option value="2028">2028</option>
+													<option value="2029">2029</option>
+													<option value="2030">2030</option>
+												</select>
+											</div>
+										</div>
+										<div class="labels result">
+											<span> <strong> Cvc </strong> </span>
+										</div>
+										<div class="inputControl">
+											<input type="text" class="form-control" name="cardsecretnumber" value=""/>
+										</div>
+										<div class="inputControl buttonContainer">
+											<input type="button" class="form-control  btn-default" style="font-weight:bold;color:#666666;" id="submitForm" value="submit"/>
+										</div>
+										<div class="labels result jsonOutClass" style="display:none;">
+											<span> <strong> Output </strong> </span>
+										</div>
+										<div class="inputControl  jsonOutClass"  style="display:none;">
+											<textArea class="form-control" id="jsonOutput" value=""> </textarea>
+										</div>
+										<input type="hidden" name="paymethod" value="100" />
+										<input type="hidden" name="langcode" value="US" />
+										<input type="hidden" name="charset" value="UTF-8" />
+										<input type="hidden" name="tid" value=""/>
+										<input type="hidden" name="redirecturl" value=""/>
+										<input type="hidden" name="replycode" value=""/>
+										<input type="hidden" name="replyMsg" value=""/>
+										<input type="hidden" name="profile_no" value=""/>
+										<input type="hidden" name="hashresult" value=""/>
+										<input type="hidden" name="riskscore" value="" />
+										<input type="hidden" name="cardtype" value="" />
+										<input type="hidden" name="cardauthcode" value="" />
+									</form>
+								</div>
+							</div>
+							<div class="panel-footer" style="background-color: #F9F8F8;color:#666666;height:32px;">
+								<span style="position:relative;bottom:5px;"><small>Copyright &copy; PayGate Korea </small></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,21 @@
+<div class="ibox no-margins">
+    <div class="ibox-title">
+        <h5 translate>lblAddLucture</h5>
+    </div>
+    <div class="ibox-content">
+    	<div class="alert alert-warning" ng-if="errorLectureForm">
+			Error!!
+		</div>
+        <form class="form-inline" name="lectureForm" ng-submit="vm.addLecture()">
+        	<div class="form-group">
+				<label class="control-label" translate>lblTitle</label>
+			</div>
+			<div class="form-group">
+				<input required type="text" placeholder="Enter title" name="studyDesc" class="form-control" ng-model="vm.lectureForm.studyDesc">
+			</div>
+			<div class="form-group">
+			<button ng-disabled="!lectureForm.$valid" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" translate>lblAdd</button>
+			</div>
+        </form>
+    </div>
+</div>

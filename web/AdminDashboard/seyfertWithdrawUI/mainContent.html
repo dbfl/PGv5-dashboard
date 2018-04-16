@@ -1,0 +1,145 @@
+<div style="border: 0px solid red; width: 97%; margin: 0 auto;"
+	id="dashHeaderContent">
+	<div class="col-lg-12" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.4em;"> <strong>
+				<span> Sefert total balance: </span> <span id="totalBalanceAmt"
+				class="text-success"> </span> (<i class="fa fa-won"></i>)
+		</strong>
+		</small> <br> <small> <span id="menuBaseCurrency"> Seyfert
+				withraw simulation </span> <span> <i class="fa fa-won"></i>)
+		</span>
+		</small>
+	</div>
+</div>
+
+<div class="tab-content" id="dashMainContent">
+	<div id="tab-1" class="tab-pane active">
+		<div class="tabs-container">
+			<ul class="nav nav-tabs">
+				<li class="active tabMenu"><a data-toggle="tab"
+					href="#seyfertWithdrawTab"> <span id="tabWithdraw">Withdraw</span>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="tab-content">
+		<div id="seyfertWithdrawTab" class="tab-pane active">
+			<div class="panel-body" style="margin-left: -16px;">
+				<div class="row" style="position: relative; padding-top: 5px;">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading"
+								style="background-color: #586B7D; color: #ffffff;">
+								<strong> <i class="fa fa-cogs"></i> <span
+									id="seyfertWithdrawSimulator">Seyfert withdraw</span></strong>
+							</div>
+							<div class="panel-body">
+								<div class="col-lg-12">
+									<div
+										style="border: 0px solid red; margin: 0 auto; background-color: #FAFAFA; position: relative; padding: 10px">
+										<div
+											style="background-color: #ffffff; padding: 15px; border-radius: 5px; width: 450px; margin: 0 auto;">
+											<form id="seyfertWithdrawForm">
+												<div
+													style="text-align: left; width: 400px; margin: 0 auto; display: none; position: relative; padding-bottom: 10px;"
+													class="destinationGuidCon">
+													<span> <strong> <span
+															id="destinationGuidLabel">Destination Guid</span> <span
+															style="color: #205081;"> <small>(Note: <span
+																	id="note">enter destination guid or enter
+																		merchant name</span>)
+															</small>
+														</span>
+													</strong>
+													</span> <br> <input type="text"
+														style="border: 1px solid #E8E7E6;" class="form-control"
+														id="destinationGuid" name="dstMemGuid" />
+												</div>
+												<div
+													style="text-align: left; width: 400px; margin: 0 auto; color: #205081; padding-top: 15px; display: none; border-bottom: 1px solid #666666; border-top: 1px solid #666666;"
+													id="guidList">
+													<table id="memberList" style="width: 100%;"></table>
+												</div>
+												<div
+													style="text-align: left; width: 400px; margin: 0 auto; color: #205081; display: none; padding-top: 15px; padding-bottom: 10px;"
+													id="balanceResultContainer">
+													<span> <strong> <span> Existing
+																balance: </span> <span style="color: #017EBC"><span
+																id="merchantSeyfertBalance"> Balance </span> <i
+																class="fa fa-krw"></i></span> <input type="hidden" value=""
+															id="totalBalance" />
+													</strong>
+													</span> <br>
+												</div>
+												<div
+													style="text-align: left; width: 400px; margin: 0 auto; position: relative; padding-bottom: 15px;">
+													<span> <strong> <span id="titleLbl">Title</span></strong></span>
+													<br> <input type="text"
+														style="border: 1px solid #E8E7E6;" class="form-control"
+														name="title" id="title" />
+												</div>
+												<!--div  style="text-align: left;width:400px;margin:0 auto;">
+													<span> <strong> <span>REFERENCE-ID</span></strong></span> <br>
+													<input type="text" style="border:1px solid #E8E7E6;" class="form-control" name="refid"/>	
+												</div> <br-->
+												<div style="text-align: left; width: 400px; margin: 0 auto;">
+													<span> <strong><span id="amountLbl">Amount</span></strong></span>
+													<br>
+													<div class="input-group">
+														<input type="text" style="border: 1px solid #E8E7E6;"
+															placeholder="0.00" name="amount" id="amount"
+															class="form-control" /> <span class="input-group-addon"><i
+															class="fa fa-won"></i></span>
+													</div>
+												</div>
+											</form>
+											<br>
+											<div
+												style="text-align: center; width: 400px; margin: 0 auto; position: relative; padding-top: 10px; padding-bottom: 10px;">
+												<button class="btn btn-success btn-sm  full-width m-b"
+													style="width: 100%;" id="simulateSeyfertWithdraw"
+													data-loading-text="<i class='fa fa-circle-o- fa-spin'></i> GENERATING RATE">
+													<span style="font-weight: bold; font-size: 14px;"
+														id="simulate">withdraw</span> (<i class="fa fa-krw"></i>)
+												</button>
+											</div>
+											<div id="withdrawResultContainer"
+												style="width: 400px; margin: 0 auto; position: relative; padding-top: 2px; padding-bottom: 0px; display: none;">
+												<div class="panel panel-default">
+													<div class="panel-heading"
+														style="color: #2D6987; background-color: #ffffff;">
+														<strong> <i class="fa fa-money"></i> <span
+															id="withdrawSuccess" class="text-success"
+															style="display: none;"> Withdraw Success </span> <span
+															id="withdrawFail" class="text-danger"
+															style="display: none;"> Withdraw Fail </span>
+														</strong>
+													</div>
+													<div class="panel-body">
+														<span style="font-size: 2.0em" id="withdrawResultText">
+															.. </span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12"
+							style="background-color: #F0F0F0; position: relative; padding-top: 10px; padding-bottom: 8px; border-radius: 5px;">
+							<div
+								style="position: relative; padding-left: 10px; text-align: left; border-radius: 5px; position: relative; padding-top: 10px; padding-bottom: 8px; background-color: #FFFFFF;">
+								<span id="noticeSpanC"> <i class="fa fa-warning"></i> <strong>
+										<span id="seyfertWithdrawWarningMessage"> Seyfert
+											withdraw service is only for Korean won </span> <span
+										style="color: #D9534F">'KRW'</span>.
+								</strong></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

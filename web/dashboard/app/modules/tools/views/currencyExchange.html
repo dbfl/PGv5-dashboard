@@ -1,0 +1,124 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2 translate>lblCurrencyExchange</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-5">
+        	<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>lblCurrencyExchangeTitle</span>
+					 <div ng-if="loadDataForm" class="sk-spinner sk-spinner-circle pull-right">
+						 <div class="sk-circle1 sk-circle"></div>
+						 <div class="sk-circle2 sk-circle"></div>
+						 <div class="sk-circle3 sk-circle"></div>
+						 <div class="sk-circle4 sk-circle"></div>
+						 <div class="sk-circle5 sk-circle"></div>
+						 <div class="sk-circle6 sk-circle"></div>
+						 <div class="sk-circle7 sk-circle"></div>
+						 <div class="sk-circle8 sk-circle"></div>
+						 <div class="sk-circle9 sk-circle"></div>
+						 <div class="sk-circle10 sk-circle"></div>
+						 <div class="sk-circle11 sk-circle"></div>
+						 <div class="sk-circle12 sk-circle"></div>
+					 </div>
+				</div>
+				<div class="panel-body">
+				  	<div class="col-sm-6 b-r">
+						<form role="form" name="exchangeInquiryForm" ng-submit="vm.exchangeInquiry()">
+							<div class="form-group" ng-class="{ 'has-error' : exchangeInquiryForm.srcAmt.$invalid && !exchangeInquiryForm.srcAmt.$pristine }"><label translate>lblAmount</label> 
+								<input tabindex="1" required min="1" max="999999999" type="number" name="srcAmt" ng-model="vm.currencyForm.srcAmt" placeholder="Enter Amount" class="form-control">
+								<p ng-show="exchangeInquiryForm.srcAmt.$error.number" class="help-block">Not valid number!</p>{{exchangeInquiryForm.srcAmt.$error.number}}
+							</div>
+							<div class="form-group"><label translate>lblBaseCurrency</label>
+								<select tabindex="2" required class="form-control"
+									ng-model="vm.currencyForm.srcCrrncy"
+									chosen="directiveOptions"
+									data-placeholder-text-single="'Choose Base currency'"
+									disable-search="false"
+									ng-options="option.cd_key as option.cd_nm for option in currencyList">
+									<option value=""></option>
+								</select>
+							</div>
+							<div class="form-group"><label translate>lblDestinationCurrency</label> 
+								<select tabindex="3" required class="form-control"
+									ng-model="vm.currencyForm.dstCrrncy"
+									chosen="directiveOptions"
+									data-placeholder-text-single="'Choose Destination currency'"
+									disable-search="false"
+									ng-options="option.cd_key as option.cd_nm for option in currencyList">
+									<option value=""></option>
+								</select>
+							</div>
+							<div>
+								<button tabindex="4" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" ng-disabled="exchangeInquiryForm.$invalid"><strong translate>lblSimulator</strong></button>
+							</div>
+							<div class="alert alert-success" ng-if="exchangeSuccess">
+								Well done! You successfully exchange  <strong>{{dataExchange.srcAmt}} {{dataExchange.srcCrrncy}}</strong> to <strong>{{dataExchange.dstAmt}} {{dataExchange.dstCrrncy}}</strong>
+							</div>
+						</form>
+					</div>
+					<div class="col-sm-6">
+						<h4 translate>lblExchangeRate</h4>
+						<small translate>lblExchangeRateDesc1</small>
+						<small translate>lblExchangeRateDesc2</small>
+						<div ng-if="doCalculation"  class="sk-spinner sk-spinner-rotating-plane"></div>
+						<form ng-show="canProcessing" role="form" name="exchangeProcess" ng-submit="vm.exchangeProcess()">
+							<div class="form-group no-margins">
+								<span translate>lblRate</span>: <label>{{dataInquiry.rate}}</label> 
+							</div>
+							<div class="form-group no-margins">
+								<span translate>lblMargin</span>: <label>{{dataInquiry.margin}}</label> 
+							</div>
+							<div class="form-group no-margins">
+								<span translate>lblOrginalAmount</span>: <label>{{dataInquiry.srcAmt}} {{dataInquiry.srcCrrncy}}</label> 
+							</div>
+							<div class="form-group no-margins">
+								<span translate>lblExpectedAmount</span>: <label>{{dataInquiry.dstAmt}} {{dataInquiry.dstCrrncy}}</label> 
+							</div>
+							<div>
+								<button tabindex="5" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong translate>lblExchange</strong></button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>            
+        </div>
+        <div class="col-lg-7">
+        	<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>History</span>
+				</div>
+				<div class="panel-body no-padding">
+					<table class="table table-striped table-bordered table-hover">
+				        <thead>
+				        <tr>
+				        	<th>Phone</th>
+							<th>Content</th>
+							<th>Date</th>
+							<th>Status</th>
+				        </tr>
+				        </thead>
+				        <tbody>
+				        <tr>
+				        	<td>1234</td>
+							<td>content1</td>
+							<td>2016.08.29 12:22:01</td>
+							<td><span class="label label-success">SUCCESS</span></td>
+				        </tr>
+						<tr>
+				        	<td>1234</td>
+							<td>content2</td>
+							<td>2016.08.29 12:22:01</td>
+							<td><span class="label label-danger">FAILED</span></td>
+				        </tr>
+				        </tbody>
+				    </table>
+				</div>
+			</div>            
+        </div>
+    </div>
+</div>

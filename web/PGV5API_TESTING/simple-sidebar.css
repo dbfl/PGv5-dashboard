@@ -1,0 +1,187 @@
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+.affix {
+    top:50px;
+    position:fixed;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #3C3C3C;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #D4D4D4;
+    font-size: 13px;
+    font-weight:bold;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+/**Personal use add**/
+.memberSubMenu li, .transactionSubMenu li, .recurringSubMenu li, .exchangeSubMenu li{list-style: none;position:relative;}
+.memberSubMenu li a, .transactionSubMenu li a, .recurringSubMenu li a, .exchangeSubMenu li a{font-size:13px;font-weight: normal;}
+
+.showExtraParams{
+	width:40%;
+	margin:0 auto;
+	text-align: left;
+	cursor:pointer;
+	color:#005F8D;
+	margin-bottom:5px;
+}
+
+.marginTop{position:relative;padding-top:5px;}	
+#menuController{background-color: #444444;}
+.active{background: #0051A8;}
+#topMenu{
+	position: fixed;
+    top: 0;
+    z-index:3;
+    background-color:#ffffff;
+    width: 10%;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    /*height:350px;*/
+    background-color:#ffffff;
+    width: 100%;
+}
+#console{width:80%;height:100%;margin-left:5px;word-wrap: break-word;word-break: break-all;}
+.thMargin{position:relative;left:5px;}
+#itemHead{height:20px;background-color: #B2DBA1;color:#D9534F;font-weight:bold;}
+#itemHead span{position:relative;bottom:0px;padding-left:1px;cursor:pointer;}
+#itemContent{border:0px solid red;height:400px;width:100%;position:relative;overflow-x: hidden;overflow-y: auto;}
+
+/*
+#itemContent{border:0px solid red;height:400px;width:100%;direction:ltr;}
+#console{width:80%;word-wrap: break-word;word-break: break-all;margin-left:5px;}
+#scroll{direction:rtl;border:0px solid red;unicode-bidi:bidi-override;position:relative;overflow-x: scroll;overflow: scroll;}
+*/
+.textBoxs{width:100%;min-width:340px;height:34px;border-radius:1px;border:1px solid #888888;position:relative;padding-left:3px;}
+.buttons{width:100%;min-width:340px;height:34px;border: 1px solid #C8E5BC;font-weight:bold;color:#5CB85C;}
+.labels{text-align: left;width:40%;margin:0 auto;position:relative;padding-bottom:2px;}
+.labels span{font-weight:bold;}
+.inpuControl{text-align: left;width:40%;margin:0 auto;position:relative;padding-bottom:1%;}
+.merchantMemGuid{background-color: #EDEDED;border:2px solid #666666;font-weight:bold;}
+#masterGuid{font-weight:bold;width:100%;max-width:450px;height:30px;border-radius:1px;border:1px solid #888888;padding-left:3px;}
+#encryptKey{font-weight:bold;width:100%;max-width:450px;height:30px;border-radius:1px;border:1px solid #888888;padding-left:3px;}
+.hideClass{display: none;}
+.exchangeInquiryClass,.exchangeMoneyClass{cursor:pointer;}
+.margin{text-align: center;width:70%;margin:0 auto;}
+.selected{color:#000000;}
+.formCon{margin:0 auto;}

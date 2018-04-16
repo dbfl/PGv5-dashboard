@@ -1,0 +1,152 @@
+
+<div>
+	<!-- 거래상태 내역 입력 form  -->
+	<div ng-if="vm.isAdmin">
+		<div class="ibox-title">
+		        <h5 translate> GUID </h5>
+		    </div>
+		<div  class="row">
+			<form name="notiForm" class="p-lg form-horizontal">
+					<div class="col-sm-10">
+						<div class="form-group">
+							<!-- <span><label class="col-lg-1 "> GUID </label></span>
+							 -->
+							<div class="col-lg-4">
+								<input  type="text" class=form-control ng-model="vm.dstMemGuid" placeholder="Enter the GUID" autofocus />		
+							</div>	
+							<div class="col-log-4">
+								<button class="btn btn-primary btn-sm m-t-n-xs" ng-click="vm.urlBalance()"> 조회</button>
+							</div>
+						</div>
+					</div>				
+			</form>
+		</div>
+		<!-- 기존의 엘리가 만든 guid 검색 directive 인데 소스 확인 필요..
+			guid 검색 기능으로 알고 있었는데,
+			guid 검색이 실질적으로 이루어지고 있었던게 아니라
+			이름들을 입력햇을 때 fullname="" 으로 해당 이름의 guid 목록을 보여주는 기능 이엇음.
+			기능명세가 잘되어있는건지 내가 잘 이해를 못하고 있는 부분인지 명확히 하기 . 
+		 -->
+		<!-- <form name="notiForm" class="p-lg form-horizontal">
+			
+ 			<div class ="guid" data="vm.notiForm.dstMemGuid" blur="vm.inquiryBalances(true)" name="dstMemGuid"/>
+ 			<div ng-if="vm.seyfertWithdrawForm.dstMemGuid.length >= 4">
+				<a ng-href="" class="btn btn-outline btn-warning  dim pull-left" ng-click="getMemberDetail(vm.seyfertWithdrawForm)" style="float:left;"><i class="fa fa-pencil-square-o"></i>&nbsp</a>
+			</div>
+			
+			<div class="alert alert-danger" ng-if="vm.invalidParam">
+				Guid {{vm.notiForm.dstMemGuid}} not exists
+				<spanng-if="showMemberList">, please select Guid from list:</span>
+			</div>
+			<div class="form-group" ng-if="showMemberList">
+				<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th translate>lblName</th>
+							<th translate>lblGuid</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="show-cursor" ng-repeat="row in memberList"
+							ng-click="vm.selectMemberGuid(row.guid)">
+							<td>{{ row.fullname}}</td>
+							<td>{{ row.guid}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form> -->
+	</div>
+	<div class="ibox-title">
+        <h5 translate> URLs </h5>
+    </div>
+	<div>
+		<form name="pForm" class="p-lg form-horizontal">
+			<span><label translate> lblNotiTransactionStatusList </label></span>
+			<table class="table  table-bordered table-hover">
+				<tbody>
+					<tr ng-repeat="row in tranStatusRows">
+						<td>
+							<div class="col-sm-6" ng-if="!row">
+								<input  type="text" class="form-control"
+								ng-model="vm.transStatusList"  autofocus /> 
+							</div>
+							<label class="col-sm-6" ng-if="row"> {{row.sendTo}} </label>
+							<button class="btn btn-primary btn-sm pull-right m-t-n-xs" ng-if="!row"
+								ng-click="registRow($index)">
+								<span translate>lblNotiSubmit</span>
+								</button>
+							<button class="btn btn-warning btn-sm  pull-right m-t-n-xs" ng-if="row"
+								ng-click="removeRow($index)">
+								<span translate>lblNotiDelete</span>
+							</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<button 
+			class="btn  btn-sm  m-t-n-xs"
+			ng-disabled="itemTranStatusDisabled" ng-if=!isTranStatusMax
+				ng-click="addRow()">+</button>
+		</form>
+	</div>
+	<!-- 입금 내역 입력 form  -->
+	<div>
+		<form name="pForm" class="p-lg form-horizontal">
+			<span> <label translate> lblNotiPayInList </label></span>
+			<table class="table  table-bordered table-hover">
+				<tbody>
+					<tr ng-repeat="row in payinListRows">
+						<td>
+							<div class="col-sm-6" ng-if="!row">
+								<input name="payInList" type="text" class="form-control"
+								ng-model="vm.payInList"  autofocus />
+							</div>
+							 <label class="col-sm-6" ng-if="row">{{row.sendTo}} </label>
+							<button class="btn btn-primary btn-sm pull-right m-t-n-xs" ng-if="!row"
+								ng-click="registPayInRow($index)">
+								<span translate>lblNotiSubmit</span>
+							</button>
+							<button class="btn btn-warning btn-sm  pull-right m-t-n-xs" ng-if="row"
+								ng-click="removePayInRow($index)">
+								<span translate>lblNotiDelete</span>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<button
+			 class="btn  btn-sm  m-t-n-xs"
+			 ng-disabled="itemDisabled" ng-if=!isMax
+				ng-click="addPayInListRow()">+</button>
+		</form>
+	</div>
+	<div>
+		<form name="testValidForm" class="p-lg form-horizontal">
+			<p>
+			<span> <label translate>  lblValidURLTest </label></span>
+			<span><label style="color:red" translate> lblNotiComment </label></span>
+			</p>
+			<div class="col-sm-6">
+				<input name="testValidUrl" type="text" class="form-control"
+					ng-model="vm.testValidUrl"  autofocus />
+			</div>
+			<button class="btn btn-sm btn-primary pull-right m-t-n-xs" 
+				ng-diabled="true"
+				ng-click="urlValidTest()"> 
+				<span translate>lblNotiSend</span>
+			 </button>
+		</form> 
+		</div>
+		<div class="p-lg form-horizontal" ng-if="notiProgressStart">
+			<div class="alert alert-danger p-lg form-horizontal" ng-if="!notiProgressSuccess">
+		  		 {{vm.resultComments}}
+			</div>
+			<div style='overflow-y; scroll;' class="alert alert-success p-lg form-horizontal"  ng-if="notiProgressSuccess" >
+		  		<span>	{{vm.resultComments}}</span> </br>
+		  		<span>	{{vm.resultResponse}}</span>
+			</div>
+			
+			
+		</div>
+
+</div>

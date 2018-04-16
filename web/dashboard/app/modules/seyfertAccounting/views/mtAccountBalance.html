@@ -1,0 +1,101 @@
+<div class="row  white-bg">
+    <div class="col-sm-3">
+        <h3> 잔액조회  </h3>
+    </div>
+</div> 
+<div>
+	<form role="form" name="accntBalance">
+		<div class="row border-bottom" >
+			<div class="col-lg-5">
+				<div class="form-group" >
+					 <label class="col-sm-3 control-label" translate>  계좌 목록 </label>
+					 <div class="col-sm-8">
+						<!-- ng-change = "vm.selectAccount()" -->
+					 	<select required 
+					 		class="form-control"
+					 		ng-model="vm.transMtAccntBalance.list">
+					 		<option value="" selected='selected'> 전체 </option>
+	    			 		<option value="{{task.name}}" ng-repeat="task in vm.myAccntOriginList"> {{task.name}}</option>
+					 	</select>
+					 </div>
+				</div> 
+			</div>
+			<div class="form-group col-lg-5">
+		 		<!-- <span class='text-danger'><label> {{vm.comments}} </label></span> -->
+		 		<span class='text-danger' ><label ng-bind-html="vm.comments"> </label></span>
+		 		
+		 	</div>	
+		</div>	
+	</form></br>
+</div>
+<div>
+	<div class="row">
+       	<div class="col-sm-2">
+  			<label  class="control-label"> <h2> 검색결과</h2> </label>
+		</div>   
+		<div ng-if="vm.loadDataForm" class="sk-spinner sk-spinner-circle pull-left">
+			 <div class="sk-circle1 sk-circle"></div>
+			 <div class="sk-circle2 sk-circle"></div>
+			 <div class="sk-circle3 sk-circle"></div>
+			 <div class="sk-circle4 sk-circle"></div>
+			 <div class="sk-circle5 sk-circle"></div>
+			 <div class="sk-circle6 sk-circle"></div>
+			 <div class="sk-circle7 sk-circle"></div>
+			 <div class="sk-circle8 sk-circle"></div>
+			 <div class="sk-circle9 sk-circle"></div>
+			 <div class="sk-circle10 sk-circle"></div>
+			 <div class="sk-circle11 sk-circle"></div>
+			 <div class="sk-circle12 sk-circle"></div>
+		 </div>
+	</div>
+	<div class="row">
+		<!-- <input type="checkbox" ng-model="vm.isChecked" ng-change="vm.reLoad()" /> -->
+		<!-- <label>{{vm.isChecked}}</label> -->
+		<form  class="form-horizontal">
+			<div class="form-controller">
+				<!-- <table  datatable="ng" dt-options="vm.dtOptionsMember" class=" table table-striped table-bordered table-hover"> -->
+				<table  class=" table table-striped table-bordered table-hover">
+					<thead>
+						<th> 계좌번호 </th>
+						<th> 계좌 명 </th>
+						<th> 잔액 </th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="task in vm.mtAccntBalList">
+							<td><span ng-click="vm.searchMtAccntBalanceDetails(task.mthrAccntId ,task.accntNoDisp ,0 , 0 , 0 ,true)" ><label> {{task.name}} </label></span></td> 
+							<td class="col-lg-5">{{task.accntNoDisp}} </td>
+							<td> <span class="col-lg-5"> {{task.amount | number}} 원 </span>
+							 	 <button class='btn btn-sm btn-danger' 
+							 	  ng-if='vm.checkP2P(task.mthrAccntId)' 
+							 	  ng-click='vm.transfer()'
+							 	  ng-disabled = 'vm.isTrasfering'} > SC은행으로 이체 !!  </button>
+
+							 </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

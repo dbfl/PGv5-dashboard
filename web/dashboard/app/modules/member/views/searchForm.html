@@ -1,0 +1,65 @@
+<div class="ibox no-margins">
+    <div class="ibox-title">
+        <h5 translate>lblSearch</h5>
+    </div>
+    <div class="ibox-content">
+        <form class="form-horizontal" name="vm.advSearchForm" ng-submit="vm.advSearch()">
+        	<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblDstGuid</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="dstMemGuid" class="form-control" ng-model="vm.member.dstMemGuid">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblName</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="Name" class="form-control" ng-model="vm.member.fullname">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblPhone</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="Phone" class="form-control" ng-model="vm.member.phoneNo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblEmail</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="Email" class="form-control" ng-model="vm.member.emailAddrss">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" translate>lblSearch</button>
+						</div>
+					</div>
+				</div>
+				
+            </div>
+            <div class="row">
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label class="col-lg-4 control-label" translate>lblVirtualBankAccount</label>
+							<div class="col-lg-8">
+								<input type="text" placeholder="Virtual Account" class="form-control" ng-model="vm.member.virtualAccntNo">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label class="col-lg-4 control-label" translate>lblAccountNumber</label>
+							<div class="col-lg-8">
+								<input type="text" placeholder="Real Account" class="form-control" ng-model="vm.member.bnkAccntNo">
+							</div>
+						</div>
+					</div>
+				</div>
+        </form>
+    </div>
+</div>

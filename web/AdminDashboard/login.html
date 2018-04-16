@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Login</title>
+        <meta name="author" content="athan" />
+        <!-- Date: 2015-12-07 -->
+        <link href="../uiLibraries/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../uiLibraries/Bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="../uiLibraries/Bootstrap/css/animate.css" rel="stylesheet">
+        <link href="../uiLibraries/Bootstrap/css/style.css" rel="stylesheet">
+        <link href="../uiLibraries/Bootstrap/fonts/NotoSansKR-Black-Hestia.eot" rel="stylesheet">
+        <style>
+            .welcome{font-family: 'Noto Sans Korean', sans-serif;}
+            .textColor{color:#EC4758;}
+        </style>
+    </head>
+    <body class="gray-bg">
+    <div class="row border-bottom">
+      <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" action="search_results.html">
+                <div class="form-group">
+                    <!--input type="text" placeholder="Admin login Area" class="form-control" name="top-search" id="top-search"-->
+                    <img src="./img/PayGateLogo.jpg" name="top-search" style="position:relative;top:14px;"/>
+                </div>
+            </form>
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info languages" data-toggle="dropdown" href="#" id="koreanLang">
+                         KR <img src="img/koreanFlag.png" style="width:23px;height:15px;margin-bottom: 2px;" />
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info languages" data-toggle="dropdown" href="#" id="englishLang">
+                         EN <img src="img/americanflag.gif" style="width:20px;height:12px;margin-bottom: 2px;" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="middle-box text-center loginscreen animated fadeInDown" >
+      <div class="col-lg-13" style="text-align: center;">
+        <span  style="color:#3A4459;font-size: 700%;font-weight:bold;" id="LOGIN_HEADER">admin</span>
+    </div>  
+        <div id="loginContainer" style="display:none;">
+            <h3 class="welcome"  id="LOGIN_TITLE">PayGate management area</h3>
+            <h5 class="welcome" id="LOGIN_REQUEST">Please login to continue</h5>
+           <form class="m-t" role="form">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="LOGIN_ID_FIELD" placeholder="ID" value="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="LOGIN_PASSWORD_FIELD" placeholder="PASSWORD" value="">
+                </div>
+                <!--button type="button" class="btn btn-primary" id="LOGIN_BUTTON">
+                   {{LOGIN_BUTTON}}
+                   <span  class="glyphicon glyphicon-refresh glyphicon-refresh-animate">
+                   	<i class="fa fa-lock"> </i>
+                   	<img src="img/ajaxloader.gif" />
+                   </span> 
+                </button-->
+                <div style="position: relative;padding-bottom: 15px;display: none;">
+                	<img src="img/ajaxloaderCircle.gif" />	
+                </div>
+                 <button type="button" class="btn btn-primary block full-width m-b" id="LOGIN_BUTTON" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Login in progress">
+                		<i class="fa fa-lock"> </i> <span id="LOGIN_LABEL"> Login </span>
+                </button>
+	        </form>
+            <p class="m-t"> <small>Paygate admin login page. <strong>Copyright</strong> Paygate,. Ltd &copy;2016</small> </p>
+        </div>
+    </div>
+
+	<script src="../uiLibraries/Jquery/jquery-2.1.1.js"></script>        
+	<script src="../uiLibraries/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../uiLibraries/Jquery/jquery.cookie.js"></script>
+    <script src="../AesLibrary/aes.js"></script>
+    <script src="../AesLibrary/entropy.js"></script>
+    <script src="../AesLibrary/aesprng.js"></script>
+    <script src="../AesLibrary/lecuyer.js"></script>
+    <script src="../AesLibrary/md5.js"></script>
+    <script src="../AesLibrary/armour.js"></script>
+    <script src="../AesLibrary/jscrypt.js"></script>
+    
+     <!-- Encrytion lib -->
+    <script src="../AesLibrary/aespidcrypt/pidcrypt.js"></script>
+    <script src="../AesLibrary/aespidcrypt/pidcrypt_util.js"></script>
+    <script src="../AesLibrary/aespidcrypt/sha256.js"></script>
+    <script src="../AesLibrary/aespidcrypt/md5.js"></script>
+    <script src="../AesLibrary/aespidcrypt/aes_core.js"></script>
+    <script src="../AesLibrary/aespidcrypt/aes_ctr.js"></script>
+    
+    <script src="commonJs/loginLocalization.js"></script>
+    <script src="commonJs/loader.js"></script>
+    <script src="commonJs/util.js"></script>
+    <script src="commonJs/e2e.js"></script>
+    <script src="commonJs/login.js"></script>
+    </body>
+</html>
+

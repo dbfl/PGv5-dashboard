@@ -1,0 +1,1238 @@
+[
+	{
+		"cd_key" : "ARS_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "ARS 인증 완료",
+		"cd_desc" : "ARS 인증 완료 "
+	},
+	{
+		"cd_key" : "AGREE_FORCED_BY_MERCHANT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 펜딩 이체 완료 (낮은 금액에 대한 미인증 이체)",
+		"cd_desc" : "세이퍼트 펜딩 이체 완료 (낮은 금액에 대한 미인증 이체) "
+	},
+	{
+		"cd_key" : "ARS_DENIED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "ARS 인증 실패",
+		"cd_desc" : "ARS 인증 실패 "
+	},
+	{
+		"cd_key" : "ARS_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "ARS 인증 시작",
+		"cd_desc" : "ARS 인증 시작 "
+	},
+	{
+		"cd_key" : "ARS_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "ARS 인증 고객 응답 대기",
+		"cd_desc" : "ARS 인증 고객 응답 대기 "
+	},
+	{
+		"cd_key" : "ASSIGN_VACCNT_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "가상계좌 할당 완료",
+		"cd_desc" : "가상계좌 할당 완료 "
+	},
+	{
+		"cd_key" : "ASSIGN_VACCNT_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "가상계좌 할당 초기화",
+		"cd_desc" : "가상계좌 할당 초기화 "
+	},
+	{
+		"cd_key" : "BANK_DEPOSIT_PAYIN_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "은행 입금 입력 완료",
+		"cd_desc" : "은행 입금 입력 완료 "
+	},
+	{
+		"cd_key" : "BANK_DEPOSIT_PAYIN_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "은행 입금 입력 시작",
+		"cd_desc" : "은행 입금 입력 시작 "
+	},
+	{
+		"cd_key" : "BANK_DEPOSIT_PAYOUT_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "은행 출금 입력 완료",
+		"cd_desc" : "은행 출금 입력 완료 "
+	},
+	{
+		"cd_key" : "BANK_DEPOSIT_PAYOUT_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "은행 출금 입력 시작",
+		"cd_desc" : "은행 출금 입력 시작 "
+	},
+	{
+		"cd_key" : "BANK_TRAN_ROLL_BACK",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 실패에 따른 롤백",
+		"cd_desc" : "세이퍼트 출금 실패에 따른 롤백 "
+	},
+	{
+		"cd_key" : "BANK_TRAN_ROLL_BACK_PASSBOOK",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 실패에 따른 롤백",
+		"cd_desc" : "단, 출금 계좌에 기록됨 "
+	},
+	{
+		"cd_key" : "BATCH_RCRR_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 취소",
+		"cd_desc" : "자동이체 취소 "
+	},
+	{
+		"cd_key" : "BATCH_RCRR_ENOUGH_MONEY",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 2일전 잔고 충분 통보",
+		"cd_desc" : "자동이체 2일전 잔고 충분 통보 "
+	},
+	{
+		"cd_key" : "BATCH_RCRR_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 초기화",
+		"cd_desc" : "자동이체 초기화 "
+	},
+	{
+		"cd_key" : "BATCH_RCRR_NOTI_MONEY",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 2일전 잔고 부족 통보",
+		"cd_desc" : "자동이체 2일전 잔고 부족 통보 "
+	},
+	{
+		"cd_key" : "BATCH_RCRR_RUN_DONE",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 완료",
+		"cd_desc" : "자동이체 완료 "
+	},
+	{
+		"cd_key" : "BATCH_RCRR_RUN_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 실패",
+		"cd_desc" : "자동이체 실패 "
+	},
+	{
+		"cd_key" : "BATCH_RCRR_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 진행 중",
+		"cd_desc" : "자동이체 진행 중 "
+	},
+	{
+		"cd_key" : "BATCH_UNLIMITED_RSRV_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "무한 예약 이체 취소",
+		"cd_desc" : "무한 예약 이체 취소 "
+	},
+	{
+		"cd_key" : "BATCH_UNLIMITED_RSRV_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "무한 예약 이체 처리 중",
+		"cd_desc" : "무한 예약 이체 처리 중 "
+	},
+	{
+		"cd_key" : "CHECK_BNK_CD_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예금주 코드 검증 완료",
+		"cd_desc" : "예금주 코드 검증 완료 "
+	},
+	{
+		"cd_key" : "CHECK_BNK_CD_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예금주 코드 검증 초기화",
+		"cd_desc" : "예금주 코드 검증 초기화 "
+	},
+	{
+		"cd_key" : "CHECK_BNK_NM_DENIED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예금주명 조회 거절",
+		"cd_desc" : "예금주명 조회 거절 "
+	},
+	{
+		"cd_key" : "CHECK_BNK_NM_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예금주명 조회 완료",
+		"cd_desc" : "예금주명 조회 완료 "
+	},
+	{
+		"cd_key" : "CHECK_BNK_NM_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예금주명 조회 초기화",
+		"cd_desc" : "예금주명 조회 초기화 "
+	},
+	{
+		"cd_key" : "CHECK_BNK_REQ_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CHECK_BNK_REQ_FAILED",
+		"cd_desc" : "CHECK_BNK_REQ_FAILED"
+	},
+	{
+		"cd_key" : "CRD_AA_APPROVAL_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "PAYIN_CHARGE_APPROVAL_FAILED",
+		"cd_desc" : "PAYIN_CHARGE_APPROVAL_FAILED"
+	},
+	{
+		"cd_key" : "CRD_AA_APPROVED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "PAYIN_CHARGE_REQ_FINISHED",
+		"cd_desc" : "PAYIN_CHARGE_REQ_FINISHED"
+	},
+	{
+		"cd_key" : "CRD_AA_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "PAYIN_CHARGE_CANCELED",
+		"cd_desc" : "PAYIN_CHARGE_CANCELED"
+	},
+	{
+		"cd_key" : "CRD_AA_CANCEL_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_AA_CANCEL_FAILED",
+		"cd_desc" : "CRD_AA_CANCEL_FAILED"
+	},
+	{
+		"cd_key" : "CRD_AA_REQ_APPROVED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "PAYIN_CHARGE_REQ_APPROVED",
+		"cd_desc" : "PAYIN_CHARGE_REQ_APPROVED"
+	},
+	{
+		"cd_key" : "CRD_AA_REQ_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "PAYIN_CHARGE_REQ_INIT",
+		"cd_desc" : "PAYIN_CHARGE_REQ_INIT"
+	},
+	{
+		"cd_key" : "CRD_AA_REQ_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "PAYIN_CHARGE_REQ_TRYING",
+		"cd_desc" : "PAYIN_CHARGE_REQ_TRYING"
+	},
+	{
+		"cd_key" : "CRD_AA_REQ_TRY_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "PAYIN_CHARGE_REQ_TRY_FAILED",
+		"cd_desc" : "PAYIN_CHARGE_REQ_TRY_FAILED"
+	},
+	{
+		"cd_key" : "CRD_AA_RETRY_LIMIT_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_AA_RETRY_LIMIT_CANCELED",
+		"cd_desc" : "CRD_AA_RETRY_LIMIT_CANCELED"
+	},
+	{
+		"cd_key" : "CRD_AA_TIME_OUT_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_AA_TIME_OUT_CANCELED",
+		"cd_desc" : "CRD_AA_TIME_OUT_CANCELED"
+	},
+	{
+		"cd_key" : "CRD_APPROVAL_3D_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_APPROVAL_3D_FAILED",
+		"cd_desc" : "CRD_APPROVAL_3D_FAILED"
+	},
+	{
+		"cd_key" : "CRD_APPROVAL_3D_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_APPROVAL_3D_FINISHED",
+		"cd_desc" : "CRD_APPROVAL_3D_FINISHED"
+	},
+	{
+		"cd_key" : "CRD_APPROVAL_3D_REQ_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_APPROVAL_3D_REQ_INIT",
+		"cd_desc" : "CRD_APPROVAL_3D_REQ_INIT"
+	},
+	{
+		"cd_key" : "CRD_APPROVAL_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_BASIC_REQ_TRYING",
+		"cd_desc" : "CRD_BASIC_REQ_TRYING"
+	},
+	{
+		"cd_key" : "CRD_AUTH_3D_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_AUTH_3D_FAILED",
+		"cd_desc" : "CRD_AUTH_3D_FAILED"
+	},
+	{
+		"cd_key" : "CRD_AUTH_3D_RECEIVED_FAIL",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_AUTH_3D_RECEIVED_FAIL",
+		"cd_desc" : "CRD_AUTH_3D_RECEIVED_FAIL"
+	},
+	{
+		"cd_key" : "CRD_AUTH_3D_RECEIVED_RESULT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_AUTH_3D_RECEIVED_RESULT",
+		"cd_desc" : "CRD_AUTH_3D_RECEIVED_RESULT"
+	},
+	{
+		"cd_key" : "CRD_AUTH_3D_REQ_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_AUTH_3D_REQ_INIT",
+		"cd_desc" : "CRD_AUTH_3D_REQ_INIT"
+	},
+	{
+		"cd_key" : "CRD_AUTH_3D_RETURN_ACS",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_AUTH_3D_RETURN_ACS",
+		"cd_desc" : "CRD_AUTH_3D_RETURN_ACS"
+	},
+	{
+		"cd_key" : "CRD_AUTH_AA_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_AUTH_AA_FINISHED",
+		"cd_desc" : "CRD_AUTH_AA_FINISHED"
+	},
+	{
+		"cd_key" : "CRD_BASIC_APPROVED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_BASIC_REQ_FINISHED",
+		"cd_desc" : "CRD_BASIC_REQ_FINISHED"
+	},
+	{
+		"cd_key" : "CRD_BASIC_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_BASIC_CANCELED",
+		"cd_desc" : "CRD_BASIC_CANCELED"
+	},
+	{
+		"cd_key" : "CRD_BASIC_CANCEL_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_BASIC_CANCEL_FAILED",
+		"cd_desc" : "CRD_BASIC_CANCEL_FAILED"
+	},
+	{
+		"cd_key" : "CRD_BASIC_REQ_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_BASIC_REQ_INIT",
+		"cd_desc" : "CRD_BASIC_REQ_INIT"
+	},
+	{
+		"cd_key" : "CRD_CANCEL_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CANCEL_FAILED",
+		"cd_desc" : "CRD_CANCEL_FAILED"
+	},
+	{
+		"cd_key" : "CRD_CANCEL_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CANCEL_FINISHED",
+		"cd_desc" : "CRD_CANCEL_FINISHED"
+	},
+	{
+		"cd_key" : "CRD_CANCEL_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CANCEL_INIT",
+		"cd_desc" : "CRD_CANCEL_INIT"
+	},
+	{
+		"cd_key" : "CRD_CAPTURED_FORCE",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CAPTURED_BY_CANCEL",
+		"cd_desc" : "CRD_CAPTURED_BY_CANCEL"
+	},
+	{
+		"cd_key" : "CRD_CAPTURE_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CAPTURE_FAILED",
+		"cd_desc" : "CRD_CAPTURE_FAILED"
+	},
+	{
+		"cd_key" : "CRD_CAPTURE_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CAPTURE_FINISHED",
+		"cd_desc" : "CRD_CAPTURE_FINISHED"
+	},
+	{
+		"cd_key" : "CRD_CAPTURE_FORCE_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CAPTURE_BY_CANCEL_FAILED",
+		"cd_desc" : "CRD_CAPTURE_BY_CANCEL_FAILED"
+	},
+	{
+		"cd_key" : "CRD_CAPTURE_REQ_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CAPTURE_REQ_INIT",
+		"cd_desc" : "CRD_CAPTURE_REQ_INIT"
+	},
+	{
+		"cd_key" : "CRD_CHECK_3D_IS_AVAILABLE",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CHECK_3D_IS_AVAILABLE",
+		"cd_desc" : "CRD_CHECK_3D_IS_AVAILABLE"
+	},
+	{
+		"cd_key" : "CRD_CHECK_3D_NOT_AVAILABLE",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CHECK_3D_NOT_AVAILABLE",
+		"cd_desc" : "CRD_CHECK_3D_NOT_AVAILABLE"
+	},
+	{
+		"cd_key" : "CRD_CHECK_3D_REQ_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_CHECK_3D_REQ_INIT",
+		"cd_desc" : "CRD_CHECK_3D_REQ_INIT"
+	},
+	{
+		"cd_key" : "CRD_REFUND_CHLD_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_REFUND_CHLD_FINISHED",
+		"cd_desc" : "CRD_REFUND_CHLD_FINISHED"
+	},
+	{
+		"cd_key" : "CRD_REFUND_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_REFUND_FAILED",
+		"cd_desc" : "CRD_REFUND_FAILED"
+	},
+	{
+		"cd_key" : "CRD_REFUND_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_REFUND_FINISHED",
+		"cd_desc" : "CRD_REFUND_FINISHED"
+	},
+	{
+		"cd_key" : "CRD_REGISTER_BY_UI",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "REGISTER_CRD_BY_FORM",
+		"cd_desc" : "REGISTER_CRD_BY_FORM"
+	},
+	{
+		"cd_key" : "CRD_REGISTER_EXISTED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CARD_REGISTER_EXISTED",
+		"cd_desc" : "CARD_REGISTER_EXISTED"
+	},
+	{
+		"cd_key" : "CRD_REGISTER_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "REGISTER_CRD_FAILED",
+		"cd_desc" : "REGISTER_CRD_FAILED"
+	},
+	{
+		"cd_key" : "CRD_REGISTER_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "REGISTER_CRD_FINISHED",
+		"cd_desc" : "REGISTER_CRD_FINISHED"
+	},
+	{
+		"cd_key" : "CRD_REGISTER_NOT_EXIST",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_REGISTER_NOT_EXIST",
+		"cd_desc" : "CRD_REGISTER_NOT_EXIST"
+	},
+	{
+		"cd_key" : "CRD_REGISTER_REQ_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "REGISTER_CRD_REQ_INIT",
+		"cd_desc" : "REGISTER_CRD_REQ_INIT"
+	},
+	{
+		"cd_key" : "CRD_REGISTER_UI_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_REGISTER_UI_INIT",
+		"cd_desc" : "CRD_REGISTER_UI_INIT"
+	},
+	{
+		"cd_key" : "CRD_TOKEN_APPROVED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_TOKEN_REQ_FINISHED",
+		"cd_desc" : "CRD_TOKEN_REQ_FINISHED"
+	},
+	{
+		"cd_key" : "CRD_TOKEN_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_TOKEN_CANCELED",
+		"cd_desc" : "CRD_TOKEN_CANCELED"
+	},
+	{
+		"cd_key" : "CRD_TOKEN_CANCEL_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_TOKEN_CANCEL_FAILED",
+		"cd_desc" : "CRD_TOKEN_CANCEL_FAILED"
+	},
+	{
+		"cd_key" : "CRD_TOKEN_REQ_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_TOKEN_REQ_INIT",
+		"cd_desc" : "CRD_TOKEN_REQ_INIT"
+	},
+	{
+		"cd_key" : "CRD_TOKEN_REQ_TRY_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "CRD_TOKEN_REQ_TRY_FAILED",
+		"cd_desc" : "CRD_TOKEN_REQ_TRY_FAILED"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 취소",
+		"cd_desc" : "에스크로 해제를 취소 한 경우"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_CHLD_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 이체 원거래 해제됨",
+		"cd_desc" : "에스크로 이체 원거래 해제됨"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 요청 완료",
+		"cd_desc" : "TODO : delete"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_REQ_APPROVED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 요청 승인",
+		"cd_desc" : "에스크로 해제 요청 문자에서 동의 버튼을 누를 경우"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_REQ_AUTO_DONE",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 자동 완료",
+		"cd_desc" : "에스크로 해제 요청 문자 발송후 3영업일이 지난 경우"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_REQ_AUTO_ERROR",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 자동 완료 에러",
+		"cd_desc" : "에스크로 해제 자동 완료 에러 "
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_REQ_AUTO_PROCESS",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 자동 완료 진행",
+		"cd_desc" : "에스크로 해제 자동 완료 진행 "
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_REQ_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 요청 취소",
+		"cd_desc" : "에스크로 해제 요청을 취소 한 경우"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_REQ_DENIED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 요청 거부",
+		"cd_desc" : "에스크로 해제 요청 문자에서 취소 버튼을 누를 경우"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_REQ_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 요청 완료",
+		"cd_desc" : "해제 요청 완료. 송금이 완료 된 경우"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_REQ_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 요청 시작",
+		"cd_desc" : "에스크로 해제 거래의 요청 시작 상태"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_REQ_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 요청 승인 시작",
+		"cd_desc" : "TODO : delete"
+	},
+	{
+		"cd_key" : "ESCR_RELEASE_REQ_TRY_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 요청 실패",
+		"cd_desc" : "문자 발송이 불가한 경우 / 문자 수신을 안 하는 경우"
+	},
+	{
+		"cd_key" : "EXCHANGE_MONEY_DENIED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "환전 거절",
+		"cd_desc" : "환전 요청 거절 "
+	},
+	{
+		"cd_key" : "EXCHANGE_MONEY_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "환전 완료",
+		"cd_desc" : "환전 완료 "
+	},
+	{
+		"cd_key" : "EXCHANGE_MONEY_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "환전 초기화",
+		"cd_desc" : "환전 초기화 "
+	},
+	{
+		"cd_key" : "FUIOU_PAYIN_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "FUIOU_PAYIN_INIT",
+		"cd_desc" : "FUIOU_PAYIN_INIT"
+	},
+	{
+		"cd_key" : "MO_DENIED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "MO 요청 거절",
+		"cd_desc" : "MO 요청 거절 "
+	},
+	{
+		"cd_key" : "MO_DONE",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "MO 요청 완료",
+		"cd_desc" : "MO 요청 완료 "
+	},
+	{
+		"cd_key" : "MO_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "MO 요청 완료",
+		"cd_desc" : "MO 요청 완료 "
+	},
+	{
+		"cd_key" : "MO_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "MO 요청 초기화",
+		"cd_desc" : "MO 요청 초기화 "
+	},
+	{
+		"cd_key" : "MO_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "MO 요청 진행중",
+		"cd_desc" : "MO 요청 진행중 "
+	},
+	{
+		"cd_key" : "NOT_ENOUGH_BAL_TO_PAY_FEE",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "거래 실패 (충전금 부족)",
+		"cd_desc" : "NOT_ENOUGH_BAL_TO_PAY_FEE"
+	},
+	{
+		"cd_key" : "NOT_VRFY_BNK_CD_KYC",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "NOT_VRFY_BNK_CD_KYC",
+		"cd_desc" : "NOT_VRFY_BNK_CD_KYC"
+	},
+	{
+		"cd_key" : "PAYIN_VACCNT_KYC_ACTIVATED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "KYC 가상계좌 입금 활성화",
+		"cd_desc" : "PAYIN_VACCNT_KYC_ACTIVATED"
+	},
+	{
+		"cd_key" : "PAYIN_VACCNT_KYC_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "KYC 가상계좌 입금 실패",
+		"cd_desc" : "PAYIN_VACCNT_KYC_FAILED"
+	},
+	{
+		"cd_key" : "PAYIN_VACCNT_KYC_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "KYC 가상계좌 입금 완료",
+		"cd_desc" : "PAYIN_VACCNT_KYC_FINISHED"
+	},
+	{
+		"cd_key" : "PAYIN_VACCNT_KYC_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "KYC 가상계좌 입금 초기화",
+		"cd_desc" : "PAYIN_VACCNT_KYC_INIT"
+	},
+	{
+		"cd_key" : "PAYIN_VACCNT_KYC_REQ_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "KYC 가상계좌 입금 요청",
+		"cd_desc" : "PAYIN_VACCNT_KYC_REQ_TRYING"
+	},
+	{
+		"cd_key" : "PAYIN_VACCNT_KYC_SENDING_1WON",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "KYC 가상계좌 입금 코드 전송",
+		"cd_desc" : "PAYIN_CD_KYC_SENDING_1WON"
+	},
+	{
+		"cd_key" : "QUERY_CRD_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "QUERY_CRD_FINISHED",
+		"cd_desc" : "QUERY_CRD_FINISHED"
+	},
+	{
+		"cd_key" : "QUERY_CRD_REGISTERED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "QUERY_CRD_REGISTERED",
+		"cd_desc" : "QUERY_CRD_REGISTERED"
+	},
+	{
+		"cd_key" : "REG_RCRR_EXP_DT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "등록 중 최초거래보다 경과됨",
+		"cd_desc" : "등록 중 최초거래보다 경과됨 "
+	},
+	{
+		"cd_key" : "REG_RCRR_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 등록 초기화",
+		"cd_desc" : "자동이체 등록 초기화 "
+	},
+	{
+		"cd_key" : "REG_RCRR_PARENT_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 부모 거래가 취소",
+		"cd_desc" : "부조 거래가 취소됨 "
+	},
+	{
+		"cd_key" : "REG_RCRR_REQ_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 등록 인증 완료",
+		"cd_desc" : "자동이체 등록 인증 완료 "
+	},
+	{
+		"cd_key" : "REG_RCRR_REQ_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 등록 인증 진행 중",
+		"cd_desc" : "자동이체 등록 인증 진행 중 "
+	},
+	{
+		"cd_key" : "REG_RCRR_REQ_TRY_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "자동이체 등록 인증 실패",
+		"cd_desc" : "자동이체 등록 인증 실패 "
+	},
+	{
+		"cd_key" : "REQUEST_HAS_TIME_OUT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "요청 시간 경과",
+		"cd_desc" : "요청 시간 경과 "
+	},
+	{
+		"cd_key" : "SEND_MONEY_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "송금 실패",
+		"cd_desc" : "송금 실패 "
+	},
+	{
+		"cd_key" : "SEND_MONEY_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "송금 완료",
+		"cd_desc" : "송금 완료 "
+	},
+	{
+		"cd_key" : "SEND_MONEY_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "송금 초기화",
+		"cd_desc" : "송금 초기화 "
+	},
+	{
+		"cd_key" : "SEND_SMS_BNK_CD_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "SMS 수신 코드 매칭 실패",
+		"cd_desc" : "해제 요청 완료. 송금이 완료 된 경우 "
+	},
+	{
+		"cd_key" : "SFRT_PAYIN_RSRV_MATCHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 예약 입금 완료",
+		"cd_desc" : "세이퍼트 예약 입금 완료 "
+	},
+	{
+		"cd_key" : "SFRT_PAYIN_VACCNT_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 입금 실패",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_PAYIN_VACCNT_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 입금 완료",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_PAYIN_VACCNT_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 입금 시작",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_RSRV_PND_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예약 펜딩 거래 시작",
+		"cd_desc" : "예약 펜딩 거래 시작 "
+	},
+	{
+		"cd_key" : "SFRT_RSRV_PND_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예약 펜딩 거래 고객 승인 대기",
+		"cd_desc" : "예약 펜딩 거래 고객 승인 대기 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 이체 취소",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_CHLD_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 펜딩 원거래 취소됨",
+		"cd_desc" : "세이퍼트 펜딩 원거래 취소됨"
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_ESCR_AUTO_DONE",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 자동 완료",
+		"cd_desc" : "에스크로 해제 자동 완료 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_ESCR_DONE",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "에스크로 해제 완료",
+		"cd_desc" : "Seyfert tranfer foward to escrow release and done"
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 이체 완료",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 이체 시작",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_PND_AGRREED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 펜딩 거래 동의",
+		"cd_desc" : "세이퍼트 펜딩 거래 동의 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_PND_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 펜딩 거래 취소",
+		"cd_desc" : "세이퍼트 펜딩 거래 취소 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_PND_CHLD_RELEASED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 펜딩 원거래 해제됨",
+		"cd_desc" : "원거래에 대한 해제, 릴리즈 거래는 따로 있음 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_PND_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 팬딩 거래 초기화",
+		"cd_desc" : "세이퍼트 펜딩 거래 초기화 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_PND_RELEASED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 펜딩 거래 해제",
+		"cd_desc" : "세이퍼트 펜딩 거래 해제 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_PND_RELEASE_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 펜딩 거래 해제 초기화",
+		"cd_desc" : "세이퍼트 펜딩 거래 해제 초기화 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_PND_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 펜딩 거래 요청 중",
+		"cd_desc" : "세이퍼트 펜딩 거래 요청 중"
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_REQ_APPROVED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 이체 요청 승인",
+		"cd_desc" : "세이퍼트 이체 요청 승인"
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_REQ_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 이체 요청 취소",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_REQ_DENIED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 이체 요청 거부",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_REQ_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 이체 요청 완료",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_REQ_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 이체 요청 시작",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_REQ_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 이체 요청 승인 처리중",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_REQ_TRY_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 이체 요청 실패",
+		"cd_desc" : "문자 발송이 불가한 경우 / 문자 수신을 안 한 경우"
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_RSRV_EXPIRED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 예약입금이체 입금 시간 경과",
+		"cd_desc" : "세이퍼트 예약입금이체 입금 시간 경과 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_RSRV_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 예약입금이체 실패",
+		"cd_desc" : "세이퍼트 예약입금이체 실패 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_RSRV_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 예약입금이체 초기화",
+		"cd_desc" : "세이퍼트 예약입금이체 초기화 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_RSRV_MATCHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 예약입금이체 매칭",
+		"cd_desc" : "세이퍼트 예약입금이체 매칭 "
+	},
+	{
+		"cd_key" : "SFRT_TRNSFR_RSRV_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 예약입금이체 진행 중",
+		"cd_desc" : "세이퍼트 예약입금이체 진행 중"
+	},
+	{
+		"cd_key" : "SFRT_WITHDRAW_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 취소",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_WITHDRAW_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 실패",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_WITHDRAW_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 완료",
+		"cd_desc" : "세이퍼트 출금 완료 "
+	},
+	{
+		"cd_key" : "SFRT_WITHDRAW_FINISH_BNK_CD",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 중 계좌주 코드 검증",
+		"cd_desc" : "세이퍼트 출금 중 계좌주 코드 검증 "
+	},
+	{
+		"cd_key" : "SFRT_WITHDRAW_FINISH_BNK_NM",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 중 예금주 이름 검증",
+		"cd_desc" : "세이퍼트 출금 중 예금주 이름 검증 "
+	},
+	{
+		"cd_key" : "SFRT_WITHDRAW_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 시작",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_WITHDRAW_MONEY_REQUSTED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 처리 전송됨",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_WITHDRAW_REQ_DENIED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 요청 거절됨",
+		"cd_desc" : "세이퍼트 출금 요청 거절됨 "
+	},
+	{
+		"cd_key" : "SFRT_WITHDRAW_REQ_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "세이퍼트 출금 요청 진행 중",
+		"cd_desc" : ""
+	},
+	{
+		"cd_key" : "SFRT_FRGN_WITHDRAW_REQUESTED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "외화출금 요청 ",
+		"cd_desc" : ""
+	},	
+	{
+		"cd_key" : "SFRT_FRGN_WITHDRAW_VALIDATED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "인보이스받음",
+		"cd_desc" : ""
+	},	
+	{
+		"cd_key" : "SFRT_FRGN_WITHDRAW_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "업체에 송금완료",
+		"cd_desc" : ""
+	},	
+	{
+		"cd_key" : "SMS_API_FINISHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "SMS API 완료",
+		"cd_desc" : "SMS_API_FINISHED"
+	},
+	{
+		"cd_key" : "SMS_API_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "SMS API 초기화",
+		"cd_desc" : "SMS_API_INIT"
+	},
+	{
+		"cd_key" : "UNLIMITED_RESERVE_CANCELED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "무한 예약 이체 취소",
+		"cd_desc" : "UNLIMITED_RESERVE_CANCELED"
+	},
+	{
+		"cd_key" : "UNLIMITED_RESERVE_INIT",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "무한 예약 이체 초기화",
+		"cd_desc" : "UNLIMITED_RESERVE_INIT"
+	},
+	{
+		"cd_key" : "UNLIMITED_RESERVE_MATCHED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "무한 예약 이체 매치",
+		"cd_desc" : "UNLIMITED_RESERVE_MATCHED"
+	},
+	{
+		"cd_key" : "UNLIMITED_RESERVE_RUNNING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "무한 예약 이체 실행중",
+		"cd_desc" : "UNLIMITED_RESERVE_TRYING"
+	},
+	{
+		"cd_key" : "VRFY_BNK_CD_COUNT_EXCEED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예금주 권한 검증을 위한 1원 송금 10회 초과",
+		"cd_desc" : "예금주 권한 검증을 위한 1원 송금 10회 초과"
+	},
+	{
+		"cd_key" : "VRFY_BNK_CD_REQ_FAILED",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "VRFY_BNK_RTNCD_REQ_FAILED",
+		"cd_desc" : "VRFY_BNK_RTNCD_REQ_FAILED"
+	},
+	{
+		"cd_key" : "VRFY_BNK_CD_REQ_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예금주 권한 검증 1원 송금 후 문자 발송",
+		"cd_desc" : "문자를 발송한 상태 (수신 대기 중)"
+	},
+	{
+		"cd_key" : "VRFY_BNK_CD_SENDING_1WON",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예금주 권한 검증을 위한 1원 송금",
+		"cd_desc" : "아직 문자를 보내지 않는 상태"
+	},
+	{
+		"cd_key" : "VRFY_BNK_NM_DONE",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		"cd_nm" : "예금주 이름 검증 완료",
+		"cd_desc" : "예금주 이름 검증 완료 "
+	},
+	{
+		"cd_key" : "VRFY_BNK_NM_REQ_TRYING",
+		"grp_key" : "TRNSCTN_ST",
+		"lang_cd" : "ko",
+		
+		"cd_nm" : "예금중 이름 검증 진행 중",
+		"cd_desc" : ""
+	}
+
+	
+
+]

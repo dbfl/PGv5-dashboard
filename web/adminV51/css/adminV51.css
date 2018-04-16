@@ -1,0 +1,109 @@
+body {
+    margin: 0 auto;
+    width:90%;
+}
+.form-group {
+    margin-bottom: 3px;
+}
+#formContainer th {
+   background-color: #998066;
+   color: #ffffff;
+}
+#formContainer .table-bordered {
+    border: 1px solid #8b0000;
+}
+#formContainer .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+    border: 1px solid #D2B48C;
+}
+
+.panel-default > .panel-heading {
+    background-color: #7D8BA5;
+    color: #ffffff; 
+}
+
+.box-flag{
+	float:right;
+	padding:10px;
+}
+
+.sttl-trn-dialog{
+	width:55%;
+}
+.container-date-picker{
+	width:60%;
+}
+
+.pagging{
+    text-align: center;     
+}
+
+.title-header{
+	 color: #0f0f55;
+    float: right;
+    font-family: Comic Sans MS;
+    font-size: x-large;
+    font-weight: bold;
+    width: 65%;
+}
+
+#nav {
+    line-height:30px;
+    float:left;
+    padding:5px;
+    width: 30%;	      
+}
+#section {
+    float:left;
+    padding:10px;
+    width: 60%;	 	 
+}
+
+#formContainer{
+ 	clear: both;
+}
+.logo {
+    position: absolute;
+}
+
+ul.menu1
+{
+    padding:70px 0 0 300px;
+    list-style-type: none;
+    height: 26px;
+    /*width:500px;margin:0 auto;*//*Uncomment this line to make the menu center-aligned.*/
+}
+
+ul.menu1 li
+{ 
+    border:1px solid #65A2DC;
+    border-right:none;
+    list-style-type: none;
+    padding:0;margin:0;
+    float:left;
+    display: block;
+    color:White;
+}
+ul.menu1 li.lastItem
+{ 
+    border-right:1px solid #65A2DC;
+}
+
+ul.menu1 li a
+{
+    padding: 0 20px;
+    background-color: #A2AAB9;
+    border:1px solid #DDECF9;
+    border-top:1px solid #FFFFFF;
+    color:White;
+    text-align: left;
+    text-decoration:none;
+    display: block;
+    float: left;
+    font: bold 12px Arial;
+    line-height: 26px;
+}
+
+ul.menu1 li a:hover, ul.menu1 li a.current
+{
+    background-position:0 -40px;
+}

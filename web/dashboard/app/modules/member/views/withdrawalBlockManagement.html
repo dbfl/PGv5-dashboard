@@ -1,0 +1,147 @@
+<fieldset>
+    <div class="row" >
+    	<div class="panel panel-default">
+			<div class="panel-heading lbl-heading">
+				<span translate>lblWithdrawalBlockedList</span>
+				<div class="col-lg-3 pull-right">	
+					<div ng-if="vm.dataLoading3" class="sk-spinner sk-spinner-circle pull-right">
+						 <div class="sk-circle1 sk-circle"></div>
+						 <div class="sk-circle2 sk-circle"></div>
+						 <div class="sk-circle3 sk-circle"></div>
+						 <div class="sk-circle4 sk-circle"></div>
+						 <div class="sk-circle5 sk-circle"></div>
+						 <div class="sk-circle6 sk-circle"></div>
+						 <div class="sk-circle7 sk-circle"></div>
+						 <div class="sk-circle8 sk-circle"></div>
+						 <div class="sk-circle9 sk-circle"></div>
+						 <div class="sk-circle10 sk-circle"></div>
+						 <div class="sk-circle11 sk-circle"></div>
+						 <div class="sk-circle12 sk-circle"></div>
+					 </div>
+				 </div>
+				 <div class="col-lg-4 pull-right">
+				</div>
+			</div>
+			
+			
+			<div class="panel-body no-padding">
+				<div class="row">
+					<div class="col-sm-5">
+						<div class="dataTables_length">
+							<label class="record-page">
+								<select class="form-control input-sm" ng-model="vm.blockedMemberViewby" ng-options="o for o in vm.blockedMemberOptionsViewBy track by o" ng-change="vm.setItemsPerPageBlockedMember()"></select>
+							</label>
+							<span translate>lblRecordsPage</span>
+						</div>
+					</div>
+				</div>
+
+				<!--  search form -->
+				<div class="col-sm-12">
+					<div class="ibox no-margins">
+					    <div class="ibox-title">
+					        <h5 translate>lblSearch</h5>
+					    </div>
+					    <div class="ibox-content">
+					        <form class="form-horizontal" name="vm.advSearchForm" ng-submit="vm.advSearch()">
+					        	<div class="row">
+									<div class="col-sm-4" ng-show="vm.isAdmin">
+										<div class="form-group">
+											<label class="col-lg-4 control-label" translate>lblWithdrawalBlockMerchantName</label>
+											<div class="col-lg-8">
+												<input type="text" placeholder="" class="form-control" ng-model="search.creatorName">
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<label class="col-lg-4 control-label" translate>lblWithdrawalBlockValue</label>
+											<div class="col-lg-8">
+												<input type="text" placeholder="" class="form-control" ng-model="search.blockValue">
+											</div>
+										</div>
+									</div>
+					            </div>
+					        </form>
+					    </div>
+					</div>
+				</div>
+				<!--  end of search form -->				
+
+				<!-- 
+				<button class='fa fa-file-excel-o text-navy' ng-click="expotToExcel()" translate>Excel</button>
+ 				-->
+				<div class="col-sm-12">
+					<table datatable="ng" dt-options="dtOptionsMemberBlocked"  class="table table-striped table-bordered table-hover">
+				        <thead>
+				        <tr>
+				        	<th>#</th>
+				            <th ng-if="vm.isAdmin" translate>lblWithdrawalBlockMerchantName</th>
+							<th translate>lblWithdrawalBlockType</th>
+							<th translate>lblWithdrawalBlockTarget</th>
+							<th translate>lblWithdrawalBlockValue</th>
+							<th translate>lblWithdrawalBlockReason</th>
+							<th translate>lblWithdrawalBlockDesc</th>
+							<th translate>lblWithdrawalBlockDate</th>
+							<th translate>lblWithdrawalReleaseBtn</th>
+				        </tr>
+				        </thead>
+				        <tbody>
+
+						<!--  페이징  블럭  -->
+				        <tr ng-repeat="row in vm.blockedMemberContents.slice (((vm.blockedMemberCurrentPage-1)*vm.blockedMemberItemsPerPage), ((vm.blockedMemberCurrentPage)*vm.blockedMemberItemsPerPage)) | orderBy:sortType:sortReverse | filter: search ">
+				        	<td>{{ (vm.blockedMemberItemsPerPage*(vm.blockedMemberCurrentPage -1)) + $index + 1 }}</td>
+				            <td ng-if="vm.isAdmin"><i class="fa"></i>{{ row.creatorName }}</td>
+				            <td><i class="fa"></i>{{ row.blockType }}</td>
+							<td><i class="fa"></i>{{ row.blockTarget }}</td>
+							<td><i class="fa"></i>{{ row.blockValue }}</td>
+							<td><i class="fa"></i>{{ row.blockReason }}</td>
+							<td><i class="fa"></i>{{ row.desc }}</td>
+							<td>{{ row.blockDt | date:dateFormat}}</td>
+							<td><i class="fa" >
+								<button class="btn btn-sm btn-primary pull-right m-t-n-xs ng-scope" ng-click="openBlockReleasePopup( row.blockId )" translate="">lblWithdrawalReleaseBtn</button>
+								</i>
+							</td>
+				        </tr>
+				        </tbody>
+				    </table>
+			    </div>
+				<div class="col-sm-6">
+		    		<div class="dataTables_info" role="alert" aria-live="polite" aria-relevant="all">
+						{{vm.dataTablesInfoBlockedMember}}
+						<div ng-if="vm.dataLoading4" class="sk-spinner sk-spinner-circle pull-right">
+							 <div class="sk-circle1 sk-circle"></div>
+							 <div class="sk-circle2 sk-circle"></div>
+							 <div class="sk-circle3 sk-circle"></div>
+							 <div class="sk-circle4 sk-circle"></div>
+							 <div class="sk-circle5 sk-circle"></div>
+							 <div class="sk-circle6 sk-circle"></div>
+							 <div class="sk-circle7 sk-circle"></div>
+							 <div class="sk-circle8 sk-circle"></div>
+							 <div class="sk-circle9 sk-circle"></div>
+							 <div class="sk-circle10 sk-circle"></div>
+							 <div class="sk-circle11 sk-circle"></div>
+							 <div class="sk-circle12 sk-circle"></div>
+						 </div>
+					 </div>
+		    	</div>
+
+				<div class="col-sm-6" ng-if="vm.blockedMemberTotalItems > 0">
+        			<div class="dataTables_paginate paging_simple_numbers">
+					    <pagination total-items="vm.blockedMemberTotalItems" ng-model="vm.blockedMemberCurrentPage" ng-change="blockedMemberPageChanged()" class="pagination-sm" items-per-page="vm.blockedMemberItemsPerPage"></pagination>
+					    
+					    <button class="btn btn-info" ng-click="vm.pageChangedBlockedMember(vm.blockedMemberCurrentPage -1)">Prev</button>
+					    <button class="btn btn-info" ng-click="vm.pageChangedBlockedMember(vm.blockedMemberCurrentPage +1)">Next</button>
+					
+					    <pager total-items="vm.blockedMemberTotalItems" ng-model="vm.blockedMemberCurrentPage" items-per-page="vm.blockedMemberItemsPerPage"></pager>
+					
+					    <!--  Limit the maximum visible buttons</h4>  -->
+					    <pagination total-items="vm.blockedMemberTotalItems" ng-model="vm.blockedMemberCurrentPage" max-size="vm.blockedMemberMaxSize" class="pagination-sm" boundary-links="true" items-per-page="vm.blockedMemberItemsPerPage"></pagination>
+					    <pagination total-items="vm.blockedMemberTotalItems" ng-model="vm.blockedMemberCurrentPage" max-size="vm.blockedMemberMaxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="vm.blockedMemberItemsPerPage"></pagination>
+
+					</div>
+				</div>    
+			</div>
+		</div>
+	</div>
+</fieldset>

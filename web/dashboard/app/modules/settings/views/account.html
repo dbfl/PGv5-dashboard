@@ -1,0 +1,133 @@
+<fieldset>
+	<div class="row">
+		<div class="col-lg-10">
+	        <h2 translate>lblGeneralAccount</h2>
+	    </div>
+	    <div class="col-lg-2">
+	    </div>
+	</div>
+    <div class="row">
+        <div class="col-lg-6">
+        	<h3 translate>lblChangePassword</h3>
+		 	<form name="mForm" class="p-lg form-horizontal" ng-submit="vm.submitChangePass()">
+				<div class="form-group">
+	                <label class="col-sm-3 control-label" translate>lblUsername</label>
+	                <div class="col-sm-5"><div class="row" ng-controller="MainCtrl as main"><input required disabled="disabled" name="username" ng-model="main.userName" type="text" class="form-control"></div></div>
+	            </div>
+				<div class="form-group">
+	                <label class="col-sm-3 control-label" translate>lblOldPassword</label>
+	                <div class="col-sm-5"><div class="row"><input required name="oldPassword" id="oldPassword"  ng-model="vm.mForm.oldPassword" type="password" class="form-control"></div></div>
+	            </div>
+				<div class="form-group">
+	                <label class="col-sm-3 control-label" translate>lblNewPassword</label>
+	                <div class="col-sm-5"><div class="row"><input required name="newPassword" id="newPassword" ng-model="vm.mForm.newPassword" type="password" class="form-control"></div></div>
+	            </div>
+				<div class="form-group">
+	                <label class="col-sm-3 control-label" translate>lblReNewPassword</label>
+	                <div class="col-sm-5"><div class="row"><input required id="renewPassword" name="renewPassword" ng-model="vm.mForm.renewPassword" type="password" class="form-control"></div></div>
+	            </div>
+	            <div class="form-group">
+	            	<div class="col-sm-8">
+			            <div class='msg-block' ng-show='matchPass'>
+			            	<div class="alert alert-danger">
+								<span>{{msgResult}}</span>
+							</div>
+						</div>
+						<div class='msg-block' ng-show='successPass'>
+			            	<div class="alert alert-success">
+								<span>{{msgResult}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+	            <div class="form-group">
+					<div class="col-lg-offset-2 col-lg-4">
+						<button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" ng-disabled="mForm.$invalid "><span translate>lblRenew</span></button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col-lg-6">
+			<h3 translate>lblChangeKeyP</h3>
+			<form name="mKeyForm" class="p-lg form-horizontal" ng-submit="vm.submitChangeKeyP()">
+				<!--
+				서버단에서 받아오는 임시 keyP 정보는 로그인 마다 바뀌는 정보임으로 보여줄 필요가 없어서 invisible 처리 
+				  2017.11.20 by atlas
+				  <div class="form-group">
+	                <label class="col-sm-3 control-label" translate>lblKeyP</label>
+	                <div class="col-sm-5"><div class="row"><input name="keyP" disabled="disabled" ng-model='keyP' type="text" class="form-control"></div></div>
+	            </div> -->
+				<div class="form-group">
+	                <label class="col-sm-5 control-label" translate> lblKeyPConfirm </label>
+	                <div class="col-sm-5">
+	                	<div class="row">
+	                		<div class="checkbox checkbox-primary">
+								<input required type="checkbox" id="keyP" name="keyP" ng-model="vm.confirmKeyP" >
+								<label for="keyP"></label>
+							</div>
+						</div>
+					</div>
+	            </div>
+	            <div class="form-group">
+	            	<div class="col-sm-12">
+			            <div class='msg-block' ng-show='msgConfirmKeyP'>
+			            	<div class="alert alert-danger">
+								<span>{{msgResultKeyP}}</span>
+							</div>
+						</div>
+						<div class='msg-block' ng-show='successKeyP'>
+			            	<div class="alert alert-success">
+								<span>{{msgResultKeyP}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+	            <div class="form-group">
+					<div class="col-lg-offset-2 col-lg-4">
+						<button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" ng-disabled='mKeyForm.$invalid' translate>lblRenew</button>
+					</div>
+				</div>
+			</form>
+        </div>
+        <div class="col-lg-6" ng-if='vm.isAdmin'>
+			<h3 translate>keyP Status</h3>
+       		<!-- this is for admin view  -->
+       		<form name='mkeyStatus'>
+       			<div class='form-gruop'>
+	                <label class="col-sm-3 control-label" translate>lblDstGuid</label>
+	                <div class ="guid col-sm-5" data="vm.mkeyStatus.dstMemGuid" blur="vm.inquiryBalance(true)" name="dstMemGuid"/>
+					<div ng-if="vm.mkeyStatus.dstMemGuid.length >= 4">
+							<a ng-href="" class="btn btn-outline btn-warning  dim pull-left" ng-click="getMemberDetail(vm.mkeyStatus)" style="float:left;"><i class="fa fa-search"></i>&nbsp</a>
+					</div>
+					
+					<div class="col-sm-12">
+						<table datatable="ng" dt-options="dtOptionsMember"  class="table table-striped table-bordered table-hover">
+					        <thead>
+					        <tr>
+					            <th translate>lblMerchantName</th>
+								<th translate>lblPhone</th>
+								<th translate>lblStatus</th>
+					        </tr>
+					        </thead>
+					        <tbody>
+						        <tr ng-repeat="row in vm.content | orderBy:sortType:sortReverse | filter: search">
+						            <td><i ng-if="(row.fullname != null) && (row.name_verify_st == 'UNVERIFIED')" class="fa fa-warning lbl-warning"></i>{{ row.fullname }}</td>
+									<td><i ng-if="(row.phoneNo != null) && (row.phone_verify_st == 'UNVERIFIED_KEY')" class="fa fa-warning lbl-warning"></i>{{ row.phoneNo }}</td>
+									<td>
+										<span class='show-cursor' ng-class="{'text-info' : keyStatus == 'ACTIVATED', 'text-danger' : keyStatus == 'INACTIVATED'}" title='click event' ng-click='vm.changeKeyPStatus(vm.mkeyStatus)' ng-model='keyStatus'>{{keyStatus}} </span>
+									</td>
+						        </tr>
+					        </tbody>
+					    </table>
+			    	</div>
+					
+					
+					
+       			</div>
+       		
+       		</form>
+        </div>
+        <!-- atlas SUI-102 -->
+        
+    </div>
+</fieldset>

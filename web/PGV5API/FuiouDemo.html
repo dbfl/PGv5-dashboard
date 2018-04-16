@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../uiLibraries/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!--link href="css/simple-sidebar.css" rel="stylesheet"-->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <title>Paygate Chinacash Payment Demo</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="topMenu"><a href="#menu-toggle" class="btn btn-default menu-toggle">-</a></div>
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="hidden">
+                    <a class="page-scroll" href="#page1" id="pageTop"></a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="#page1">
+                        <img alt="image" src="paygatelogo-white.png" style="width:150px;" />
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://docs.pgv5.apiary.io/">API Documentation</a>
+                </li>
+                <li class="active navigator">
+                    <a href="#page1" id="introPage">Intro</a>
+                </li>
+                <li class="navigator" id="getBankList">
+                    <a href="#page2">GetBankList</a>
+                </li>
+                <li>
+                    <a href="#page3"  id="transactionMenu">Transaction <span id="transactionToggleIcon">[+]</span></a>
+                    <ul class="transactionSubMenu" style="display:none;">
+                        <li class="navigator" id="payin"><a href="#page3">Payin</a></li>
+                        <li class="navigator" id="cancel"><a href="#page4">Cancel</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#page5"  id="AccountMenu">AccountMenu <span id="accountToggleIcon">[+]</span></a>
+                    <ul class="AccountSubMenu" style="display:none;">
+                        <li class="navigator" id="setJumpingPage"><a href="#page5">SetJumpingPage</a></li>
+                        <li class="navigator" id="setNotificationUrl"><a href="#page6">SetNotificationUrl</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row" id="page1" style="height:1000px;">
+                    <div class="margin">
+                        <h1>PAYGATE Chinacash DEMO</h1>
+                        <p><strong>Usage Instructions:</strong> Please Enter your <b>GUID</b> & <b>ENCRYPTION KEY</b> and click Start Demo.</p>
+                        <input type="text" id="masterGuid" placeholder="GUID" value="" /> <BR> <BR>
+                        </strong> <input type="text" id="encryptKey" placeholder="Encryption Key" value=""/> <BR> <BR>
+                        <a class="btn btn-default page-scroll" id="firstSection" href="#page2">Start Demo</a>
+                    </div>
+                </div>
+                <div class="row" id="page2" style="height:1000px;">
+                    <div class="margin">
+                        <h1>GET BANK LIST</h1>
+                        <div class="formCon">
+                            <form id="getBankListForm">
+                                <div class="labels">
+                                    <span> Member Guid (Request) </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs merchantMemGuid" value="" name="reqMemGuid" />
+                                </div>
+                                <div class="inpuControl">
+                                    <a  id="getBankListButton" class="buttons btn btn-default">Submit</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="page3"  style="height:1000px;">
+                    <div class="margin">
+                        <h1>Payin</h1>
+                        <div class="formCon">
+                            <form id="payinForm">
+                                <div class="labels">
+                                    <span> Member Guid (Request) </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs merchantMemGuid" value="" name="reqMemGuid" />
+                                </div>
+                                <div class="labels">
+                                    <span> Member Guid (Sorce) </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs toMemGuid" value="" name="srcMemGuid" />
+                                </div>
+                                <div class="labels">
+                                    <span> Member Guid (Destination) </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs toMemGuid" value="" name="dstMemGuid" />
+                                </div>
+                                <div class="labels">
+                                    <span> CURRENCY (readonly)</span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs" value="CNY" name="currency" readonly="readonly"/>
+                                </div>
+                                <div class="labels">
+                                    <span> Order Valid Time </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs" value="" name="order_valid_time"/>
+                                </div>
+                                <div class="labels">
+                                    <span> Goods Name </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs" value="" name="goods_name"/>
+                                </div>
+                                <div class="labels">
+                                    <span> Goods Display Url </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="url" class="textBoxs" value="" name="goods_display_url" placeholder="http://www.paygate.net"/>
+                                </div>
+                                <div class="labels">
+                                    <span> Rem </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs" value="" name="rem"/>
+                                </div>
+                                <div class="labels">
+                                    <span> Amt </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs" value="" name="amt"/>
+                                </div>
+                                <div class="labels">
+                                    <span> RefID </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs" value="" name="refId"/>
+                                </div>
+                                <div class="labels">
+                                    <span> Bank List </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <select class="textBoxs" name="iss_ins_cd" id="iss_ins_cd">
+                                        <option value= "0801000000">中国邮政</option>
+                                        <option value= "0801020000">中国工商银行</option>
+                                        <option value= "0801030000">中国农业银行</option>
+                                        <option value= "0801040000">中国银行</option>
+                                        <!--<option value= "0801050000">中国建设银行</option>-->
+                                        <option value= "0803010000">交通银行</option>
+                                        <option value= "0803020000">中信银行</option>
+                                        <option value= "0803030000">中国光大银行</option>
+                                        <option value= "0803040000">华夏银行</option>
+                                        <!--<option value= "0803050000">中国民生银行</option>-->
+                                        <option value= "0803060000">广东发展银行</option>
+                                        <option value= "0803080000">招商银行</option>
+                                        <option value= "0803090000">兴业银行</option>
+                                        <option value= "0803100000">上海浦东发展银行</option>
+                                        <!--<option value= "0804031000">北京银行</option>-->
+                                        <!--<option value= "0804105840">平安银行</option>-->
+                                        <!--<option value= "0804184930">洛阳市商业银行</option>-->
+                                        <!--<option value= "0865012900">上海农村商业银行</option>-->
+                                    </select>
+                                </div>
+                                <div class="inpuControl">
+                                    <a  id="payinButton" class="buttons btn btn-default">Submit</a>
+                                </div>
+                            </form>
+                            <form name="fuiouform" id="fuiouform">
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="page4"  style="height:1000px;">
+                    <div class="margin">
+                        <h1>Cancel</h1>
+                        <div class="formCon">
+                            <form id="cancelForm">
+                                <div class="labels">
+                                    <span> Member Guid (Request) </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs merchantMemGuid" value="" name="reqMemGuid" />
+                                </div>
+                                <div class="labels">
+                                    <span> Member Guid (Sorce) </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs toMemGuid" value="" name="srcMemGuid" />
+                                </div>
+                                <div class="labels">
+                                    <span> Member Guid (Destination) </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs toMemGuid" value="" name="dstMemGuid" />
+                                </div>
+                                <div class="labels">
+                                    <span> CURRENCY (readonly)</span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs" value="CNY" name="currency" readonly="readonly"/>
+                                </div>
+                                <div class="labels">
+                                    <span> Amt </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs" value="" name="amt"/>
+                                </div>
+                                <div class="labels">
+                                    <span> TID </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs" value="" name="tid"/>
+                                </div>
+                                <div class="inpuControl">
+                                    <a  id="cancelButton" class="buttons btn btn-default" >Submit</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="page5"  style="height:1000px;">
+                    <div class="margin">
+                        <h1>Jumping Page</h1>
+                        <div class="formCon">
+                            <form id="jmpForm">
+                                <div class="labels">
+                                    <span> Member Guid (Request) </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs merchantMemGuid" value="" name="reqMemGuid" />
+                                </div>
+                                <div class="labels">
+                                    <span> Jumping Page URL </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="url" class="textBoxs" value="" name="jumpingPage" placeholder="http://www.paygate.net"/>
+                                </div>
+                                <div class="inpuControl">
+                                    <a  id="jmpButton" class="buttons btn btn-default" >Submit</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="page6"  style="height:1000px;">
+                    <div class="margin">
+                        <h1>Notification URL</h1>
+                        <div class="formCon">
+                            <form id="notifyForm">
+                                <div class="labels">
+                                    <span> Member Guid (Request) </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="text" class="textBoxs merchantMemGuid" value="" name="reqMemGuid" />
+                                </div>
+                                <div class="labels">
+                                    <span> Notification URL </span>
+                                </div>
+                                <div class="inpuControl">
+                                    <input type="url" class="textBoxs" value="" name="notificationUrl" placeholder="http://www.paygate.net"/>
+                                </div>
+                                <div class="inpuControl">
+                                    <a  id="notifyButton" class="buttons btn btn-default" >Submit</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- /#page-content-wrapper -->
+        <div id="footer">
+            <div id="itemHead"> <span id="toggleConsole">console <span id="toggleIcon">[-]</span></span></div>
+            <div id="itemContent" style="display: non;">
+                <!--textarea> dadsa</textarea-->
+                <div id="console"> CONSOLE AREA  </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../uiLibraries/Jquery/jquery-2.1.1.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../uiLibraries/Bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../AesLibrary/aespidcrypt/pidcrypt.js"></script>
+    <script src="../AesLibrary/aespidcrypt/pidcrypt_util.js"></script>
+    <script src="../AesLibrary/aespidcrypt/sha256.js"></script>
+    <script src="../AesLibrary/aespidcrypt/md5.js"></script>
+    <script src="../AesLibrary/aespidcrypt/aes_core.js"></script>
+    <script src="../AesLibrary/aespidcrypt/aes_ctr.js"></script>
+    <script src="util.js"></script>
+    <script src="FuiouDemo.js"></script>
+    <!--<script src="util.js"></script>-->
+</body>
+</html>

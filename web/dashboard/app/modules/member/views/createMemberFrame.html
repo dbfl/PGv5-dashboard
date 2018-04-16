@@ -1,0 +1,15 @@
+<fieldset>
+    <div ng-if="vm.isAdmin" class="row 2nd-layer-popup ">
+			<br>
+			<div class="col-sm-1"></div>
+        	<div class="col-sm-2">
+        		<button class='btn   btn-primary btn-rounded' ng-click="vm.tabSelected('index.member.createMember')"> 1. {{ 'lblMemberInfo' | translate}} </button>
+        	</div>
+        	<div class="col-sm-2">
+        		<button class='btn   btn-primary btn-rounded' ng-click="vm.tabSelected('index.member.assignVirtual')"> 2. {{ 'lblAssignVirtual' | translate}}</button>
+        	</div>
+ 	</div>
+ 	<div class="row 2nd-layer-popup ">
+			<br><div ng-include="tempInner"></div>        	
+ 	</div>
+</fieldset>

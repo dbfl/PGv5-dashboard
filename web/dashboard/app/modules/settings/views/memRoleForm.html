@@ -1,0 +1,37 @@
+<div class="ibox no-margins">
+    <div class="ibox-title">
+        <h5 translate>lblCreateRole</h5>
+    </div>
+    <div class="ibox-content">
+        <form class="form-horizontal" name="memRoleForm" ng-submit="vm.submitMemRoleForm()">
+        	<div class='msg-block' ng-show='successCreateRole == 2'>
+            	<div class="alert alert-danger">
+					<span>{{msgError}}</span>
+				</div>
+			</div>
+        	<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblRole</label>
+						<div class="col-lg-8">
+							<input required type="text" placeholder="{{'lblRole' | translate}}" class="form-control" ng-model="vm.memRole.role">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblDesc</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="{{'lblDesc' | translate}}" class="form-control" ng-model="vm.memRole.roleDesc">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group" style="padding-top:5px;">
+						<button class="btn btn-sm btn-primary m-t-n-xs" type="submit" translate>lblSubmit</button>
+					</div>
+				</div>
+            </div>
+        </form>
+    </div>
+</div>

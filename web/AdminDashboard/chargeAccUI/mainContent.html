@@ -1,0 +1,138 @@
+<div style="border:0px solid red;width:97%;margin:0 auto;" id="dashHeaderContent">
+	<div class="col-lg-12" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.0em;"> <strong> <i class="fa fa-money"></i> <span id="chargeToAccount">Charge to account </span> </strong> </small>
+		<br>
+		<small> <span id="chargeByPaygate"> Charge money to merchant by PayGate </span> </small>
+	</div>
+</div> 
+
+<div class="tab-content" id="dashMainContent">
+	<div id="tab-1" class="tab-pane active">
+		<div class="tabs-container">
+			<ul class="nav nav-tabs">
+				<li class="active tabMenu">
+					<a data-toggle="tab" href="#statisticsTab"> <span id="charge">Charge </span> </a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="tab-content">
+			<div id="statisticsTab" class="tab-pane active">
+				<div class="panel-body" style="margin-left:-16px;">
+					<div class="row" style="position:relative;padding-top: 5px;">
+						<div class="col-lg-12">
+							<div class="panel panel-default"  id="chartContainer">
+								<div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+									<strong> <i class="fa fa-plus"></i> <span id="chargeMerchantAccount">Charge money to merchant account </span> </strong>
+								</div>
+									<div class="panel-body">
+										<div class="col-lg-12">
+										<div style="border:0px solid red;margin:0 auto;background-color: #FAFAFA;position:relative;padding: 10px;">
+											<div style="padding:15px;background-color: #ffffff;border-radius:5px;width:450px;margin:0 auto;">
+												<div style="text-align: left;width:400px;margin:0 auto;">
+													<span> 
+														<strong>
+															<span id="desMemGuid"> DESTINATION GUID </span>
+															<span style="color:#205081;"> <small>(Note: <span id="note">enter destination guid or enter merchant name</span>)</small> </span>
+														</strong>
+													</span> <br>
+													<input type="text" style="border:1px solid #E8E7E6;" class="form-control" id="dstMemGuid"/>
+												</div>
+												<!--div class="input-group" style="text-align: left;width:400px;margin:0 auto;">
+													<span> <strong><span id="desMemGuid"> DESTINATION GUID </span></strong></span> <br>
+									            	 <div class="input-group">
+									            	 	<input type="text" style="border:1px solid #E8E7E6;" class="form-control" id="dstMemGuid"/>
+									            	 	<span class="input-group-addon">
+									            	 		<button class="btn-success" id="getDstGuid" style="border:none;height:20px;width:30px;"><i class="fa fa-search"></i></button> 
+									            	 	</span>
+									            	 </div>
+				                                </div-->
+				                                <!--div style="text-align: left;width:400px;margin:0 auto;color:#205081;padding-top:15px;">
+				                                	<span> <strong> <small>Note: enter destination guid or enter merchant name</small> </strong> </span>
+				                                </div-->
+				                                <div style="text-align: left;width:400px;margin:0 auto;color:#205081;padding-top:15px;display:none;border-bottom:1px solid #666666;border-top:1px solid #666666;" id="guidList">
+				                                	 <table id="memberList" style="width:100%;"></table>
+				                                </div> 	
+				                                <div style="text-align: left;width:400px;margin:0 auto;color:#205081;display:none;padding-top:15px;" id="balanceContainer">
+													<span> 
+														<strong>
+															<span> Existing balance: </span>
+															<span style="color:#017EBC"><span id="krwBalance"> Balance </span> <i class="fa fa-krw"></i></span>
+															<span>,</span>
+															<span style="color:#EA394C"><i class="fa fa-usd"></i> <span id="usdBalance"> Balance </span></span>
+														</strong>
+													</span> <br>
+												</div> <br>
+												<div  style="text-align: left;width:400px;margin:0 auto;">
+													<span> <strong><span id="typeLbl">Type</span></strong></span> <br>
+													<select style="border:1px solid #E8E7E6;" placeholder="USD" class="form-control" id="depositAction">
+														<option value='payin'>Pay-in</option>
+														<option value='payout'>Pay-out</option>
+													</select>	
+												</div> <br>
+												<div  style="text-align: left;width:400px;margin:0 auto;">
+													<span> <strong><span id="amount">AMOUNT</span></strong></span> <br>
+													<input type="text" style="border:1px solid #E8E7E6;" class="form-control" placeholder="0.00" id="chargeAmount"/>
+												</div> <br>
+												<div  style="text-align: left;width:400px;margin:0 auto;">
+													<span> <strong><span id="currency"> CURRENCY</span></strong></span> <br>
+													<select style="border:1px solid #E8E7E6;" placeholder="USD" class="form-control" id="crrncy">
+														<option value='KRW' selected="selected">KRW - South Korean Won</option>
+														<!--option value='AUD'>AUD - Australian Dollar</option>
+														<option value='CAD'>CAD - Canadian Dollar</option>
+														<option value='CHF'>CHF - Swiss Franc</option>
+														<option value='CNY'>CNY - Chinese Yuan Renminbi</option>
+														<option value='DKK'>DKK - Danish Krone</option>
+														<option value='EUR'>EUR - Euro</option>
+														<option value='GBP'>GBP - British Pound</option>
+														<option value='HKD'>HKD - Hong Kong Dollar</option>
+														<option value='HUF'>HUF - Hungarian Forint</option>
+														<option value='INR'>INR - Indian Rupee</option>
+														<option value='MXN'>MXN - Mexican Peso</option>
+														<option value='MYR'>MYR - Malaysian Ringgit</option>
+														<option value='NOK'>NOK - Norwegian Krone</option>
+														<option value='NZD'>NZD - New Zealand Dollar</option>
+														<option value='PHP'>PHP - Philippine Peso</option>
+														<option value='RUB'>RUB - Russian Ruble</option>
+														<option value='SEK'>SEK - Swedish Krona</option>
+														<option value='SGD'>SGD - Singapore Dollar</option>
+														<option value='THB'>THB - Thai Baht</option>
+														<option value='TRY'>TRY - Turkish Lira</option-->
+														<option value='USD'>USD - US Dollar</option>
+														<option value='JPY'>JPY - Japanese Yen</option>
+														<!--option value='ZAR'>ZAR - South African Rand</option -->
+													</select>		
+												</div> <br>
+												<div  style="text-align: center;width:400px;margin:0 auto;position:relative;padding-top: 10px;padding-bottom: 10px;">
+													<button class="btn btn-success btn-sm" style="width:100%;" id="chargeToAccountBut">
+														<i class="fa fa-plus"></i>
+														<span style="font-weight:bold;" id="menuCharge">Charge</span>
+													</button>
+												</div> <br>
+												<!--div  style="width:300px;margin:0 auto;">
+													<div class="panel panel-default">
+														<div class="panel-heading" style="color:#2D6987;background-color: #ffffff;">
+															<strong> <i class="fa fa-money"></i> Charge result  </strong>
+														</div>
+														<div class="panel-body" > 
+															<span style="font-size: 2.0em"> 0.00 </span>
+														</div>
+													</div>	
+												</div-->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12" style="background-color: #F0F0F0;position: relative;padding-top:10px;padding-bottom:8px;border-radius: 5px;">
+								<div style="position:relative;padding-left:10px;text-align: left;border-radius:5px;position: relative;padding-top:10px;padding-bottom:8px;background-color: #FFFFFF;">
+									 <span id="noticeSpanC">  <i class="fa fa-warning"></i> <strong id="chargeMoneyWarningMessage"> Make sure that the <span style="color:#D9534F">Destination GUID & Amount</span> is correctly provided. </strong></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>				
+</div>								

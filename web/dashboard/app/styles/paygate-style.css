@@ -1,0 +1,290 @@
+@import url("style.css");
+
+.img-logo-paygate {
+	width: 150px;
+}
+
+.opt-menu {
+	padding-top: 10px;
+}
+
+.btnActive {
+	background-color: #ed5565
+}
+
+.opt-menu .nav>li>a {
+	padding: 10px 15px;
+	border-radius: 0px;
+}
+
+.chosen-container {
+	width: 100% !important;
+}
+
+.icon-live {
+	width: 20px !important;
+	height: 20px !important;
+}
+
+.dataTables_wrapper .dt-buttons {
+	float: right;
+}
+
+.mnuSettingActive {
+	color: #0055aa;
+	font-weight: bold;
+}
+
+#memberDetail .dataTables_wrapper {
+	padding: 0 !important;
+	top: -45px;
+}
+
+.progress {
+	height: 30px !important;
+	font-size: 18px;
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+.flag-en, .flag-kr {
+	width: 32px;
+	height: 32px;
+}
+
+.ibox-content-5 {
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+}
+
+.dataTables_paginate {
+	float: right !important;
+}
+
+.lbl-heading {
+	background-color: #586b7d !important;
+	color: #ffffff !important;
+	font-weight: 600;
+}
+
+.no-border {
+	border: none !important;
+}
+
+.lbl-warning {
+	color: #f0ad4e;
+	padding-right: 5px;
+}
+
+.lbl-success {
+	color: #1c84c6;
+	padding-right: 5px;
+}
+
+.lbl-error {
+	color: #ed5565;
+	padding-right: 5px;
+}
+
+.table-top {
+	padding: 10px 0px;
+}
+
+.middle-box h1 {
+	font-size: 45px;
+}
+
+.logo-name {
+	color: #e6e6e6;
+	font-weight: 600;
+	letter-spacing: 0;
+	margin-bottom: 0;
+}
+
+.show-cursor {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.modal-body {
+	max-height: calc(100vh - 250px);
+	overflow-y: auto;
+}
+
+.btn-chart {
+	margin-top: -6px;
+}
+
+.chart-db {
+	width: 100%;
+	height: 250px;
+}
+
+.my-chart {
+	width: 100%;
+	height: 280px;
+}
+
+.record-page {
+	float: none !important;
+}
+
+.zindex {
+	z-index: 2060 !important;
+}
+
+.zindex-second {
+	top: 100px;
+	z-index: 2070 !important;
+}
+
+.my-count-info {
+	line-height: 12px;
+	padding: 2px 5px;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+}
+
+.fon-red {
+	color: #ed5565;
+	font-weight: bold;
+	text-shadow: none;
+	padding-left: 5px;
+	font-size: 15px;
+}
+
+.actLang {
+	color: #23c6c8;
+	margin-bottom: 5px;
+	color: inherit;
+	background-color: transparent;
+	transition: all .5s;
+	border-color: #23c6c8;
+	border-radius: 3px;
+	-moz-user-select: none;
+	background-image: none;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857;
+	padding: 6px 12px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.top-popup {
+	background: #0d68a8;
+	height: 120px;
+	font: 24px;
+	font-size: 12px;
+	font-family: "Sans Serif";
+	color: white;
+}
+
+.top-popup-switchURL {
+	background: #ff99ff;
+	height: 75px;
+	font: 56px;
+	font-size: 12px;
+}
+
+.adminShowAs {
+	background: #b5e3ed;
+}
+
+.select-item-gray {
+	color: #ECE3E3;
+}
+
+.select-item-white {
+	background-color: white;
+}
+
+/*  	
+	adjust distance of components 
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: -moz-box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display:flex;
+	display: box;
+	justify-content: space-between;
+*/
+.ul-custom {
+	list-style:none;
+	overflow:auto;
+	display:flex;
+}
+
+.ul-custom:after{
+	display:inline-block;
+	witdh:1px;
+	content:'';
+}
+ 
+.li-custom {
+	float:left;
+	padding : 0 5px;
+	margin : left : 5px;
+	overflow: auto;
+
+}
+.li-custom-table {
+	text-align : right;
+}
+
+.ul-scroll-test{
+	height:200px;
+	overflow-y: scroll; 
+}
+
+.app-modal-window{
+	position:fixed;
+	left:18.5;
+	width:80%;
+	height:80%;
+	/* margin-left : -10%; */
+}
+
+.test-me{
+	box-shadow : none;
+	border : none ;
+	background : none;
+	width:100%;
+}
+
+.test-red{
+	background-color : red;
+	
+}
+.test-back{
+	background-color : green;
+	
+}
+.uneditable{
+	background-color : #D3D3D3;
+	
+}
+.alert-warning {
+    border-left: 6px solid #f8ac59;
+}
+.alert-success {
+    border-left: 6px solid #1c84c6;
+}
+.alert-danger {
+    border-left: 6px solid #ed5565;
+}
+.alert-info {
+    border-left: 6px solid #1ab394;
+}
+.pg-link{
+	text-decoration: underline;
+}
+.text-gray{
+	color: gray;
+}

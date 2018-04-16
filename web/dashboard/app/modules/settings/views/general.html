@@ -1,0 +1,130 @@
+<fieldset>
+	<div class="row" style="height: 25px;">
+		<div class="col-lg-3">
+			<div ng-if="dataLoading" class="sk-spinner sk-spinner-circle">
+				 <div class="sk-circle1 sk-circle"></div>
+				 <div class="sk-circle2 sk-circle"></div>
+				 <div class="sk-circle3 sk-circle"></div>
+				 <div class="sk-circle4 sk-circle"></div>
+				 <div class="sk-circle5 sk-circle"></div>
+				 <div class="sk-circle6 sk-circle"></div>
+				 <div class="sk-circle7 sk-circle"></div>
+				 <div class="sk-circle8 sk-circle"></div>
+				 <div class="sk-circle9 sk-circle"></div>
+				 <div class="sk-circle10 sk-circle"></div>
+				 <div class="sk-circle11 sk-circle"></div>
+				 <div class="sk-circle12 sk-circle"></div>
+			 </div>
+		</div>
+		<div class="col-lg-3">
+			<div ng-if="dataOptionLoading" class="sk-spinner sk-spinner-circle">
+				 <div class="sk-circle1 sk-circle"></div>
+				 <div class="sk-circle2 sk-circle"></div>
+				 <div class="sk-circle3 sk-circle"></div>
+				 <div class="sk-circle4 sk-circle"></div>
+				 <div class="sk-circle5 sk-circle"></div>
+				 <div class="sk-circle6 sk-circle"></div>
+				 <div class="sk-circle7 sk-circle"></div>
+				 <div class="sk-circle8 sk-circle"></div>
+				 <div class="sk-circle9 sk-circle"></div>
+				 <div class="sk-circle10 sk-circle"></div>
+				 <div class="sk-circle11 sk-circle"></div>
+				 <div class="sk-circle12 sk-circle"></div>
+			 </div>
+		 </div>
+		 <div class="col-lg-5">
+		 	<div ng-if="dataValueLoading" class="sk-spinner sk-spinner-circle">
+				 <div class="sk-circle1 sk-circle"></div>
+				 <div class="sk-circle2 sk-circle"></div>
+				 <div class="sk-circle3 sk-circle"></div>
+				 <div class="sk-circle4 sk-circle"></div>
+				 <div class="sk-circle5 sk-circle"></div>
+				 <div class="sk-circle6 sk-circle"></div>
+				 <div class="sk-circle7 sk-circle"></div>
+				 <div class="sk-circle8 sk-circle"></div>
+				 <div class="sk-circle9 sk-circle"></div>
+				 <div class="sk-circle10 sk-circle"></div>
+				 <div class="sk-circle11 sk-circle"></div>
+				 <div class="sk-circle12 sk-circle"></div>
+			 </div>
+		 </div>
+	</div>
+    <div class="row">
+        <div class="col-lg-3">
+        	<h3><span translate>lblCategory</span></h3>
+			<input name="searchCat" ng-model="searchCat" type="text" class="form-control">
+			<uib-tabset active="active" vertical="true" type="pills" class="opt-menu">
+		        <uib-tab ng-repeat="row in vm.categories | filter: searchCat" heading="{{row.categoryNm}}" ng-click="vm.getOptionByCatId(row)"></uib-tab>
+		     </uib-tabset>
+		</div>
+		<div class="col-lg-3">
+			<div ng-show="categoryTitle != ''">
+				<h3><span translate>lblOption</span>&nbsp;<span class="text-danger">{{categoryTitle}}</span></h3>
+				<input name="searchOpt" ng-model="searchOpt" type="text" class="form-control">
+			</div>
+			<uib-tabset active="active" vertical="true" type="pills" class="opt-menu">
+		        <uib-tab ng-repeat="row in vm.options | filter: searchOpt" heading="{{row.optNm}}" ng-click="vm.getValueByOptId(row, $index)"></uib-tab>
+		     </uib-tabset>
+        </div>
+        <div class="col-lg-1">
+        	<span ng-show="selectedView != ''"><i style="{{styleArrowOpt}}" class="fa fa-caret-right big-icon"></i></span>
+        </div>
+        <div class="col-lg-5">
+        		<h3 ng-show="optTitle != ''"><span translate>lblValue</span>&nbsp;<span class="text-danger">{{optTitle}}</span></h3>
+	        	<div class="row" style="padding-top: 25px;height: 60px;">
+	        		<div class="ibox float-e-margins">
+                		<span class="alert alert-success" ng-if="changeOptValueStatus"><span translate="lblChangeOptSuccess" translate-values="{ field: msgSuccess }"></span></span>
+        			</div>	
+        		</div>
+        		<div class="row">
+					<div ng-show="selectedView==='CHECKBOX'">
+						<div class="col-sm-3"></div>
+						<div class="col-sm-9">
+							<div class="checkbox checkbox-primary" ng-repeat="row in vm.listValueByOptId">
+			                    <input id="checkbox{{$index}}" type="checkbox" ng-model="row.checked" ng-change="vm.changeOptValue(row)">
+			                    <label for="checkbox{{$index}}">
+			                        {{row.listValue}}
+			                    </label>
+			                </div>
+		                </div>
+					</div>
+					<div ng-show="selectedView==='SELECTBOX'">
+						<div class="col-sm-3">{{vm.optForm.selectValue}}</div>
+						<div class="col-sm-9">
+							<select class="form-control" name="selectValue"
+								ng-model="vm.optForm.selectedOption"
+								chosen="directiveOptions"
+								data-placeholder-text-single="'Choose Value'"
+								disable-search="false"
+								ng-change="vm.changeSelectOptValue()"
+								ng-options="option.listValue for option in vm.listValueByOptId track by option.listValue">
+								<option value=""></option>
+							</select>
+						</div>
+					</div>
+					<div ng-show="selectedView==='STR_LIST'">
+						<form name="mForm" class="p-lg form-horizontal" ng-submit="vm.submitOptValue()">
+							<div class="form-group" ng-repeat="row in vm.listValueByOptId">
+				                <label class="col-sm-3 control-label" translate>{{row.listValue}}</label>
+				                <div class="col-sm-5"><div class="row"><input name="row.listValue" ng-model="row.value" type="text" class="form-control"></div></div>
+				            </div>
+				            <div class="form-group">
+								<div class="col-lg-offset-2 col-lg-10">
+									<button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" translate>lblSubmit</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div ng-show="selectedView==='RADIO'">
+						<div class="col-sm-3"></div>
+						<div class="col-sm-9">
+							<div class="radio radio-primary"  ng-repeat="row in vm.listValueByOptId">
+								<input type="radio" id="valueRadio{{$index}}" name="valueRadio" ng-checked="row.checked" ng-click="vm.changeRadioValue(row)">
+								<label for="valueRadio{{$index}}">{{row.listValue}}</label>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+    </div>
+</fieldset>

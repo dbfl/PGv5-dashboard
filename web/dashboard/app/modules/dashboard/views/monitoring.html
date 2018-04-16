@@ -1,0 +1,248 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Monitorning</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+		<div class="col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>lblMerchantSeyfertBalance</span>
+					<div ng-if="!dataTotalLoading" class="sk-spinner sk-spinner-double-bounce pull-right icon-live">
+						<div class="sk-double-bounce1"></div>
+						<div class="sk-double-bounce2"></div>
+					</div>
+					<div ng-if="dataTotalLoading" class="sk-spinner sk-spinner-circle pull-right">
+						 <div class="sk-circle1 sk-circle"></div>
+						 <div class="sk-circle2 sk-circle"></div>
+						 <div class="sk-circle3 sk-circle"></div>
+						 <div class="sk-circle4 sk-circle"></div>
+						 <div class="sk-circle5 sk-circle"></div>
+						 <div class="sk-circle6 sk-circle"></div>
+						 <div class="sk-circle7 sk-circle"></div>
+						 <div class="sk-circle8 sk-circle"></div>
+						 <div class="sk-circle9 sk-circle"></div>
+						 <div class="sk-circle10 sk-circle"></div>
+						 <div class="sk-circle11 sk-circle"></div>
+						 <div class="sk-circle12 sk-circle"></div>
+					 </div>
+				</div>
+				<div class="panel-body no-padding">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<div class="text-danger type-currency "  value = "totalMerchant.usd" icon ='fa fa-dollar' type='h2' ops = "0" strong = "true"> </div>
+							<!--<h2 class="text-danger"><strong><i class="fa fa-dollar"></i> {{totalMerchant.usd | currency: "" : 0}}</strong></h2> -->
+							<div class="type-currency "  value = "totalMerchant.won" icon ='fa fa-won' type='h2' ops = "0" strong = "true"> </div>
+							<!--<h2><strong><i class="fa fa-won"></i> {{totalMerchant.won | currency: "" : 0}}</strong></h2> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>lblMemberSeyfertBalance</span>
+					<div ng-if="!dataTotalLoading" class="sk-spinner sk-spinner-double-bounce pull-right icon-live">
+						<div class="sk-double-bounce1"></div>
+						<div class="sk-double-bounce2"></div>
+					</div>
+					<div ng-if="dataTotalLoading" class="sk-spinner sk-spinner-circle pull-right">
+						 <div class="sk-circle1 sk-circle"></div>
+						 <div class="sk-circle2 sk-circle"></div>
+						 <div class="sk-circle3 sk-circle"></div>
+						 <div class="sk-circle4 sk-circle"></div>
+						 <div class="sk-circle5 sk-circle"></div>
+						 <div class="sk-circle6 sk-circle"></div>
+						 <div class="sk-circle7 sk-circle"></div>
+						 <div class="sk-circle8 sk-circle"></div>
+						 <div class="sk-circle9 sk-circle"></div>
+						 <div class="sk-circle10 sk-circle"></div>
+						 <div class="sk-circle11 sk-circle"></div>
+						 <div class="sk-circle12 sk-circle"></div>
+					 </div>
+				</div>
+				<div class="panel-body no-padding">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<div class="type-currency text-danger" value="totalMember.usd" icon="fa fa-dollar" type="h2" ops="0" strong="true"></div>
+							<!-- <h2 class="text-danger"><strong><i class="fa fa-dollar"></i> {{totalMember.usd | currency: "" : 0}}</strong></h2> -->
+							
+							<!-- {{totalMember.won | currency: "" : 0}} -->
+							<div class="type-currency" value="totalMember.won" icon="fa fa-won" type="h2" ops="0" strong="true" ></div>
+							<!-- <h2><strong><i class="fa fa-won"></i> {{totalMember.won | currency: "" : 0}}</strong></h2> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>lblTotalAccumulatedAmount</span>
+					<div ng-if="!dataTotalLoading" class="sk-spinner sk-spinner-double-bounce pull-right icon-live">
+						<div class="sk-double-bounce1"></div>
+						<div class="sk-double-bounce2"></div>
+					</div>
+					<div ng-if="dataTotalLoading" class="sk-spinner sk-spinner-circle pull-right">
+						 <div class="sk-circle1 sk-circle"></div>
+						 <div class="sk-circle2 sk-circle"></div>
+						 <div class="sk-circle3 sk-circle"></div>
+						 <div class="sk-circle4 sk-circle"></div>
+						 <div class="sk-circle5 sk-circle"></div>
+						 <div class="sk-circle6 sk-circle"></div>
+						 <div class="sk-circle7 sk-circle"></div>
+						 <div class="sk-circle8 sk-circle"></div>
+						 <div class="sk-circle9 sk-circle"></div>
+						 <div class="sk-circle10 sk-circle"></div>
+						 <div class="sk-circle11 sk-circle"></div>
+						 <div class="sk-circle12 sk-circle"></div>
+					 </div>
+				</div>
+				<div class="panel-body no-padding">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<div class="type-currency text-danger" value="totalGrand.usd" icon="fa fa-dollar" type="h2" ops="0" strong="true"></div>
+							<!-- <h2 class="text-danger"><strong><i class="fa fa-dollar"></i> {{totalGrand.usd | currency: "" : 0}}</strong></h2> -->
+							<div class="type-currency" value="totalGrand.won" icon="fa fa-won" type="h2" ops="0" strong="true"></div>
+							<!-- <h2><strong><i class="fa fa-won"></i> {{totalGrand.won | currency: "" : 0}}</strong></h2> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>lblCurrencyExchangeRate</span>
+					<div class="sk-spinner sk-spinner-double-bounce pull-right icon-live">
+						<div class="sk-double-bounce1"></div>
+						<div class="sk-double-bounce2"></div>
+					</div>
+				</div>
+				<div class="panel-body no-padding">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<div class="type-currency text-danger" value="1" icon="fa fa-dollar" type="h2" ops="0" strong="true"></div>
+							<!-- <h2 class="text-danger"><strong><i class="fa fa-dollar"></i> 1</strong></h2> -->
+							<div class="type-currency" value="crrncyRate" icon="fa fa-won" type="h2" ops="0" strong="true"></div>
+							<!-- <h2><strong><i class="fa fa-won"></i> {{crrncyRate | number}}</strong></h2> -->
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>lblHighestTransactionAmount</span>
+					<div ng-if="!topTransactionLoading" class="sk-spinner sk-spinner-double-bounce pull-right icon-live">
+						<div class="sk-double-bounce1"></div>
+						<div class="sk-double-bounce2"></div>
+					</div>
+					<div ng-if="topTransactionLoading" class="sk-spinner sk-spinner-circle pull-right">
+						 <div class="sk-circle1 sk-circle"></div>
+						 <div class="sk-circle2 sk-circle"></div>
+						 <div class="sk-circle3 sk-circle"></div>
+						 <div class="sk-circle4 sk-circle"></div>
+						 <div class="sk-circle5 sk-circle"></div>
+						 <div class="sk-circle6 sk-circle"></div>
+						 <div class="sk-circle7 sk-circle"></div>
+						 <div class="sk-circle8 sk-circle"></div>
+						 <div class="sk-circle9 sk-circle"></div>
+						 <div class="sk-circle10 sk-circle"></div>
+						 <div class="sk-circle11 sk-circle"></div>
+						 <div class="sk-circle12 sk-circle"></div>
+					 </div>
+				</div>
+				<div class="panel-body no-padding">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<h2 class="text-danger"><strong><i class="fa fa-{{vm.topTransaction[0].orgCrrncy | lowercase}}"></i> {{vm.topTransaction[0].orgAmt | currency: "" : 0}}</strong></h2>
+							<h2><strong><i class="fa fa-male"></i> {{vm.topTransaction[0].reqMemGuid}}</strong></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>lblMemberRegistration</span>
+					<div class="sk-spinner sk-spinner-double-bounce pull-right icon-live">
+						<div class="sk-double-bounce1"></div>
+						<div class="sk-double-bounce2"></div>
+					</div>
+				</div>
+				<div class="panel-body no-padding">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<div class="type-currency text-danger" value="totalMemberRegister" icon="fa fa-group" type="h2" ops="0" strong="true"> </div>
+							<!-- <h2 class="text-danger"><strong><i class="fa fa-group"></i> {{totalMemberRegister | number}}</strong></h2> -->
+							<h2><strong><i class="fa fa-envelope"></i>&nbsp;<span translate>lblVerified</span>: {{verifiedEmails}}%</strong></h2>
+							<h2><strong><i class="fa fa-phone"></i>&nbsp;&nbsp;<span translate>lblVerified</span>: {{verifiedPhones}}%</strong></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>lblMemberRegistrationFrequency</span>
+					<div class="sk-spinner sk-spinner-double-bounce pull-right icon-live">
+						<div class="sk-double-bounce1"></div>
+						<div class="sk-double-bounce2"></div>
+					</div>
+				</div>
+				<div class="panel-body no-padding">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content" ng-controller="MemberController">
+							<div class="my-chart" ng-init="getListMemberToday()">
+								<canvas ng-if="!showErrorChart" id="bar" class="chart chart-bar" chart-data="dataMemberToday" chart-labels="labelsMemberToday"  chart-series="seriesMemberToday" chart-options="options"></canvas>
+								<p ng-if="showErrorChart">
+									<div class="alert alert-warning">
+										<span translate>lblNoData</span>
+									</div>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<div class="col-lg-5">
+						<h5 translate>lblPGv5SystemStatus</h5>
+					</div>
+					<div class="col-lg-4"></div>
+					<div class="col-lg-3"></div>
+				</div>
+				<div class="ibox-content">
+					<div class="progress" ng-if="systemStatus">
+					  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:100%;height: 30px;font-size: 18px;padding: 4px;">
+						<span translate>lblSystemIsStable</span>
+					  </div>
+					</div>
+					<div class="progress" ng-if="!systemStatus">
+					  <div class="progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%;height: 30px;">
+						<span translate>lblSystemIsDown</span>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

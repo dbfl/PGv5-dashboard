@@ -1,0 +1,409 @@
+<div class="modal-header">
+	<div class="col-sm-6">
+		<h3 class="modal-title" translate>lblTransactionDetail</h3>
+	</div>
+	<div class="col-sm-6">
+		<button class="btn btn-default pull-right" type="button"
+			ng-click="cancel()" translate>btnClose</button>
+	</div>
+</div>
+<div class="modal-body">
+	<div class="panel-body no-padding form-horizontal">
+		<!-- <div class="panel-group" id="accordion"> -->
+		
+		<!-- ng-options="color.list.status disable when color.show for color in availableStatus" -->
+		<!-- <option ng-repeat="item in availableStatus" ng-disabled="{{item.show}}">
+												{{item.list.status}}
+											</option> -->
+			<!-- 수정 변경 중  -->
+			<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<h5 class="panel-title" translate>거래상태 변경 창</h5>
+				</div>
+				
+				<div class="panel-body">
+					 <form class="m-t" role="form" name="form" ng-submit="requestStatusChange(selectStatus)">
+					 		
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group ">
+										<label class="col-lg-4 control-label no-padding" translate> lblType </label>
+										<div class="col-lg-8">{{transactionDetail.trnsctnTp}}</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+										<label class="col-lg-4 control-label no-padding" translate> lblStatus </label>
+										<div class="col-lg-8">{{transactionDetail.trnsctnSt}}</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group ">
+									<!-- <form name="Myform"> -->
+										<select class="form-control" ng-model="selectStatus"
+										 ng-change="onChange(selectStatus)"
+										 >
+										<option value="">---Please select---</option>
+											<option ng-repeat="item in availableStatus" ng-disabled="{{item.disabled}}" ng-class="getItemClass({{item.disabled}})">
+												{{item.list.status}}
+											</option>
+										</select>
+									<!-- </form> -->
+									</div>
+									<div class="form-group" ng-show="isChangeable">
+				                		<label for="changeReason" class="pull-left" translate >lblReason</label>
+				            			<input type="text" name="changeReason" id="changeReason" class="form-control" ng-model="changeStatusReason" required placeholder="" autofocus/>
+				            			<span ng-show="form.changeReason.$error.required" class="help-block">A Reason is required</span>
+				            		</div>
+								</div>
+								<div class="col-sm-6">   <!--    btn btn-sm btn-primary pull-right m-t-n-xs -->
+														<!-- btn btn-info btn-rounded btn-xs show-cursor -->
+									<div class="form-group" > <!--  pull-right  ng-click="requestStatusChange(selectStatus)" -->
+										<button class="btn btn-sm btn-primary pull-right m-t-n-xs" 
+											ng-disabled="form.$invalid" type="submit" translate> lblChange
+										</button>
+										<!-- <div class="btn btn-info btn-rounded btn-xs show-cursor pull-right">
+											{{selectStatus}}
+										</div> -->
+									</div>
+								</div>
+							</div>
+					  </form>
+				</div>
+			</div>
+		<!-- </div> -->
+		<!-- 수정 변경 중  -->
+
+		<div class="panel panel-default">
+			<div class="panel-heading lbl-heading">
+				<h5 class="panel-title" translate>lblBasicInfo</h5>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label class="col-lg-4 control-label no-padding" translate>lblTID</label>
+							<div class="col-lg-8">{{ transactionDetail.tid }}</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-4 control-label no-padding" translate>lblRefId</label>
+							<div class="col-lg-8">{{ transactionDetail.refId }}</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-4 control-label no-padding" translate>lblTitle</label>
+							<div class="col-lg-8">{{ transactionDetail.title}}</div>
+						</div>
+
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label class="col-lg-4 control-label no-padding" translate>lblTransDate</label>
+							<div class="col-lg-8">
+								{{ transactionDetail.trnsctnDt | date: dateFormat}}
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-4 control-label no-padding" translate>lblOrgAmt</label>
+							<div class="col-lg-8">{{ transactionDetail.orgAmt |
+								currency: "" : 0 }} {{ transactionDetail.orgCrrncy }}</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-4 control-label no-padding" translate>lblPayAmt</label>
+							<div class="col-lg-8">{{ transactionDetail.payAmt |
+								currency: "" : 0}} {{ transactionDetail.payCrrncy }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default" ng-if="reqMemDetail">
+			<div class="panel-heading lbl-heading">
+				<h4 class="panel-title" ng-controller="MemberController">
+					<label translate>lblRequester</label>
+					<!-- <div ng-click="getMemberDetail(reqMemDetail)"
+						class="btn btn-info btn-rounded btn-xs show-cursor pull-right"
+						translate>lblDetail</div> -->
+				</h4>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group" ng-controller="MemberController">
+							<label class="col-lg-3 control-label no-padding" translate>lblReqMemGuid</label>
+							<!-- <div class="col-lg-8" >{{ reqMemDetail.guid }}</div> -->
+							
+							<div class="col-lg-8 guid-detail" method='getMemberDetail(reqMemDetail)' data='reqMemDetail' ></div>
+							
+						</div>
+						<div class="form-group" ng-if="reqMemDetail.emailsList.length > 0">
+							<div ng-repeat="row in reqMemDetail.emailsList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblEmail</span> <span
+									ng-if="reqMemDetail.emailsList.length > 1"
+									class="label label-primary my-count-info">{{reqMemDetail.emailsList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.emailAddrss }}</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group" ng-if="reqMemDetail.namesList.length > 0">
+							<div ng-repeat="row in reqMemDetail.namesList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblName</span> <span
+									ng-if="reqMemDetail.namesList.length > 1"
+									class="label label-primary my-count-info">{{reqMemDetail.namesList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.fullname }}</div>
+							</div>
+						</div>
+						<div class="form-group" ng-if="reqMemDetail.phonesList.length > 0">
+							<div ng-repeat="row in reqMemDetail.phonesList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblPhone</span> <span
+									ng-if="reqMemDetail.phonesList.length > 1"
+									class="label label-primary my-count-info">{{reqMemDetail.phonesList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.phoneNo }}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default" ng-if="srcMemDetail">
+			<div class="panel-heading lbl-heading">
+				<h4 class="panel-title" ng-controller="MemberController">
+					<label translate>lblPayer</label>
+					<!-- <div ng-click="getMemberDetail(srcMemDetail)"
+						class="btn btn-info btn-rounded btn-xs show-cursor pull-right"
+						translate>lblDetail</div> -->
+				</h4>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group" ng-controller="MemberController">
+							<label class="col-lg-3 control-label no-padding" translate>lblSrcMemGuid</label>
+							<!-- <div class="col-lg-8">{{ srcMemDetail.guid }}</div> -->
+							<div class="col-lg-9 guid-detail" method='getMemberDetail(srcMemDetail)' data='srcMemDetail' ></div>
+						</div>
+						<div class="form-group" ng-if="srcMemDetail.emailsList.length > 0">
+							<div ng-repeat="row in srcMemDetail.emailsList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblEmail</span> <span
+									ng-if="srcMemDetail.emailsList.length > 1"
+									class="label label-primary my-count-info">{{srcMemDetail.emailsList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.emailAddrss }}</div>
+							</div>
+						</div>
+						<div class="form-group" ng-if="srcMemDetail.bnkAccnt.length > 0">
+							<div ng-repeat="row in srcMemDetail.bnkAccnt"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblBankAccNo</span> <span
+									ng-if="srcMemDetail.bnkAccnt.length > 1"
+									class="label label-primary my-count-info">{{srcMemDetail.bnkAccnt.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.accntNo }}</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group" ng-if="srcMemDetail.namesList.length > 0">
+							<div ng-repeat="row in srcMemDetail.namesList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblName</span> <span
+									ng-if="srcMemDetail.namesList.length > 1"
+									class="label label-primary my-count-info">{{srcMemDetail.namesList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.fullname }}</div>
+							</div>
+						</div>
+						<div class="form-group" ng-if="srcMemDetail.phonesList.length > 0">
+							<div ng-repeat="row in srcMemDetail.phonesList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblPhone</span> <span
+									ng-if="srcMemDetail.phonesList.length > 1"
+									class="label label-primary my-count-info">{{srcMemDetail.phonesList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.phoneNo }}</div>
+							</div>
+						</div>
+						<div class="form-group" ng-if="srcMemDetail.bnkAccnt.length > 0">
+							<div ng-repeat="row in srcMemDetail.bnkAccnt"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblBankCode</span>
+								</label>
+								<div class="col-lg-8">{{ row.bnkCd }}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="panel panel-default" ng-if="orgMemDetail">
+			<div class="panel-heading lbl-heading">
+				<h4 class="panel-title" ng-controller="MemberController">
+					<label translate>lblSender</label>
+					<!-- <div ng-click="getMemberDetail(orgMemDetail)"
+						class="btn btn-info btn-rounded btn-xs show-cursor pull-right"
+						translate>lblDetail</div> -->
+				</h4>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group" ng-controller="MemberController">
+							<label class="col-lg-3 control-label no-padding" translate>lblOrgMemGuid</label>
+							<!-- <div class="col-lg-8">{{ orgMemDetail.guid }}</div> -->
+							<div class="col-lg-9 guid-detail" method='getMemberDetail(orgMemDetail)' data='orgMemDetail' ></div>
+						</div>
+						<div class="form-group" ng-if="orgMemDetail.emailsList.length > 0">
+							<div ng-repeat="row in orgMemDetail.emailsList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblEmail</span> <span
+									ng-if="orgMemDetail.emailsList.length > 1"
+									class="label label-primary my-count-info">{{orgMemDetail.emailsList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.emailAddrss }}</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group" ng-if="orgMemDetail.namesList.length > 0">
+							<div ng-repeat="row in orgMemDetail.namesList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblName</span> <span
+									ng-if="orgMemDetail.namesList.length > 1"
+									class="label label-primary my-count-info">{{orgMemDetail.namesList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.fullname }}</div>
+							</div>
+						</div>
+						<div class="form-group" ng-if="orgMemDetail.phonesList.length > 0">
+							<div ng-repeat="row in orgMemDetail.phonesList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblPhone</span> <span
+									ng-if="orgMemDetail.phonesList.length > 1"
+									class="label label-primary my-count-info">{{orgMemDetail.phonesList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.phoneNo }}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default" ng-if="dstMemDetail">
+			<div class="panel-heading lbl-heading">
+				<h4 class="panel-title" ng-controller="MemberController">
+					<label translate>lblReceiver</label>
+					<!-- <div ng-click="getMemberDetail(dstMemDetail)"
+						class="btn btn-info btn-rounded btn-xs show-cursor pull-right"
+						translate>lblDetail</div> -->
+				</h4>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group" ng-controller="MemberController">
+							<label class="col-lg-3 control-label no-padding" translate>lblDstMemGuid</label>
+							<!-- <div class="col-lg-8">{{ dstMemDetail.guid }}</div> -->
+							<div class="col-lg-9 guid-detail" method='getMemberDetail(dstMemDetail)' data='dstMemDetail' ></div>
+						</div>
+						<div class="form-group" ng-if="dstMemDetail.emailsList.length > 0">
+							<div ng-repeat="row in dstMemDetail.emailsList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblEmail</span> <span
+									ng-if="dstMemDetail.emailsList.length > 1"
+									class="label label-primary my-count-info">{{dstMemDetail.emailsList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.emailAddrss }}</div>
+							</div>
+						</div>
+						<div class="form-group" ng-if="dstMemDetail.bnkAccnt.length > 0">
+							<div ng-repeat="row in dstMemDetail.bnkAccnt"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblBankAccNo</span> <span
+									ng-if="dstMemDetail.bnkAccnt.length > 1"
+									class="label label-primary my-count-info">{{dstMemDetail.bnkAccnt.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.accntNo }}</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-4 control-label no-padding" translate>lblVirtualAccNo</label>
+							<div class="col-lg-8">{{ dstMemDetail.virtualAccnt.accntNo
+								}}</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group" ng-if="dstMemDetail.namesList.length > 0">
+							<div ng-repeat="row in dstMemDetail.namesList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblName</span> <span
+									ng-if="dstMemDetail.namesList.length > 1"
+									class="label label-primary my-count-info">{{dstMemDetail.namesList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.fullname }}</div>
+							</div>
+						</div>
+						<div class="form-group" ng-if="dstMemDetail.phonesList.length > 0">
+							<div ng-repeat="row in dstMemDetail.phonesList"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblPhone</span> <span
+									ng-if="dstMemDetail.phonesList.length > 1"
+									class="label label-primary my-count-info">{{dstMemDetail.phonesList.length}}</span>
+								</label>
+								<div class="col-lg-8">{{ row.phoneNo }}</div>
+							</div>
+						</div>
+						<div class="form-group" ng-if="dstMemDetail.bnkAccnt.length > 0">
+							<div ng-repeat="row in dstMemDetail.bnkAccnt"
+								ng-if="row.priority==1">
+								<label class="col-lg-4 control-label no-padding"> <span
+									translate>lblBankCode</span>
+								</label>
+								<div class="col-lg-8">{{ row.bnkCd }}</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-4 control-label no-padding" translate>lblBankCode</label>
+							<div class="col-lg-8">{{ dstMemDetail.virtualAccnt.bnkCd }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="modal-footer">
+
+	<button  class="btn btn-default" ng-if='isPrintableSend' ng-click="executePrint('PAY_EN')"> 송금 완료 증명 </button>
+	<button  class="btn btn-default" ng-if='isPrintableWithdraw' ng-click="executePrint('WITH')"> 출금 완료 증명 </button>
+	<button  class="btn btn-default" ng-if='isPrintableBorrow' ng-click="executePrint('BRRW')"> 대출 완료 증명 </button>
+	<!-- <a href="modules/transaction/views/searchForm.html" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> Print Invoice </a> -->
+	<!-- <button class="btn btn-default" type="button" ng-click="cancel()"
+		translate>btnClose</button> -->
+</div>

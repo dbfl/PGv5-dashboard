@@ -1,0 +1,247 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="ibox no-margins">
+		    <div class="ibox-title">
+		        <h5 translate>lblContract</h5>
+		    </div>
+		    <div class="ibox-content">
+	        	<div class='msg-block' ng-show='showMsgContract'>
+	            	<div class="alert alert-danger">
+						<span>{{msgResultContract}}</span>
+					</div>
+				</div>
+	        	<div class="row">
+					<form class="form-horizontal" name="contract" ng-submit="vm.submitCreateContract()">
+						<div class="col-sm-10">
+						
+							<div class="form-group">
+								<label class="col-lg-2 control-label" translate>SrcGuid</label>
+								
+								<div class="col-lg-4">
+									<!-- <div class ="guid"></div> --> 
+									<input type="text" required placeholder="Merchant Guid (Source)" class="form-control" ng-model="vm.memContract.srcMemGuid"> <font color="#00b300">* Enter at least 4 characters of member guid</font>
+								</div>
+								 <div ng-if="vm.memContract.srcMemGuid.length >= 4">
+									<a ng-href="" class="btn btn-outline btn-warning  dim pull-left" ng-click="getMemberDetail(vm.memContract)" style="float:left;"><i class="fa fa-pencil-square-o"></i>&nbsp</a>
+								</div> 
+							</div>
+						</div>
+						<div class="col-sm-10">	
+							<div class="form-group">
+								<label class="col-lg-2 control-label" translate>lblStartDate</label>
+								<div class="col-lg-5">
+									<input type="text" required placeholder="Ex:20151005112815" class="form-control" ng-model="vm.memContract.startDt">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-10">
+							<div class="form-group">
+								<label class="col-lg-2 control-label" translate>lblEndDate</label>
+								<div class="col-lg-5">
+									<input type="text" required placeholder="Ex:20151005112815" class="form-control" ng-model="vm.memContract.endDt">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-10">
+							<div class="form-group" style="padding-top:5px;">
+								<div class="col-lg-offset-2 col-lg-10">
+									<button class="btn btn-sm btn-primary m-t-n-xs" type="submit" translate>lblSubmit</button>
+								</div>
+							</div>
+						</div>
+					</form>
+	            </div>
+		    </div>
+		</div>
+	</div>
+</div>
+<div class="row" ng-if="showCurrencyContract">
+	<div class="col-sm-6">
+		<div class="ibox no-margins">
+		    <div class="ibox-title" class="addhere">
+		        <h5 translate>lblCurrencyContract</h5>
+		    </div>
+		    <div class="ibox-content">
+	        	<div class='msg-block' ng-show='showMsgCurrency == 1'>
+	            	<div class="alert alert-danger">
+						<span>{{msgResultCurrency}}</span>
+					</div>
+				</div>
+	        	<div class="row">
+	        		<form class="form-horizontal" name="contract" ng-submit="vm.submitCreateCurrencyContract()">
+						<div class="form-group">
+							<div class="col-lg-12">
+								<div class="row">
+									<div class="col-sm-3">
+										<select required class="form-control" name="srcCrrncy"
+											ng-model="vm.currency.srcCrrncy"
+											chosen="directiveOptions"
+											data-placeholder-text-single="'Choose Currency'"
+											disable-search="false"
+											ng-options="crrncy.srcCrrncy as crrncy.srcCrrncy for crrncy in listCurrency">
+											<option value=""></option>
+										</select>
+									</div>
+									<div class="col-sm-1" style="padding-top:7px">
+										to:
+									</div>
+									<div class="col-sm-3">
+										<select required class="form-control" name="dstCrrncy"
+											ng-model="vm.currency.dstCrrncy"
+											chosen="directiveOptions"
+											data-placeholder-text-single="'Choose Currency'"
+											disable-search="false"
+											ng-options="crrncy.srcCrrncy as crrncy.srcCrrncy for crrncy in listCurrency">
+											<option value=""></option>
+										</select>
+									</div>
+									<div class="col-sm-1"  style="padding-top:7px">
+										AccmTp
+									</div>
+									<div class="col-sm-4">
+										<select required class="form-control" name="accmTp"
+											ng-model="vm.currency.accmTp"
+											chosen="directiveOptions"
+											data-placeholder-text-single="'Choose accmTp'"
+											disable-search="true"
+											ng-options="accmTp for accmTp in accmTpList">
+											<option value=""></option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group" style="padding-top:5px;">
+							<div class="col-lg-offset-2 col-lg-10">
+								<button class="btn btn-sm btn-primary m-t-n-xs pull-right" ng-disabled="contract.$invalid" type="submit" translate>lblAdd</button>
+							</div>
+						</div>
+					</form>
+					<div class='msg-block' ng-show='showMsgCurrency == 2'>
+		            	<div class="alert alert-success">
+							<span>{{msgResultCurrency}}</span>
+						</div>
+					</div>
+					<table datatable="ng" dt-options="dtOptionsContract"  class="table table-striped table-bordered table-hover">
+				        <thead>
+				        <tr>
+				        	<th>#</th>
+				            <th translate>srcCrrncy</th>
+				            <th translate>dstCrrncy</th>
+							<th translate>accmTp</th>
+							<th translate>lblCreateDate</th>
+							<th translate>lblAction</th>
+				        </tr>
+				        </thead>
+				        <tbody>
+				        <tr ng-repeat="row in listContractCurrency | filter: search">
+				        	<td>{{  $index + 1 }}</td>
+				            <td>{{ row.srcCrrncy }}</td>
+				            <td>{{ row.dstCrrncy }}</td>
+				            <td>{{ row.accmTp }}</td>
+				            <td>{{ row.createDt }}</td>
+				            <td>
+				            	<span ng-click="vm.setCurrencyRate(row)" class="label label-success show-cursor" ng-class="{btnActive: row.id === currencyRateActive}" translate>lblRate</span>
+				            </td>
+				        </tr>
+				        </tbody>
+				    </table>
+	            </div>
+		    </div>
+		</div>
+	</div>
+	<div class="col-sm-6" ng-if="showCurrencyRate">
+		<div class="ibox no-margins">
+		    <div class="ibox-title" class="addhere">
+		        <h5><span translate>lblRateCurrency</span><span class="text-danger">{{currencyRateTitle}}</span></h5>
+		    </div>
+		    <div class="ibox-content">
+	        	<div class='msg-block' ng-show='showMsgRateCurrency == 1'>
+	            	<div class="alert alert-danger">
+						<span>{{msgResultRateCurrency}}</span>
+					</div>
+				</div>
+	        	<div class="row">
+	        		<form name="mForm" class="p-lg form-horizontal" ng-submit="vm.submitCurrencyRate()">
+	        			<div class="col-sm-6">
+							<div class="form-group">
+				                <label class="col-sm-5 control-label" translate>lblCurrencyBase</label>
+				                <div class="col-sm-7"><div class="row">
+				                	<select required class="form-control" name="crrncyBase"
+												ng-model="vm.currencyRate.crrncyBase"
+												chosen="directiveOptions"
+												data-placeholder-text-single="'Choose Currency Base'"
+												disable-search="true"
+												ng-options="crrncyBase for crrncyBase in currencyBaseList">
+												<option value=""></option>
+									</select>
+									</div>
+								</div>
+				            </div>
+							<div class="form-group">
+				                <label class="col-sm-5 control-label" translate>lblBound</label>
+				                <div class="col-sm-7"><div class="row"><input required name="bound" id="bound"  ng-model="vm.currencyRate.bound" type="number" class="form-control"></div></div>
+				            </div>
+			            </div>
+			            <div class="col-sm-6">
+							<div class="form-group">
+				                <label class="col-sm-5 control-label" translate>lblMargin</label>
+				                <div class="col-sm-7"><div class="row"><input required name="margin" id="margin" ng-model="vm.currencyRate.margin" type="text" class="form-control"></div></div>
+				            </div>
+							<div class="form-group">
+							
+				                <label class="col-sm-5 control-label" translate>lblExchangeType</label>
+				                <div class="col-sm-7"><div class="row">
+				                	<select required class="form-control" name="exchangeTp"
+												ng-model="vm.currencyRate.exchangeTp"
+												chosen="directiveOptions"
+												data-placeholder-text-single="'Choose Currency Base'"
+												disable-search="true"
+												ng-options="exchangeTp for exchangeTp in exchangeTypeList">
+												<option value=""></option>
+									</select>			
+									</div></div>
+				            </div>
+			            </div>
+			            <div class="form-group">
+							<div class="col-lg-offset-2 col-lg-10">
+								<button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" ng-disabled="mForm.$invalid"><span translate>lblSubmit</span></button>
+							</div>
+						</div>
+					</form>
+	        	</div>
+	        	<div class="row">
+	        		<div class='msg-block' ng-show='showMsgRateCurrency == 2'>
+		            	<div class="alert alert-success">
+							<span>{{msgResultRateCurrency}}</span>
+						</div>
+					</div>
+	        		<table datatable="ng" dt-options="dtOptionsContract"  class="table table-striped table-bordered table-hover">
+				        <thead>
+				        <tr>
+				        	<th>#</th>
+				            <th translate>lblBound</th>
+				            <th translate>lblMargin</th>
+							<th translate>lblExchangeType</th>
+							<th translate>lblCreateDate</th>
+							<th translate>lblAction</th>
+				        </tr>
+				        </thead>
+				        <tbody>
+				        <tr ng-repeat="row in listRateCurrency | filter: search">
+				        	<td>{{  $index + 1 }}</td>
+				            <td>{{ row.bound }}</td>
+				            <td>{{ row.margin }}</td>
+				            <td>{{ row.exchangeTp }}</td>
+				            <td>{{ row.createDt | date: 'yyyy-MM-dd' }}</td>
+				            <td>
+				            	<span ng-click="vm.editCurrencyRate(row)" class="label label-success show-cursor" translate>lblEdit</span>
+				            </td>
+				        </tr>
+				        </tbody>
+				    </table>
+	        	</div>
+        	</div>
+       	</div>
+    </div>				
+</div>

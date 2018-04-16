@@ -1,0 +1,26 @@
+.content {
+	position: relative;
+	padding-top: 5px;
+}
+.mainContainer {
+	margin: 0 auto;
+	width: 420px;
+}
+.result {
+	position: relative;
+	padding-top: 10px;
+}
+.formContainer {
+	width: 357px;
+	margin: 0 auto;
+}
+.buttonContainer {
+	position: relative;
+	padding-top: 25px;
+	padding-bottom: 15px;
+}
+.input-group-btn:last-child > .form-control {
+	margin-left: -1px;
+	width: auto;
+	color: #0D70B7;
+}

@@ -1,0 +1,127 @@
+<div>
+	<button  class="btn btn-sm btn-primary  no-margins" ng-click="vm.goBack()"> 뒤로 </button>
+	<h1> 상세목록 </h1>
+</div>
+<div class="row">
+	<form>
+		<div class="col-lg-3">
+		</div>	
+		<div ng-if="vm.loadDataForm" class="sk-spinner sk-spinner-circle pull-left">
+			 <div class="sk-circle1 sk-circle"></div>
+			 <div class="sk-circle2 sk-circle"></div>
+			 <div class="sk-circle3 sk-circle"></div>
+			 <div class="sk-circle4 sk-circle"></div>
+			 <div class="sk-circle5 sk-circle"></div>
+			 <div class="sk-circle6 sk-circle"></div>
+			 <div class="sk-circle7 sk-circle"></div>
+			 <div class="sk-circle8 sk-circle"></div>
+			 <div class="sk-circle9 sk-circle"></div>
+			 <div class="sk-circle10 sk-circle"></div>
+			 <div class="sk-circle11 sk-circle"></div>
+			 <div class="sk-circle12 sk-circle"></div>
+		 </div>
+	</form>
+</div></br>
+<!--  -->
+<div>
+	<form role="form" name="mtAccntBalance">
+		<div class="row" >
+			<div class="col-lg-3">
+					<h3>계  좌  : {{vm.account}}</h3>
+			</div>	
+			<div class="col-lg-5">
+				<div class="form-group" >
+					 <label class="col-sm-3 control-label" translate>  lblType </label>
+					 
+					 <div class="col-sm-5" ng-class="{ 'has-error' : mtAccntBalance.type.$invalid}">
+					 	<select  
+					 		class="form-control"
+					 		name="type"
+					 		ng-change='vm.selectDetailType()'
+					 		ng-model="vm.transMtAccntBalance.type">
+					 		<option value="{{task.code}}" ng-repeat="task in vm.transType"> {{task.type}}</option>
+					 	</select>
+					 </div>
+				</div> 
+			</div>	
+       	</div>
+       	
+       	<div class="row border-bottom">
+            <div class="btn-group">
+		        <label ng-class="{active: vm.viewByTime == 'month'}" ng-model="vm.viewByTime" uib-btn-radio="'month'" class="btn btn-sm btn-white" >{{ '1 개월 ' | translate}}</label>
+				<label ng-class="{active: vm.viewByTime == 'quarter'}" ng-model="vm.viewByTime" uib-btn-radio="'quarter'" class="btn btn-sm btn-white">{{ '3 개월' | translate}}</label>
+				<label ng-class="{active: vm.viewByTime == 'half'}" ng-model="vm.viewByTime" uib-btn-radio="'half'" class="btn btn-sm btn-white">{{ '6 개월 ' | translate}}</label>
+				<label ng-class="{active: vm.viewByTime == 'year'}" ng-model="vm.viewByTime" uib-btn-radio="'year'" class="btn btn-sm btn-white">{{ '12 개월 ' | translate}}</label>
+		    </div>
+		   <!--  {{vm.testComment}} -->
+		    <p>
+    		<div>
+				<input type="radio" value="range" ng-model="vm.isMonthToMonthB" > 지정 
+				<input type="radio" value="month" ng-model="vm.isMonthToMonthB" > 월별 
+			</div>
+			<div ng-switch="vm.isMonthToMonthB" class="col-sm-8"> 
+				<div class="col-lg-10" ng-switch-when="range" >
+					<div class="form-group">
+		                <label class="col-sm-2 control-label" translate> lblTransDate </label>
+		               <div class="col-sm-5"> 
+		               		<h3> {{vm.showDate.startDate }} ~ {{vm.showDate.endDate}} </h3>
+		               </div>
+		               <div class="col-sm-1" >
+			                <!-- <input  required name="term" date-range-picker class="form-control date-picker" type="text" ng-model="vm.rangeMtAccntBalDate" options="{locale : {separator:':'}}"/> -->
+			                <div name="term" date-range-picker class="form-control date-picker" type="text" ng-model="vm.rangeMtAccntBalDate"> 
+			                	<i class="fa fa-calendar"></i> 
+			                </div>
+			                <!-- <input size="10" required name="term" date-range-picker class="form-control date-picker" type="text" ng-model="vm.rangeMtAccntBalDate"/> -->
+		               </div>
+		               <button ng-disabled="vm.searchDisalbed || mtAccntBalance.$invalid" class="btn btn-sm btn-primary  no-margins" ng-click="vm.searchMtAccntBalanceDetails('','',vm.transMtAccntBalance.type , 0 , 1 ,true)">
+								검색
+						</button>
+						<span><lable class="text-danger">* 일정 지정 후 검색 버튼을 눌러주세요.</lable></span>
+		            </div>
+				</div>	
+				<div class="input-group date col-lg-9" ng-switch-when="month" >
+	               <div class="form-group">
+		               <div class="col-sm-8"
+		               		date-picker="vm.dates"
+		                	view="month" 
+		                	min-view="month"
+		                	watch-direct-changed="true"
+							ng-click="vm.dateChange()"> 
+		                </div>
+		                <button ng-disabled="vm.searchDisalbed || mtAccntBalance.$invalid" class="btn btn-sm btn-primary no-margins" ng-click="vm.searchMtAccntBalanceDetails('','',vm.transMtAccntBalance.type, 0 , 1 ,true)">
+							검색
+						</button>
+					</div>
+	                <!-- <span class="input-group-addon"><i class="fa fa-calendar"></i></span> -->
+	            </div>
+            </div>
+    	</div>	
+    		 
+    	
+	</form></br>
+</div>
+<div class="row">
+	<form action="" class="">
+		<div class="form-horizontal">
+			<table  lazy-load datatable="ng" dt-options="vm.dtOptionsAccount" class="table  table-bordered table-hover">
+				<thead>
+					<th>거래번호</th>
+					<th>거래일자 </th>
+					<th>거래타입</th>
+					<th>거래금액</th>
+					<th>잔     액 </th>
+				</thead>
+				<tbody>
+					<tr  ng-repeat="task in vm.mtAccntBalDetailList">
+						<td> {{task.trNo}}</td> 							<!-- 거래내용 -->
+						<td> {{task.trDate}}</td>               <!-- 거래일자  -->
+						<td  ng-class="{'text-info' : task.trType == '예치입금' || task.trType == '상환입금' || task.trType == '입금', 'text-danger' : task.trType == '반환출금' || task.trType == '투자출금' || task.trType == '출금'}"> {{task.trType}}</td> 	      
+						<td> {{task.trAmt | number}} 원 </td>            <!-- 금액   -->
+						<td class=""> {{task.balance | number}} 원</td>            <!-- 금액   -->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+	<div><button  class="btn btn-sm btn-primary  no-margins" ng-click="vm.loadDetailMore()">더보기</button></div>
+</div>

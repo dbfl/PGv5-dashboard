@@ -1,0 +1,166 @@
+<div class="ibox no-margins">
+    <div class="ibox-title">
+        <h5 translate>lblTransactionSearch</h5>
+    </div>
+    <div class="ibox-content">
+        <form class="form-horizontal" name="vm.advSearchForm" ng-submit="vm.advSearch()">
+        	<div class="row">
+        		<div class="alert alert-warning" ng-if="invalidAdvSearch">
+					<span translate>Enter one value for search</span>
+				</div>
+				
+        	
+        	</div>
+        	<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblTID</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="tid" class="form-control" ng-model="vm.trans.tid">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblRefId</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="RefId" class="form-control" ng-model="vm.trans.refId">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblTransDate</label>
+						<div class="col-lg-8">
+							<input date-range-picker class="form-control date-picker" type="text" ng-model="vm.rangeDate"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblPTID</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="parentTid" class="form-control" ng-model="vm.trans.parentTid">
+						</div>
+					</div>
+					<div class="form-group" >
+						<label class="col-lg-4 control-label" translate>lblTitle</label>
+						<div class="col-lg-8">
+							<!-- 2017.11.10 title 조회 시 DB 부하가 오는 현상으로 disabled 시킴 -->
+							<input ng-disabled="true" type="text" placeholder="Title" class="form-control" ng-model="vm.trans.title">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblUpdateDate</label>
+						<div class="col-lg-8">
+							<input date-range-picker class="form-control date-picker" type="text" ng-model="vm.rangeUpdateDt"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblType</label>
+						<div class="col-lg-8" ng-class="{ 'has-error': vm.advSearchForm.trnsctnTp.$invalid}">
+							<select class="form-control" name="trnsctnTp"
+								required
+								ng-model="vm.trans.trnsctnTp"
+								data-placeholder-text-single="'Choose type'"
+								disable-search="false"
+								ng-options="option.cd_key as option.cd_nm for option in typeList">
+								<option value=""></option>
+							</select>
+						</div>
+					</div>
+					<!-- <div class="form-group" ng-if="vm.isAdmin">
+						<label class="col-lg-4 control-label" translate>lblReqDataGuid</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="Merchant Guid" class="form-control" ng-model="vm.trans.reqDataGuid">
+						</div>
+					</div> -->
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblSrcGuid</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="SrcGuid" class="form-control" ng-model="vm.trans.srcMemGuid">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblDstGuid</label>
+						<div class="col-lg-8">
+							<input type="text" placeholder="DstGuid" class="form-control" ng-model="vm.trans.dstMemGuid">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblOrgAmt</label>
+						<div class="col-lg-8">
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="text" placeholder="from" class="form-control" ng-model="vm.trans.orgAmtMin">
+								</div>
+								<div class="col-lg-6">
+									<input type="text" placeholder="to" class="form-control" ng-model="vm.trans.orgAmtMax">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblCurrency</label>
+						<div class="col-lg-8">
+							<select class="form-control m-b" name="orgCrrncy" ng-model="vm.trans.orgCrrncy">
+								<option value="" disabled selected>-----{{ 'lblChooseOne' | translate:'{ type: "currency" }' }}-----</option>
+                                <option value="" >All</option>
+								<option value="KRW">KRW</option>
+								<option value="USD">USD</option>
+								<option value="CNY">CNY</option>
+								<option value="JPY">JPY</option>
+                            </select>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblStatus</label>
+						<div class="col-lg-8">
+							<select class="form-control" name="status"
+								ng-model="vm.trans.trnsctnSt"
+								chosen="directiveOptions"
+								data-placeholder-text-single="'Choose type'"
+								disable-search="false"
+								ng-options="option.cd_key as option.cd_nm for option in statusList">
+								<option value=""></option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblPayAmt</label>
+						<div class="col-lg-8">
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="text" placeholder="from" class="form-control" ng-model="vm.trans.payAmtMin">
+								</div>
+								<div class="col-lg-6">
+									<input type="text" placeholder="to" class="form-control" ng-model="vm.trans.payAmtMax">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label" translate>lblCurrency</label>
+						<div class="col-lg-8">
+							<select class="form-control m-b" name="payCrrncy" ng-model="vm.trans.payCrrncy">
+								<option value="" disabled selected>-----{{ 'lblChooseOne' | translate:'{ type: "currency" }' }}-----</option>
+                                <option value="" >All</option>
+								<option value="KRW">KRW</option>
+								<option value="USD">USD</option>
+								<option value="CNY">CNY</option>
+								<option value="JPY">JPY</option>
+                            </select>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" ng-disabled="vm.advSearchForm.trnsctnTp.$invalid" translate>lblSearch</button>
+						</div>
+						<div>
+							<span style="color:red" class="col-lg-8 control-label" translate>lblTypeRequired</span>
+						</div>
+				</div>
+            </div>
+        </form>
+    </div>
+</div>

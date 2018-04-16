@@ -1,0 +1,42 @@
+html,body{padding:0;margin:0;width:100%;font-family: Tahoma;}
+#container{width:100%;}
+#wrapper{width:1000px;border:0px solid #0078AE;margin:0 auto;}
+
+.compareCon{position:relative;float:left;border:0px solid red;width:450px;margin-left:3px;}
+
+.tabContainer{width: 1000px;position:relative;border:0px solid red;}
+ul.tabs{margin: 0px;padding: 0px;width:1000px;list-style: none;background: #0099CC;border:0px solid red;}
+ul.tabs li:hover{background-color:#66CCFF;}
+ul.tabs li{font-weight:bold;font-size:13px;font-family:dotum;background: #0099CC;color: #ffffff;margin-top:5px;margin-left:5px;display: inline-block;padding: 4px 15px;cursor: pointer;border:0px solid red;}
+ul.tabs li.current{background: #ffffff;color: #0099CC;}
+.tab-content{display: none;background: #ededed;padding: 15px;}
+.tab-content.current{display: inherit;}
+
+#groupContainer{
+	width:100%;margin:0 auto;
+}
+
+#CodeDetailContainer{
+	width:90%;;
+}
+
+#groupDesc{width: 202px;font-size: 12px;}
+#codeDesc{width: 202px;font-size: 12px;}
+.selectBox{width:209px;font-size:9px;}
+.textBox{font-size:9px;width:202px;}
+.header{margin-top:5px;font-size:14px;font-weight:bold;font-family:Tahoma;}
+.content{font-size:13px;width: 202px;}
+ 
+.contentButton{margin-top:15px;text-align: center;font-size: 12px;}
+.button{font-weight:bold;font-family: Tahoma;cursor:pointer;}
+
+.myEditor{cursor: pointer;}
+.myEditor:hover{font-weight:bold;}
+ 
+.radio{cursor: pointer;}
+
+.myAltRowClass {color:#5CB85C; }
+
+#jqGridPager3_left{width:500px;}
+#jqGridPager7_left{width:160px;}
+#jqGridPager8_left{width:160px;}

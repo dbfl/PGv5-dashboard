@@ -1,0 +1,32 @@
+<div class="panel-body">
+<div class="row">
+	<div class="form-group" id="opAssBnk">
+		<label class="col-sm-4 control-label" translate>lblBank</label>
+		<div class="col-sm-6">
+			<!-- class="row"  이 CSS 수정 하면 화면 크기에 맞게끔 작아짐. row 로 해서 삐져나옴  -->
+			<div class="row" ng-class="{ 'has-error': myForm.bnkCd.$invalid }">
+					<!-- ng-model="assForm.bnkCd" -->
+				<select required class="form-control" name="bnkCd"
+					ng-model="bank.bnkCd"
+					data-placeholder-text-single="'Choose Bank'" disable-search="false"
+					ng-options="bnk.bankCode as bnk.cdNm for bnk in listBank">
+					<option value=""></option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="hr-line-dashed"></div>
+	<div class="col-sm-8"></div>
+	<div class="form-group ">
+		<button type="button" class="btn btn-danger"
+			ng-disabled="myForm.bnkCd.$invalid" ng-click="resetVirtual()"
+			translate>btnVaReset</button>
+		<button type="submit" class="btn btn-primary"
+			ng-disabled="myForm.bnkCd.$invalid" ng-click="assignVirtual()"
+			translate> btnVaOk </button>
+		<!-- <button class="btn btn-warning" type="button" ng-click="cancel()" id="Close" name="Close" translate>Cancel</button> -->
+	</div>
+</div>
+</div>

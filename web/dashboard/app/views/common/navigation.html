@@ -1,0 +1,75 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+	<div class="sidebar-collapse">
+		<ul side-navigation class="nav metismenu" id="side-menu"
+			ng-controller="MainCtrl as main">
+			<li class="nav-header">
+				<div class="dropdown profile-element">
+					<span><img alt="image" class="img-logo-paygate"
+						src="img/paygatelogo-white.png" /></span> <span class="clear"> <span
+						class="block m-t-xs"> <strong class="font-bold">Paygate
+								Korea</strong></span>
+					</span>
+				</div>
+				<div class="logo-element">IN+</div>
+			</li>
+		<!-- <li ng-repeat="menu in main.menus" ng-class="{active: $state.includes('{{menu.url}}')}"
+				>
+				<a ui-sref="{{menu.url}}">
+					<i class="{{menu.icon}}"></i> 
+					<span class="nav-label" translate> {{menu.title}}</span>
+				</a>
+			</li> -->
+
+			 <li ng-class="{active: $state.includes('index.monitoring')}" ng-show="{{main.isAdmin}}">
+                <a ui-sref="index.monitoring"><i class="fa fa-bar-chart"></i> <span class="nav-label" translate>lblMonitoring</span> </a>
+            </li>
+            <li ng-class="{active: $state.includes('index.dashboard')}" >
+                <a ui-sref="index.dashboard"><i class="fa fa-pie-chart"></i> <span class="nav-label" translate>lblDashboard</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.transaction')}" >
+                <a ui-sref="index.transaction"><i class="fa fa-list"></i> <span class="nav-label" translate>lblTransaction</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.member')}">
+                <a ui-sref="index.member"><i class="fa fa-male"></i> <span class="nav-label" translate>lblMember</span></a>
+            </li>
+            <!-- seyfert transaction details 2017.12.18 added by atlas SUI-99 -->
+            <li ng-class="{active: $state.includes('index.seyfertFluctuation')}">
+                <a ui-sref="index.seyfertFluctuation"><i class="fa fa-list-alt"></i> <span class="nav-label" translate>lblFluctuation</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.currencyExchange')}" >
+                <a ui-sref="index.currencyExchange"><i class="fa fa-usd"></i> <span class="nav-label" translate>lblCurrencyExchange</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.chargeAccount')}"  ng-show="{{main.isAdmin}}">
+                <a ui-sref="index.chargeAccount"><i class="fa fa-money"></i> <span class="nav-label" translate>lblChargeAccount</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.seyfertWithdraw')}" >
+                <a ui-sref="index.seyfertWithdraw"><i class="fa fa-minus-circle"></i> <span class="nav-label" translate>lblSeyfertWithdraw</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.crossBorderRemit')}"  ng-show="{{main.isAdmin}}">
+                <a ui-sref="index.crossBorderRemit.step_one"><i class="fa fa-globe"></i> <span class="nav-label" translate>lblCrossBorderRemit</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.smsService')}"  ng-show="{{main.isAdmin}}">
+                <a ui-sref="index.smsService"><i class="fa fa-mobile-phone"></i> <span class="nav-label" translate>lblSmsService</span></a>
+            </li>
+            <!-- <li ng-class="{active: $state.includes('index.settings')}"  ng-show="{{main.isAdmin}}"> 08.16 noti ui 개발건으로 주석  -->
+            <li ng-class="{active: $state.includes('index.settings')}"  >
+                <a ui-sref="index.settings"><i class="fa fa-cogs"></i> <span class="nav-label" translate>lblSettings</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.lecture')}"  ng-show="{{main.isAdmin}}">
+                <a ui-sref="index.lecture"><i class="fa fa-graduation-cap"></i> <span class="nav-label" translate>lblLecture</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.seyfertAccounting')}"  ng-show="{{main.isAdmin}}">
+                <a ui-sref="index.seyfertAccounting"><i class="fa fa-table"></i> <span class="nav-label" translate>lblSeyfertAccounting</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('index.smsSRList')}"  ng-show="{{main.isAdmin}}">
+			    <a ui-sref="index.smsSRList"><i class="fa fa-table"></i> <span class="nav-label" translate>lblSmsSRList</span></a>
+			</li>
+			<!-- 회계 정산내역 탭 주석처리 by dongju 2017.09.04 -->
+             <!-- <li ng-class="{active: $state.includes('index.seyfertAccount')}"  ng-show="{{main.isAdmin}}">
+                <a ui-sref="index.seyfertAccount"><i class="fa fa-table"></i> <span class="nav-label" translate>SeyfertAcc</span></a>
+            </li>  -->
+		</ul>
+
+	</div>
+
+</nav>

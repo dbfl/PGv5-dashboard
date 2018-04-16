@@ -1,0 +1,64 @@
+<div class="white-bg" >
+	<div class="modal-header">
+		<div class="col-sm-8">
+			<h3 class="modal-title"><span translate>최총 청구 수수료 </span>&nbsp;<span translate>lblGuid</span>: <span class="text-success">{{guid}}</span></h3>
+		</div>
+		<div class="col-sm-2">
+			<div ng-if="dataLoading" class="sk-spinner sk-spinner-circle pull-right">
+				 <div class="sk-circle1 sk-circle"></div>
+				 <div class="sk-circle2 sk-circle"></div>
+				 <div class="sk-circle3 sk-circle"></div>
+				 <div class="sk-circle4 sk-circle"></div>
+				 <div class="sk-circle5 sk-circle"></div>
+				 <div class="sk-circle6 sk-circle"></div>
+				 <div class="sk-circle7 sk-circle"></div>
+				 <div class="sk-circle8 sk-circle"></div>
+				 <div class="sk-circle9 sk-circle"></div>
+				 <div class="sk-circle10 sk-circle"></div>
+				 <div class="sk-circle11 sk-circle"></div>
+				 <div class="sk-circle12 sk-circle"></div>
+			 </div>
+		</div>
+		<!-- <div class="col-sm-2">
+			<button class="btn btn-default pull-right" type="button" ng-click="cancel()" translate>btnClose</button>
+		</div> -->
+	</div>
+</div>
+ <div class="white-bg modal-body">
+	<form role="form" name="FeeAmt">
+		<div class="panel-body no-padding form-horizontal">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading lbl-heading">
+						<h4 class="panel-title">
+							<label> 총액 </label>
+						</h4>
+					</div>
+					<div class="panel-body">
+						<label> 총 액 </label>
+						<div class="col-sm-10 pull-right">
+							<input class="form-control" placeholder="총액 입력 창 " ng-model="allFee.chargingFee" name ="chargingFee" required/>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading lbl-heading">
+						<h4 class="panel-title">
+							<label> 상세 </label>
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="col-sm-10 pull-right">
+							<textarea   class="form-control" style="overflow:auto; resize:none" placeholder="상세내용 입력 창 "  
+								ng-model="allFee.cfDesc"	name ="cfDesc" required/>	
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div>		
+		<div class="modal-footer">  <!-- class="btn btn-primary btn-sm pull-right m-t-n-xs" -->
+			<button ng-disabled="FeeAmt.$invalid" class="btn btn-primary" type="button" ng-click="okFee()" id="ok" name="ok" translate>lblSubmit</button>
+			<button class="btn btn-default" type="button" ng-click="cancel()" id="Close" name="Close" translate>btnClose</button>
+		</div>
+	</form>	
+</div>

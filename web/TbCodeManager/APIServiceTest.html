@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>APIServiceTest</title>
+		<meta name="author" content="athan" />
+		<!-- Date: 2015-06-12 -->
+		<script type="text/javascript" src="./lib/js/jquery-1.11.0.min.js"></script> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$.ajax({
+					url:'https://dev5.paygate.net/v5a/member/member?callback=?&_method=POST',
+					dataType:'jsonp',
+					data:{fullname:'testName173',nmLangCd:'en',phoneNo:'017867999998',phoneCntryCd:'KOR',phoneTp:'MOBILE',addrssCntryCd:'KOR',city:'서울',addrss1:'송파구 송파동',addrss2:'페이게이트', addrssTp:'HOME',postCd:'138801',emailAddrss:'testname173@paygate.net',emailTp:'PERSONAL'},
+					//data:{fullname:'testName163',nmLangCd:'en',phoneNo:'01786791998',phoneCntryCd:'KOR',phoneTp:'MOBILE',addrssCntryCd:'KOR',city:'seoul',addrss1:'seoul',addrss2:'paygate', addrssTp:'HOME',postCd:'138801',emailAddrss:'testname163@paygate.net',emailTp:'PERSONAL'},
+					error:function(data){alert("error");},
+ 	        		success:function(data){}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="checkbox" name="test1" />
+			<input type="checkbox" name="test3" />
+			<input type="checkbox" name="test2" />
+		</form>
+	</body>
+</html>
+

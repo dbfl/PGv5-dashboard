@@ -1,0 +1,70 @@
+<form name="mForm" ng-submit="vm.assignLogin()" class="p-lg form-horizontal">
+<fieldset>
+    <div class="row 2nd-layer-popup">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+			<h2 translate>lblAssignLoginTitle</h2>
+			<br>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblMerchantGuid</label>
+                <div class="col-sm-6">
+					<div class="row" ng-class="{ 'has-error': mForm.dstMemGuid.$invalid }">
+						<input  name="dstMemGuid" required ng-model="vm.assForm.dstMemGuid" type="text" class="form-control">
+						<p class="help-block" ng-if="mForm.dstMemGuid.$error.required && mForm.dstMemGuid.$dirty">{{ 'lblRequired' | translate: '{field: "Merchant Guid"}' }}</p>
+					</div>
+				</div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblFullName</label>
+                <div class="col-sm-6">
+                <div class="row" ng-class="{ 'has-error': mForm.fullname.$invalid }">
+					<input  name="fullname" required ng-model="vm.assForm.fullname" type="text" class="form-control">
+					<p class="help-block" ng-if="mForm.fullname.$error.required && mForm.fullname.$dirty">{{ 'lblRequired' | translate: '{field: "FullName"}' }}</p>
+					</div></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblLoginId</label>
+                <div class="col-sm-6">
+                <div class="row" ng-class="{ 'has-error': mForm.login.$invalid }">
+					<input  name="login" required ng-model="vm.assForm.login" type="text" class="form-control">
+					<p class="help-block" ng-if="mForm.login.$error.required && mForm.login.$dirty">{{ 'lblRequired' | translate: '{field: "Login Id"}' }}</p>
+					</div></div>
+            </div>
+			<div class="form-group" id="opAssLang">
+                <label class="col-sm-4 control-label" translate>lblLanguage</label>
+                <div class="col-sm-6">
+					<div class="row" ng-class="{ 'has-error': mForm.nmLangCd.$invalid }">
+						<select required class="form-control" name="nmLangCd"
+							ng-model="vm.assForm.nmLangCd"
+							data-placeholder-text-single="'Choose Language'"
+							disable-search="false"
+							ng-options="option.value as option.name for option in listLang">
+							<option value=""></option>
+						</select>
+						<p class="help-block" ng-if="mForm.nmLangCd.$error.required && mForm.nmLangCd.$dirty">{{ 'lblRequired' | translate: '{field: "Language"}' }}</p>
+					</div>
+				</div>
+            </div>
+			<div class="row">
+				<div class="hr-line-dashed"></div>
+				<div class="col-sm-8">
+					<div class="alert alert-success" ng-if="assignLoginSuccess">
+						Well done! You successfully assignLogin
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group pull-right">
+						<button type="submit" class="btn btn-primary" ng-disabled="mForm.$invalid" translate>lblSubmit</button>
+					 </div>
+				</div>
+			</div>
+        </div>
+        <div class="col-lg-4">
+			
+        </div>
+		<div class="col-lg-4">
+			
+        </div>
+    </div>
+</fieldset>
+</form>

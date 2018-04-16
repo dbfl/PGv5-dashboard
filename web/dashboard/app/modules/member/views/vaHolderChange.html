@@ -1,0 +1,40 @@
+<div class="panel-body">
+<!-- <form name='vaChange'> -->
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="form-group">
+				<label class="col-lg-4 control-label no-padding" translate>
+					lblVirtualAccntHolderNm </label>
+				<div class="col-lg-8">
+					<label ng-disabled='true' class="form-control">
+						<!-- {{memberDetailResult.namesList[0].fullname}} -->
+						{{memberDetailResult.virtualAccnt.custNm}}
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-4 control-label no-padding" translate>
+					 lblVirtualAccntHolderNewNm  </label>
+				<div class="col-lg-8">
+					<input name="fullname" required
+						ng-model="newVAHolder.name" type="text" class="form-control"
+						style="float: left; width: 70%; padding: 2px 12px; height: 30px; margin-left: 1px; font-size: 12px" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<!-- 등록해지  -->
+		<div class="hr-line-dashed"></div>
+		<div class="col-sm-8">
+			<label class='text-danger' ng-disabled='true' class="form-control" translate> 
+				lblCommentsOfChangeAccntHolderTxt
+			</label>
+		</div>
+		<div class="form-group ">
+			<button class="btn btn-warning" ng-click="changeAccntHolder()" 
+			ng-disabled='myForm.fullname.$invalid' translate> btnOK </button>
+		</div>
+	</div>
+<!-- </form> -->
+</div>

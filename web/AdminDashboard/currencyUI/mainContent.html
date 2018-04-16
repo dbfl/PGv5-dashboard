@@ -1,0 +1,187 @@
+<div style="border:0px solid red;width:97%;margin:0 auto;" id="dashHeaderContent">
+	<div class="col-lg-5" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.0em;"> <strong> <span id="menuBaseCurrency"> Base </span> (<i class="fa fa-dollar"></i>) </strong> </small>
+		<br>
+		<strong> <span style="font-size: 2.1vw;font-size: 2.1vh;"><span> USD </span> </span> </strong>
+	</div>
+	<div class="col-lg-4" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.0em;"> <strong> <span id="menuDesCurrency">Destination </span> (<i class="fa fa-won"></i>) </strong> </small>
+		<br>
+		<strong> <span style="font-size: 2.1vw;font-size: 2.1vh;"><span id="transDailyTotal"> KRW </span> </span> </span> </strong>
+	</div>
+	<div class="col-lg-3" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.0em;"> <strong> <i class="fa fa-money"></i> <span id="menuRate">Rate </span> </strong> </small>
+		<br>
+		<strong> <span style="font-size: 2.1vw;font-size: 2.1vh;"><span id="currencyRate"> XE.COM</span> </span> </span> </strong>
+	</div>
+</div>
+
+<div class="tab-content" id="dashMainContent">
+	<div id="tab-1" class="tab-pane active">
+		<div class="tabs-container">
+			<ul class="nav nav-tabs">
+				<li class="tabMenu" style="display:none;">
+					<a data-toggle="tab" href="#statisticsTab"> <span id="statistics">Statistic </span> </a>
+				</li>
+				<li class="active tabMenu">
+					<a data-toggle="tab" href="#exchangeTab">  <span id="tabExchange">Exchange </span> </a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="tab-content">
+		<div id="statisticsTab" class="tab-pane">
+			<div class="panel-body" style="margin-left:-16px;">
+				<div class="row" style="position:relative;padding-top: 5px;">
+					<div class="col-lg-12">
+						<div class="panel panel-default"  id="chartContainer">
+							<div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+								<strong> <i class="fa fa-bar-chart"></i> <span id="xeExValues">XE.COM Currency Exchange Values </span> </strong>
+							</div>
+							<div class="panel-body">
+								<table class="footable table-striped" data-page-size="16" data-limit-navigation="6" style="width:100%;" >
+									<thead>
+										<tr>
+											<th data-hide="phone"><span id="xeBaseCurrency">Base currency</span></th>
+											<th data-hide="phone"><span id="xeDesCurrency">Destination currency</span></th>
+											<th data-hide="phone"><span id="xeRate">Currency rate</span></th>
+											<th data-hide="phone"><span id="xeDate">Date</span></th>
+										</tr>
+									</thead>
+									<tbody id="currencyList"></tbody>
+									<!--tfoot>
+										<tr>
+											<td colspan="4"><ul class="pagination pull-right"></ul></td>
+										</tr>
+									</tfoot -->
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="exchangeTab" class="tab-pane active">
+			<div class="panel-body" style="margin-left:-16px;">
+				<div class="row" style="position:relative;padding-top: 5px;">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+								<strong> <i class="fa fa-cogs"></i> <span id="crrncyExchangeSimulator">Currency Exchange Simulator</span></strong>
+							</div>
+							<div class="panel-body">
+								<div class="col-lg-12">
+									<div style="border:0px solid red;margin:0 auto;background-color: #FAFAFA;position: relative;padding: 15px">
+										<div style="background-color: #ffffff;padding:10px;width:500px;margin:0 auto;">
+											<div style="text-align: left;width:400px;margin:0 auto;">
+												<span> <strong><span id="exchangeAmount">AMOUNT</span></strong></span> <br>
+												<input type="text" style="border:1px solid #E8E7E6;" placeholder="0.00" class="form-control" id="srcAmt"/>
+											</div> <br>
+											<div  style="text-align: left;width:400px;margin:0 auto;">
+												<!--input type="text" style="border:1px solid #E8E7E6;" placeholder="USD" class="form-control"/-->
+												<span> <strong><span id="baseCurrency">BASE CURRENCY</span></strong></span> <br>
+												<select style="border:1px solid #E8E7E6;" placeholder="USD" class="form-control" id="srcCrrncy">
+													<option value='KRW'>KRW - South Korean Won</option>
+													<option value='AUD'>AUD - Australian Dollar</option>
+													<option value='CAD'>CAD - Canadian Dollar</option>
+													<option value='CHF'>CHF - Swiss Franc</option>
+													<option value='CNY'>CNY - Chinese Yuan Renminbi</option>
+													<option value='DKK'>DKK - Danish Krone</option>
+													<option value='EUR'>EUR - Euro</option>
+													<option value='GBP'>GBP - British Pound</option>
+													<option value='HKD'>HKD - Hong Kong Dollar</option>
+													<option value='HUF'>HUF - Hungarian Forint</option>
+													<option value='INR'>INR - Indian Rupee</option>
+													<option value='JPY'>JPY - Japanese Yen</option>
+													<option value='MXN'>MXN - Mexican Peso</option>
+													<option value='MYR'>MYR - Malaysian Ringgit</option>
+													<option value='NOK'>NOK - Norwegian Krone</option>
+													<option value='NZD'>NZD - New Zealand Dollar</option>
+													<option value='PHP'>PHP - Philippine Peso</option>
+													<option value='RUB'>RUB - Russian Ruble</option>
+													<option value='SEK'>SEK - Swedish Krona</option>
+													<option value='SGD'>SGD - Singapore Dollar</option>
+													<option value='THB'>THB - Thai Baht</option>
+													<option value='TRY'>TRY - Turkish Lira</option>
+													<option value='USD' selected="selected">USD - US Dollar</option>
+													<option value='ZAR'>ZAR - South African Rand</option>
+												</select>	
+											</div>
+											<div  style="width:20px;margin:0 auto;border:0px solid red;">
+												<i class="fa fa-arrow-down"> </i>	
+											</div>
+											<div  style="text-align: left;width:400px;margin:0 auto;">
+												<span> <strong> <span id="destinationCurrency">DESTINATION CURRENCY</span></strong></span> <br>
+												<select style="border:1px solid #E8E7E6;" placeholder="USD" class="form-control" id="dstCrrncyForm">
+													<option value='KRW' selected="selected">KRW - South Korean Won</option>
+													<option value='AUD'>AUD - Australian Dollar</option>
+													<option value='CAD'>CAD - Canadian Dollar</option>
+													<option value='CHF'>CHF - Swiss Franc</option>
+													<option value='CNY'>CNY - Chinese Yuan Renminbi</option>
+													<option value='DKK'>DKK - Danish Krone</option>
+													<option value='EUR'>EUR - Euro</option>
+													<option value='GBP'>GBP - British Pound</option>
+													<option value='HKD'>HKD - Hong Kong Dollar</option>
+													<option value='HUF'>HUF - Hungarian Forint</option>
+													<option value='INR'>INR - Indian Rupee</option>
+													<option value='JPY'>JPY - Japanese Yen</option>
+													<option value='MXN'>MXN - Mexican Peso</option>
+													<option value='MYR'>MYR - Malaysian Ringgit</option>
+													<option value='NOK'>NOK - Norwegian Krone</option>
+													<option value='NZD'>NZD - New Zealand Dollar</option>
+													<option value='PHP'>PHP - Philippine Peso</option>
+													<option value='RUB'>RUB - Russian Ruble</option>
+													<option value='SEK'>SEK - Swedish Krona</option>
+													<option value='SGD'>SGD - Singapore Dollar</option>
+													<option value='THB'>THB - Thai Baht</option>
+													<option value='TRY'>TRY - Turkish Lira</option>
+													<option value='USD'>USD - US Dollar</option>
+													<option value='ZAR'>ZAR - South African Rand</option>
+												</select>		
+											</div> <br>
+											<div  style="text-align: center;width:400px;margin:0 auto;">
+												<button class="btn btn-primary btn-sm block full-width m-b" style="width:100%;" id="simulateCurrencyExchange" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> GENERATING RATE">
+													<i class="fa fa-simplybuilt"></i>
+													<span style="font-weight:bold;font-size: 14px;" id="simulate">Simulate</span>
+												</button>
+											</div>
+											<div  style="width:400px;margin:0 auto;position: relative;padding-top:2px;padding-bottom: 2px;">
+												<div class="panel panel-default">
+													<div class="panel-heading" style="color:#2D6987;background-color: #ffffff;">
+														<strong> <i class="fa fa-money"></i> <span id="exchangeRate">Exchange rate  </span></strong>
+													</div>
+													<div class="panel-body" > 
+														<span style="font-size: 2.0em" id ="rateDtl"> 0.00 </span>
+													</div>
+												</div>
+												<div class="panel panel-default" id="expectedAmountContainer" style="display:none;">
+													<div class="panel-heading" style="color:#2D6987;background-color: #ffffff;">
+														<strong> <i class="fa fa-money"></i> <span id="expectedDtlLabel">Expected amount  </span></strong>
+													</div>
+													<div class="panel-body" > 
+														<span style="font-size: 2.0em" id ="expectedRateAmount"> 0.00 </span>
+													</div>
+												</div>	
+											</div>
+											<div style="text-align: center;width:100%;margin:0 auto;">
+												<span><strong> <i class="fa fa-hand-o-right"></i> The exchange rate will be applied only for the duration of one minute.</strong></span> <br>
+												<small>You will have to simulate again if the exchange is not done within one minute of the simulated time.</small> <br>
+												<span id="counterText" style="color:#0055B3;font-weight:bold;display:none;"> </span>
+											</div>
+											<div  style="text-align: center;width:400px;margin:0 auto;position: relative;padding-top:10px;padding-bottom: 20px;">
+												<button class="btn btn-success btn-sm" style="width:100%;display:none;" id="doExchange">
+													<i class="fa fa-exchange"></i>
+													<span style="font-weight:bold;font-size: 14px;" id="exchange">Exchange</span>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>					
+		</div>	
+	</div>
+</div>								

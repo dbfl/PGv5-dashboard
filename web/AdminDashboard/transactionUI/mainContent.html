@@ -1,0 +1,330 @@
+
+<div style="border:0px solid red;width:97%;margin:0 auto;" id="dashHeaderContent" >
+	<div class="col-lg-5" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.0em;"> <strong> <i class="fa fa-money"></i> <span id="totalAmt">Grand total</span> </strong> </small>
+		<br>
+		<strong> <span style="font-size: 2.0;font-size: 2.0vh;"> <i class="fa fa-won"> </i> <span id="transTotalAmount"> 989898989</span> </span> </strong>
+	</div>
+	<div class="col-lg-4" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.0em;"> <strong> <i class="fa fa-money"></i> <span id="dailyTotalAmt"> Today's total </span></strong> </small>
+		<br>
+		<strong> <span style="font-size: 2.0vw;font-size: 2.0vh;"> <i class="fa fa-won"> </i> <span id="transDailyTotal"> 989898989</span> </span> </span> </strong>
+	</div>
+	<div class="col-lg-3" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.0em;"> <strong> <i class="fa fa-money"></i> <span id="24hTotalAmt">Last 24 Hrs </span></strong> </small>
+		<br>
+		<strong> <span style="font-size: 2.0vw;font-size: 2.0vh;"> <i class="fa fa-won"> </i> <span id="trans24hrsTotal"> 989898989</span> </span> </span> </strong>
+	</div>
+</div>
+
+<div class="tab-content" id="dashMainContent" >
+	<style>
+		.input-group-btn:last-child > .form-control {
+			margin-left: -1px;
+			width: auto;
+			color: #0D70B7;
+		}
+		.activePage {
+			color: #DD4444 !important;
+			font-weight: bold;
+		}
+
+	</style>
+	<div id="tab-1" class="tab-pane active">
+		<div class="tabs-container">
+			<ul class="nav nav-tabs">
+				<li class="active tabMenu">
+					<a data-toggle="tab" href="#statisticsTab"> <span id="statistics">Statistics </span> </a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="tab-content">
+		<div id="statisticsTab" class="tab-pane active">
+			<div class="panel-body" style="margin-left:-16px;">
+				<div class="row" style="position:relative;padding-top: 5px;">
+					<div class="col-lg-12">
+						<div class="panel panel-default"  id="chartContainer">
+							<div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+								<strong> <i class="fa fa-bar-chart"></i> <span id="transactionFrequency">Transaction Frequency </span> </strong>
+								<div class="pull-right" style="cursor:pointer;">
+									<span data-placement='top' data-toggle='tooltip' href='#' data-original-title='todays transaction' >
+										<input type="radio" name="graphMonitor" style="cursor: pointer" id="24HrsTransaction"/>
+										Today </span>
+									<span data-placement='top' data-toggle='tooltip' href='#' data-original-title='hourly transaction'>
+										<input type="radio" name="graphMonitor"  style="cursor: pointer" checked="checked" id="hourTransaction" />
+										1hr </span>
+								</div>
+							</div>
+							<div class="panel-body" style="display:none;" id="flot-dashboard-chart_dayContainer">
+								<div class="flot-chart">
+									<div style="padding: 0px; position: relative; height:100%;width:100%;" class="flot-chart-content" id="flot-dashboard-chart_day"></div>
+								</div>
+							</div>
+							<div class="panel-body" id="flot-dashboard-chart_hourContainer">
+								<div class="flot-chart">
+									<div style="padding: 0px; position: relative; height:100%;width:100%;" class="flot-chart-content" id="flot-dashboard-chart_hour"></div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default" id="searchContainer" style="display:none;background-color: #ffffff;">
+							<div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+								<strong> <i class="fa fa-search"></i> <span id="transactionSearch"> Transaction Search </span></strong>
+								<button type="button" class="btn btn-xs  btn-outline btn-default pull-right" id="closeAdvSearchCon">
+									Close
+									<i class="fa fa-close"></i>
+								</button>
+							</div>
+							<div class="panel-body">
+								<div id="advanceSearchForm" class="animated fadeInRight col-md-12" style="color: #213A53;background-color: #FAFAFA;position:relative;padding:6px;height:240px;">
+									<form class="form-horizontal" role="form" id="searchForm">
+										<div class="form-group" style="margin-top: 10px;">
+											<label class="control-label col-sm-1">Tid</label>
+											<div class="col-md-2">
+												<div class="input-group">
+													<div class="input-group">
+														<input type="text" class="form-control" name="tid" id="transactionTid">
+														<span class="input-group-addon">
+															<input type="checkbox" id="transactionTidMulti">
+															Multi </span>
+													</div>
+												</div>
+											</div>
+
+											<label class="control-label col-sm-1"><span id="labelRefid">RefId</span></label>
+											<div class="col-md-2">
+												<div class="input-group">
+													<div class="input-group">
+														<input type="text" class="form-control" name="refId" id="transactionReferenceId">
+														<span class="input-group-addon">
+															<input type="checkbox" id="referenceLike">
+															Like </span>
+													</div>
+												</div>
+											</div>
+
+											<label class="control-label col-sm-1"><span id="labelTransDate">TransDate</span></label>
+											<div class="col-md-4">
+												<div class="input-group date" id="data_1">
+													<span class="input-group-addon" id="transFromDateIcon"><i class="fa fa-calendar"></i></span>
+													<input class="form-control datePicker" data-provide="datepicker" id="trnsctnDtFrom" name="trnsctnDtFrom" value=""  type="text"  data-date-format="yyyymmdd">
+													<span class="input-group-addon"><i class="fa fa-exchange"></i></span>
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+													<input class="form-control datePicker" data-provide="datepicker" name="trnsctnDtTo" id="trnsctnDtTo" value="" type="text"  data-date-format="yyyymmdd">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-1"><span id="labelParentTid">P-Tid</span></label>
+											<div class="col-md-2">
+												<input type="text" class="form-control" name="parentTid">
+											</div>
+
+											<label class="control-label col-sm-1"> <span id="labelTitle">Title</span></label>
+											<div class="col-md-2">
+												<div class="input-group">
+													<input type="text" class="form-control"  name="title" id="transactionTitle">
+													<span class="input-group-addon">
+														<input type="checkbox" id="titleLike">
+														Like </span>
+												</div>
+											</div>
+
+											<label class="control-label col-sm-1"> <span id="labelUpdateDate">UpdateDate</span></label>
+											<div class="col-md-4">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+													<input class="form-control datePicker" data-provide="datepicker" name="updateDtFrom" value="" type="text" data-date-format="yyyymmdd">
+													<span class="input-group-addon"><i class="fa fa-exchange"></i></span>
+													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+													<input class="form-control datePicker" data-provide="datepicker" name="updateDtTo" value="" type="text" data-date-format="yyyymmdd">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-1"> <span id="labelType">Type</span></label>
+											<div class="col-md-2">
+												<select name="trnsctnTp" id="trnsctnTp" class="form-control">
+													<option value="" selected="selected"> All </option>
+												</select>
+											</div>
+
+											<label class="control-label col-sm-1"><span id="labelSrcmemguid">SrcGuid</span></label>
+											<div class="col-md-2">
+												<input type="text" class="form-control" name="srcMemGuid">
+											</div>
+
+											<label class="control-label col-sm-1"><span id="listorgamount">OrgAmt</span></label>
+											<div class="col-md-4">
+												<div class="input-group">
+													<div class="input-daterange input-group">
+														<input class="form-control" name="orgAmtMin" value="1000" type="text">
+														<span class="input-group-addon">Min</span>
+														<input class="form-control" name="orgAmtMax" value="" type="text">
+														<span class="input-group-addon">Max</span>
+														<div class="input-group-btn">
+															<select class="form-control" name="orgCrrncy" id="orgCrrncy">
+																<option value="" selected="selected">Currency</option>
+																<option value="" >All</option>
+																<option value="KRW">KRW</option>
+																<option value="USD">USD</option>
+																<option value="CNY">CNY</option>
+																<option value="JPY">JPY</option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-1"><span id="labelStatus">Status</span></label>
+											<div class="col-md-2">
+												<select name="trnsctnSt"  class="form-control" id="trnsctnSt">
+													<option value="" selected="selected"> All </option>
+												</select>
+											</div>
+
+											<label class="control-label col-sm-1"><span id="labelDesmemguid">DstGuid</span></label>
+											<div class="col-md-2">
+												<input type="text" class="form-control" name="dstMemGuid">
+											</div>
+
+											<label class="control-label col-sm-1"><span id="labelPayAmount">PayAmt</span></label>
+											<div class="col-md-4">
+												<div class="input-daterange input-group">
+													<input class="form-control"   name="payAmtMin" value="1000" type="text">
+													<span class="input-group-addon">Min</span>
+													<input class="form-control"   name="payAmtMax" value="" type="text">
+													<span class="input-group-addon">Max</span>
+													<div class="input-group-btn">
+														<select class="form-control" name="payCrrncy" id="payCrrncy">
+															<option value="" selected="selected">Currency</option>
+															<option value="" >All</option>
+															<option value="KRW">KRW</option>
+															<option value="USD">USD</option>
+															<option value="CNY">CNY</option>
+															<option value="YEN">YEN</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+										<i class="btn btn-outline btn-danger btn-xs pull-right" style="margin-bottom:50px;" id="advSearchTrigger"> <i class="fa fa-search"> </i> search </i>
+								</div>
+								</form>
+								<input type="hidden" value="" id="singleSearchVal" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-13">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+							<strong> <i class="fa fa-list"></i> <span id="maintransactionList"> Transaction list</span></strong>
+						</div>
+						<div class="pull-right" style="margin-right: 5px;margin-top:5px;margin-bottom: 5px;">
+							<button type="button" class="btn btn-outline btn-default btn-xs filterBut active"  value="today" data-placement='top' data-toggle='tooltip' href='#' data-original-title='todays transaction list'>
+								<span id="today"> Today </span>
+							</button>
+
+							<button type="button" class="btn btn-outline btn-default btn-xs filterBut"  value="yesterday" data-placement='top' data-toggle='tooltip' href='#' data-original-title='yesterday transaction list'>
+								<span id="last24h"> Last 24 hrs </span>
+							</button>
+
+							<button type="button" class="btn btn-outline btn-default btn-xs filterBut" value="lastweek" data-placement='top' data-toggle='tooltip' href='#' data-original-title='last week transaction list'>
+								<span id="lastweek"> Last Week </span>
+							</button>
+
+							<button type="button" class="btn btn-outline btn-default btn-xs filterBut" value="lastmonth" data-placement='top' data-toggle='tooltip' href='#' data-original-title='last month transaction list'>
+								<span id="lastmonth"> Last Month </span>
+							</button>
+
+							<button type="button" class="btn btn-outline btn-default btn-xs listAll" value="listAll" data-placement='top' data-toggle='tooltip' href='#' data-original-title='list all transaction list'>
+								<span id="listall"> List All </span>
+							</button>
+
+							<button style="display:none;" type="button" class="btn btn-outline btn-default btn-xs filterBut active" value="listAll" id="totalAmountBut" data-placement='top' data-toggle='tooltip' href='#' data-original-title='total transaction list'>
+								<span id="totalAmount"> totalAmountList </span>
+							</button>
+
+							<button style="display:none;" type="button" class="btn btn-outline btn-default btn-xs filterBut active" value="today" id="totalAmountDailyBut" data-placement='top' data-toggle='tooltip' href='#' data-original-title='todays transaction list'>
+								<span id="totalAmountDaily"> totalAmountDaily </span>
+							</button>
+
+							<button style="display:none;" type="button" class="btn btn-outline btn-default btn-xs filterBut active" value="yesterday" id="totalAmountLast24HoursBut" data-placement='top' data-toggle='tooltip' href='#' data-original-title='yesterday transaction list'>
+								totalAmountLast24Hours
+							</button>
+
+							<button style="display:none;" type="button" class="btn btn-outline btn-default btn-xs filterBut active" value="lastweek" id="totalAmountLastWeekBut" data-placement='top' data-toggle='tooltip' href='#' data-original-title='last week transaction list'>
+								totalAmountLastWeek
+							</button>
+
+							<button type="button" class="btn btn-outline btn-default btn-xs" id="advanceBut">
+
+								<i class="glyphicon glyphicon-search"> </i>
+
+								<span id="advance">Advance Search</span>
+
+							</button>
+
+							<button type="button" class="btn btn-default btn-xs" style="display: none;">
+
+								<i class="fa fa-search"></i>
+
+								<span id="advanceSearchBut">search</span>
+							</button>
+
+							<select style="color:#199D82;" class="text-center" id="rowsPerPage">
+								<option value="10"> 10 </option>
+								<option value="20" selected="selected"> 20 </option>
+								<option value="50"> 50 </option>
+								<option value="100"> 100 </option>
+								<option value="300"> 300 </option>
+								<option value="500"> 500 </option>
+								<option value="1000"> 1000 </option>
+							</select>
+
+							<button id ="downloadTransExcel" type="button" class="btn btn-primary btn-xs" value="DownloadList" data-placement='top' data-toggle='tooltip' href='#' data-original-title='download list in excel format'>
+								<i class="fa fa-file-excel-o"></i> Download
+							</button>
+						</div>
+						<div class="panel-body">
+							<div class="modal inmodal" id="vloader" tabindex="-1" role="dialog" aria-hidden="true">
+								<div class="modal-dialog modal-lg" style="width: 30%;height:400px;position:relative;padding-top:200px;">
+									<div class="modal-content animated bounceIn">
+										<div style="background-color: #ffffff;border-radius:10px;height:150px;text-align:center;" id="verifyNameList" class="modal-body">
+											<img src="./img/ajaxloaderCircle.gif">
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--textarea id="transListJsonFormat" style="display:none;"> </textarea-->
+							<table class="footable table-striped" data-page-size="7" data-limit-navigation="6" style="width:100%;" id="transactionTable">
+								<thead>
+									<tr>
+										<th>Tid</th>
+										<th><span id="listtitle">Title</span></th>
+										<th data-hide="phone"><span id="labelOriginAmount">Org_amount</span></th>
+										<th data-hide="phone" style="display:none;"><span>Org_Currency</span></th>
+										<th data-hide="phone" style="display:none;"><span id="listpayamount">Pay_amount</span></th>
+										<th data-hide="phone" style="display:none;"><span>Pay_Currency</span></th>
+										<th data-hide="phone"><span id="listtype">Type</span></th>
+										<th data-hide="phone"><span id="transDetailTransStat">Status</span></th>
+										<th data-hide="phone"><span id="listtransdate">Date</span></th>
+										<!-- th data-hide="phone"><span id="listcompletedate">Completion Date</span></th -->
+									</tr>
+								</thead>
+								<tbody id="transactionList"> </tbody>
+								<!--foot>
+								<tr>
+								<td colspan="7" class="pagingCon"> </td>
+								</tr>
+								</tfoot -->
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

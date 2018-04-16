@@ -1,0 +1,243 @@
+<div class="tab-content" id="dashMainContent">
+	<div class="panel-body">
+		<div class="row" style="position:relative;padding-top: 5px;">
+			<div class="col-lg-3"> 
+				<div class="panel panel-default" style="background-color: #FAFAFB">
+		            <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;font-size: 1.1em">
+		                <strong> <i class="fa fa-male"></i> <span id="merchantBalance"> Merchant balance live update </span></strong>
+		            </div>
+		            <div class="panel-body">
+		            	 <table class="footable" data-page-size="7" data-limit-navigation="6" style="width:100%;">
+		                    <thead>
+		                    <!--tr>
+		                        <th colspan="2"> <span class="text-danger" id="menuMerchant" style="font-size: 1.3em;">Won <i class="fa fa-dollar"></i> </span></th>
+		                    </tr-->
+		                    </thead>
+		                    <tbody> 
+		                    	<tr style="height:30px;font-size:2.2em;" class="text-primary">
+		                    		<td style="text-align: center;"> <strong> <i class="fa fa-dollar"></i> <span id="merchantUsdTotal"  class="total text-danger"> 0.0</span></strong></td>
+		                    	</tr>
+		                    	<tr style="height:30px;font-weight:bold;font-size:2.2em;" class="text-primary">
+		                    		<td style="text-align: center;"><strong><i class="fa fa-won"> </i> <span id="merchantWonTotal"  class="total"> 0.0</span></strong></td>
+		                    	</tr>
+		                    	
+		                    	<tr style="height:30px;font-weight:bold;font-size:1.2em;" class="text-success">
+		                    		<td style="text-align: center;"> <div style="width:100%;"> <span data-diameter="40" class="updating-chart"  style="display:none;">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,7,3,5,2</span> </div> </td>
+		                    	</tr>
+		                    	
+		                    	<tr style="height:30px;font-weight:bold;font-size:1.6em;">
+		                    		<td style="text-align: center;"><strong> <small> <span id="merchantSeyBalance">Merchant seyfert balance </span></small> </strong></td>
+		                    	</tr>
+		                    </tbody>
+		                </table>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="col-lg-3"> 
+				<div class="panel panel-default" style="background-color: #FAFAFB">
+		            <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;font-size: 1.1em">
+		                <strong> <i class="fa fa-male"></i> <span id="memberBalance"> Member balance live update </span></strong>
+		            </div>
+		            <div class="panel-body">
+		            	 <table class="footable" data-page-size="7" data-limit-navigation="6" style="width:100%;">
+		                    <tbody> 
+		                    	<tr style="height:30px;font-size:2.2em;" class="text-primary">
+		                    		<td style="text-align: center;"> <strong><i class="fa fa-dollar"></i><span id="memberUsdTotal"  class="total text-danger"> 0.0</span></strong></td>
+		                    	</tr>
+		                    	<tr style="height:30px;font-weight:bold;font-size:2.2em;" class="text-primary">
+		                    		<td style="text-align: center;"><strong><i class="fa fa-won"> </i> <span id="memberWonTotal"  class="total">0.0</span></strong></td>
+		                    	</tr>
+		                    	
+		                    	<tr valign="bottom" style="height:30px;font-weight:bold;font-size:1.2em;" class="text-success">
+		                    		<td style="text-align: center;"> <div style="width:100%;"> <span data-diameter="40" class="updating-chart2"  style="display:none;">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,7,3,5,2</span> </div> </td>
+		                    	</tr>
+		                    	
+		                    	<tr style="height:30px;font-weight:bold;font-size:1.6em;">
+		                    		<td style="text-align: center;"><strong> <small> <span id="memberSeyBalance">Member seyfert balance </span></small> </strong></td>
+		                    	</tr>
+		                    </tbody>
+		                </table>
+		            </div>
+		        </div>
+		    </div>   
+			<div class="col-lg-6">
+				<div class="panel panel-default" style="background-color: #FAFAFB">
+		            <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;font-size: 1.1em">
+		                <strong> <i class="fa fa-bar-chart"></i> <span id="grandTotal">Grand total </span></strong>
+		            </div>
+		            <div class="panel-body">
+		            	 <table class="footable" data-page-size="7" data-limit-navigation="6" style="width:100%;">
+		                    <tbody> 
+		                    	<tr style="height:30px;font-size:2.2em;" class="text-primary">
+		                    		<td style="text-align: center;"> <strong> <i class="fa fa-dollar"></i> <span id="calUsdGrandTotal"  class="total text-danger">0.0</span></strong></td>
+		                    	</tr>
+		                    	<tr style="height:30px;font-weight:bold;font-size:2.2em;" class="text-primary">
+		                    		<td style="text-align: center;"><strong><i class="fa fa-won"> </i> <span id="calWonGrandTotal"  class="total">0.0</span></strong></td>
+		                    	</tr>
+		                    	<tr valign="bottom" style="height:30px;font-weight:bold;font-size:1.2em;" class="text-success">
+		                    		<td style="text-align: center;"> <div style="width:100%;"> <span data-diameter="80" class="updating-chart3"  style="display:none;">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,7,3,5,2</span> </div> </td>
+		                    	</tr>
+		                    	<tr style="height:30px;font-weight:bold;font-size:1.6em;">
+		                    		<td style="text-align: center;"><strong> <small> <span id="totalAccAmount">Total accumulated amount </span></small> </strong></td>
+		                    	</tr>
+		                    </tbody>
+		                </table>
+					</div>
+		        </div> 
+			</div>       	
+			<div class="col-lg-6">
+				<div class="panel panel-default" style="background-color: #FAFAFB;height:245px;">
+		            <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;font-size: 1.1em">
+		               <strong> <i class="fa fa-bar-chart-o"></i> <span id="memberRegFre">Member Registration Frequency</span></strong>
+		            </div>
+		            <div class="panel-body">
+		                <div class="flot-chart" style="background-color: #FCFDFD;height:180px;">
+							<div class="flot-chart-content" id="flot-dashboard-chart" style="height:180px;"> </div>
+						</div>
+		            </div>
+		        </div>
+			</div>
+			<div class="col-lg-3"> 
+				<div class="panel panel-default" style="background-color: #FAFAFB;height:245px;">
+		            <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;font-size: 1.1em">
+		                <strong><i class="fa fa-male"></i> <span id="memberRegLive">Member registration live update</span></strong>
+		            </div>
+		            <div class="panel-body">
+		                <table class="footable" data-page-size="7" data-limit-navigation="6" style="width:100%;">
+		                    <tbody> 
+		                    	<tr style="height:30px;font-size:3.0em;" class="text-primary">
+		                    		<td style="text-align: center;"> <strong> <i class="fa fa-group"></i>  <span id="memberGrandTotal" class="total text-danger"> </span></strong></td>
+		                    	</tr>
+		                    	
+		                    	<tr valign="bottom" style="height:30px;font-weight:bold;font-size:4.1em;" class="text-success">
+		                    		<td style="text-align: center;"> <div style="width:100%;"> <span data-diameter="80" class="updating-chart4"  style="display:none;">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,7,3,5,2</span> </div> </td>
+		                    	</tr>
+		                    	
+		                    	<tr style="height:30px;font-weight:bold;font-size:1.6em;">
+		                    		<td style="text-align: center;"><strong> <small> <span id="regMember">Registered members</span> </small> </strong></td>
+		                    	</tr>
+		                    </tbody>
+		                </table>
+		            </div>
+		        </div>
+			</div>
+			<div class="col-lg-3"> 
+				<div class="panel panel-default"  style="background-color: #FAFAFB;height:245px;">
+		            <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;font-size: 1.1em">
+		               <strong><i class="fa fa-group"></i> <span id="memberVerificationStatus"> Member verification status</span></strong>
+		            </div>
+		            <div class="panel-body">
+		                 <table class="footable" data-page-size="7" data-limit-navigation="6" style="width:100%;">
+		                    <tbody> 
+		                    	<tr style="height:10px;font-size:2.7em;" class="text-primary">
+		                    		<td style="text-align: center;"> <strong> <span class="total text-danger" id="emailVerify">   </span> <span>%</span> </strong></td>
+		                    	</tr>
+		                    	<tr style="height:30px;font-size:1.7em;" class="text-primary">
+		                    		<td style="text-align: center;"> <i class="fa fa-envelope"></i> <span id="emailStatus">email</span> </td>
+		                    	</tr>
+		                    	
+		                    	<tr style="height:30px;font-weight:bold;font-size:2.6em;">
+		                    		<td style="text-align: center;"> <strong> <span class="total text-danger" id="phoneVerify">   </span> <span>%</span> </strong></td>
+		                    	</tr>
+		                    	
+		                    	<tr style="height:30px;font-size:1.7em;" class="text-primary">
+		                    		<td style="text-align: center;"> <i class="fa fa-phone"></i> <span id="phoneStatus">phone</span> </td>
+		                    	</tr>
+		                    </tbody>
+		                </table>
+		            </div>
+		        </div>
+			</div>
+		</div>
+		<div class="row" style="position:relative;padding-top: 5px;">
+			<div class="col-lg-3"> 
+				<div class="panel panel-default"  style="background-color: #FAFAFB">
+		            <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;font-size: 1.1em">
+		            	 <strong><i class="fa fa-warning"></i> <span id="pgv5SystemStatus"> PGV5 system status </span></strong>
+		            </div>
+		            <div class="panel-body">
+		            	<table class="footable" data-page-size="7" data-limit-navigation="6" style="width:100%;">
+		                    <tbody> 
+		                    	<tr style="height:30px;font-size:2.2em;" class="text-primary">
+		                    		<td style="text-align: center;"> <strong><span class="total text-danger" id="systemStatusIcon"> <i class="fa fa-heartbeat"></i> </span></strong></td>
+		                    	</tr>
+		                    	<tr style="height:30px;font-weight:bold;font-size:2.2em;" class="text-primary">
+		                    		<td style="text-align: center;"><strong><span  class="total" id="systemStatus">System is stable</span></strong></td>
+		                    	</tr>
+		                    	
+		                    	<tr valign="bottom" style="height:30px;font-weight:bold;font-size:1.2em;" class="text-success">
+		                    		<td style="text-align: center;"> <div style="width:100%;"> <span data-diameter="40" class="updating-chart2"  style="display:none;">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,7,3,5,2</span> </div> </td>
+		                    	</tr>
+		                    	
+		                    	<tr style="height:30px;font-weight:bold;font-size:1.6em;">
+		                    		<td style="text-align: center;"><strong> <small id="monitorSystemLabel"> monitoring system health </small> </strong></td>
+		                    	</tr>
+		                    </tbody>
+		                </table>      
+		            </div>
+		        </div>
+			</div>	
+			<div class="col-lg-3"> 
+				<div class="panel panel-default"  style="background-color: #FAFAFB">
+		            <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;font-size: 1.1em">
+		               <strong><i class="fa fa-money"></i> <span id="currencyExchangeRate">  Currency exchange rate </span></strong>
+		            </div>
+		            <div class="panel-body">
+		                <table class="footable" data-page-size="7" data-limit-navigation="6" style="width:100%;">
+		                    <tbody> 
+		                    	<tr style="height:30px;font-size:2.2em;" class="text-primary">
+		                    		<td style="text-align: center;"> <strong><i class="fa fa-dollar"></i><span class="total text-danger"> 1 </span></strong></td>
+		                    	</tr>
+		                    	<tr style="height:30px;font-weight:bold;font-size:2.2em;" class="text-primary">
+		                    		<td style="text-align: center;"><strong><i class="fa fa-won"> </i> <span id="currencyRate"  class="total" >0.0</span></strong></td>
+		                    	</tr>
+		                    	
+		                    	<tr valign="bottom" style="height:30px;font-weight:bold;font-size:1.2em;" class="text-success">
+		                    		<td style="text-align: center;"> <div style="width:100%;"> <span data-diameter="40" class="updating-chart2"  style="display:none;">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,7,3,5,2</span> </div> </td>
+		                    	</tr>
+		                    	
+		                    	<tr style="height:30px;font-weight:bold;font-size:1.6em;">
+		                    		<td style="text-align: center;"><strong> <small> <span id="exchangeRate">Exchange rate </span></small> </strong></td>
+		                    	</tr>
+		                    </tbody>
+		                </table>  
+		            </div>
+		        </div>
+			</div>	
+			
+			<div class="col-lg-6"> 
+				<div class="panel panel-default"  style="background-color: #FAFAFB;height:215px;">
+		            <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;font-size: 1.1em">
+		               <strong><i class="fa fa-bank"></i> <span id="highestTransAmount"> Highest transaction amount </span></strong>
+		            </div>
+		            <div class="panel-body">
+		            	<table class="footable" data-page-size="7" data-limit-navigation="6" style="width:100%;">
+		                    <tbody> 
+		                    	
+		                    	<tr style="height:30px;font-weight:bold;font-size:2.0em;" class="text-primary">
+		                    		<td style="text-align: center;" class="total text-danger">
+		                    			<strong id="topAmount"> </strong>
+		                    		</td>
+		                    	</tr>
+		                    	
+		                    	<tr style="height:30px;font-size:1.5em;" class="text-primary">
+		                    		<td style="text-align: center;"> 
+		                    			<strong> <i class="fa fa-male"></i> <span id="topGuid"> Guid  </span></strong>
+		                    		</td>
+		                    	</tr>
+		                    	
+		                    	<tr valign="bottom" style="height:30px;font-weight:bold;font-size:1.2em;" class="text-success">
+		                    		<td style="text-align: center;"> <div style="width:100%;"> <span data-diameter="40" class="updating-chart2"  style="display:none;">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,7,3,5,2</span> </div> </td>
+		                    	</tr>
+		                    	
+		                    	<tr style="height:30px;font-weight:bold;font-size:1.6em;">
+		                    		<td style="text-align: center;"><strong> <small id="todayDate"> 2012-02-02  </small> </strong></td>
+		                    	</tr>
+		                    </tbody>
+		                </table> 
+		            </div>
+		        </div>
+			</div>	
+		</div>
+	</div>	
+</div>

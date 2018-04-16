@@ -1,0 +1,67 @@
+ [
+	{
+		"title": "lblMonitoring",
+		"icon": "fa fa-bar-chart",
+		"url": "index.monitoring"
+	},
+	{
+		"title": "lblDashboard",
+		"icon": "fa fa-pie-chart",
+		"url": "index.dashboard"
+	},
+	{
+		"title": "lblTransaction",
+		"icon": "fa fa-list",
+		"url": "index.transaction"
+	},
+	{
+		"title": "lblMember",
+		"icon": "fa fa-male",
+		"url": "index.member"
+	},
+	{
+		"title": "lblCurrencyExchange",
+		"icon": "fa fa-usd",
+		"url": "index.currencyExchange"
+	},
+	{
+		"title": "lblChargeAccount",
+		"icon": "fa fa-money",
+		"url": "index.chargeAccount"
+	},
+	{
+		"title": "lblSeyfertWithdraw",
+		"icon": "fa fa-minus-circle",
+		"url": "index.seyfertWithdraw"
+	},
+	{
+		"title": "lblCrossBorderRemit",
+		"icon": "fa fa-globe",
+		"url": "index.crossBorderRemit"
+	},
+	{
+		"title": "lblSmsService",
+		"icon": "fa fa-mobile-phone",
+		"url": "index.smsService"
+	},
+	{
+		"title": "lblSettings",
+		"icon": "fa fa-cogs",
+		"url": "index.settings"
+	},
+	{
+		"title": "lblLecture",
+		"icon": "fa fa-graduation-cap",
+		"url": "index.lecture"
+	},
+	{
+		"title": "lblSeyfertAccounting",
+		"icon": "fa fa-graduation-cap",
+		"url": "index.seyfertAccounting"
+	},
+	{
+		"title": "lblSmsSRList",
+		"icon": "fa fa-th-list",
+		"url": "index.smsSRList"
+	}
+]

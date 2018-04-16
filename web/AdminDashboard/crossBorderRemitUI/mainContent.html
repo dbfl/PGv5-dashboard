@@ -1,0 +1,398 @@
+<div class="col-lg-12" id="dashHeaderContent">
+	<div style="font-size: 2.0em;">
+		<span> <i class="fa fa-globe"></i> <span id="settings">Cross Border Remit</span> </span>
+	</div>
+</div>
+<div class="animated fadeInRight" id="dashMainContent">
+	<style>
+		.input-group-btn:last-child > .form-control {
+			margin-left: -1px;
+			width: auto;
+			color: #0D70B7;
+		}
+		.wizard {
+			height: 630px;
+			border: 0px solid red;
+		}
+		.wizard > .content {
+			z-index: 10;
+			border: 0px solid red;
+			height: 540px;
+		}
+
+		h1 {
+			color: #0A6AA1;
+		}
+		.pData{color:#666666}
+
+	</style>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="tabs-container">
+				<ul class="nav nav-tabs">
+					<li class="active tabMenu">
+						<a data-toggle="tab" href="#tab-1"> Remit</a>
+					</li>
+					<li class="tabMenu" id="verificationTab" style="display:none;">
+						<a data-toggle="tab" href="#tab-2"> <i class="fa fa-users"></i> <span id="verification"> verification</span></a>
+					</li>
+				</ul>
+			</div>
+			<div class="tab-content">
+				<div id="tab-1" class="tab-pane active">
+					<!-- a id="passportTest" target="_blank"> passport </a -->
+					
+					<div class="col-lg-12">
+						<div class="panel panel-default"  id="chartContainer" style="margin-top:15px;">
+							<div class="panel-heading" style="border:none;background-color: #586B7D;color:#ffffff;">
+								<strong> <i class="fa fa-forward"></i> <span id="generalAccSetting"> Remittence Form </span> </strong>
+							</div>
+							<input type="hidden" id="sendersGUID" />
+							<input type="hidden" id="receiversGUID" />
+							<div class="panel-body">
+								<div style="width:99%;margin:0 auto;background-color: #ffffff;">
+									<div style="margin:0 auto;">
+										<h1>Remitter's Basic Info</h1>
+										<div class="row" style="background-color: #F0F0F0;position: relative;padding-top:10px;padding-bottom:8px;border-radius: 5px;">
+											<form id="remittersBasicForm">
+												<div class="col-lg-4" style="position: relative;padding-top:12px;padding-bottom:12px;border-radius:5px;">
+													<div class="ibox-content" style="border-radius:5px;">
+														<div class="form-group">
+															<label>Reference Id *</label>
+															<input  type="text" class="form-control" value="" name ="refId" id="referenceID">
+														</div>
+														<div class="form-group">
+															<label>Full name *</label>
+															<input  type="text" class="form-control" value="" name="fullname">
+															<input  type="hidden" class="form-control" name="nmLangCd" value="en">
+														</div>
+														<div class="form-group">
+															<label>Email *</label>
+															<input type="text" class="form-control  email" value="" name="emailAddrss" id="remittersEmail" >
+															<input type="hidden" class="form-control" name="emailTp" value="PERSONAL">
+														</div>
+														<div class="form-group" style="display:none;">
+															<label>Gender</label>
+															<select class="form-control" disabled="disabled" name="gender">
+																<option value="" selected="selected">Select</option>
+																<option value="Male">Male</option>
+																<option value="Femal" >Female</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-4" style="position: relative;padding-top:12px;padding-bottom:12px;border-radius:5px;">
+													<div class="ibox-content" style="border-radius:5px;">
+														<div class="form-group">
+															<label>Country *</label>
+															<select class="form-control countryCode" name="addrssCntryCd" id="senderAddressCountryCode"></select>
+														</div>
+														<div class="form-group">
+															<label>Phone.no *</label>
+															<input  type="text" class="form-control" value="" name="phoneNo">
+															<input  type="hidden" class="form-control" name="phoneCntryCd" id="senderPhoneCountryCode">
+														</div>
+														<div class="form-group">
+															<label>Bank *</label>
+															<select class="form-control bankCode" name="bnkCd" id="senderBankCode"></select>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-4" style="position: relative;padding-top:12px;padding-bottom:12px;border-radius:5px;">
+													<div class="ibox-content" style="border-radius:5px;">
+														<div class="form-group">
+															<label>City *</label>
+															<input type="text" class="form-control " value="" name="city" style="text-align: left;">
+														</div>
+														<div class="form-group">
+															<label>Zip code *</label>
+															<input type="text" class="form-control" value="" name="postCd" style="text-align: left;">
+														</div>
+														<div class="form-group">
+															<label>Address *</label>
+															<input type="text" name="addrss1" value="" class="form-control">
+														</div>
+													</div>
+												</div>		
+											</form>
+										</div>
+										<hr />
+										<h1>Remitter's Passport Info</h1>
+										<fieldset>
+											<div class="row" style="background-color: #F0F0F0;position: relative;padding-top:12px;padding-bottom:8px;border-radius: 5px;">
+												<form id="remittersPassportForm">
+													<div class="col-lg-5" style="position: relative;padding-top:12px;padding-bottom:12px;border-radius:5px;">
+														<div class="ibox-content" style="border-radius:5px;">
+															<div class="form-group">
+																<label>Nationality *</label>
+																<select class="form-control countryCode" name="nationality"></select>
+															</div>
+															<div class="form-group">
+																<label>Passport number *</label>
+																<input type="text" class="form-control" value=""  name="passportNo">
+															</div>
+															<div class="form-group">
+																<label>Issue place *</label>
+																<input type="text" class="form-control" value="" name="issuePlace">
+															</div>
+															<div class="form-group">
+																<label>Issue date *</label>
+																<input class="form-control date passportDate" value="" name="issuanceDt" data-provide="datepicker"  value=""  type="text"  data-date-format="yyyymmdd">
+															</div>
+															<div class="form-group">
+																<label>Expirary date *</label>
+																<input class="form-control datePicker" value="" name="expirationDt" data-provide="datepicker"  value=""  type="text"  data-date-format="yyyymmdd">
+															</div>
+															<div class="form-group">
+																<label>Date of birth *</label>
+																<input class="form-control datePicker" value="" name="dateOfBirth" data-provide="datepicker"  value=""  type="text"  data-date-format="yyyymmdd">
+															</div>
+															<div class="form-group">
+																<label>Gender</label>
+																<select class="form-control" name="gender">
+																	<option value="" selected="selected">Select</option>
+																	<option value="M">Male</option>
+																	<option value="F" >Female</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-7" style="position: relative;padding-top:12px;padding-bottom:12px;">
+														<div class="ibox-content" style="border-radius:5px;height:539px;">
+															<p>
+																<strong>UPLOAD PASSPORT IMAGE</strong>
+															</p>
+															<div>
+																<h5 class="hiddens" style="display:none;">Preview image</h5>
+																<div style="text-align: left;width:55%;display:none;"  class="hiddens">
+																	<img src="" id="img2" class="img-preview-md" style="height:350px;max-width:100%;">
+																</div>
+																<h5  class="hiddens"  style="display:none;"> <span id="fileName">File name</span></h5>
+																<div class="btn-group">
+																	<label title="Upload image file" for="inputImage" class="btn btn-success">
+																		<input type="file" accept="image/*" name="file" id="inputImage" class="hide">
+																		Browse passport image </label>
+																</div>
+																<div>
+																	<small> Please make sure all the informations provided are accurate. </small>
+																</div>
+															</div>
+														</div>
+													</div>
+												</form>
+											</div>
+										</fieldset>
+										<hr />
+										<h1>Beneficiary's Basic Info</h1>
+										<div class="row" style="background-color: #F0F0F0;position: relative;padding-top:10px;padding-bottom:8px;border-radius: 5px;">
+											<form id="receiversRemittenceForm">
+												<div class="col-lg-4" style="position: relative;padding-top:12px;padding-bottom:12px;border-radius:5px;">
+													<div class="ibox-content" style="border-radius:5px;">
+														<div class="form-group" style="display:none;">
+															<label>Reference Id *</label>
+															<input  type="text" class="form-control" value="" name ="refId">
+														</div>
+														<div class="form-group">
+															<label>Full name *</label>
+															<input  type="text" class="form-control" value="" name="fullname">
+														</div>
+														<div class="form-group">
+															<label>Email *</label>
+															<input type="text" class="form-control  email" value="" name="emailAddrss" id="receiversEmail">
+															<input type="hidden" class="form-control" name="emailTp" value="PERSONAL">
+														</div>
+														<div class="form-group"  style="display:none;">
+															<label>Gender</label>
+															<select class="form-control" name="gender" disabled="disabled">
+																<option value="" selected="selected">Select</option>
+																<option value="Male">Male</option>
+																<option value="Femal" >Female</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-4" style="position: relative;padding-top:12px;padding-bottom:12px;border-radius:5px;">
+													<div class="ibox-content" style="border-radius:5px;">
+														<div class="form-group">
+															<label>Country *</label>
+															<select class="form-control countryCode" name="addrssCntryCd" id="receiverAddressCountryCode"></select>
+														</div>
+														<div class="form-group">
+															<label>Phone.no *</label>
+															<input  type="text" class="form-control" value="" name="phoneNo" id="receiverPhoneNo">
+															<input  type="hidden" class="form-control" name="phoneCntryCd" id="receiverPhoneCountryCode">
+														</div>
+														<div class="form-group"  style="display:none;">
+															<label>Bank *</label>
+															<select class="form-control" name="bnkCd" id="receiverBankCode" disabled="disabled"></select>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-4" style="position: relative;padding-top:12px;padding-bottom:12px;border-radius:5px;">
+													<div class="ibox-content" style="border-radius:5px;">
+														<div class="form-group">
+															<label>City *</label>
+															<div class="input-daterange input-group" style="width:100%;">
+																<input type="text" class="form-control " value="" name="city" style="text-align: left;">
+																<span class="input-group-addon"><strong style="color:#005F8D">Zip code</strong></span>
+																<input type="text" class="form-control" value="" name="postCd" style="text-align: left;">
+															</div>
+														</div>
+														<div class="form-group">
+															<label>Address *</label>
+															<input type="text" name="addrss1" value="" class="form-control">
+														</div>
+													</div>
+												</div>		
+											</form>
+										</div>
+										<hr />
+										<h1>Beneficiary's Bank Info</h1>
+										<div class="row" style="background-color: #F0F0F0;position: relative;padding-top:10px;padding-bottom:8px;border-radius: 5px;">
+											<form id="receiversBankForm">
+												<input type="hidden" name="infoCd" value="REMMITANCE_CD"/>
+												<input type="hidden" name="priority" value="1"/>
+												<input type="hidden" name="info" value="member bank info"/>
+												<input type="hidden" name="desc" value="Receivers member bank info"/>
+												<div class="col-lg-4" style="position: relative;padding-top:12px;padding-bottom:12px;border-radius:5px;">
+													<div class="ibox-content" style="border-radius:5px;">
+														<div class="form-group">
+															<label>Cash pickup *</label>
+															<select class="form-control" id="cashPickup" name="cashPickup">
+																<option value="Yes" selected="selected">Yes</option>
+																<option value="No">No</option>
+															</select>
+														</div>
+														<div class="form-group">
+															<label>Bank deposit *</label>
+															<select class="form-control" id="bankDeposit" name="bnkDeposit">
+																<option value="Yes">Yes</option>
+																<option value="No" selected="selected">No</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-4" style="position: relative;padding-top:12px;padding-bottom:12px;border-radius:5px;">
+													<div class="ibox-content" style="border-radius:5px;">
+														<div class="form-group">
+															<label>Account number *</label>
+															<input  type="text" class="form-control bankInfoEnable" id="bnkAccountNumber" name="bnkAccountNumber" disabled="disabled">
+														</div>
+														<div class="form-group">
+															<label>Bank name *</label>
+															<input  type="text" class="form-control bankInfoEnable" id="bnkName" name="bnkName" disabled="disabled">
+														</div>
+													</div>
+												</div>	
+												<div class="col-lg-4" style="position: relative;padding-top:12px;padding-bottom:12px;border-radius:5px;">
+													<div class="ibox-content" style="border-radius:5px;">
+														<div class="form-group">
+															<label>Bank branch name *</label>
+															<input  type="text" class="form-control bankInfoEnable" id="bnkBranchName" name="bnkBranchName" disabled="disabled">
+														</div>
+														<div class="form-group">
+															<label>Comment *</label>
+															<input  type="text" class="form-control " id="comment" name="comment">
+														</div>
+													</div>
+												</div>	
+											</form>
+										</div>
+										<hr />
+										<div class="row" style="background-color: #F0F0F0;position: relative;padding-top:10px;padding-bottom:8px;border-radius: 5px;">
+											<div class="col-lg-12">
+												<div style="position:relative;padding-right:10px;text-align: right;border-radius:5px;position: relative;padding-top:10px;padding-bottom:8px;background-color: #FFFFFF;">
+				                                    <button class="btn btn-danger" id="resetSendersForm" type="button">Reset Remitter's Info</button>
+				                                    <button class="btn btn-success" id="resetReceiversForm" type="button">Reset Beneficiary's Info</button>
+				                                    <a class="btn btn-primary" id="submitRemitForm" type="button">Submit</a>
+				                                </div>
+											</div>				
+										</div>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="tab-2" class="tab-pane">
+					<div class="col-lg-12">
+						<div class="panel panel-default" style="margin-top:15px;">
+							<div class="panel-heading" style="border:none;background-color: #586B7D;color:#ffffff;">
+								<strong> <i class="fa fa-group"></i> <span id="memberRolesSettings">User's-verification </span> </strong>
+							</div>
+							<div class="panel-body">
+								<a id="listRolesMenu" class="roleMenuClass active" data="listRole"> <i class="fa fa-list"> </i> <span id="tabRoles">Compliance made easy.</span></a>
+								<!--span> || </span>
+								<a id="createRolesMenu" class="roleMenuClass" data="createRole"> <i class="fa fa-road"> </i> <span id="tabCreateRoles">Create roles</span></a>
+								<span> || </span>
+								<a id="assignRolesMenu" class="roleMenuClass" data="assignRole"> <i class="fa fa-plus"> </i> <span id="tabAssignRoles">Assign roles</span></a-->
+
+								<!--input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Filter member roles"-->
+
+								<div style="width:99%;margin:0 auto;background-color: #FAFAFB;margin-top:5px;">
+									<div style="margin:0 auto;border:0px solid red;background-color: #ffffff;;"  class="roleListContainer">
+										<table class="footable table-striped complianceContainer" data-filter="#filter" data-sortable="false" style="width:100%;">
+											<thead>
+												<tr style="height:35px;">
+													<!--th><span>REF-ID</span></th-->
+													<th><span>MERCHANT</span></th>
+													<th><span>SENDER</span></th>
+													<th><span>RECEIVER</span></th>
+													<th><span>STATUS</span></th>
+													<th><span>UPDATE-DATE</span></th>
+													<th><span>ACTION</span></th>
+												</tr>
+											</thead>
+											<tbody id="complianceListContainer"  class="ListContainer"> </tbody>
+											<!--tfoot>
+											<tr>
+											<td colspan="5" class="pagingCon"> </td>
+											</tr>
+											</tfoot-->
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="tab-4" class="tab-pane">
+					<div class="col-lg-12">
+						<div class="panel panel-default" style="margin-top:15px;">
+							<div class="panel-heading" style="border:none;background-color: #586B7D;color:#ffffff;">
+								<strong> <i class="fa fa-male"></i> <strong><span id="apiRolesSetting">API Roles Settings</span></strong> </strong>
+							</div>
+							<div class="panel-body">
+								<form id="searchForm">
+									<a id="addAPIUrlButton"> <i class="fa fa-plus"> </i> <span id="tabApiAssignRoles">Assign roles</span></a>
+									<input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Filter Api service option">
+								</form>
+								<div style="width:99%;margin:0 auto;background-color: #ffffff;">
+									<div style="margin:0 auto;border:0px solid red;">
+										<table class="footable table-striped" data-filter="#filter" data-sortable="false" style="width:100%;">
+											<thead>
+												<tr style="height:32px;">
+													<th><span id="listApiUrl">API URL</span><a class="button" id="addAPIUrlButton" style="color:#ffffff;font-weight:bold;"> <i class="fa fa-plus-circle"></i> </a></th>
+													<th><span id="listApiRoles">ROLES</span></th>
+													<th><span id="listApiACL">ACL</span></th>
+													<th><span id="listApiMethod">METHOD</span></th>
+													<th><span id="listApiAction">ACTION</span></th>
+												</tr>
+											</thead>
+											<tbody id="memberAPIRolesData"></tbody>
+											<!--tfoot>
+											<tr>
+											<td colspan="5" class="pagingCon"> </td>
+											</tr>
+											</tfoot-->
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,136 @@
+<fieldset>
+    <div class="row">
+        <div class="col-lg-4">
+			<h2 translate>lblRemitterBasicInfo</h2>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" translate>lblRefId</label>
+                <div class="col-sm-9"><div class="row"><input name="refId" ng-model="remitFormData.refId" type="text" class="form-control required"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" translate>lblFullName</label>
+                <div class="col-sm-9"><div class="row"><input name="fullname" ng-model="remitFormData.fullname" type="text" class="form-control required"></div></div>
+            </div>
+            
+			<div class="form-group">
+                <label class="col-sm-3 control-label" translate>lblEmail</label>
+                <div class="col-sm-9"><div class="row"><input name="emailAddrss" ng-model="remitFormData.emailAddrss" type="text" class="form-control required"></div></div>
+            </div>
+            
+			<div class="form-group">
+                <label class="col-sm-3 control-label" translate>lblPhoneNumber</label>
+                <div class="col-sm-9"><div class="row"><input name="phoneNo" ng-model="remitFormData.phoneNo" type="text" class="form-control required"></div></div>
+            </div>
+            
+			<div class="form-group">
+                <label class="col-sm-3 control-label" translate>lblCountryCity</label>
+                <div class="col-sm-9">
+					<div class="row">
+						<div class="col-sm-6 no-padding">
+							<select required class="form-control"
+								ng-model="remitFormData.addrssCntryCd"
+								chosen="directiveOptions"
+								data-placeholder-text-single="'Choose Country'"
+								disable-search="false"
+								ng-options="option.cdKey as option.cdNm for option in countryList">
+								<option value=""></option>
+							</select>
+						</div>
+						<div class="col-sm-6 no-padding">
+							<input name="city" ng-model="remitFormData.city" type="text" class="form-control required">
+						</div>
+					</div>
+				</div>
+            </div>            
+			<div class="form-group">
+                <label class="col-sm-3 control-label" translate>lblZipCode</label>
+                <div class="col-sm-9"><div class="row"><input name="postCd" ng-model="remitFormData.postCd" type="text" class="form-control required"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" translate>lblAddress</label>
+                <div class="col-sm-9"><div class="row"><input name="addrss1" ng-model="remitFormData.addrss1" type="text" class="form-control required"></div></div>
+            </div>			
+			<div class="form-group">
+                <label class="col-sm-3 control-label" translate>lblBank</label>
+                <div class="col-sm-9">
+					<div class="row">
+						<select required class="form-control"
+									ng-model="remitFormData.bnkCd"
+									chosen="directiveOptions"
+									data-placeholder-text-single="'Choose Bank'"
+									disable-search="false"
+									ng-options="option.cdKey as option.cdNm for option in listBank">
+									<option value=""></option>
+								</select>
+					</div>
+				</div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+			<h2 translate>lblRemitterPassportInfo</h2>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblNationality</label>
+                <div class="col-sm-8">
+					<div class="row">
+						<select required class="form-control"
+								ng-model="remitFormData.nationality"
+								chosen="directiveOptions"
+								data-placeholder-text-single="'Choose Nationality'"
+								disable-search="false"
+								ng-options="option.cdKey as option.cdNm for option in countryList">
+								<option value=""></option>
+							</select>
+					</div>
+				</div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblPassportNumber</label>
+                <div class="col-sm-8"><div class="row"><input name="passportNo" ng-model="remitFormData.passportNo" type="text" class="form-control required"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblIssuePlace</label>
+                <div class="col-sm-8"><div class="row"><input name="issuePlace" ng-model="remitFormData.issuePlace" type="text" class="form-control required"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblExpiraryDate</label>
+                <div class="col-sm-8"><div class="row"><input name="expirationDt" ng-model="remitFormData.expirationDt" type="text" class="form-control required"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblDateofBirth</label>
+                <div class="col-sm-8"><div class="row"><input name="dateOfBirth" ng-model="remitFormData.dateOfBirth" type="text" class="form-control required"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblGender</label>
+                <div class="col-sm-8">
+					<div class="row">
+						<div class="radio radio-info radio-inline">
+							<input type="radio" id="inlineRadio1" value="M" name="gender" ng-model="remitFormData.gender" checked="">
+							<label for="inlineRadio1" translate>lblMale</label>
+						</div>
+						<div class="radio radio-inline">
+							<input type="radio" id="inlineRadio2" value="F" name="gender" ng-model="remitFormData.gender">
+							<label for="inlineRadio2" translate>lblFemale</label>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+		<div class="col-lg-4">
+			<h2 translate>lblUploadPassport</h2>
+            <div class="btn-group">
+				<label title="Upload image file" for="inputImage" class="btn btn-success">
+					<input type="file" accept="image/*" name="file" ng-model="remitFormData.file" id="inputImage" class="hide">{{ 'lblBrowsePassportImage' | translate}}</label>
+			</div>
+			<div>
+				<small translate>lblUploadPassportImageDesc</small>
+			</div>
+        </div>
+    </div>
+	<div class="row">
+		<div class="hr-line-dashed"></div>
+		<div class="col-sm-10">
+			<div class="form-group pull-right">
+				<a ui-sref="index.crossBorderRemit.step_two" class="btn btn-primary" translate>lblNext</a>
+			 </div>
+		</div>
+	</div>
+</fieldset>

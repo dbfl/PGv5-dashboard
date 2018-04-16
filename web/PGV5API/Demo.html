@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Demo Login redirect</title>
+        <meta name="author" content="athan" />
+        <!-- Date: 2015-12-07 -->
+        <script type="text/javascript">
+        	window.onload = function(){
+        		var HOST_URI = window.location.hostname;
+				var TARGET_URI = "http://localhost:8080/";
+				
+				if(HOST_URI=="dev5.paygate.net"){TARGET_URI="https://dev5.paygate.net/";}
+				if(HOST_URI=="stg5.paygate.net"){TARGET_URI="https://stg5.paygate.net/";}
+				if(HOST_URI=="v5.paygate.net"){TARGET_URI="https://v5.paygate.net/";}
+        		window.location= TARGET_URI+"PGV5API/SeyfertDemo2.html";
+        	};
+        </script>
+    </head>
+    <body class="gray-bg"></body>
+</html>
+

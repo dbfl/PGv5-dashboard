@@ -1,0 +1,54 @@
+<script>
+	if (window.location.toString().indexOf("localhost") !=-1) {
+//		url = 'http://localhost:8080/';
+		url = 'https://v5.paygate.net/';
+	}
+	else if (window.location.toString().indexOf("file://") !=-1) {
+		url = 'http://localhost:8080/';
+//		url = 'https://v5.paygate.net/';
+	}
+	else{
+		url = window.location.origin + "/"; 
+	}
+
+	// $('iframe[name=adminTest]')[0].src = url + '/v5a/v5ctest/return';
+	$('iframe[name=adminTest]')[0].src = url + '/v5a/seyfert/accnt/adminTest';
+
+
+</script>
+<div class="row wrapper border-bottom white-bg page-heading">
+	<div class="col-lg-10">
+		<h2 translate>lblSeyfertAccounting</h2>
+	</div>
+	<div class="col-lg-2"></div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-content">
+					<uib-tabset justified = false>
+						<uib-tab  heading="{{ '총 내역' | translate}}" ui-sref='index.seyfertAccounting.all' active='tabs.all' select="vm.tabSelected('index.seyfertAccounting.all')">
+							<div class="wrapper wrapper-content animated fadeInRight">
+								<iframe src="" name="adminTest" width="1653" height="707.05" frameborder="0"></iframe>
+							</div>
+						</uib-tab>
+						<uib-tab heading="{{ '예수금' | translate}}" ui-sref='index.seyfertAccounting.deposit' active='tabs.deposit' select="vm.tabSelected('index.seyfertAccounting.deposit')">
+							<div ng-include="vm.deposit"></div>
+						</uib-tab>
+						<uib-tab  heading="{{ '수입 수수료 환전' | translate}}" ui-sref='index.seyfertAccounting.commission' active='tabs.commission' select="vm.tabSelected('index.seyfertAccounting.commission')">
+							<div ng-include="vm.commission"></div>
+						</uib-tab>
+						<uib-tab  heading="{{ '월별 정산 내역' | translate}}" ui-sref='index.seyfertAccounting.settlement' active='tabs.settlement' select="vm.tabSelected('index.seyfertAccounting.settlement')">
+							<div ng-include="vm.settlement"></div>
+						</uib-tab>
+						<uib-tab  heading="{{ '잔액조회' | translate}}" ui-sref='index.seyfertAccounting.mtAccountBalance' active='tabs.mtAccountBalance' select="vm.tabSelected('index.seyfertAccounting.mtAccountBalance')">
+							<div ng-include="vm.mtAccntBalance"></div>
+						</uib-tab>
+					</uib-tabset>						
+				</div>
+			</div>
+		</div>
+	</div> 
+</div>
+

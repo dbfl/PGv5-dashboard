@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Paygate Contract Page</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://v5.paygate.net/AdminManager/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+     <!--link href="css/simple-sidebar.css" rel="stylesheet"-->
+   <link href="css/simple-sidebar.css" rel="stylesheet">  
+   <style>
+   	body{position:relative;overflow-x: hidden;overflow-y: hidden;}
+   	.conversionType{width:150px;display: inline-block;}
+   	.conversionRateType{width:50px;display: inline-block;}
+   	.conversionRateType2{width:97px;display: inline-block;}
+   	.rateConvertType{width:103px;}
+   	.rateConvertType2{width:60px;}
+   	.rateConvertType3{width:70px;}
+   	.inpuControl div{position:relative;padding-top:2px;padding-bottom:2px;}
+   	.rateClass{min-width:500px;}
+   	#addRates{color:#0055B3;font-weight:bold;cursor:pointer;font-size:20px;}
+   </style>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="topMenu"><a href="#menu-toggle" class="btn btn-default menu-toggle">-</a></div>
+	  <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+            	<li class="hidden">
+                    <a class="page-scroll" href="#page1" id="pageTop"></a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="#page1">
+                        <img alt="image" src="https://v5.paygate.net/AdminManager/img/paygatelogo-white.png" style="width:150px;" />
+                    </a>
+                </li>
+                <li>
+                	<a target="_blank" href="http://docs.pgv5.apiary.io/">API Documentation</a>
+                </li>
+                <li class="navigator">
+                    <a href="#createMemInfo" id="createMemInfoMenu">Create Member Info </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper"  style="border: 0px solid red;height:589px;position:relative;overflow-y:auto;">
+        	<div class="container-fluid">
+        		<div class="row" id="createMemInfo" style="height:1000px;">
+                   <div class="margin">
+			                <h1>Create Member Info</h1>
+			                <div class="formCon"> 
+			                	<form id="createMemInfoForm">
+		                		<div class="labels form-group" >
+		                			<span> Merchant Guid </span>
+		                		</div>
+		                		<div class="inpuControl">
+		                			<input type="text" class="textBoxs merchantMemGuid" name="reqMemGuid" value=""/>	
+		                		</div>
+		                		<div class="labels">
+		                			<span> Merchant Guid (dstMemGuid) </span>
+		                		</div>
+		                		<div class="inpuControl">
+		                			<input type="text" class="textBoxs" name="dstMemGuid" placeholder="dstMemGuid" />
+		                		</div>
+		                		<div class="labels">
+		                			<span>Info code</span>
+		                		</div>
+		                		<div class="inpuControl" id="infoCdList">
+		                			<input type="text" class="textBoxs" name="infoCd" id='infoCd' placeholder="Info code" />	
+		                		</div>
+		                		<div class="labels">
+		                			<span>Priority</span>
+		                		</div>
+		                		<div class="inpuControl">
+		                			<input type="text" class="textBoxs" name="priority" placeholder="Priority" />	
+		                		</div>
+		                		<div class="labels">
+		                			<span>Info</span>
+		                		</div>
+		                		<div class="inpuControl">
+		                			<input type="text" class="textBoxs" name="info" placeholder="Info" />	
+		                		</div>
+		                		<div class="labels">
+		                			<span>Desc</span>
+		                		</div>
+		                		<div class="inpuControl">
+		                			<input type="text" class="textBoxs" name="desc" placeholder="Desc" />	
+		                		</div>
+								<br>
+		                		<div class="inpuControl">
+		                			<a  id="createMemInfoBut" class="buttons btn btn-default page-scroll">Submit</a>
+		                		</div>
+		                		<!--input type="hidden" value="POST" name="_method" /-->
+		                		</form>
+			                </div>
+			          </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+		 <div id="footer">
+		 	<div id="itemHead"> <span id="toggleConsole">console <span id="toggleIcon">[-]</span></span></div>
+		 	<div id="itemContent" style="display: non;"> 
+		 		<!--textarea> dadsa</textarea-->
+		 		<div id="console"> CONSOLE AREA  </div>	
+		 	</div>
+		 </div>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="https://v5.paygate.net/AdminManager/js/jquery-2.1.1.js"></script>
+    
+    <!-- /#wrapper -->
+	<script src="memInfo.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://v5.paygate.net/AdminManager/js/bootstrap.min.js"></script>
+    
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/pidcrypt.js"></script>
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/pidcrypt_util.js"></script>
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/sha256.js"></script>
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/md5.js"></script>
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/aes_core.js"></script>
+    <script src="https://v5.paygate.net/AdminManager/lib/aespidcrypt/aes_ctr.js"></script>
+    
+</body>
+
+</html>

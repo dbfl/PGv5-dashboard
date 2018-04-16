@@ -1,0 +1,31 @@
+<div class="modal-header" >
+	<div class="col-sm-8">
+		<h3  class="modal-title col-sm-10" ><span translate>lblWithdrawalRelease</span>&nbsp;&nbsp;&nbsp;</h3>
+	</div>
+</div>
+
+<div class="modal-body" id="memberBlockRelease" >
+	<form name="vm.blockReleaseForm" ng-submit="setWithdrawalBlockRelease()">
+		<div class="panel-body no-padding form-horizontal">
+        	<div class="panel-group" id="accordion">
+            	<div class="panel panel-default" >
+					<div class="panel-body">
+						<div class="form-group text-center" translate>
+						<label class="col-lg-4 control-label" ></label>
+							<label class="col-lg-4 control-label" translate><h4>lblWithdrawalReleaseConfirmMsg </h4></label>
+						</div>
+						<br><br>
+						<div class="form-group text-center">
+							<button type="button" class="btn btn-danger ng-scope"  ng-click="cancel()" translate>VCNotiMsgCancel</button>
+							 <button class="btn btn-primary ng-scope" type="submit" translate="">VCNotiTitle</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="modal-footer">
+	<button class="btn btn-default" type="button" ng-click="cancel()" id="Close" name="Close" translate>btnClose</button>
+</div>

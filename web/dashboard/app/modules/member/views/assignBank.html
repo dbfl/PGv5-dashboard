@@ -1,0 +1,100 @@
+<form name="mForm" ng-submit="vm.assignBank()" class="p-lg form-horizontal">
+<fieldset>
+    <div class="row 2nd-layer-popup">
+    <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+			<h2 translate>lblAssignBankTitle</h2>
+			<br>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblMerchantGuid</label>
+                <div class="col-sm-4">
+					<div class="row" ng-class="{ 'has-error': mForm.dstMemGuid.$invalid }">
+						<input  name="dstMemGuid" required ng-model="vm.assForm.dstMemGuid" type="text" class="form-control"><font color="#ff8080">* Enter at least 4 characters of member guid</font>
+						<p class="help-block" ng-if="mForm.dstMemGuid.$error.required && mForm.dstMemGuid.$dirty">{{ 'lblRequired' | translate:'{ field: "Merchant Guid" }' }}</p>
+					</div>
+				</div>
+				<div class="col-sm-2" ng-if="vm.assForm.dstMemGuid.length >= 4">
+					<a ng-href="" class="btn btn-default btn-circle" ng-click="getMemberDetail(vm.assForm)" style="float:left;"><i class="fa fa-pencil-square-o"></i>&nbsp</a>
+					<!-- div class="md-padding" id="popupContainer">
+	 					 <p class="inset"></p>
+						 <div class="dialog-content" layout="row" layout-wrap layout-margin layout-align="center">
+						 		<div ng-controller="showMemberDetail" ng-show="enableIconShows(dstMemGuid)" ></div>
+	   						  <a ng-href="" class="btn btn-default btn-circle" ng-click="getMemberDetail(vm.assForm)" style="float:left;"><i class="fa fa-pencil-square-o"></i>bnt Name</a>
+	 					 </div>
+					</div -->
+				</div>
+            </div>
+            <div class="form-group" id="opAssBnk">
+                <label class="col-sm-4 control-label" translate>lblBank</label>
+                <div class="col-sm-6" ng-class="{ 'has-error': mForm.bnkCd.$invalid }">
+					<div class="row">
+						<select class="form-control"
+							ng-model="vm.assForm.bnkCd"
+							name="bnkCd"
+							data-placeholder-text-single="'Choose Bank'"
+							disable-search="false"
+							ng-options="option.cdKey as option.cdNm for option in listBank"  required>
+							<option value=""></option>
+						</select>
+					</div>
+				</div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblBankAccNo</label>
+                <div class="col-sm-8">
+                	<!-- 2016.12.05, by aajik, add, SFT-290, ���¹�ȣ�� ������ ��ȸ -->
+					<div class="row" ng-class="{ 'has-error': mForm.accntNo.$invalid }">
+						<div ng-if="edit">
+							<input  name="accntNo" required ng-model="vm.assForm.accntNo" type="text" class="form-control" style="float:left;width:50%">
+	 						<a href="" class="btn btn-white btn-sm" ng-click="vm.getMemberAccntName()" style="float:left; margin:3px 0 0 5px;"><i class="fa fa-folder"></i> Search </a>
+	 						<div style="padding-top:8px; margin-bottom: 0; text-align:left;font-size:12;">&nbsp;{{vm.assForm.accntName}}</div>
+							<p class="help-block" ng-if="mForm.accntNo.$error.required && mForm.accntNo.$dirty">{{ 'lblRequired' | translate:'{ field: "Bank Account No" }' }}</p>
+						</div>
+						<div ng-if="!edit">
+							<input  name="accntNo" required ng-model="vm.assForm.accntNo" type="text" class="form-control" style="float:left;width:100%">
+						</div>
+					</div>
+				</div>
+            </div>
+			<div class="form-group" id="countryCd">
+                <label class="col-sm-4 control-label" translate>lblCountry</label>
+                <div class="col-sm-6">
+ 					<div class="row" ng-class="{ 'has-error': mForm.cntryCd.$invalid }">										
+						<select  class="form-control"
+							name="cntryCd"
+							ng-model="vm.assForm.cntryCd"
+							data-placeholder-text-single="'Choose Country'"
+							disable-search="false"
+							ng-options="option.cdKey as option.cdNm for option in listCountry" required>
+							<option value=""></option>
+						</select>
+						<p class="help-block" ng-if="mForm.cntryCd.$error.required && mForm.cntryCd.$dirty">{{ 'lblRequired' | translate:'{ field: "Country" }' }}</p>
+					</div> 
+				</div>
+            </div>
+			<div class="row">
+				<div class="hr-line-dashed"></div>
+				<div class="col-sm-8">
+					
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group pull-right">
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary" ng-disabled="mForm.$invalid" translate>lblSubmit</button>
+						<button class="btn btn-warning" type="button" ng-click="cancel()" id="Close" name="Close" translate>Cancel</button>
+					 </div>
+					 </div>
+				</div>
+			</div>
+        </div>
+        <div class="col-lg-4">
+			<div class="alert alert-success" ng-if="assignVirtualSuccess">
+				<p translate>lblAssignBankSuccess1</p>
+				<p><span translate>lblAssignBankSuccess2</span>&nbsp;<strong>{{vm.assForm.dstMemGuid}}</strong></p>
+				<p translate>lblBankCode<strong>:&nbsp;{{assignBankResult.bnkCd}}</strong></p>
+				<p><span translate>lblBankAccNo</span>:&nbsp;<strong>{{assignBankResult.accntNo}}</strong></p>
+			</div>
+        </div>
+    </div>
+</fieldset>
+</form>

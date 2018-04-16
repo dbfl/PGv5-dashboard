@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PayGate | Admin dashboard</title>
+    
+	<link href="../uiLibraries/Bootstrap/css/plugins/chosen/chosen.css" rel="stylesheet">
+	<link href="../uiLibraries/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../uiLibraries/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../uiLibraries/Bootstrap/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../uiLibraries/Bootstrap/css/animate.css" rel="stylesheet">
+    <link href="../uiLibraries/Bootstrap/css/plugins/codemirror/codemirror.css" rel="stylesheet">
+    <link href="../uiLibraries/Bootstrap/css/plugins/codemirror/ambiance.css" rel="stylesheet">
+    <link href="../uiLibraries/Bootstrap/css/style.css" rel="stylesheet">
+    <link href="../uiLibraries/Bootstrap/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+  
+	<style>
+		html,body{height:100%;overflow-y:hidden;}
+	</style>
+</head>
+
+<body class="fixed-sidebar no-skin-config full-height-layout">
+	<div id="wrapper">
+	<!--Load side menu content!-->
+    <nav class="navbar-default navbar-static-side" role="navigation" style="color:#2C4762">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" src="img/paygatelogo-white.png" style="width:150px;" />
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Paygate Korea</strong>
+                             </span> <span class="text-muted text-xs block">Admin</span> </span> </a>
+                    </div>
+                    <div class="logo-element">
+                        PG
+                    </div>
+                </li>
+                <li class="menuBar" id="monitoringNaviMenu">
+                    <a><i class="fa fa-bar-chart"></i><span class="nav-label" id="menuMonitoring">Monitoring</span> <span class="label label-primary pull-right">_Live__</span> </a>
+                </li>
+                <li class="active menuBar" id="dasboardNaviMenu">
+                    <a><i class="fa fa-pie-chart"></i> <span class="nav-label" id="menuDashboard">Dashboard</span> <span class="label label-primary pull-right">admin</span> </a>
+                </li>
+                <li class="menuBar" id="transactionNaviMenu">
+                    <a><i class="fa fa-list"></i> <span class="nav-label" id="menuTransaction">Transaction</span></a>
+                </li>
+                <li class="menuBar" id="memberNaviMenu">
+                    <a><i class="fa fa-male"></i> <span class="nav-label" id="menuMember">Member</span><!--  <span class="fa arrow"></span>--></a>
+                </li>
+                
+                 <li class="menuBar" id="currencyNaviMenu">
+                    <a><i class="fa fa-usd"></i> <span class="nav-label" id="menuCurrency">Currency Exchange</span></a>
+                </li>
+                
+                <li class="menuBar" id="chargeAccNaviMenu">
+                    <a><i class="fa fa-money"></i><span class="nav-label" id="menuChargeAcc">Charge Account</span></a>
+                </li>
+                
+                <li class="menuBar" id="seyfertWithdrawMenu">
+                    <a><i class="fa fa-minus-circle"></i><span class="nav-label" id="menuSeyfertWithdraw">Seyfert Withdraw</span></a>
+                </li>
+                
+                <li class="menuBar" id="crossBorderRemitNaviMenu">
+                    <a><i class="fa fa-globe"></i><span class="nav-label" id="menuCrossBorderRemit">Cross Border Remit</span></a>
+                </li>
+                
+                <li class="menuBar" id="smsNaviMenu">
+                	<a><i class="fa fa-mobile-phone"></i> <span class="nav-label" id="menuSms">Sms service</span></a>
+                </li>
+                
+                <li class="menuBar" id="settingsNaviMenu">
+                	<a><i class="fa fa-cogs"></i> <span class="nav-label" id="menuSettings">Settings</span></a>
+                </li>
+                
+                <li class="menuBar" id="tutoringNaviMenu">
+                	<a><i class="fa fa-graduation-cap"></i> <span class="nav-label" id="menuSettings">Lecture</span></a>
+                </li>
+                
+                <li id="rolesMenuContainer" class="menuBar" style="display:none">
+                    <a href="#"><i class="fa fa-rebel"></i> <span class="nav-label" id="menuRoles">Roles</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                    	<li><a> <span class="nav-label" id="menuCreateRoles">Create Roles</span></a></li>
+                        <li><a href="memberRoles.html" id="assignMemRoles">Assign Member Roles</a></li>
+                        <li><a href="apiRoles.html" id="assignAPIRoles">Assign API Roles</a></li>
+                    </ul>
+                </li>
+         	</ul>
+
+        </div>
+    </nav>
+	<div id="page-wrapper" class="white-bg">
+    	<div class="row border-bottom">
+	    	<nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+		        <div class="navbar-header">
+		            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+		            <form role="search" class="navbar-form-custom" action="search_results.html">
+		                <div class="form-group">
+		                    <input type="text" placeholder="Admin dashboard" class="form-control"  style="color:#213A53">
+		                </div>
+		            </form>
+		        </div>
+		        <ul class="nav navbar-top-links navbar-right">
+		            <li>
+		                <span class="m-r-sm text-muted welcome-message">
+		                	<span style="color:#213A53;font-weight:bold;"> Welcome - </span>
+		                	<span style="color:#2C4762;" id="userName">   </span>
+		                </span>
+		            </li>
+		            <li class="dropdown">
+		                <ul class="dropdown-menu dropdown-messages">
+		                    <li></li>
+		                    <li class="divider"></li>
+		                    <li></li>
+		                    <li class="divider"></li>
+		                    <li> </li>
+		                    <li class="divider"></li>
+		                    <li></li>
+		                </ul>
+		            </li>
+		            <li class="dropdown"><ul class="dropdown-menu dropdown-alerts">
+		                    <li></li>
+		                    <li class="divider"></li>
+		                    <li></li>
+		                    <li class="divider"></li>
+		                    <li></li>
+		                    <li class="divider"></li>
+		                    <li></li>
+		                </ul>
+		            </li>
+					<li>
+						<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+		                    <span>
+		                    	<strong data-placement='bottom' data-toggle='tooltip' href='#' data-original-title='korean'>
+		                    		<span id="koreanLang"> KR </span>
+		                   	 	</strong>
+		                    </span>
+		                </a>
+					</li>
+					<li>
+						<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+		                    <span> <strong data-placement='bottom' data-toggle='tooltip' href='#' data-original-title='english'> <span  id="englishLang"> EN </span> </strong></span>
+		                </a>
+					</li>
+		            <li>
+		                <a id="logOut">
+		                    <i class="fa fa-sign-out"></i> Log out
+		                </a>
+		            </li>
+		        </ul>
+	    	</nav>
+		</div>
+	<div class="row white-bg" style="position:relative;padding-top:5px;padding-bottom: 5px;" id="dashHeader"> </div>
+	<div id="mainContent" class="fh-breadcrumb"> 
+		<div class="full-height">
+			<div class="full-height-scroll white-bg border-left">
+				<div class="element-detail-box" id="dashMain" style="position: relative;top:-20px;"> </div>
+			</div>
+		</div>
+	</div>
+	<div id="monitorContent" class="fh-breadcrumb"> 
+		<div class="full-height">
+			<div class="full-height-scroll white-bg border-left">
+				<div class="element-detail-box" id="monitorMain">dasdas </div>
+			</div>
+		</div>
+	</div>
+	<div class="row wrapper border-top white-bg page-footer" style="background-color: #E9E9E9;" id="pagerFooter" style="display: none;"> 
+		<div class="pagingCon pull-right" style="position: relative;bottom:16px;right:21px;"> </div>
+	</div>
+  </div>
+</div>
+ <div class="footer">
+    <div class="pull-right">
+        South Korea <strong>Seoul</strong> Songpa gu
+    </div>
+    <div>
+        <strong>Copyright</strong> &copy; PayGate Korea
+    </div>
+</div>
+<a data-toggle="modal" href="#assignVaWindow" style="display:none;" id="showAssignVaWindow"></a>
+<div class="modal inmodal" id="assignVaWindow" tabindex="-1" role="dialog" aria-hidden="true">
+	<style>
+		.formWrapper {
+			width: 30%;
+			min-width: 450px;
+			margin: 0 auto;
+			text-align: center;
+			position: relative;
+			padding: 15px;
+		}
+		.contentWrapper {
+			background-color: #FFFFFF;
+			position: relative;
+			padding: 15px;
+			padding-top: 10px;
+		}
+		.labels {
+			text-align: left;
+		}
+		.labels span {
+			font-weight: bold;
+		}
+		.merchantAdminLabel {
+			color: #269ABC
+		}
+		.inpuControl {
+			text-align: left;
+			margin-bottom: 10px;
+		}
+		.adminLabel {
+			color: #0A6AA1
+		}
+		.textBoxs {
+			width: 100%;
+			height: 30px;
+			border: 1px solid #E6E1DC;
+		}
+		.buttons {
+			width: 100%;
+			font-weight: bold;
+			color: #FAFAFB
+		}
+	</style>
+	<div class="modal-dialog modal-lg" style="width: 40%;min-width:700px;">
+		<div class="modal-content animated bounceInRight">
+			<div class="modal-header">
+				<span> <strong id="veriyLabel"> Assign virtual account </strong> </span>
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+			</div>
+			<div class="modal-body" style="background-color: #ffffff">
+				<div class="formWrapper">
+					<div class="contentWrapper">
+						<form id="assignVirtualAccountForm">
+							<div class="labels adminLabel" >
+								<span> Member Guid(Sender) </span>
+							</div>
+							<div class="inpuControl">
+								<input type="text" class="textBoxs merchantMemGuid" name="dstMemGuid" id="assignVirtualAccountDstMemGuid" value="" />
+							</div>
+							<div class="labels">
+								<span> Bank </span>
+							</div>
+							<div class="inpuControl">
+								<select class="textBoxs" id="assignVirtualBankCode" name="bnkCd"></select>
+							</div>
+							<br>
+							<div class="inpuControl">
+								<a  id="assignVirtualAccountMemberBut" class="buttons btn btn-success page-scroll">Assign or View virtual account</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div style="color:#205081;position:relative;padding-right:10px;text-align: left;border-radius:5px;position: relative;padding-top:10px;padding-bottom:8px;padding-left:3px;background-color: #FFFFFF;">
+					 <span id="noticeSpanv" style="color:#EF5352">  <i class="fa fa-warning"></i> <strong id="noticeSpanvText">Make sure that the Guid & Bank code are correctly provided before assigning virtual account. </strong></span><br>
+					 <span class="resultSpanv" style="display:none;">Bank code: <strong id="assignVirtualAccountBankCode"> </strong> </span> <br>
+					 <span class="resultSpanv" style="display:none;">Virtual account number: <strong id="assignVirtualAccountNum"> </strong> </span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>				
+
+<a data-toggle="modal" href="#verifyWindow" style="display:none;" id="showVerifyWindow"></a>
+<div class="modal inmodal" id="verifyWindow" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg" style="width: 40%;min-width:700px;">
+		<div class="modal-content animated bounceInRight">
+			<div class="modal-header">
+				<span> <strong id="veriyLabel"> Verify member information </strong> </span>
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+			</div>
+			<div class="modal-body" id="memberListContainer" style="background-color: #ffffff">
+				<table style="width: 100%" class="table-striped">
+					<tbody>
+						<tr class="detailHeader" style="height:28px;background-color: #586B7D;color:#ffffff;font-weight:bold;display:none;">
+							<td colspan="4">
+								<span style="margin-left: 3px;"> 
+									<i class="fa fa-list"> </i> 
+									<span> Verify dashboard </span>
+								</span>
+							</td>
+						</tr>
+						<tr style="height:28px;display:none;">
+							<td class="detailLabel"><span>Key</span></td>
+							<td><span id="dashboardVerifyKey"> </span></td>
+							<td class="detailLabel"><span>Type</span></td>
+							<td><span id="dashboardVerifyType"> </span></td>
+						</tr>
+						<tr style="height:28px;display:none;">
+							<td class="detailLabel"><span>Status</span></td>
+							<td>
+								<span id="dashboardVerifyStatus"> </span>
+							</td>
+							<td class="detailLabel"><span>Update date </span></td>
+							<td><span id="dashboardVerifyUpdateDate"> </span></td>
+						</tr>
+						<tr class="detailHeader" style="height:28px;color:#ffffff;font-weight:bold;display:none;">
+							<td colspan="4">
+								<input type="radio" name="dashboardVerifyStatus" /> <span style="color:#F27474" >UNVERIFIED</span>
+								<input type="radio" name="dashboardVerifyStatus" /> <span style="color:#179D82" >VERIFIED</span> 
+								<span style="color:#005F8D" ><i class="fa fa-edit"></i>update</span>
+							</td>
+						</tr>		
+						
+						<tr class="detailHeader" style="height:28px;background-color: #586B7D;color:#ffffff;font-weight:bold;">
+							<td colspan="4">
+								<span style="margin-left: 3px;"> 
+									<i class="fa fa-arrow-circle-o-right"> </i> 
+									<span> Verify sender </span>
+								</span>
+							</td>
+						</tr>
+						<tr style="height:28px;">
+							<td class="detailLabel"><span>key</span></td>
+							<td><span id="srcVerifyKey"> </span></td>
+							<td class="detailLabel"><span>Type</span></td>
+							<td><span id="srcVerifyType"> </span></td>
+						</tr>
+						<tr style="height:28px;">
+							<td class="detailLabel"><span>Status</span></td>
+							<td>
+								<span id="srcVerifyStatus"> </span>
+								<span id="verifiedSender" style="display:none;" class="text-success"> <i class="fa fa-thumbs-o-up"> </i> </span>
+								<span id="verifySenderContainer" style="display:none;" > <i class="fa fa-arrow-circle-o-right"> </i> <a id="verifySender" class="text-danger"> verify </a></span>
+								<!--input type="radio" name="senderVerifyStatus" class="radioClass" value="UNVERIFIED" id="senderUnverified" /> <span style="color:#F27474;font-weight:bold;" >UNVERIFIED</span>
+								<input type="radio" name="senderVerifyStatus" class="radioClass" value="VERIFIED" id="senderVerified" /> <span style="color:#179D82;font-weight:bold;" >VERIFY</span-->
+							</td>
+							<td class="detailLabel"><span>Update date </span></td>
+							<td><span id="srcVerifyUpdateDate"> </span></td>
+						</tr>
+						<tr class="detailHeader" style="height:28px;color:#ffffff;font-weight:bold;">
+							<td colspan="4"> </td>
+						</tr>
+						<tr class="detailHeader" style="height:28px;background-color: #586B7D;color:#ffffff;font-weight:bold;">
+							<td colspan="4">
+								<span style="margin-left: 3px;"> 
+									<i class="fa fa-arrow-circle-o-left"> </i> 
+									<span> Verify receiver </span>
+								</span>
+							</td>
+						</tr>
+						<tr style="height:28px;">
+							<td class="detailLabel"><span>Key</span></td>
+							<td><span id="dstVerifyKey"> </span></td>
+							<td class="detailLabel"><span>Type</span></td>
+							<td><span id="dstVerifyType"> </span></td>
+						</tr>
+						<tr style="height:28px;">
+							<td class="detailLabel"><span>Status</span></td>
+							<td>
+								<span id="dstVerifyStatus"> </span>
+								<span id="verifiedReceiver" style="display:none;" class="text-success"> <i class="fa fa-thumbs-o-up"> </i> </span>
+								<span id="verifyReceiverContainer" style="display:none;"> <i class="fa fa-arrow-circle-o-right"> </i> <a id="verifyReceiver" class="text-danger"> verify </a></span>
+								<!--input type="radio" name="receiverVerifyStatus" class="radioClass" value="UNVERIFIED" id="receiverUnverified" /> <span style="color:#F27474;font-weight:bold;" >UNVERIFIED</span>
+								<input type="radio" name="receiverVerifyStatus" class="radioClass" value="VERIFIED" id="receiverVerified" /> <span style="color:#179D82;font-weight:bold;" >VERIFY</span-->
+							</td>
+							<td class="detailLabel"><span>Update date </span></td>
+							<td><span id="dstVerifyUpdateDate"> </span></td>
+						</tr>
+						<tr class="detailHeader" style="height:28px;color:#ffffff;font-weight:bold;">
+							<td colspan="4"> </td>
+						</tr>
+						<tr class="detailHeader" style="height:28px;background-color: #586B7D;color:#ffffff;font-weight:bold;">
+							<td colspan="4">
+								<span style="margin-left: 3px;"> 
+									<i class="fa fa-file"> </i> 
+									<span> Verify passport </span>
+								</span>
+							</td>
+						</tr>
+						<tr style="height:28px;">
+							<td class="detailLabel"><span>Key</span></td>
+							<td><span id="passportVerifyKey"> </span></td>
+							<td class="detailLabel"><span>Type</span></td>
+							<td><span id="passportVerifyType"> </span></td>
+						</tr>
+						<tr style="height:28px;">
+							<td class="detailLabel"><span>Status</span></td>
+							<td>
+								<span id="passportVerifyStatus"> </span>
+								<span id="verifiedPassport" style="display:none;" class="text-success"> <i class="fa fa-thumbs-o-up"> </i> </span>
+								<span id="verifyPassportContainer" style="display:none;"> <i class="fa fa-arrow-circle-o-right"> </i> <a id="getPassportImage" data-toggle="modal" href="#verifyPassportWindow" id="showVerifyPassportWindow" class="text-danger"> verify </a></span>
+								<!--input type="radio" name="passportVerifyStatus" class="radioClass" value="UNVERIFIED" id="passportUnverified" /> <span style="color:#F27474;font-weight:bold;" >UNVERIFIED</span>
+								<input type="radio" name="passportVerifyStatus" class="radioClass" value="VERIFIED" id="passportVerified" /> <span style="color:#179D82;font-weight:bold;" id="passportVerifyStatusLabel" >VERIFY</span-->
+							</td>
+							<td class="detailLabel"><span>Update date </span></td>
+							<td><span id="passportVerifyUpdateDate"> </span></td>
+						</tr>
+						<tr class="detailHeader" style="height:28px;color:#ffffff;font-weight:bold;">
+							<td colspan="4"> </td>
+						</tr>
+						<tr class="detailHeader" style="height:28px;background-color: #586B7D;color:#ffffff;font-weight:bold;">
+							<td colspan="4">
+								<span style="margin-left: 3px;"> 
+									<i class="fa fa-calendar"> </i> 
+									<span> Verify yearly amount </span>
+								</span>
+							</td>
+						</tr>
+						<tr style="height:28px;">
+							<td class="detailLabel"><span>Key</span></td>
+							<td><span id="yrAmtVerifyKey"> </span></td>
+							<td class="detailLabel"><span>Type</span></td>
+							<td><span id="yrAmtVerifyType"> </span></td>
+						</tr>
+						<tr style="height:28px;">
+							<td class="detailLabel"><span>Status</span></td>
+							<td>
+								<span id="yrAmtVerifyStatus"> </span>
+								<span id="verifiedYearAmount" style="display:none;" class="text-success"> <i class="fa fa-thumbs-o-up"> </i> </span>
+								<span id="verifyYrAmtContainer" style="display:none;"> <i class="fa fa-arrow-circle-o-right"> </i> <a id="verifyYrAmt" class="text-danger"> verify </a></span>
+								<!--
+								<input type="radio" name="yrAmtVerifyStatus" class="radioClass" value="UNVERIFIED" id="yrAmtUnverified" /> <span style="color:#F27474;font-weight:bold;" >UNVERIFIED</span>
+								<input type="radio" name="yrAmtVerifyStatus" class="radioClass" value="VERIFIED" id="yrAmtVerified" /> <span style="color:#179D82;font-weight:bold;" >VERIFY</span>
+								-->
+							</td>
+							<td class="detailLabel"><span>Update date </span></td>
+							<td><span id="yrAmtVerifyUpdateDate"> </span></td>
+						</tr>
+						<tr class="detailHeader" style="height:28px;color:#ffffff;font-weight:bold;">
+							<td colspan="4"></td>
+						</tr>
+						<tr class="detailHeader" style="height:28px;background-color: #586B7D;color:#ffffff;font-weight:bold;">
+							<td colspan="4">
+								<span style="margin-left: 3px;"> 
+									<i class="fa fa-calendar-o"> </i> 
+									<span> Verify yearly transaction </span>
+								</span>
+							</td>
+						</tr>
+						<tr style="height:28px;">
+							<td class="detailLabel"><span>Key</span></td>
+							<td><span id="trnAmtVerifyKey"> </span></td>
+							<td class="detailLabel"><span>Type</span></td>
+							<td><span id="trnAmtVerifyType"> </span></td>
+						</tr>
+						<tr style="height:28px;">
+							<td class="detailLabel"><span>Status</span></td>
+							<td>
+								<span id="trnAmtVerifyStatus"> </span>
+								<span id="verifiedYearTrn" style="display:none;" class="text-success"> <i class="fa fa-thumbs-o-up"> </i> </span>
+								<span id="verifyYrTrnContainer" style="display:none;"> <i class="fa fa-arrow-circle-o-right"></i> <a id="verifyYrTrn" class="text-danger"> verify </a></span>
+								<!--input type="radio" name="trnAmtVerifyStatus" value="UNVERIFIED" class="radioClass" id="trnAmtUnverified" /> <span style="color:#F27474;font-weight:bold;" >UNVERIFIED</span>
+								<input type="radio" name="trnAmtVerifyStatus" value="VERIFIED" class="radioClass" id="trnAmtVerified" /> <span style="color:#179D82;font-weight:bold;" >VERIFY</span--> 
+							</td>
+							<td class="detailLabel"><span>Update date </span></td>
+							<td><span id="trnAmtVerifyUpdateDate"> </span> </td>
+						</tr>
+						<tr class="detailHeader" style="height:28px;color:#ffffff;font-weight:bold;">
+							<td colspan="4"> </td>
+						</tr>
+					</tbody>
+				</table>		
+			</div>
+			<div class="modal-footer">
+				<div style="position: relative;padding:10px;">
+					<input type="button" value="Verify confirm" id="verifyConfirmBut" style="background-color: #1872AB;color:#ffffff;" class=" form-control btn btn-success" />
+					<input type="button" value="Assign virtual account" id="assignVirtualAccountBut" style="background-color: #1EACAE;color:#ffffff;display:none;" class=" form-control btn btn-success" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal inmodal" id="verifyPassportWindow" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" style="width: 40%;min-width:700px;">
+			<div class="modal-content animated bounceInRight">
+				<div class="modal-header">
+					<span> <strong id="veriyLabel"> Verify passport </strong> </span>
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div class="modal-body" style="background-color: #ffffff;height:650px;">
+					<div id="passportImgContainer" style="height:400px;width:500px;border:3px solid silver;margin:0 auto;position:relative;padding:5px;">
+						<img id="passportImage" style="width:100%;height:100%;" />
+					</div>
+					<div id="passportDescContainer" style="width:500px;border:3px solid silver;border-top:none;margin:0 auto;position:relative;padding:5px;font-weight:bold;color:#444444;">
+						<div> <span>Passport.no:</span> <span id="pNo" class="pData"> </span> </div>
+						<div> <span>Gender:</span> <span id="pGender"  class="pData"> </span> </div>
+						<div> <span>Nationality:</span> <span id="pNationality"  class="pData"> </span> </div>
+						<div> <span>Date of birth:</span> <span id="pDob"  class="pData"> </span> </div>
+						<div> <span>Issue place:</span> <span id="pIssuePlace"  class="pData"> </span> </div>
+						<div> <span>Issuance date:</span> <span id="pIssueDate"  class="pData"> </span> </div>
+						<div> <span>Expiration date:</span> <span id="pExpirationDt"  class="pData"> </span> </div>
+					</div>
+				</div>
+				<div style="background-color: #ffffff" class="modal-footer">
+				  <input type="button" class="button btn btn-success" id="verifyPassport" style="width:100%;" value="verify" /> 
+				</div>  
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Main scripts -->
+<script src="../uiLibraries/Jquery/jquery-2.1.1.js"></script>
+<script src="../uiLibraries/Jquery/jqueryIdle.js"></script>
+<script src="../uiLibraries/Bootstrap/js/plugins/chosen/chosen.jquery.js"></script>
+<script src="../uiLibraries/Bootstrap/js/bootstrap.min.js"></script>
+<script src="../uiLibraries/Bootstrap/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../uiLibraries/Bootstrap/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../uiLibraries/json2.js"></script>
+<script src="../uiLibraries/Jquery/jquery.btechco.excelexport.js"></script>
+<script src="../uiLibraries/Jquery/jquery.base64.js"></script>
+<script src="../uiLibraries/Jquery/jqueryMaxLength.js"></script>
+
+<!-- jQuery cookie -->
+<script src="../uiLibraries/Jquery/jquery.cookie.js"></script>
+
+<!-- Flot Chart -->
+<script src="../uiLibraries/Bootstrap/js/plugins/flot/jquery.flot.js"></script>
+<script src="../uiLibraries/Bootstrap/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="../uiLibraries/Bootstrap/js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="../uiLibraries/Bootstrap/js/plugins/flot/jquery.flot.pie.js"></script>
+<script src="../uiLibraries/Bootstrap/js/plugins/flot/jquery.flot.time.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../uiLibraries/Bootstrap/js/inspinia.js"></script>
+<script src="../uiLibraries/Bootstrap/js/plugins/pace/pace.min.js"></script>
+
+<!-- Foo Table -->
+<script src="../uiLibraries/Bootstrap/js/plugins/footable/footable.all.min.js"></script>
+
+<!-- Peity -->
+<script src="../uiLibraries/Bootstrap/js/plugins/peity/jquery.peity.min.js"></script>
+
+
+<!-- Common JScript-->
+
+<script src="commonJs/dashboardLocalization.js"></script>
+<script src="commonJs/admin.js"></script>
+<script src="commonJs/util.js"></script>
+<script src="commonJs/paging.js"></script>
+<script src="commonJs/TransactionStatusDetail.js"></script>
+<script src="commonJs/TransactionTypeDetail.js"></script>
+
+<!-- Encrytion lib -->
+
+<script src="../AesLibrary/aespidcrypt/pidcrypt.js"></script>
+<script src="../AesLibrary/aespidcrypt/pidcrypt_util.js"></script>
+<script src="../AesLibrary/aespidcrypt/sha256.js"></script>
+<script src="../AesLibrary/aespidcrypt/md5.js"></script>
+<script src="../AesLibrary/aespidcrypt/aes_core.js"></script>
+<script src="../AesLibrary/aespidcrypt/aes_ctr.js"></script>
+
+<!-- Data picker -->
+<script src="../uiLibraries/Bootstrap/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+</body>
+</html>

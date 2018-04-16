@@ -1,0 +1,44 @@
+/**Personal use add**/
+.memberSubMenu li, .transactionSubMenu li, .recurringSubMenu li, .exchangeSubMenu li{list-style: none;position:relative;}
+.memberSubMenu li a, .transactionSubMenu li a, .recurringSubMenu li a, .exchangeSubMenu li a{font-size:13px;font-weight: normal;}
+	
+#menuController{background-color: #444444;}
+.active{background: #0051A8;}
+#topMenu{
+	position: fixed;
+    top: 0;
+    z-index:3;
+    background-color:#ffffff;
+    width: 10%;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    /*height:350px;*/
+    background-color:#ffffff;
+    width: 100%;
+}
+#console{width:80%;height:100%;margin-left:5px;word-wrap: break-word;word-break: break-all;}
+.thMargin{position:relative;left:5px;}
+#itemHead{height:20px;background-color: #B2DBA1;color:#D9534F;font-weight:bold;}
+#itemHead span{position:relative;bottom:0px;padding-left:1px;cursor:pointer;}
+#itemContent{border:0px solid red;height:400px;width:100%;position:relative;overflow-x: hidden;overflow-y: auto;}
+
+/*
+#itemContent{border:0px solid red;height:400px;width:100%;direction:ltr;}
+#console{width:80%;word-wrap: break-word;word-break: break-all;margin-left:5px;}
+#scroll{direction:rtl;border:0px solid red;unicode-bidi:bidi-override;position:relative;overflow-x: scroll;overflow: scroll;}
+*/
+.textBoxs{width:100%;min-width:340px;height:34px;border-radius:1px;border:1px solid #888888;position:relative;padding-left:3px;}
+.buttons{width:100%;min-width:340px;height:34px;border: 1px solid #C8E5BC;font-weight:bold;color:#5CB85C;}
+.labels{text-align: left;width:40%;margin:0 auto;position:relative;padding-bottom:2px;}
+.labels span{font-weight:bold;}
+.inpuControl{text-align: left;width:40%;margin:0 auto;position:relative;padding-bottom:1%;}
+.merchantMemGuid{background-color: #EDEDED;border:2px solid #666666;font-weight:bold;}
+#masterGuid{font-weight:bold;width:100%;max-width:450px;height:30px;border-radius:1px;border:1px solid #888888;padding-left:3px;}
+#encryptKey{font-weight:bold;width:100%;max-width:450px;height:30px;border-radius:1px;border:1px solid #888888;padding-left:3px;}
+.hideClass{display: none;}
+.exchangeInquiryClass,.exchangeMoneyClass{cursor:pointer;}
+.margin{text-align: center;width:70%;margin-left:4px;}
+.selected{color:#000000;}
+.formCon{margin:0 auto;}

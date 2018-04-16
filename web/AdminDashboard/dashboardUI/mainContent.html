@@ -1,0 +1,341 @@
+<div style="border:0px solid red;width:97%;margin:0 auto;" id="dashHeaderContent">
+	<div class="col-lg-5" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.0em;"> <strong> <i class="fa fa-money"></i> <span id="grandTotalAmt">Grand total</span></strong> </strong> </small><br> 
+		<strong> <span style="font-size: 2.4vw;font-size: 2.4vh;"> <i class="fa fa-dollar"> </i> <span id="grandTotalDollar"></span> <span style="color:#F27474">,</span></span>  </strong>
+		<strong> <span style="font-size: 2.4vw;font-size: 2.4vh;"> <i class="fa fa-won"> </i> <span id="grandTotalWon"></span> </span>  </strong>
+		<strong> <span style="font-size: 2.4vw;font-size: 2.4vh;"> <i class="fa fa-jpy"> </i> <span id="grandTotalJpy"></span> </span>  </strong>
+	</div>
+	<div class="col-lg-4" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.0em;"> <strong> <i class="fa fa-money"></i> <span id="dailyTotalAmt">Today's total </span> </strong> </small><br>
+		<strong> <span style="font-size: 2.4vw;font-size: 2.4vh;"> <i class="fa fa-dollar"> </i> <span id="todayTotalDollar"> </span> <span style="color:#F27474">,</span></span>  </strong>
+		<strong> <span style="font-size: 2.4vw;font-size: 2.4vh;"> <i class="fa fa-won"> </i> <span id="todayTotalWon"> </span> </span>  </strong>
+		<strong> <span style="font-size: 2.4vw;font-size: 2.4vh;"> <i class="fa fa-jpy"> </i> <span id="todayTotalJpy"> </span> </span>  </strong>
+	</div>
+	<div class="col-lg-3" style="border-bottom: 1px solid #C9DAE1;">
+		<small class="text-danger" style="font-size: 1.0em;"> <strong> <i class="fa fa-group"></i> <span id="registeredMember">Registered member </span> </strong> </small><br>
+		<strong> <span style="font-size: 2.4vw;font-size: 2.4vh;"> <i class="fa fa-male"> </i> <span id="registerMembers"></span> </span>  </strong>
+	</div>
+</div>	
+ 
+<div class="tab-content" id="dashMainContent">
+	<style>
+		.activePage{color:#DD4444 !important;font-weight: bold;}
+	</style>
+	<div id="tab-1" class="tab-pane active">
+		<div class="tabs-container">
+            <ul class="nav nav-tabs">
+                <li class="tabMenu active" id="dashStatisticsTab"><a data-toggle="tab" href="#statisticsTab"> <span id="dashStatisticLabel">Statistics</span></a></li>
+                <li class="tabMenu adminNotice" id="noticeTab"><a data-toggle="tab" href="#generalTab">Notice</a></li>
+            </ul>
+        </div>    
+		
+		<div class="tab-content">
+            <div id="statisticsTab" class="tab-pane active">
+                <div class="panel-body" style="margin-left:-16px;">
+                	<div class="row" style="position:relative;padding-top: 5px;">
+                		<div class="col-sm-4 col-md-4 col-lg-4"  id="dashGrandTotalDetailContainer"> 
+                			<div class="panel panel-default" style="height:271px;">
+                                <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+                                    <strong> <i class="fa fa-money"></i><span id="grandTotalInfo"> Grand Total Info </span></strong>
+                                    <div class="pull-right" style="cursor:pointer;">
+                                    	<span  id="minGrandTotalDetail" data-placement='top' data-toggle='tooltip' href='#' data-original-title='minimize'> <i class="fa fa-minus-square-o"></i> </span>
+                                    </div>  
+                                </div>
+                                <div class="panel-body">
+                                	 <table class="footable" data-page-size="7" data-limit-navigation="6" style="width:100%;">
+	                                    <thead>
+	                                    <tr>
+	                                        <th colspan="3"> <span class="text-danger" id="menuMerchant">Merchant</span></th>
+	                                    </tr>
+	                                    </thead>
+	                                    <tbody> 
+	                                    	<tr style="height:30px;background-color:#FAFAFB; font-size:1.9em;" class="text-primary">
+	                                    		<td> <strong><i class="fa fa-dollar"></i> <span id="merchantUsdTotal"  class="total">0</span></strong></td>
+	                                    		<td> <strong><i class="fa fa-won"> </i> <span id="merchantWonTotal"  class="total">0</span></strong></td>
+	                                    		<td> <strong><i class="fa fa-jpy"> </i> <span id="merchantJpyTotal"  class="total">0</span></strong></td>
+	                                    	</tr>
+	                                    	<tr style="height:30px;font-weight:bold;" class="text-danger">
+	                                    	    <th  colspan="2"><span class="text-primary" id="memberTotalAmount" style="color:#183C60">Member </span> </th>
+	                                    	</tr>
+	                                    	<tr style="height:30px;font-weight:bold;background-color:#FAFAFB;font-size:1.9em;" class="text-primary">
+	                                    		<td><strong><i class="fa fa-dollar"> </i> <span id="memberUsdTotal"  class="total">0</span></strong></td>
+	                                    		<td><strong><i class="fa fa-won"> </i> <span id="memberWonTotal"  class="total">0</span></strong></td>
+	                                    		<td><strong><i class="fa fa-jpy"> </i> <span id="memberJpyTotal"  class="total">0</span></strong></td>
+	                                    	</tr>
+	                                    	<tr style="height:30px;">
+	                                    	    <th  colspan="2"><span class="text-success" id="menuGrandTotal">Grand Total </span> </th>
+	                                    	</tr>
+	                                    	<tr style="height:30px;font-weight:bold;background-color:#FAFAFB; font-size:2.0em;" class="text-success">
+	                                    		<td> <strong> <i class="fa fa-dollar"> </i> <span id="calUsdGrandTotal"  class="total">0</span> </strong> </td>
+	                                    		<td><strong><i class="fa fa-won"></i> <span id="calWonGrandTotal"  class="total">0</span></strong></td>
+	                                    		<td><strong><i class="fa fa-jpy"></i> <span id="calJpyGrandTotal"  class="total">0</span></strong></td>
+	                                    	</tr>
+	                                    </tbody>
+	                                </table>
+			                    </div>
+                            </div>
+                        </div>   
+                		<div class="col-sm-8 col-md-8 col-lg-8" id="dashChartContainer">
+                			<div class="panel panel-default" style="height:271px;">
+                                <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+                                    <strong> <i class="fa fa-bar-chart"></i> <span id="transactionFrequencyPerDay">Transaction Frequency </span></strong>
+                                    <div class="pull-right" style="cursor:pointer;">
+                                    	<span data-placement='top' data-toggle='tooltip' href='#' data-original-title='todays transaction' > <input type="radio" name="graphMonitor" style="cursor: pointer" id="24HrsTransaction"/> Today </span>
+                                    	<span data-placement='top' data-toggle='tooltip' href='#' data-original-title='hourly transaction'> <input type="radio" name="graphMonitor"  style="cursor: pointer" checked="checked" id="hourTransaction" /> 1hr </span> 
+                                    	&nbsp;&nbsp;
+                                    	<span  id="maxdashChart" data-placement='top' data-toggle='tooltip' href='#' data-original-title='maximize'> <i class="fa fa-square-o"></i> </span>
+                                    	<span  id="mindashChart" data-placement='top' data-toggle='tooltip' href='#' data-original-title='minimize' style="display:none;"> <i class="fa fa-minus-square-o"></i> </span>
+                                    </div> 
+                                </div>
+                                <div class="panel-body" id="flot-dashboard-DaychartContainer" style="display:none;">
+                                	 <div class="flot-chart">
+    									<div style="padding: 0px; position: relative; height:100%;width:100%;" class="flot-chart-content" id="flot-dashboard-Daychart"></div>
+									</div>
+								</div>
+			                    <div class="panel-body" id="flot-dashboard-HourchartContainer">
+			                    	<div class="flot-chart">
+										<div style="padding: 0px; position: relative; height:100%;width:100%;" class="flot-chart-content" id="flot-dashboard-Hourchart"></div>	
+									</div>
+			                    </div>	
+                            </div> 
+                		</div>       	
+                		<div class="col-sm-4 col-md-4 col-lg-4">
+                			<div class="panel panel-default">
+                                <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+                                   <strong> <i class="fa fa-bar-chart-o"></i> <span id="top50TransactionList">Top 50 Transaction list</span></strong>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="footable table-striped" data-page-size="8" data-limit-navigation="2" style="width:100%;">
+	                                    <thead>
+	                                    <tr>
+	                                        <th id="top50NameHeader"> TID</th>
+	                                        <th id="top50amtHeader" data-hide="phone">AMT</th>
+	                                        <th id="top50curHeader" data-hide="phone">DATE</th>
+	                                    </tr>
+	                                    </thead>
+	                                    <tbody id="dashTop50"> </tbody>
+	                                    <tfoot>
+			                                <tr>
+			                                   <td colspan="3"> 
+			                                   	 <ul class="pagination pull-right"> </ul>	
+			                                   </td>
+			                                </tr>
+	                       				 </tfoot>
+	                                </table>
+                                </div>
+                            </div>
+                		</div>
+                		<div class="col-sm-4 col-md-4 col-lg-4"> 
+                			<div class="panel panel-default">
+                                <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+                                    <strong><i class="fa fa-bank"></i> <span id="top10Highest">Top 10 highest Account Balance</span></strong>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="footable table-striped" data-page-size="8" data-limit-navigation="6" style="width:100%;">
+	                                    <thead>
+	                                    <tr>
+	                                        <th id="top10dNameHeader">GUID</th>
+	                                        <th id="top10amtHeader" data-hide="phone">AMT</th>
+	                                    </tr>
+	                                    </thead>
+	                                    <tbody id="dashTop10"></tbody>
+	                                    <tfoot>
+			                                <tr>
+			                                   <td colspan="3"> 
+			                                   	 <ul class="pagination pull-right"> </ul>	
+			                                   </td>
+			                                </tr>
+	                       				 </tfoot>
+	                                </table>
+                                </div>
+                            </div>
+                		</div>
+                		<div class="col-sm-4 col-md-4 col-lg-4"> 
+                			<div class="panel panel-default">
+                                <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+                                   <strong><i class="fa fa-group"></i> <span id="top10HighestFollower">Members with highest followers</span></strong>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="footable table-striped" data-page-size="8" data-limit-navigation="6" style="width:100%;">
+	                                    <thead>
+	                                    <tr>
+	                                        <th id="top10MName">GUID</th>
+	                                        <th id="top10MFollowers" data-hide="phone">FOLLOWERS</th>
+	                                    </tr>
+	                                    </thead>
+	                                    <tbody id="top10MemberList"></tbody>
+	                                    <tfoot>
+			                                <tr>
+			                                   <td colspan="2"> 
+			                                    <ul class="pagination pull-right"> </ul>	
+			                                   </td>
+			                                </tr>
+	                       				 </tfoot>
+	                                </table>
+                                </div>
+                            </div>
+                		</div>
+                	</div>
+                 </div>
+            </div>
+            <div id="generalTab" class="tab-pane">
+            	<div class="row" style="position:relative;padding-top: 5px;">
+            		<div class="col-lg-12"> 
+            			<div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #586B7D;color:#ffffff;">
+                                <strong> <i class="fa fa-list"></i> Notice list </strong> 
+                                <strong> | </strong>
+                                <strong style="cursor:pointer;"> <i class="fa fa-plus-circle"></i> <span id="createTicketCall">Create ticket</span></strong>
+                            </div>
+                            <div class="panel-body">
+                            	<input type="text" id="filter" class="form-control" placeholder="Filter ticket" />
+                            	<div style="margin-top:15px;">
+                                	<table class="footable table-striped" style="width:100%;" data-filter="#filter">
+	                                    <thead>
+	                                    <tr>
+	                                        <th><i class="fa fa-ticket"></i> Title</th>
+	                                        <th> Ticket.no</th>
+	                                        <th><i class="fa fa-user"></i> Creator</th>
+	                                        <th> Email </th>
+	                                        <th><i class="fa fa-calendar"></i> Date</th>
+	                                        <th> Status</th>
+	                                    </tr>
+	                                    </thead>
+	                                    <tbody id="ticketList"> </tbody>
+	                                    <!--tfoot>
+			                                <tr>
+			                                   <td colspan="6">
+			                                    <ul class="pagination pull-right"> </ul>	
+			                                   </td>
+			                                </tr>
+	                       				 </tfoot-->
+	                                </table>
+	                             </div>   
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>        
+	</div>
+	<a data-toggle='modal' href='#createTicketModal' id="openCreateTicket" style="display:none;"> </a>
+	<div class="modal inmodal" id="createTicketModal" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="modal-dialog modal-lg" style="width: 30%;">
+		    <div class="modal-content animated bounceInRight">
+	            <div class="modal-header">
+	            	<span> <strong> Create ticket  </strong> </span>
+	                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	            </div>
+	            <div class="modal-body" style="background-color: #ffffff">
+	            	<div style="width:400px;margin:0 auto;">
+	                	 <form class="m-t" role="form" id="createTicketForm">
+			                <div class="form-group">
+			                    <input type="text" class="form-control" name="userName" placeholder="creator" value="">
+			                </div>
+			                <div class="form-group">
+			                    <input type="text" class="form-control" name="emailAddress" placeholder="Email" value="">
+			                </div>
+			                <div class="form-group">
+			                    <input type="text" class="form-control" name="ticketTitle" placeholder="Title" value="">
+			                </div>
+			                <div class="form-group">
+			                    <input type="text" class="form-control" name="ticketContent" placeholder="Description" value="">
+			                </div>
+			                <div class="form-group">
+			                    <select class="form-control" name="receiver" id="receiver">
+			                    	<option selected="selected" value="none"> Send to </option>
+			                    	<option value="accounting"> Accounting team </option>
+			                    	<option value="planning"> Planning team </option>
+			                    	<option value="globalMarketing"> Global marketing team </option>
+			                    	<option value="rnd"> Technical team </option>
+			                    	<option value="all"> All team </option>
+			                    </select>
+			                </div>
+			            </form>
+			        </div>
+	            </div>
+	            <div class="modal-footer" style="height:80px;">
+	            	<button type="button" class="btn btn-success block full-width m-b" id="createTicketButton" style="width:50%;">
+	                	<i class="fa fa-lock"></i> 
+		                <span> create</span>
+		            </button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<a data-toggle='modal' href='#myModal' id="openTicktDetails" style="display:none;"> </a>
+	<div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="modal-dialog modal-lg" style="width: 50%;">
+		    <div class="modal-content animated bounceInRight">
+	            <div class="modal-header">
+	            	<span> <strong> Ticket activity details  </strong> </span>
+	                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	            </div>
+	            <div class="modal-body" style="background-color: #ffffff">
+	            	<div style="text-align: center;width:100px;height: 100px;margin:0 auto;display:none;" id="loader">
+	            		<img src="img/ajaxloaderCircle.gif" />
+	            	</div>
+	            	<div id="ticketContentContainer" style="display:none;">
+	            		<table style="width:100%">
+	            			<tr>
+	            				<td> <h3> Description </h3> </td>
+	            			</tr>
+	            			<tr style="border-bottom:2px solid #0088CC;height:40px;">
+	            				<td id="ticketContent"></td>
+	            			</tr>
+	            			<tr style="height:30px;border-bottom:2px solid #0055B3;color:#B94A48">
+	            				<td> <h4> Response activity </h4> </td>
+	            			</tr>
+	            		</table>
+	            	</div>
+	            	<!--div id="mainContent" class="fh-breadcrumb"> 
+						<div class="full-height">
+							<div class="full-height-scroll white-bg border-left">
+								<div class="element-detail-box" id="dashMain" style="position: relative;"> 
+									<table  style="width:100%" class="footable table-striped">
+				            			<thead></thead>
+				            			<tbody id="ticketResponse">
+				            				
+				            			</tbody>
+				            		</table>
+								</div>
+							</div>
+						</div>
+					</div-->
+	            	<div id="ticketDetailContainer" class="scrollbar">
+						<table  style="width:100%" class="footable table-striped">
+	            			<thead></thead>
+	            			<tbody id="ticketResponse">
+	            				
+	            			</tbody>
+	            		</table>
+					</div>
+	            </div>
+	            <div class="modal-footer" style="height:150px;">
+	            	<!--div class="input-group">
+	            		<span class="input-group"> 
+			  				<label> Receiver's email </label> 
+			  			</span>
+	            		<input type="text" class="form-control" id="replyEmail" placeholder="Email"/>
+	            	</div-->
+	            	<div class="input-group" style="width:100%;">
+		            	<div class="input-group">
+                            <span class="input-group-addon">To</span>
+                            <input type="text" class="form-control" id="replyEmail" placeholder="Receiver's email"/>
+                        </div>
+                    </div>        
+	            	<div class="input-group" style="margin-top:5px;">
+	            		<textarea class="form-control" style="height:80px;" id="replyContent"> </textarea> 
+			  			<span class="input-group-btn"> 
+			  				<button type="button"  style="height:80px;" class="btn btn-success" id="replyTicket"> Post </button> 
+			  			</span>
+	                </div>
+	                <input type="hidden" id="replyTicketItemNo" />
+	                <input type="hidden" id="replyUsername" value = "test"/>
+	                <input type="hidden" id="replyDomain" value="admin" />
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+		 

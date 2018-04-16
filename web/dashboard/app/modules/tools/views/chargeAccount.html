@@ -1,0 +1,190 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2 translate>lblChargeToAccount</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+    	<div class="col-lg-5">
+	    	<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>lblChargeTitle</span>
+					<div ng-if="loadDataForm" class="sk-spinner sk-spinner-circle pull-right">
+						 <div class="sk-circle1 sk-circle"></div>
+						 <div class="sk-circle2 sk-circle"></div>
+						 <div class="sk-circle3 sk-circle"></div>
+						 <div class="sk-circle4 sk-circle"></div>
+						 <div class="sk-circle5 sk-circle"></div>
+						 <div class="sk-circle6 sk-circle"></div>
+						 <div class="sk-circle7 sk-circle"></div>
+						 <div class="sk-circle8 sk-circle"></div>
+						 <div class="sk-circle9 sk-circle"></div>
+						 <div class="sk-circle10 sk-circle"></div>
+						 <div class="sk-circle11 sk-circle"></div>
+						 <div class="sk-circle12 sk-circle"></div>
+					 </div>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+	                       <div class="col-sm-14">
+	                      	<!-- <button ng-click="vm.guidInquiry(true)"> History test</button>  -->
+							<form role="form" name="chargeForm" ng-submit="vm.chargeAcc()">
+							<div class="col-sm-10">
+								<div  class="form-group" ng-class="{ 'has-error' : chargeForm.dstMemGuid.$invalid}"><label translate>lblGuid</label>
+									<div class ="guid" name="dstMemGuid" data="vm.chargeForm.dstMemGuid" blur="vm.inquiryBalances(true)" /> 
+								</div>
+							</div>
+							<br>
+							<div ng-if="vm.chargeForm.dstMemGuid.length >= 4">
+									<a ng-href="" class="btn btn-outline btn-warning  dim pull-left" ng-click="getMemberDetail(vm.chargeForm)" style="float:left;"><i class="fa fa-search"></i>&nbsp</a>
+							</div>
+								<div class="alert alert-danger" ng-if="invalidParam">
+									Guid {{vm.chargeForm.dstMemGuid}} not exists
+								</div>
+								<div class="alert alert-warning" ng-if="showMemberList">
+									Please select Guid from list:
+								</div>
+								<div class="form-group" ng-if="showMemberList">
+									<table class="table table-striped table-bordered table-hover">
+										<thead>
+										<tr>
+											<th translate>lblName</th>
+											<th translate>lblGuid</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr class="show-cursor" ng-repeat="row in memberList" ng-click="vm.selectMemberGuid(row.guid)">
+											<td>{{ row.fullname}}</td>
+											<td >{{ row.guid}}</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							<div class="col-sm-10" ng-class="{ 'has-error' : chargeForm.title.$invalid}">
+								<label translate> lblTitle</label>
+								<input type="text" class="form-control" placeholder="Enter the Title" name="title" ng-model="vm.chargeForm.title" required/>
+								<p>
+							</div>
+								<div class="col-sm-12">
+									<div class="form-group" ng-class="{ 'has-error' : chargeForm.depositAction.$invalid}"><label translate>lblType</label>
+										<select required class="form-control"
+											name="depositAction"
+											ng-model="vm.chargeForm.depositAction"
+											data-placeholder-text-single="'Choose Type'"
+											disable-search="true"
+											ng-options="option.value as option.name for option in typeList">
+											<option value=""></option>
+										</select>
+									</div>
+								</div>
+		
+								<div class="col-sm-12">
+									<div class="form-group" ng-class="{ 'has-error' : chargeForm.amount.$invalid}"><label translate>lblAmount</label> 
+										<input 
+										 required min="1"  type="text" maxlength="11" only-number 
+										 ng-change="formatKorCrrncy()" name="amount" ng-model="vm.chargeForm.amount" format="number" placeholder="Enter Amount" class="form-control"/>
+										<p ng-show="chargeForm.amount.$error.number" class="help-block">Not valid number!</p>
+										<span><label> {{koreanCurrency}}</label></span>
+									</div>
+								</div>
+								
+								<!-- chosen="directiveOptions" -->
+								<div class="col-sm-12">
+									<div class="form-group" ng-class="{ 'has-error' : chargeForm.crrncy.$invalid}"><label translate>lblCurrency</label>
+										<select required class="form-control"
+											name="crrncy"
+											ng-model="vm.chargeForm.crrncy"
+											data-placeholder-text-single="'Choose Currency'"
+											disable-search="false"
+											ng-options="option.cd_key as option.cd_nm for option in currencyList">
+											<option value=""></option>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-10">
+									<label translate> lblRefId</label>
+									<input type="text" class="form-control" placeholder="Enter the Reference ID" ng-model="vm.chargeForm.refId" name="refId"/>
+								</div>
+								
+								<div class="col-sm-12">
+								<div>
+									<button tabindex="4" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" ng-disabled="chargeForm.$invalid || invalidParam || isPushed ">
+									<strong translate>lblApply</strong></button>
+									<!-- <button tabindex="4" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit" ng-disabled="(chargeForm.$invalid || invalidParam) && isAble"><strong translate>lblApply</strong></button> -->
+								</div>
+								</div>
+								
+							</form>
+						</div>
+	                   </div>
+					 <div class="row">
+						<div class="alert alert-success" ng-if="chargeAccSuccess">
+							Well done! You successfully Charge: {{chargeAccResult.status}} -- <strong>{{chargeAccResult.tid}}</strong>
+						</div>
+					 </div>
+				</div>
+			</div>
+        </div>
+        <div class="col-lg-7">
+        	<div class="panel panel-default">
+				<div class="panel-heading lbl-heading">
+					<span translate>lblTransactionHistory</span>
+					<div ng-if="loadDataForm"
+						class="sk-spinner sk-spinner-circle pull-right">
+						<div class="sk-circle1 sk-circle"></div>
+						<div class="sk-circle2 sk-circle"></div>
+						<div class="sk-circle3 sk-circle"></div>
+						<div class="sk-circle4 sk-circle"></div>
+						<div class="sk-circle5 sk-circle"></div>
+						<div class="sk-circle6 sk-circle"></div>
+						<div class="sk-circle7 sk-circle"></div>
+						<div class="sk-circle8 sk-circle"></div>
+						<div class="sk-circle9 sk-circle"></div>
+						<div class="sk-circle10 sk-circle"></div>
+						<div class="sk-circle11 sk-circle"></div>
+						<div class="sk-circle12 sk-circle"></div>
+					</div>
+				</div>
+				<!-- <div>
+					<select required class="form-control"
+						ng-model="vm.historyCrrncy"
+						chosen="directiveOptions"
+						data-placeholder-text-single="'Choose Currency'"
+						disable-search="false"
+						ng-change="vm.sortHistroyCrrncy()"
+						ng-options="option.cd_key as option.cd_nm for option in currencyListSearch">
+						<option value=""></option>
+					</select>
+				</div> -->
+				
+				<div class="panel-body no-padding">
+					<h4 class="col-sm-10" > * 해당 거래내역은 최근 거래내역 10건에 대한 내용입니다  * </h4>
+				    <table class="table table-striped table-bordered table-hover">
+				    	<thead>
+				    		<th>#</th>
+				    		<th><label translate> lblTID </label></th>
+				    		<th><label translate> lblAmount </label></th>
+				    		<th><label translate> lblTotal  </label></th>
+				    		<th><label translate> lblStatus </label></th>
+				    		<th><label translate> lblTransDate </label></th>
+				    		
+				    	</thead>
+				    	<tbody>
+				    		<tr ng-repeat="item in history">
+				    			<td>{{$index +1 }}</td>
+				    			<td>{{item.tid}}</td>
+				    			<td>{{item.actcAmt | number}} {{item.crrncyCd}}</td>
+				    			<td>{{item.actcRsltAmt | number }} {{item.crrncyCd}}</td>
+				    			<td>{{item.trnsctnSt}}</td>
+				    			<!-- <td>{{item.createDt | date:dateFormat }}</td> -->
+				    			<td>{{item.createDt | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+				    		</tr>
+				    	</tbody>
+				    </table>
+				</div>
+			</div>            
+        </div>
+    </div>
+</div>

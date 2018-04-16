@@ -1,0 +1,183 @@
+<form name="mForm" ng-submit="vm.createMember()" class="p-lg form-horizontal">
+<fieldset>
+    <div class="row">
+        <div class="col-lg-4">
+			<h2 translate>lblBasicInfo</h2>
+			<!-- UI만 개발완료되어서 주석처리 -->
+			<!-- <div class="form-group">
+     	        <label class="col-sm-4 control-label" translate>lblCRN</label>
+        	        <div class="col-sm-8">
+        	        	<div class="row" ng-class="{ 'has-error': mForm.ein.$invalid }">
+							<input ng-diabled=true name="ein" required ng-model="vm.memberForm.ein" type="text" class="form-control">
+							<p class="help-block" ng-if="mForm.ein.$error.required && mForm.ein.$dirty">{{ 'lblRequired' | translate: '{field: "FullName"}' }}</p>
+						</div>
+					</div>
+            </div>
+			 -->
+            <div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblCorporateName</label>
+                <div class="col-sm-8"><div class="row" ng-class="{ 'has-error': mForm.fullname.$invalid }">
+					<input  name="fullname" required ng-model="vm.memberForm.fullname" type="text" class="form-control">
+					<p class="help-block" ng-if="mForm.fullname.$error.required && mForm.fullname.$dirty">{{ 'lblRequired' | translate: '{field: "FullName"}' }}</p>
+					</div></div>
+            </div>
+            
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblEmail</label>
+                <div class="col-sm-8"><div class="row" ng-class="{ 'has-error': mForm.emailAddrss.$invalid }">
+				<input name="emailAddrss" required ng-model="vm.memberForm.emailAddrss" type="email" class="form-control">
+				<input type="hidden" ng-model="vm.memberForm.emailTp" name="emailTp" ng-value="PERSONAL"/>
+				<p class="help-block" ng-if="mForm.emailAddrss.$error.required  && mForm.emailAddrss.$dirty">{{ 'lblRequired' | translate: '{field: "Email"}' }}</p>
+				<p class="help-block" ng-if="mForm.emailAddrss.$error.email">{{ 'lblInvalid' | translate: '{field: "Email"}' }}</p>
+				</div></div>
+            </div>
+            
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblPhoneNumber</label>
+                <div class="col-sm-8">
+					<div class="row" ng-class="{ 'has-error': mForm.phoneNo.$invalid }">
+						<input name="phoneNo" required ng-model="vm.memberForm.phoneNo" type="text" class="form-control" >
+						<input type="hidden" ng-value="MOBILE" name="phoneTp" ng-model="vm.memberForm.phoneTp"/>
+						<p class="help-block" ng-if="mForm.phoneNo.$error.required && mForm.phoneNo.$dirty">{{ 'lblRequired' | translate: '{field: "Phone Number"}' }}</p>
+					</div>
+				</div>
+            </div>  
+			<div class="form-group" id="phoneCd">
+                <label class="col-sm-4 control-label" translate>lblPhoneCode</label>
+                <div class="col-sm-8">
+					<div class="row" ng-class="{ 'has-error': mForm.phoneCntryCd.$invalid }">
+						<select class="form-control" name="phoneCntryCd"
+							required
+							ng-model="vm.memberForm.phoneCntryCd"
+							data-placeholder-text-single="'Choose Phone Country Code'"
+							disable-search="false"
+							ng-options="option.cdKey as option.cdNm for option in listCountry">
+							<option value=""></option>
+						</select>
+						<p class="help-block" ng-if="mForm.phoneCntryCd.$error.required && mForm.phoneCntryCd.$dirty">{{ 'lblRequired' | translate: '{field: "Phone Country Code"}' }}</p>
+					</div>
+				</div>
+            </div>			
+			<div class="form-group" id="langCd">
+                <label class="col-sm-4 control-label" translate>lblLanguage</label>
+                <div class="col-sm-8">
+					<div class="row" ng-class="{ 'has-error': mForm.nmLangCd.$invalid }">
+						<select class="form-control" name="nmLangCd"
+							required
+							ng-model="vm.memberForm.nmLangCd"
+							data-placeholder-text-single="'Choose Language'"
+							disable-search="false"
+							ng-options="option.value as option.name for option in listLang">
+							<option value=""></option>
+						</select>
+						<p class="help-block" ng-if="mForm.nmLangCd.$error.required && mForm.nmLangCd.$dirty">{{ 'lblRequired' | translate: '{field: "Language"}' }}</p>
+					</div>
+				</div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+			<h2 translate>lblAddressInfo</h2>
+			<!-- UI만 개발완료되어서 주석처리 -->
+			<!--  <div class="form-group">
+     	        <label class="col-sm-4 control-label" translate>lblCEOName</label>
+        	        <div class="col-sm-8">
+        	        	<div class="row" ng-class="{ 'has-error': mForm.ceoname.$invalid }">
+							<input  name="ceoname" required ng-model="vm.memberForm.ceoname" type="text" class="form-control">
+						</div>
+					</div>
+            </div>
+             <div class="form-group">
+     	        <label class="col-sm-4 control-label" translate>lblCEOPhoneNumber</label>
+        	        <div class="col-sm-8">
+        	        	<div class="row" ng-class="{ 'has-error': mForm.ceophone.$invalid }">
+							<input  name="ceophone" required ng-model="vm.memberForm.ceophone" type="text" class="form-control">
+						</div>
+					</div>
+            </div> -->
+			
+			
+            <div class="form-group" id="countryCd">
+                <label class="col-sm-4 control-label" translate>lblCountry</label>
+                <div class="col-sm-8">
+					<div class="row" ng-class="{ 'has-error': mForm.addrssCntryCd.$invalid }">
+						<select class="form-control" name="addrssCntryCd"
+							ng-model="vm.memberForm.addrssCntryCd"
+							data-placeholder-text-single="'Choose Country'"
+							disable-search="false"
+							ng-options="option.cdKey as option.cdNm for option in listCountry">
+							<option value=""></option>
+						</select>
+						<p class="help-block" ng-if="mForm.addrssCntryCd.$error.required && mForm.addrssCntryCd.$dirty">{{ 'lblRequired' | translate: '{field: "Country"}' }}</p>
+					</div>
+				</div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblCity</label>
+                <div class="col-sm-8"><div class="row" ng-class="{ 'has-error': mForm.city.$invalid }">
+				<input name="city" required ng-model="vm.memberForm.city" type="text" class="form-control"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label"><p translate="lblAddressLine" translate-values="{ number: '1' }"></p></label>
+                <div class="col-sm-8"><div class="row"><input name="addrss1" ng-model="vm.memberForm.addrss1" type="text" class="form-control"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label"><p translate="lblAddressLine" translate-values="{ number: '2' }"></p></label>
+                <div class="col-sm-8"><div class="row"><input name="addrss2" ng-model="vm.memberForm.addrss2" type="text" class="form-control"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblPostalCode</label>
+                <div class="col-sm-8"><div class="row"><input name="postCd" ng-model="vm.memberForm.postCd" type="text" class="form-control"></div></div>
+            </div>
+        </div>
+		<div class="col-lg-4">
+			<h2 translate>lblOptionalInfo</h2>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblFirstName</label>
+                <div class="col-sm-8"><div class="row"><input name="firstname" ng-model="vm.memberForm.firstname" type="text" class="form-control"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblMiddleName</label>
+                <div class="col-sm-8"><div class="row"><input name="middlename" ng-model="vm.memberForm.middlename" type="text" class="form-control"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblLastName</label>
+                <div class="col-sm-8"><div class="row"><input name="lastname" ng-model="vm.memberForm.lastname" type="text" class="form-control"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblState</label>
+                <div class="col-sm-8"><div class="row"><input name="state" ng-model="vm.memberForm.state" type="text" class="form-control"></div></div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-4 control-label" translate>lblAddressType</label>
+                <div class="col-sm-8">
+					<div class="row">
+						<div class="radio radio-info radio-inline">
+							<input type="radio" id="addrssTp1" value="HOME" name="addrssTp" ng-model="vm.memberForm.addrssTp" checked="checked">
+							<label for="addrssTp1" translate>lblHome</label>
+						</div>
+						<div class="radio radio-inline">
+							<input type="radio" id="addrssTp2" value="OFFICE" name="addrssTp" ng-model="vm.memberForm.addrssTp">
+							<label for="addrssTp2" translate>lblOffice</label>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+	<div class="row">
+		<div class="hr-line-dashed"></div>
+		<div class="col-sm-8">
+			<div class="alert alert-success" ng-if="createMemberSuccess">
+				Well done! You successfully createMember: <br>
+				Guid: <strong>{{memGuid}}</strong><br>
+				KeyP: <strong>{{keyP}}</strong><br>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="form-group pull-right">
+				<button type="submit" class="btn btn-primary" ng-disabled="mForm.$invalid" translate>lblSubmit</button>
+			 </div>
+		</div>
+	</div>
+</fieldset>
+</form>

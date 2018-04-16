@@ -1,0 +1,72 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+            <h1 class="logo-name">Member Management Area</h1>
+        </div>
+        <h3>Welcome to PayGate</h3>
+        <div ng-if="!vm.isRenewPassword">
+        <form class="m-t" role="form" name="form" ng-submit="vm.login()">
+            <div class="form-group"  ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                <label for="username" class="pull-left">Username</label>
+            	<input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required placeholder="Username" autofocus/>
+            	<span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+	            <label for="password" class="pull-left">Password</label>
+	            <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required placeholder="Password"/>
+	            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+	        </div>
+            
+            <div class="form-actions">
+	            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary block full-width m-b">Login</button>
+	            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        	</div>
+        </form>
+        </div>
+        <div ng-if="vm.isRenewPassword">
+        	<h2 style="color:#FFF">Renew Password</h2>
+        	<p>Your data is secure with us</p>
+        	<p><a href ng-click="showPolicy = !showPolicy" style="color:#FFF;">** Please check  password policy **</a></p>
+        	<span ng-show="showPolicy" style="color:#FFF;float:left;text-align:left"> 
+      			<strong> The password should meet the following conditions: </strong> <br>
+      			<span style="font-size: 12px;">
+      				1. should be atleast <strong>eight</strong> character long. <br>
+      				2. should include <strong>one</strong> lower case (ex: a-z) <br>
+      				3. should include <strong>one</strong> upper case (ex: A-Z)<br>
+      				4. should include <strong>one</strong> special character<br/>(ex: +=-_*@^!#$%./ )   
+      			</span> 
+      		</span>
+	        <form class="m-t" role="form" name="formRenewPassword" ng-submit="vm.renewPassword()">
+	            <div class="form-group"  ng-class="{ 'has-error': formRenewPassword.oldPassword.$dirty && formRenewPassword.oldPassword.$error.required }">
+	                <label for="oldPassword" class="pull-left">Old Password</label>
+	            	<input type="password" name="oldPassword" id="oldPassword" class="form-control" ng-model="vm.oldPassword" required placeholder="Old Password"/>
+	            	<span ng-show="form.oldPassword.$dirty && form.oldPassword.$error.required" class="help-block">OldPassword is required</span>
+	            </div>
+	            <div class="form-group"  ng-class="{ 'has-error': formRenewPassword.newPassword.$dirty && formRenewPassword.newPassword.$error.required }">
+	                <label for="newPassword" class="pull-left">New Password</label>
+	            	<input type="password" name="newPassword" id="newPassword" class="form-control" ng-model="vm.newPassword" required placeholder="New Password"/>
+	            	<span ng-show="form.newPassword.$dirty && form.newPassword.$error.required" class="help-block">NewPassword is required</span>
+	            </div>
+	            <div class="form-group"  ng-class="{ 'has-error': formRenewPassword.newPasswordConfirm.$dirty && formRenewPassword.newPasswordConfirm.$error.required }">
+	                <label for="newPasswordConfirm" class="pull-left">New Password Confirmation</label>
+	            	<input type="password" name="newPasswordConfirm" id="newPasswordConfirm" class="form-control" ng-model="vm.newPasswordConfirm" required placeholder="New Password Confirmation"/>
+	            	<span ng-show="form.newPasswordConfirm.$dirty && form.newPasswordConfirm.$error.required" class="help-block">NewPassword Confirmation is required</span>
+	            	<span ng-show="vm.newPassword != vm.newPasswordConfirm" class="help-block">Password does not match the confirm password</span>
+	            </div>	            
+	            
+	            <div class="form-actions">
+		            <button type="submit" ng-disabled="formRenewPassword.$invalid || vm.dataLoading || (vm.newPassword != vm.newPasswordConfirm)" class="btn btn-primary block full-width m-b">Renew</button>
+		            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+	        	</div>
+	        </form>
+        </div>
+        <div>
+        	<!-- <button ng-click="vm.getPreviousAdmin()" class="btn btn-default btn-sm ">  {{ 'lblPreviousAdmin'|translate }} </button> -->
+        	<span ng-click="vm.getPreviousAdmin()"  class="pg-link show-cursor" >{{ 'lblPreviousAdmin'|translate }}  </span>
+        	
+        	
+        	 
+        </div>
+        <p class="m-t"> <small>Copyright Paygate,. Ltd &copy; 2016</small> </p>
+    </div>
+</div>

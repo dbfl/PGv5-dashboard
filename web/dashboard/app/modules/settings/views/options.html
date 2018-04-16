@@ -1,0 +1,61 @@
+<fieldset>
+	<div >
+		<!-- 상단알림바 show/hide 설정 -->
+			<div class="row">
+				<div class="col-lg-6">
+			        <h2 translate>Options</h2>
+			    </div>
+		    </div></br>
+			<div class="row">
+				<div class="col-sm-10">
+					<div class="col-lg-2">
+							<label class="control-label" translate>View as</label>
+					</div>
+					<div class="col-lg-5">
+						<div class="switch">
+							<div class="onoffswitch">
+								<input name="collapsemenu" 	class="onoffswitch-checkbox" 
+								id="viewAs" type="checkbox" ng-model="vm.viewAs" ng-change="vm.change('viewAs')"> 
+								<label 	class="onoffswitch-label" for="viewAs"> 
+									<span class="onoffswitch-inner"></span> 
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div></br>
+			<div class="row">
+				<div class="col-sm-10">
+					<div class="col-lg-2">
+							<label class="control-label" translate>encrypted URL</label>
+					</div>
+					<div class="col-lg-5">
+						<div class="switch">
+							<div class="onoffswitch">
+								<input name="collapsemenu" 	class="onoffswitch-checkbox" 
+									id="viewUrl"  type="checkbox" 	ng-model="vm.viewUrl" ng-change="vm.change('viewUrl')"> 
+								<label 	class="onoffswitch-label" for="viewUrl"> 
+									<span class="onoffswitch-inner"></span> 
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div></br>
+			<div class="col-sm-6">
+				<div class="col-sm-10">
+					<div class="col-lg-2">
+							<label class="control-label"></label>
+					</div>
+					<div class="col-lg-5">
+							<button class="btn btn-primary btn-sm pull-right m-t-n-xs" ng-if="!row"
+								ng-click="vm.notibarSubmit()">
+								<span translate>lblNotiSubmit</span>
+							</button>
+					</div>
+				</div>
+			</div>
+	</div>
+</fieldset>

@@ -1,0 +1,89 @@
+<!-- Wrapper-->
+<div id="wrapper" ng-controller="MainCtrl as main" >
+	<!-- <div ng-class="{navbarm:boolChangeClass == 'test' }" ng-if="btest"> -->
+	<!-- {{main.isAdmin}} -->
+	<div >
+	<!-- <div ng-controller="MainCtrl as main" ng-show="true"> -->
+		<div class="top-popup"  style="background: #0d68a8" ng-if="main.isAdmin && main.viewUrl">
+			<span><h3><lable class="text-warning" translate>  * 해당 팝업의 내용은 Admin 권한의 내부 이용자에 한하여 확인 가능한 컨텐츠 입니다. </lable> </h3></span></br>
+			<span>{{stateURI}}</span>
+			<a class="top-popup-close pull-right" href="#" onfocus="this.blur();" aria-label="Close" aria-hidden="true" ng-click="close()" ><font color="white">CLOSE</font></a>
+			<span><lable class="text-warning" translate>  lblCommentService </lable></span>
+			<button class="btn btn-info btn-xs" type="button" ng-click="main.goPreviousAdminPage()">Previous Admin Page, GO!</button>
+			<div ng-show="stateURI"></div>
+			<br>
+			<div>
+				<div ng-show="true">{{switchURL0}}</div>
+				<button class="btn btn-warning btn-xs" type="button" ng-click="main.getAfterEncryptedURL()">Switch Encryption</button>
+				
+			</div>
+			 
+		</div>
+	</div>
+<!-- 	<div class="adminShowAs row"   ng-show="true"> -->
+	<div class="adminShowAs row"  ng-if="main.isAdmin && main.viewAs">
+			<div class="col-sm-4 pull-right">
+				<div class="form-group col-lg-8" >
+				<!-- 
+				//TOCHECK
+				1. 셀렉트 박스로 view as 정보를 가져오기에는 리스트가 너무 많을 것 같다.
+				2. 그래서 guid 검색하는 방법처럼 guid 가져오는 api를 호출하여 
+				3. 검색하려는 머천트의 guid를 가져온다
+				 -->
+					<!-- <select class="form-control"
+								ng-change="main.viewAs()"
+								ng-model="main.testUser"
+								>
+							<option value="client1"> 고객1  </option>
+							<option value="client2"> 고객2  </option>
+							<option value="client3"> 고객3  </option>
+					</select> --> 
+					<div class="col-lg-4 pull-rigt">
+						<!-- 공지사항으로 잠시 주석처리 -->
+						<!-- <span><strong><label>View as : </label> </strong></span> -->
+					</div>		
+					<div class="col-lg-8" >
+					<!-- 공지사항으로 잠시 주석처리 -->
+						<!-- <input class="form-control" placeholder="enter Guid" ng-disabled="true"/> -->
+					</div>
+				</div>
+			</div>
+			<!-- <div class="col-sm-4 pull-right"> -->
+				
+			<!-- </div> -->
+			<div class="col-sm-4 pull-right" >
+				<div class="form-group col-lg-8">
+					<!-- <span><strong>You are viewing as {{usernameForViewAs}}</strong></span> -->
+					
+					<!-- 공지사항 용으로 만들어놓음  -->
+					<span style="color:red"  class="text_type_bold"><strong><h3>*공지 사항</h3></strong></span></p>
+					<span style="color:red"  class="text_type_bold"><strong>거래량이 급증하는 통계성 데이터를 점검 중입니다.</strong></span>
+					
+					<button class="btn btn-sm btn-primary" type="button" ng-if="main.isViewAs" ng-click="main.testBack()"> stop view as</button>
+				</div>
+			</div>
+		</div>
+	<!-- </div> -->
+    <!-- Navigation -->
+    <div ng-include="'views/common/navigation.html'"></div>
+
+
+ <!-- ng-class="{div.top.fix:boolChangeClass == 'test'}" -->
+
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
+        <!-- Page wrapper -->
+        <div  class="top"  ng-include="'views/common/topnavbar.html'"></div>
+
+        <!-- Main view  -->
+        <div ui-view></div>
+		
+        <!-- Footer -->
+        <div ng-include="'views/common/footer.html'"></div>
+
+    </div>
+    <!-- End page wrapper-->
+
+</div>
+<!-- End wrapper-->

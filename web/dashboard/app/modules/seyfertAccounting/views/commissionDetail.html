@@ -1,0 +1,80 @@
+<div>
+	<h1> 상세목록 </h1>
+</div>
+
+<div class="row">
+	<form>
+		<div class="col-lg-3">
+			<button  class="btn btn-sm btn-primary  no-margins" ng-click="vm.goBack()"> 뒤로 </button>
+			<label ng-click="vm.goBack()">수수료 환전 (
+				{{vm.rangeCmmssnDetails.startDate}} ~ {{vm.rangeCmmssnDetails.endDate}} ) </label> >> 상세조회 
+			<!-- <button ng-click="vm.getTableButtons()">ttt</button> -->
+		</div>
+		<div ng-if="vm.loadDataForm" class="sk-spinner sk-spinner-circle pull-left">
+			 <div class="sk-circle1 sk-circle"></div>
+			 <div class="sk-circle2 sk-circle"></div>
+			 <div class="sk-circle3 sk-circle"></div>
+			 <div class="sk-circle4 sk-circle"></div>
+			 <div class="sk-circle5 sk-circle"></div>
+			 <div class="sk-circle6 sk-circle"></div>
+			 <div class="sk-circle7 sk-circle"></div>
+			 <div class="sk-circle8 sk-circle"></div>
+			 <div class="sk-circle9 sk-circle"></div>
+			 <div class="sk-circle10 sk-circle"></div>
+			 <div class="sk-circle11 sk-circle"></div>
+			 <div class="sk-circle12 sk-circle"></div>
+		 </div>
+	</form>
+</div>
+
+<div class="row">
+	
+	<form class="ul-custom">
+		
+		<div class="form-horizontal">
+			<!-- <table class=" table table-striped table-bordered table-hover"> -->
+			<table lazy-load datatable="ng" dt-options="vm.dtOptionsMember" class="table table-striped table-bordered table-hover">
+				<thead>
+					<th>#</th>
+					<th>거래일자</th>
+					<th>거래타입</th>
+					<th>org_amt</th>
+					<th>pay_amt</th>
+					<th>margin(%)</th>
+					<th>TID</th>
+					<th>xe 기준율 </th>
+					<th>환전소 USD 예수금 </th>
+					<th>환전소 원화 예수금 </th>
+					<th>레미턴스 매출</th>
+					<th>환전소 예수금 잔액 </th>
+					<th>환전소 USD 잔액</th>
+					<th>원화 환산 거래금액</th>
+					<th>원화 환산 잔액</th>
+					<th>이동평균</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="task in vm.commissionDetailList" )>
+						<td>{{$index}}</td>
+						<td>{{task.date | date: dateFormat}}</td>               <!-- 거래일자  -->
+						<td>{{task.trType}}</td> 								<!-- 거래타입 -->
+						<td>{{task.frgnTrrnsAmt | currency: "" : 2}}</td> 		<!-- org_amt -->
+						<td>{{task.funcCnvrtedTrmsAmt | currency: "" : 2}}</td> <!--pay_amy  -->
+						<td>{{task.margin}}</td>      							<!-- margin  -->
+						<td>{{task.tid}}</td>                                   <!--  tid  -->
+						<td>{{task.middleRate | currency: "" : 2}}</td>			<!-- xe 기준율 -->
+						<td>{{task.frgnTrrnsAmt | currency: "" : 2 }}</td>		<!-- 환전소 USD 예수금 -->
+						<td>{{task.trrnsAmt | currency: "" : 2}}</td>			<!-- 화전소 원화 예수금 -->
+						<td>{{task.commissionAmt | currency: "" : 2}}</td> 		<!-- 레미턴스 매출 -->
+						<td>{{task.frgnDepoBalance | currency: "" : 2}}</td>	<!-- 환전소 예수금 잔액 -->
+						<td>{{task.frgnBalance | currency: "" : 2}}</td>		<!-- 환전소 USD 잔액 -->
+						<td>{{task.krwTrrnsAmt | currency: "" : 2}}</td>		<!-- 원화 환산 거래금액 -->
+						<td>{{task.funcCnvrtedBalance | currency: "" : 2}}</td> <!--  원화환산 잔액-->
+						<td>{{task.movingAverage | currency: "" : 2}}</td> 		<!-- 이동평균 -->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</form>
+	<div><button  class="btn btn-sm btn-primary  no-margins" ng-click="vm.loadDetailMore()">더보기</button></div>
+</div>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TB Code Manager</title>
+
+<script type="text/javascript" src="./lib/js/jquery-1.11.0.min.js"></script> 
+<script type="text/javascript" src="./lib/js/jquery-ui-1.10.4.js"> </script>
+<script type="text/javascript" src="./lib/js/i18n/grid.locale-en.js"></script>
+<script type="text/javascript" src="./lib/js/jquery.jqGrid.min.js"></script>
+<script type="text/javascript" src="./lib/js/json2.js"></script>
+<script type="text/javascript" src="./lib/jsondifflib/public/build/jsondiffpatch.min.js"></script>
+<script type="text/javascript" src="./lib/jsondifflib/public/build/jsondiffpatch-formatters.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="./lib/css/jqueryui.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="./lib/css/ui.jqgrid-bootstarp.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="./lib/css/ui.jqgrid.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+<script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="wrapper">
+			<div style="font-weight: bold;margin-top:5px;">
+			<span> How to use: </span> 
+			<a target="blank" href="https://paygate.sharepoint.com/dev/_layouts/OneNote.aspx?id=%2fdev%2fShared%20Documents%2f%ea%b0%9c%eb%b0%9c%ec%8b%a4%20%eb%a9%94%eb%89%b4%ec%96%bc&wd=target%28FrameWork.one%7c0923D6B0-0C64-4213-86F1-64E87B59CA63%2fDatabase%7c22340208-21A5-4801-8374-F9FE508EAA74%2f%29onenote:https://paygate.sharepoint.com/dev/Shared%20Documents/개발실%20메뉴얼/FrameWork.one#Database&section-id={0923D6B0-0C64-4213-86F1-64E87B59CA63}&page-id={22340208-21A5-4801-8374-F9FE508EAA74}&end">Database Guide</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<span>Environment:</span>
+			<input type="radio" name="environment" class="radio" id="development" checked="checked" value="development"/>
+			<span>Development</span>
+			<input type="radio" name="environment" class="radio" id="staging" value="staging" />
+			<span>Staging</span>
+			<input type="radio" name="environment" class="radio" id="production" value="production" />
+			<span>Production</span>
+			</div>
+			<div class="tabContainer">
+				<ul class="tabs">
+					<li class="tab-link current" data-tab="tab-1"  id="group">Group Table</li>
+					<li class="tab-link" data-tab="tab-2"  id="codeTable">Code Table</li>
+					<li class="tab-link" data-tab="tab-3" id="codeDetail">All Code Detail Table</li>
+					<!--li class="tab-link" data-tab="tab-4">Get Group</li-->
+					<li class="tab-link" data-tab="tab-6" id="langCode">Lang Code</li>
+					<li class="tab-link" data-tab="tab-7" id="compare">Comparison</li>
+				</ul>
+			</div>		
+			<div id="tab-1" class="tab-content">
+				<table id="jqGrid1"></table>
+ 				<div id="jqGridPager1"></div>	
+			</div>
+			<div id="tab-2" class="tab-content">
+				<table id="jqGrid2"> </table>
+ 				<div id="jqGridPager2"> </div>	
+			</div>
+			<div id="tab-3" class="tab-content">
+				<table id="jqGrid3"></table>
+ 				<div id="jqGridPager3"></div>	
+ 				<br>
+ 				<!--table id="jqGrid4"></table>
+ 				<div id="jqGridPager4"></div -->	
+ 			</div>
+			<!--div id="tab-5" class="tab-content">
+				<table id="jqGrid5"></table>
+ 				<div id="jqGridPager5"></div>	
+			</div-->
+			<div id="tab-6" class="tab-content">
+				<table id="jqGrid6"></table>
+ 				<div id="jqGridPager6"></div>	
+			</div>
+			<div id="tab-7" class="tab-content" style="height:680px;"> 
+				<div class="compareCon">  
+					<table id="jqGrid7"></table>
+					<div id="jqGridPager7"></div>	
+				</div>
+				<div class="compareCon" style="position:relative; left:40px;"> 
+					<table id="jqGrid8"></table>
+					<div id="jqGridPager8"></div>	
+				</div>
+				<div class="compareCon" style="margin-top:15px;"> 
+					<table id="jqGrid9"></table>
+					<div id="jqGridPager9"></div>	
+				</div>
+				
+			</div>	
+		</div>	
+	</div>
+	<div id="dialog" title="Generate Code">
+		<div id="groupContainer">
+			<textarea style="width: 460px; height: 459px;" id="codeData">
+									
+			</textarea>
+			<form id="createGroupForm"  style="display:none;">
+				<div class="header"><span>Group Key</span></div>
+			 	<div class="content"> <input type="text" class="textBox" value="" name="grpKey"/> </div>
+			 	<div class="header"><span>Group Name</span></div>
+			 	<div class="content"> <input type="text" class="textBox" value="" name="grpNm" /> </div>
+			 	<div class="header"><span>Group Description</span></div>
+			 	<div class="content"> <textarea id="groupDesc" name="grpDesc"> </textarea> </div>
+			 	<div class="header"><span>Language Code</span></div>
+			 	<div class="content">  
+			 		<select class="selectBox" name="langCd">
+			 			<option value="en">English</option>
+			 			<option value="ko">Korean</option>
+			 			<option value="jp">Japanese</option>
+			 			<option value="cn">Chinese</option>
+			 		</select>
+			 	</div>	
+				<div class="contentButton"> 
+			 		<input type="button" class="button" value="Submit" id="createGroup" />
+			 		<input type="reset" class="button" value="Reset" id="resetGroupForm" /> 
+			 	</div>
+		 	</form>	
+		</div>
+	</div>
+	<div id="addCodedialog" title="Add Code">
+		<div id="CodeDetailContainer">
+			<form id="createCodeDetailForm">
+				<div class="header"><span>Group Key</span></div>
+			 	<div class="content"> <input type="text" class="textBox" value="" name="grpKey" /> </div>
+			 	<div class="header"><span>Code Key</span></div>
+			 	<div class="content"> <input type="text" class="textBox" value="" name="cdKey" /> </div>
+			 	<div class="header"><span>Code Name</span></div>
+			 	<div class="content"> <input type="text" class="textBox" value="" name="cdNm" />  </div>
+			 	<div class="header"><span>Code Description</span></div>
+			 	<div class="content"> <textarea id="codeDesc" name="cdDesc"> </textarea> </div>
+			 	<div class="header"><span>Language Code</span></div>
+			 	<div class="content">  
+			 		<select class="selectBox" name="langCd">
+			 			<option value="en">English</option>
+			 			<option value="ko">Korean</option>
+			 			<option value="jp">Japanese</option>
+			 			<option value="cn">Chinese</option>
+			 		</select>
+			 	</div>	
+				<div class="contentButton"> 
+			 		<input type="button" class="button" value="Submit" id="createCode" />
+			 		<input type="reset" class="button" value="Reset" id="resetCodeDetailForm" /> 
+			 	</div>
+		 	</form>	
+		</div>
+	</div>
+</body>
+</html>
